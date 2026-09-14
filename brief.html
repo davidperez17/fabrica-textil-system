@@ -1,0 +1,1085 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>body{margin:0;font:14px system-ui,sans-serif;background:#fafaf9}img{max-width:100%}[hidden]{display:none!important}</style>
+<title>Bastidor</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+
+<style>
+:root{
+  --fondo:#F4F5F7;
+  --superficie:#FFFFFF;
+  --superficie-2:#EDEFF3;
+  --tinta:#14171C;
+  --tinta-2:#565D68;
+  --tinta-3:#858D99;
+  --linea:#D9DDE4;
+  --linea-suave:#E8EBF0;
+  --marca-900:#1B2A4A;
+  --marca-700:#2B3A67;
+  --marca-500:#4A63A8;
+  --marca-100:#E3E8F4;
+  --ok:#2E6F4E;      --ok-suave:#E2F0E7;
+  --aviso:#9A6400;   --aviso-suave:#F7EDD9;
+  --critico:#B0322B; --critico-suave:#F7E4E2;
+  --mtto:#6D4C9F;
+  --sobre-marca:#FFFFFF;
+
+  --sans:"Source Sans 3",-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+
+  --dur-instante:90ms;
+  --dur-rapido:140ms;
+  --dur-base:200ms;
+  --dur-pausado:320ms;
+  --dur-cifra:420ms;
+  --dur-ambiente:2400ms;
+  --sal:cubic-bezier(.2,0,0,1);
+  --ent:cubic-bezier(.4,0,1,1);
+  --suave:cubic-bezier(.4,0,.2,1);
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --fondo:#101318; --superficie:#171B21; --superficie-2:#1E232B;
+    --tinta:#E8EAEE; --tinta-2:#9BA3AF; --tinta-3:#6C7480;
+    --linea:#2A3039; --linea-suave:#21262E;
+    --marca-900:#B3C4EC; --marca-700:#8FA6DE; --marca-500:#6E86C4; --marca-100:#1E2740;
+    --ok:#6FBF8E;      --ok-suave:#17301F;
+    --aviso:#E0A63C;   --aviso-suave:#33270F;
+    --critico:#E4837A; --critico-suave:#3A2523;
+    --mtto:#B49AE0;
+    --sobre-marca:#101318;
+  }
+}
+:root[data-theme="dark"]{
+  --fondo:#101318; --superficie:#171B21; --superficie-2:#1E232B;
+  --tinta:#E8EAEE; --tinta-2:#9BA3AF; --tinta-3:#6C7480;
+  --linea:#2A3039; --linea-suave:#21262E;
+  --marca-900:#B3C4EC; --marca-700:#8FA6DE; --marca-500:#6E86C4; --marca-100:#1E2740;
+  --ok:#6FBF8E;      --ok-suave:#17301F;
+  --aviso:#E0A63C;   --aviso-suave:#33270F;
+  --critico:#E4837A; --critico-suave:#3A2523;
+  --mtto:#B49AE0;
+  --sobre-marca:#101318;
+}
+
+*{box-sizing:border-box}
+body{
+  background:var(--fondo);
+  color:var(--tinta);
+  font-family:var(--sans);
+  font-size:16px;
+  line-height:1.62;
+  -webkit-font-smoothing:antialiased;
+}
+.wrap{max-width:1020px;margin:0 auto;padding:0 32px 112px}
+
+/* ---------- masthead ---------- */
+header.top{padding:76px 0 34px;border-bottom:1px solid var(--tinta)}
+.eyebrow{
+  font-family:var(--mono);font-size:11px;font-weight:500;
+  letter-spacing:.13em;text-transform:uppercase;color:var(--marca-700);
+  margin:0 0 22px;
+}
+h1{
+  font-weight:700;font-size:clamp(44px,7.5vw,68px);
+  line-height:.98;letter-spacing:-.032em;margin:0;
+}
+.standfirst{font-size:19px;line-height:1.5;color:var(--tinta-2);max-width:60ch;margin:24px 0 0}
+.meta{
+  display:flex;flex-wrap:wrap;gap:8px 32px;margin-top:34px;
+  font-family:var(--mono);font-size:11px;letter-spacing:.07em;
+  text-transform:uppercase;color:var(--tinta-3);
+}
+.meta b{color:var(--tinta-2);font-weight:500}
+
+/* ---------- ritmo minimalista ---------- */
+section{padding-top:88px}
+h2{font-size:28px;font-weight:700;letter-spacing:-.018em;line-height:1.18;margin:0 0 8px;text-wrap:balance}
+h3{
+  font-family:var(--mono);font-size:11px;font-weight:600;
+  letter-spacing:.12em;text-transform:uppercase;color:var(--tinta-3);
+  margin:44px 0 18px;
+}
+.dek{color:var(--tinta-2);margin:0 0 40px;max-width:64ch}
+p{margin:0 0 16px;max-width:64ch}
+.num{font-family:var(--mono);font-variant-numeric:tabular-nums}
+code{font-family:var(--mono);font-size:.87em;color:var(--marca-700)}
+strong{font-weight:600}
+
+/* bloque = hairline superior + etiqueta, sin caja */
+.bloque{border-top:1px solid var(--linea);padding-top:20px;margin-bottom:56px}
+.bloque:last-child{margin-bottom:0}
+.bl-t{
+  font-family:var(--mono);font-size:10.5px;letter-spacing:.12em;
+  text-transform:uppercase;color:var(--tinta-3);margin-bottom:24px;
+}
+
+/* ---------- dirección minimalista ---------- */
+.reglas{display:grid;gap:0;margin-top:8px}
+.rg{display:grid;grid-template-columns:230px 1fr;gap:0 32px;padding:20px 0;border-top:1px solid var(--linea-suave)}
+.rg:first-child{border-top:1px solid var(--linea)}
+.rg b{font-size:16.5px;font-weight:600;line-height:1.35}
+.rg span{color:var(--tinta-2);font-size:15.5px;line-height:1.5}
+
+/* ---------- swatches ---------- */
+.rampa{display:grid;grid-template-columns:repeat(auto-fit,minmax(104px,1fr));gap:16px 12px}
+.sw .chip{height:46px}
+.sw .nom{font-size:12px;font-weight:600;line-height:1.3;margin-top:8px}
+.sw .hex{font-family:var(--mono);font-size:11px;color:var(--tinta-3)}
+
+/* ---------- specimen ---------- */
+.spec-row{display:grid;grid-template-columns:130px 1fr;gap:28px;align-items:baseline;padding:16px 0;border-top:1px solid var(--linea-suave)}
+.spec-row:first-child{border-top:0;padding-top:0}
+.spec-row .rol{font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--tinta-3)}
+.s42{font-size:42px;font-weight:700;letter-spacing:-.032em;line-height:1.05}
+.s26{font-size:26px;font-weight:600;letter-spacing:-.016em}
+.s16{font-size:16px}
+.s14{font-size:14px;color:var(--tinta-2)}
+.smono{font-family:var(--mono);font-size:32px;font-weight:500;font-variant-numeric:tabular-nums;letter-spacing:-.02em;color:var(--marca-700)}
+.slabel{font-family:var(--mono);font-size:11px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--tinta-3)}
+
+/* ---------- estados de máquina, sin relleno ---------- */
+.estado{display:inline-flex;align-items:center;gap:9px;font-size:14px;font-weight:600;color:var(--tinta)}
+.marca{flex:none;display:block}
+.pt{width:10px;height:10px;border-radius:50%;background:currentColor}
+.pt-hueco{width:10px;height:10px;border-radius:50%;border:2px solid currentColor}
+.tri{width:0;height:0;border-left:6px solid transparent;border-right:6px solid transparent;border-bottom:10px solid currentColor}
+.cu{width:10px;height:10px}
+.c-ok{color:var(--ok)}
+.c-av{color:var(--aviso)}
+.c-cr{color:var(--critico)}
+.c-mt{color:var(--mtto)}
+.c-nd{color:var(--tinta-3)}
+
+@keyframes latir{0%,100%{opacity:1}50%{opacity:.45}}
+@keyframes fallar{0%{opacity:1}1.8%{opacity:.15}3.5%{opacity:1}8.8%{opacity:.15}10.6%{opacity:1}100%{opacity:1}}
+@keyframes desvanecer{0%,100%{opacity:1}50%{opacity:.35}}
+@keyframes barrer{from{background-position:120% 0}to{background-position:-20% 0}}
+@keyframes crecer{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+@keyframes respirar{0%,100%{opacity:.5;transform:scale(1)}50%{opacity:1;transform:scale(1.015)}}
+@keyframes esqueleto{from{background-position:-160% 0}to{background-position:260% 0}}
+@keyframes latir-suave{0%,100%{opacity:1}50%{opacity:.55}}
+
+.a-corriendo{animation:latir var(--dur-ambiente) var(--suave) infinite}
+.a-falla{animation:fallar 3.4s linear infinite}
+.a-mtto{
+  background:currentColor;
+  background:linear-gradient(115deg,currentColor 0 42%,color-mix(in srgb,currentColor 30%,transparent) 50%,currentColor 58% 100%);
+  background-size:280% 100%;
+  animation:barrer 3s linear infinite;
+}
+.a-sindatos{animation:desvanecer 4s var(--suave) infinite}
+
+/* tira de estados */
+.tira{display:grid;grid-template-columns:190px 1fr;gap:18px 28px;align-items:center}
+.tira .fila-e{display:contents}
+.tira .desc{font-size:14px;color:var(--tinta-2);line-height:1.45}
+.tira .desc em{font-family:var(--mono);font-style:normal;font-size:12.5px;color:var(--tinta-3)}
+.sep-e{grid-column:1/-1;height:1px;background:var(--linea-suave)}
+
+/* ---------- tokens de movimiento ---------- */
+.tok{display:grid;grid-template-columns:repeat(auto-fit,minmax(228px,1fr));gap:22px 32px}
+.tk{border-top:1px solid var(--linea-suave);padding-top:12px}
+.tk .k{font-family:var(--mono);font-size:12.5px;font-weight:500;color:var(--marca-700)}
+.tk .v{font-family:var(--mono);font-size:11.5px;color:var(--tinta-3);margin-top:2px}
+.tk .u{font-size:13.5px;color:var(--tinta-2);margin-top:6px;line-height:1.4}
+
+/* ---------- demos vivas ---------- */
+.demos{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:44px 40px}
+.d-t{font-family:var(--mono);font-size:10.5px;letter-spacing:.11em;text-transform:uppercase;color:var(--tinta-3);margin-bottom:16px}
+.d-n{font-family:var(--mono);font-size:12px;color:var(--tinta-3);margin-top:10px;line-height:1.45}
+
+.contador{font-family:var(--mono);font-size:38px;font-weight:500;font-variant-numeric:tabular-nums;letter-spacing:-.025em;line-height:1}
+.contador-sub{font-family:var(--mono);font-size:12.5px;color:var(--tinta-3);margin-top:7px}
+
+.pista{position:relative;height:14px;background:var(--superficie-2)}
+.lleno{height:100%;transform-origin:left;animation:crecer var(--dur-pausado) var(--sal) both}
+.lleno.v{background:var(--ok)}
+.lleno.r{background:var(--critico)}
+.lleno.av{background:var(--aviso);animation:crecer var(--dur-pausado) var(--sal) both,latir-suave 4s var(--suave) 1s infinite}
+.umbral{position:absolute;top:-5px;bottom:-5px;width:2px;background:var(--tinta)}
+.cab-b{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:9px;font-size:14px}
+.cab-b b{font-family:var(--mono);font-variant-numeric:tabular-nums;font-weight:500}
+
+.chip-v{display:inline-flex;align-items:center;gap:8px;font-size:14px;font-weight:600;transition:opacity var(--dur-rapido) var(--sal),transform var(--dur-rapido) var(--sal)}
+.chip-v.fuera{opacity:0;transform:translateY(4px)}
+.chip-v .pct{font-family:var(--mono);font-weight:500;font-size:12.5px;color:var(--tinta-3)}
+
+.skel{height:13px;background:linear-gradient(90deg,var(--superficie-2) 0 40%,var(--linea-suave) 50%,var(--superficie-2) 60% 100%);background-size:220% 100%;animation:esqueleto 1.4s linear infinite;margin-bottom:9px}
+
+.marco{position:relative;width:130px;height:130px;animation:respirar 2s var(--suave) infinite}
+.marco i{position:absolute;width:26px;height:26px;border:2px solid var(--marca-700)}
+.marco i:nth-child(1){top:0;left:0;border-right:0;border-bottom:0}
+.marco i:nth-child(2){top:0;right:0;border-left:0;border-bottom:0}
+.marco i:nth-child(3){bottom:0;left:0;border-right:0;border-top:0}
+.marco i:nth-child(4){bottom:0;right:0;border-left:0;border-top:0}
+
+/* fichas de máquina */
+.fichas{display:grid;grid-template-columns:repeat(auto-fit,minmax(196px,1fr));gap:0 32px}
+.fm{border-top:1px solid var(--linea);padding:16px 0 18px}
+.fm .cod{font-family:var(--mono);font-size:19px;font-weight:600}
+.fm .est{margin:10px 0 13px}
+.fm dl{margin:0;display:grid;grid-template-columns:auto 1fr;gap:4px 10px;font-size:13px}
+.fm dt{color:var(--tinta-3)}
+.fm dd{margin:0;text-align:right;font-family:var(--mono);font-variant-numeric:tabular-nums;font-size:12.5px}
+.fm .prog{margin-top:13px;height:3px;background:var(--superficie-2)}
+.fm .prog i{display:block;height:100%;transform-origin:left;animation:crecer var(--dur-pausado) var(--sal) both}
+.fm .pie{font-family:var(--mono);font-size:11px;color:var(--tinta-3);margin-top:7px}
+
+/* botones */
+.btn{font-family:var(--sans);font-size:14px;font-weight:600;padding:0 16px;height:34px;border-radius:2px;border:1px solid transparent;display:inline-flex;align-items:center;cursor:default;transition:background var(--dur-instante) var(--sal)}
+.b1{background:var(--marca-700);color:var(--sobre-marca);border-color:var(--marca-700)}
+.b2{background:transparent;color:var(--tinta);border-color:var(--linea)}
+.b3{background:transparent;color:var(--marca-700)}
+.b4{background:transparent;color:var(--critico);border-color:color-mix(in srgb,var(--critico) 38%,transparent)}
+.fila{display:flex;flex-wrap:wrap;gap:12px 16px;align-items:center}
+
+/* ---------- tablas minimalistas ---------- */
+.scroller{overflow-x:auto}
+table{border-collapse:collapse;width:100%;min-width:560px;font-size:14px}
+caption{caption-side:top;text-align:left;font-family:var(--mono);font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--tinta-3);padding:0 0 14px}
+th,td{text-align:left;padding:9px 14px 9px 0;border-bottom:1px solid var(--linea-suave);vertical-align:top}
+thead th{
+  background:none;font-family:var(--mono);font-size:10.5px;font-weight:500;
+  letter-spacing:.08em;text-transform:uppercase;color:var(--tinta-3);
+  border-bottom:1px solid var(--linea);
+}
+tbody th{font-weight:600}
+td.c,th.c{text-align:center}
+td.n,th.n{text-align:right;font-family:var(--mono);font-variant-numeric:tabular-nums;font-size:13px;padding-right:0}
+.si{color:var(--marca-700);font-weight:700}
+.no{color:var(--tinta-3)}
+tr.alerta th,tr.alerta td{background:var(--critico-suave)}
+tr.alerta td.n{color:var(--critico);font-weight:600}
+
+/* ---------- regla de acceso ---------- */
+.regla{padding:8px 0 0}
+.lema{
+  font-size:23px;font-weight:600;line-height:1.32;letter-spacing:-.012em;
+  padding:26px 0;margin:24px 0 26px;max-width:52ch;
+  border-top:2px solid var(--marca-700);border-bottom:1px solid var(--linea);
+}
+.regla ul{margin:0;padding:0;list-style:none;display:grid;gap:14px;max-width:62ch}
+.regla li{padding-left:22px;position:relative;font-size:15.5px;color:var(--tinta-2);line-height:1.5}
+.regla li::before{content:"";position:absolute;left:0;top:10px;width:10px;height:1px;background:var(--marca-700)}
+.regla li b{color:var(--tinta);font-weight:600}
+
+/* ---------- pantallas ---------- */
+.grupos{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:40px 36px}
+.grupo h4{font-family:var(--mono);font-size:10.5px;letter-spacing:.11em;text-transform:uppercase;color:var(--marca-700);margin:0 0 12px;font-weight:600;padding-top:12px;border-top:1px solid var(--linea)}
+.grupo h4+h4{margin-top:24px}
+.grupo ol{margin:0;padding:0;list-style:none;display:grid;gap:7px}
+.grupo li{font-size:13.5px;line-height:1.4;display:grid;grid-template-columns:36px 1fr;gap:8px}
+.grupo li span{font-family:var(--mono);font-size:11.5px;color:var(--tinta-3);padding-top:2px}
+
+/* ---------- prompt ---------- */
+.promptbar{display:flex;justify-content:space-between;align-items:center;gap:16px;padding-bottom:12px;border-bottom:1px solid var(--linea)}
+.promptbar span{font-family:var(--mono);font-size:10.5px;letter-spacing:.11em;text-transform:uppercase;color:var(--tinta-3)}
+#copiar{font-family:var(--sans);font-size:13px;font-weight:600;padding:0 14px;height:30px;border-radius:2px;border:1px solid var(--linea);background:transparent;color:var(--tinta);cursor:pointer;transition:border-color var(--dur-instante) var(--sal),color var(--dur-instante) var(--sal)}
+#copiar:hover{border-color:var(--marca-700);color:var(--marca-700)}
+#copiar:focus-visible{outline:2px solid var(--marca-700);outline-offset:2px}
+pre{
+  margin:0;padding:20px 0 0;max-height:440px;overflow:auto;
+  font-family:var(--mono);font-size:12px;line-height:1.65;
+  color:var(--tinta-2);white-space:pre-wrap;word-break:break-word;
+}
+pre b{color:var(--tinta);font-weight:600}
+
+/* ---------- lotes ---------- */
+.lote{display:grid;grid-template-columns:96px 1fr;gap:0 24px;padding:15px 0;border-top:1px solid var(--linea-suave)}
+.lote:first-child{border-top:1px solid var(--linea)}
+.lote .id{font-family:var(--mono);font-size:11.5px;font-weight:600;letter-spacing:.07em;text-transform:uppercase;color:var(--marca-700);padding-top:3px}
+.lote b{display:block;font-size:15.5px;margin-bottom:3px}
+.lote span{font-size:14px;color:var(--tinta-2);line-height:1.45}
+.lote em{font-family:var(--mono);font-style:normal;font-size:12px;color:var(--tinta-3)}
+
+.evitar{display:grid;grid-template-columns:repeat(auto-fit,minmax(238px,1fr));gap:28px 36px}
+.ev{border-top:1px solid var(--linea);padding-top:14px}
+.ev b{display:block;color:var(--critico);font-size:14.5px;margin-bottom:6px}
+.ev span{font-size:14px;color:var(--tinta-2);line-height:1.45}
+
+footer{margin-top:88px;padding-top:24px;border-top:1px solid var(--tinta);font-family:var(--mono);font-size:11px;line-height:1.75;letter-spacing:.04em;color:var(--tinta-3)}
+footer b{color:var(--tinta-2);font-weight:500}
+
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  .a-mtto{background:currentColor}
+  .marco{opacity:1}
+}
+@media (max-width:660px){
+  .wrap{padding:0 20px 88px}
+  section{padding-top:64px}
+  .rg,.spec-row,.lote{grid-template-columns:1fr;gap:6px}
+  .tira{grid-template-columns:1fr;gap:8px}
+  .sep-e{margin:8px 0}
+  .s42{font-size:32px}
+  .smono{font-size:26px}
+  .lema{font-size:20px}
+}
+</style>
+
+<div class="wrap">
+
+<header class="top">
+  <p class="eyebrow">Brief de diseño · Fábrica textil · Totonicapán, Guatemala</p>
+  <h1>Bastidor</h1>
+  <p class="standfirst">El sistema de diseño, el sistema de movimiento y los prompts para construir la interfaz completa: panel de administración para el dueño y su equipo, y aplicación de piso para los operarios. Estilo minimalista, dos densidades opuestas, un solo lenguaje.</p>
+  <div class="meta">
+    <span><b>Estilo</b> &nbsp;Minimalismo funcional</span>
+    <span><b>Pantallas</b> &nbsp;37</span>
+    <span><b>Lotes de prompts</b> &nbsp;15</span>
+    <span><b>Roles</b> &nbsp;7</span>
+    <span><b>Temas</b> &nbsp;claro y oscuro</span>
+  </div>
+</header>
+
+<section>
+  <h2>Cómo se usa</h2>
+  <p class="dek">Los prompts completos viven en <code>docs/12-prompts-claude-design.md</code>. El orden importa: sin el prompt base, cada lote sale con una identidad distinta.</p>
+  <div class="reglas">
+    <div class="rg"><b>Primero · el prompt base</b><span>Establece la dirección minimalista, los tokens de color, tipografía y movimiento, la densidad y los datos reales de la fábrica. Va al inicio de cada sesión.</span></div>
+    <div class="rg"><b>Después · un lote a la vez</b><span>Cada lote produce un lienzo con varias mesas relacionadas. Pedir los quince de golpe hace que las pantallas dejen de parecerse entre sí.</span></div>
+    <div class="rg"><b>Al final · refinar</b><span>Auditoría minimalista, modo oscuro, estados vacíos y de error, responsivo del panel, versiones para imprimir e impresos de planta.</span></div>
+  </div>
+</section>
+
+<section>
+  <h2>Dirección: minimalismo funcional</h2>
+  <p class="dek">No significa vacío ni bonito. Significa que cada elemento tiene que ganarse su lugar, y en una fábrica el criterio para ganárselo es que ayude a decidir algo.</p>
+  <div class="reglas">
+    <div class="rg"><b>El dato es la interfaz</b><span>La cifra, no el contenedor. Un tablero es una retícula de números bien compuestos, no una cuadrícula de tarjetas.</span></div>
+    <div class="rg"><b>El espacio antes que la línea, la línea antes que la caja</b><span>Primero se separa con aire. Si no alcanza, una hairline. La caja con relleno y borde es el último recurso y hay que justificarla.</span></div>
+    <div class="rg"><b>Un solo acento</b><span>El índigo. Todo lo demás es tinta y neutros. Los colores semánticos aparecen solo cuando hay algo que atender, y desaparecen cuando no.</span></div>
+    <div class="rg"><b>La jerarquía la hace la tipografía</b><span>Tamaño, peso y espacio. No fondos de color, no bordes de énfasis, no barras de acento al costado de las tarjetas.</span></div>
+    <div class="rg"><b>Nada compite con la alerta</b><span>Si la pantalla está tranquila, una sola mancha de color crítico se ve desde la puerta. Ese es el rendimiento que compra el minimalismo aquí.</span></div>
+  </div>
+  <p style="margin-top:36px;color:var(--tinta-2)">Lo que el minimalismo <strong>no</strong> autoriza en este proyecto: bajar el contraste, esconder acciones detrás de menús, quitar las etiquetas de los campos ni encoger los objetivos táctiles de la PWA. La sobriedad es visual; la legibilidad en planta no se negocia.</p>
+</section>
+
+<section>
+  <h2>El sistema de diseño</h2>
+  <p class="dek">Los neutros están sesgados hacia el índigo del acento, no son grises puros. El acento sale del azul profundo del corte guatemalteco; el rojo de alerta, del rojo de los huipiles de Totonicapán. Esta misma página está construida con los tokens que especifica.</p>
+
+  <h3>Marca y neutros · tema claro</h3>
+  <div class="rampa">
+    <div class="sw"><div class="chip" style="background:#1B2A4A"></div><div class="nom">marca-900</div><div class="hex">#1B2A4A</div></div>
+    <div class="sw"><div class="chip" style="background:#2B3A67"></div><div class="nom">marca-700</div><div class="hex">#2B3A67</div></div>
+    <div class="sw"><div class="chip" style="background:#4A63A8"></div><div class="nom">marca-500</div><div class="hex">#4A63A8</div></div>
+    <div class="sw"><div class="chip" style="background:#E3E8F4"></div><div class="nom">marca-100</div><div class="hex">#E3E8F4</div></div>
+    <div class="sw"><div class="chip" style="background:#14171C"></div><div class="nom">tinta</div><div class="hex">#14171C</div></div>
+    <div class="sw"><div class="chip" style="background:#565D68"></div><div class="nom">tinta-2</div><div class="hex">#565D68</div></div>
+    <div class="sw"><div class="chip" style="background:#D9DDE4"></div><div class="nom">línea</div><div class="hex">#D9DDE4</div></div>
+    <div class="sw"><div class="chip" style="background:#F4F5F7"></div><div class="nom">fondo</div><div class="hex">#F4F5F7</div></div>
+  </div>
+
+  <h3>Marca y neutros · tema oscuro</h3>
+  <div class="rampa">
+    <div class="sw"><div class="chip" style="background:#B3C4EC"></div><div class="nom">marca-900</div><div class="hex">#B3C4EC</div></div>
+    <div class="sw"><div class="chip" style="background:#8FA6DE"></div><div class="nom">marca-700</div><div class="hex">#8FA6DE</div></div>
+    <div class="sw"><div class="chip" style="background:#6E86C4"></div><div class="nom">marca-500</div><div class="hex">#6E86C4</div></div>
+    <div class="sw"><div class="chip" style="background:#1E2740"></div><div class="nom">marca-100</div><div class="hex">#1E2740</div></div>
+    <div class="sw"><div class="chip" style="background:#E8EAEE"></div><div class="nom">tinta</div><div class="hex">#E8EAEE</div></div>
+    <div class="sw"><div class="chip" style="background:#9BA3AF"></div><div class="nom">tinta-2</div><div class="hex">#9BA3AF</div></div>
+    <div class="sw"><div class="chip" style="background:#2A3039"></div><div class="nom">línea</div><div class="hex">#2A3039</div></div>
+    <div class="sw"><div class="chip" style="background:#101318"></div><div class="nom">fondo</div><div class="hex">#101318</div></div>
+  </div>
+
+  <h3>Semánticos · aparecen solo cuando hay algo que atender</h3>
+  <div class="rampa">
+    <div class="sw"><div class="chip" style="background:#2E6F4E"></div><div class="nom">ok · claro</div><div class="hex">#2E6F4E</div></div>
+    <div class="sw"><div class="chip" style="background:#6FBF8E"></div><div class="nom">ok · oscuro</div><div class="hex">#6FBF8E</div></div>
+    <div class="sw"><div class="chip" style="background:#9A6400"></div><div class="nom">aviso · claro</div><div class="hex">#9A6400</div></div>
+    <div class="sw"><div class="chip" style="background:#E0A63C"></div><div class="nom">aviso · oscuro</div><div class="hex">#E0A63C</div></div>
+    <div class="sw"><div class="chip" style="background:#B0322B"></div><div class="nom">crítico · claro</div><div class="hex">#B0322B</div></div>
+    <div class="sw"><div class="chip" style="background:#E4837A"></div><div class="nom">crítico · oscuro</div><div class="hex">#E4837A</div></div>
+    <div class="sw"><div class="chip" style="background:#6D4C9F"></div><div class="nom">mtto · claro</div><div class="hex">#6D4C9F</div></div>
+    <div class="sw"><div class="chip" style="background:#B49AE0"></div><div class="nom">mtto · oscuro</div><div class="hex">#B49AE0</div></div>
+  </div>
+
+  <h3>Tipografía</h3>
+  <div class="spec">
+    <div class="spec-row"><div class="rol">Cifra · 42 / 700</div><div class="s42">Q3,192.39</div></div>
+    <div class="spec-row"><div class="rol">Dato · Plex Mono</div><div class="smono">4,105,220 puntadas</div></div>
+    <div class="spec-row"><div class="rol">Título · 26 / 600</div><div class="s26">Nómina de la quincena</div></div>
+    <div class="spec-row"><div class="rol">Interfaz · 16 / 400</div><div class="s16">Rosa Elena Batz Quiej va por debajo del mínimo legal de la quincena.</div></div>
+    <div class="spec-row"><div class="rol">Tabla · 14 / 400</div><div class="s14">BOR-05 · Yuemei YM-904 · Dahao BECS-285A · 4 cabezas · 750 spm</div></div>
+    <div class="spec-row"><div class="rol">Etiqueta · 11</div><div class="slabel">Puntadas acumuladas</div></div>
+  </div>
+  <p style="margin-top:26px;color:var(--tinta-2)"><strong>Source Sans 3</strong> para toda la interfaz, <strong>IBM Plex Mono</strong> con <code>tabular-nums</code> para toda cifra. Radios de 2 px en controles y 0 en tablas y contenedores. Una sola hairline de 1 px, y solo donde el aire no basta. Encabezados de tabla sin fondo. Espaciado en el extremo alto: 56 px entre bloques, 96 px entre secciones.</p>
+</section>
+
+<section>
+  <h2>Movimiento</h2>
+  <p class="dek">En una pantalla quieta, lo único que se mueve es lo único que mira la gente. Por eso el sistema tiene poca animación y toda ella significa algo. Una animación se justifica si comunica <strong>estado, causa o continuidad</strong>. Si solo adorna, se quita.</p>
+
+  <div class="bloque">
+    <div class="bl-t">Tokens de duración y curva</div>
+    <div class="tok">
+      <div class="tk"><div class="k">--dur-instante</div><div class="v">90ms · --sal</div><div class="u">Retroalimentación al pulsar. Cambio de fondo, nunca escala.</div></div>
+      <div class="tk"><div class="k">--dur-rapido</div><div class="v">140ms · --sal</div><div class="u">Chips, avisos, menús. Entradas y salidas cortas.</div></div>
+      <div class="tk"><div class="k">--dur-base</div><div class="v">200ms · --sal</div><div class="u">Cambio de estado, apertura de paneles y modales.</div></div>
+      <div class="tk"><div class="k">--dur-pausado</div><div class="v">320ms · --sal</div><div class="u">Barras que crecen, transición entre pasos de la corrida.</div></div>
+      <div class="tk"><div class="k">--dur-cifra</div><div class="v">420ms · --sal</div><div class="u">Conteo animado de una cifra al llegar dato nuevo.</div></div>
+      <div class="tk"><div class="k">--dur-ambiente</div><div class="v">2400ms · --suave</div><div class="u">Pulsos que indican que algo está vivo.</div></div>
+    </div>
+    <p style="margin-top:30px;color:var(--tinta-2);max-width:66ch"><strong>Reglas duras:</strong> ningún rebote, ninguna escala mayor a <span class="num">1.02</span>, ninguna rotación decorativa, ningún desplazamiento mayor a <span class="num">8 px</span>, y nada fuera de lo ambiental dura más de <span class="num">420 ms</span>.</p>
+  </div>
+
+  <div class="bloque">
+    <div class="bl-t">Estados de máquina · el movimiento como dato</div>
+    <div class="tira">
+      <div class="fila-e">
+        <div><span class="estado"><i class="marca pt c-ok a-corriendo"></i>Corriendo</span></div>
+        <div class="desc">Pulso de opacidad <span class="num">1 → .45 → 1</span>, infinito. La máquina está viva; el ritmo lento late sin distraer. <em>2400 ms · --suave</em></div>
+      </div>
+      <div class="sep-e"></div>
+      <div class="fila-e">
+        <div><span class="estado"><i class="marca pt c-ok" id="pulso-spm"></i>Corriendo · avanzado</span></div>
+        <div class="desc">El mismo pulso, con la duración derivada de las puntadas por minuto reales: más rápida la máquina, más rápido el latido. Aquí, <span class="num">850 spm</span>. Rango acotado de 1.2 s a 3 s. <em>Es la animación que da identidad al producto.</em></div>
+      </div>
+      <div class="sep-e"></div>
+      <div class="fila-e">
+        <div><span class="estado"><i class="marca pt c-av"></i>Parada</span></div>
+        <div class="desc">Absolutamente quieta. La quietud <strong>es</strong> la señal: una máquina parada en una pantalla donde todo lo demás late se ve al instante. <em>sin animación</em></div>
+      </div>
+      <div class="sep-e"></div>
+      <div class="fila-e">
+        <div><span class="estado"><i class="marca tri c-cr a-falla"></i>En falla</span></div>
+        <div class="desc">Doble parpadeo de <span class="num">120 ms</span> y luego 3 s de reposo. Nunca parpadeo continuo: llama la atención sin agotarla. <em>3400 ms · linear</em></div>
+      </div>
+      <div class="sep-e"></div>
+      <div class="fila-e">
+        <div><span class="estado"><i class="marca cu c-mt a-mtto"></i>En mantenimiento</span></div>
+        <div class="desc">Barrido diagonal lento de un brillo tenue. Dice «se está trabajando en ella», distinto de «está produciendo». <em>3000 ms · linear</em></div>
+      </div>
+      <div class="sep-e"></div>
+      <div class="fila-e">
+        <div><span class="estado"><i class="marca pt-hueco c-nd a-sindatos"></i>Sin datos</span></div>
+        <div class="desc">Desvanecimiento muy lento <span class="num">1 → .35 → 1</span>. Señal de incertidumbre, no de alarma: se nota que el sistema no sabe. <em>4000 ms · --suave</em></div>
+      </div>
+    </div>
+    <p style="margin-top:28px;color:var(--tinta-2);max-width:66ch">Cada estado se distingue por <strong>color, forma y comportamiento</strong>. A un metro de distancia, el comportamiento es lo primero que se percibe. Con <code>prefers-reduced-motion</code> los pulsos se detienen y el color y la forma siguen bastando: esa es la razón de que la forma exista.</p>
+  </div>
+
+  <div class="bloque">
+    <div class="bl-t">Movimiento de los componentes · en vivo</div>
+    <div class="demos">
+
+      <div>
+        <div class="d-t">Contador de puntadas</div>
+        <div class="contador" id="contador">312,400</div>
+        <div class="contador-sub" id="contador-tasa">+2,140 · 412 ppm</div>
+        <div class="d-n">Cuenta del valor anterior al nuevo, dígito a dígito. Con tabular-nums el ancho no salta. Solo al llegar dato nuevo, nunca al cargar. <em>420 ms</em></div>
+      </div>
+
+      <div>
+        <div class="d-t">Chip de verificación</div>
+        <div style="min-height:24px"><span class="chip-v" id="chip"><i class="marca pt c-nd" id="chip-marca"></i><span id="chip-txt">Pendiente</span><span class="pct" id="chip-pct"></span></span></div>
+        <div class="d-n">Al resolverse la corrida cruza de pendiente a su veredicto con opacidad y 4 px de desplazamiento. <em>140 ms · --sal</em></div>
+      </div>
+
+      <div>
+        <div class="d-t">Esqueleto de carga</div>
+        <div class="skel" style="width:100%"></div>
+        <div class="skel" style="width:76%"></div>
+        <div class="skel" style="width:58%"></div>
+        <div class="d-n">Barrido suave de 1.4 s que respeta la forma final. Nunca un indicador giratorio, en ninguna pantalla del sistema.</div>
+      </div>
+
+      <div>
+        <div class="d-t">Marco de escaneo · PWA</div>
+        <div class="marco"><i></i><i></i><i></i><i></i></div>
+        <div class="d-n">Respira a 2 s. Al reconocer el código colapsa al centro en 180 ms, con sonido y vibración: el operario no siempre puede mirar la pantalla.</div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="bloque">
+    <div class="bl-t">Barra de mínimo legal · crece al aparecer, marca del umbral en 2,453,721</div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:36px">
+      <div>
+        <div class="cab-b"><span>Diego Puac Ajanel</span><b>4,105,220</b></div>
+        <div class="pista"><div class="lleno v" style="width:82%"></div><div class="umbral" style="left:49%"></div></div>
+        <div class="d-n">167% del mínimo · sin complemento</div>
+      </div>
+      <div>
+        <div class="cab-b"><span>Rosa Elena Batz Quiej</span><b>1,884,900</b></div>
+        <div class="pista"><div class="lleno r" style="width:37.7%"></div><div class="umbral" style="left:49%"></div></div>
+        <div class="d-n">77% del mínimo · complemento Q567.53</div>
+      </div>
+      <div>
+        <div class="cab-b"><span>BOR-01 · engrase de lanzadera</span><b>94.9%</b></div>
+        <div class="pista"><div class="lleno av" style="width:94.9%"></div></div>
+        <div class="d-n">Por encima del 90% la barra late cada 4 s. Por debajo, quieta.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="bloque">
+    <div class="bl-t">Qué no se anima</div>
+    <div class="evitar">
+      <div class="ev"><b>Transiciones del panel</b><span>Es una herramienta, no una presentación. La única transición de pantalla del sistema son los pasos de la corrida en la PWA, porque ahí comunica secuencia.</span></div>
+      <div class="ev"><b>Aparición escalonada</b><span>Ni listas ni tarjetas entrando en cascada. Nada disparado por desplazamiento de la página: todo lo que hay que leer se ve al cargar.</span></div>
+      <div class="ev"><b>Números que cuentan solos al abrir</b><span>La cifra se anima cuando <strong>cambia</strong>, no cuando aparece.</span></div>
+      <div class="ev"><b>Nada en pantallas de nómina</b><span>Salvo la entrada de un aviso. El movimiento resta seriedad justo donde más se necesita.</span></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2>Componentes propios del dominio</h2>
+  <p class="dek">Los que dan identidad al sistema. Todo lo demás —botones, campos, tablas— es infraestructura. Están renderizados en vivo con los tokens de arriba, sin relleno de color: la forma va coloreada y el texto en tinta normal.</p>
+
+  <div class="bloque">
+    <div class="bl-t">Ficha de máquina · unidad repetida del tablero, sin tarjeta</div>
+    <div class="fichas">
+      <div class="fm">
+        <div class="cod">BOR-01</div>
+        <div class="est"><span class="estado"><i class="marca pt c-ok a-corriendo"></i>Corriendo</span></div>
+        <dl>
+          <dt>Operario</dt><dd style="font-family:var(--sans)">D. Puac</dd>
+          <dt>Diseño</dt><dd>HUI-001</dd>
+          <dt>Puntadas hoy</dt><dd>312,400</dd>
+          <dt>Prendas</dt><dd>108</dd>
+        </dl>
+        <div class="prog"><i style="width:94.9%;background:var(--aviso)"></i></div>
+        <div class="pie">Engrase al 94.9%</div>
+      </div>
+      <div class="fm">
+        <div class="cod">BOR-03</div>
+        <div class="est"><span class="estado"><i class="marca pt c-av"></i>Parada</span></div>
+        <dl>
+          <dt>Operario</dt><dd style="font-family:var(--sans)">M. Tzunún</dd>
+          <dt>Diseño</dt><dd>COR-021</dd>
+          <dt>Puntadas hoy</dt><dd>96,800</dd>
+          <dt>Prendas</dt><dd>11</dd>
+        </dl>
+        <div class="prog"><i style="width:38%;background:var(--marca-500)"></i></div>
+        <div class="pie">Sin avance hace 22 min</div>
+      </div>
+      <div class="fm">
+        <div class="cod">BOR-05</div>
+        <div class="est"><span class="estado"><i class="marca tri c-cr a-falla"></i>En falla</span></div>
+        <dl>
+          <dt>Operario</dt><dd style="font-family:var(--sans)">R. Batz</dd>
+          <dt>Diseño</dt><dd>FAJ-010</dd>
+          <dt>Puntadas hoy</dt><dd>48,900</dd>
+          <dt>Prendas</dt><dd>16</dd>
+        </dl>
+        <div class="prog"><i style="width:22%;background:var(--marca-500)"></i></div>
+        <div class="pie">Detenida desde 09:14</div>
+      </div>
+      <div class="fm">
+        <div class="cod">BOR-07</div>
+        <div class="est"><span class="estado"><i class="marca cu c-mt a-mtto"></i>Mantenimiento</span></div>
+        <dl>
+          <dt>Operario</dt><dd style="font-family:var(--sans)">Sin asignar</dd>
+          <dt>Diseño</dt><dd>—</dd>
+          <dt>Puntadas hoy</dt><dd>0</dd>
+          <dt>Prendas</dt><dd>0</dd>
+        </dl>
+        <div class="prog"><i style="width:2%;background:var(--mtto)"></i></div>
+        <div class="pie">Orden MT-0412 en proceso</div>
+      </div>
+      <div class="fm">
+        <div class="cod">BOR-08</div>
+        <div class="est"><span class="estado"><i class="marca pt-hueco c-nd a-sindatos"></i>Sin datos</span></div>
+        <dl>
+          <dt>Operario</dt><dd style="font-family:var(--sans)">Sin asignar</dd>
+          <dt>Diseño</dt><dd>—</dd>
+          <dt>Puntadas hoy</dt><dd>—</dd>
+          <dt>Prendas</dt><dd>—</dd>
+        </dl>
+        <div class="prog"><i style="width:0%;background:var(--tinta-3)"></i></div>
+        <div class="pie">Última lectura hace 3 d</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="bloque">
+    <div class="bl-t">Botones · escritorio 34 px, PWA 72 px</div>
+    <div class="fila">
+      <span class="btn b1">Guardar operario</span>
+      <span class="btn b2">Cancelar</span>
+      <span class="btn b3">Ver historial</span>
+      <span class="btn b4">Anular corrida</span>
+    </div>
+    <div class="d-n" style="margin-top:14px">Cambio de fondo al pulsar, 90 ms. Sin escala, sin sombra, sin rebote.</div>
+  </div>
+</section>
+
+<section>
+  <div class="regla">
+    <h2>La regla de acceso</h2>
+    <p class="lema">Un operario solo puede operar las máquinas que tenga asignadas y vigentes.</p>
+    <ul>
+      <li><b>La PWA lista únicamente sus máquinas.</b> No existe buscador ni lista completa: Diego ve BOR-01 y BOR-06, y nada más.</li>
+      <li><b>Escanear una máquina ajena da un mensaje accionable</b>, no un error genérico: «La máquina BOR-07 no está asignada a usted. Pida a su supervisor que se la asigne.»</li>
+      <li><b>La restricción se aplica en el servidor</b>, no escondiendo botones. La interfaz refleja la regla; no es la regla.</li>
+      <li><b>Toda asignación queda firmada</b> con quién la hizo y cuándo, y puede ser permanente, de turno, temporal o de cobertura.</li>
+      <li><b>El dueño y el supervisor</b> ven en una sola pantalla qué máquina está a cargo de quién y cuáles quedaron sin operario en el turno.</li>
+    </ul>
+  </div>
+</section>
+
+<section>
+  <h2>Roles y permisos</h2>
+  <p class="dek">Siete roles. El dueño tiene todo; los demás existen para que no tenga que hacerlo todo él. El DPI, la dirección y el teléfono solo son visibles para el dueño y para RRHH.</p>
+  <div class="scroller">
+    <table>
+      <caption>Matriz de permisos por módulo</caption>
+      <thead>
+        <tr><th>Módulo</th><th class="c">Dueño</th><th class="c">Gerencia</th><th class="c">Superv.</th><th class="c">RRHH</th><th class="c">Mtto.</th><th class="c">Bodega</th><th class="c">Operario</th></tr>
+      </thead>
+      <tbody>
+        <tr><th>Tablero general</th><td class="c si">✓</td><td class="c si">✓</td><td class="c si">✓</td><td class="c no">—</td><td class="c no">—</td><td class="c no">—</td><td class="c no">—</td></tr>
+        <tr><th>Alta y edición de operarios</th><td class="c si">✓</td><td class="c no">—</td><td class="c no">—</td><td class="c si">✓</td><td class="c no">—</td><td class="c no">—</td><td class="c no">—</td></tr>
+        <tr><th>Ver DPI, dirección, teléfono</th><td class="c si">✓</td><td class="c no">—</td><td class="c no">—</td><td class="c si">✓</td><td class="c no">—</td><td class="c no">—</td><td class="c no">—</td></tr>
+        <tr><th>Definir tarifas de destajo</th><td class="c si">✓</td><td class="c no">—</td><td class="c no">—</td><td class="c no">—</td><td class="c no">—</td><td class="c no">—</td><td class="c no">—</td></tr>
+        <tr><th>Asignar máquinas a operarios</th><td class="c si">✓</td><td class="c no">—</td><td class="c si">✓</td><td class="c no">—</td><td class="c no">—</td><td class="c no">—</td><td class="c no">—</td></tr>
+        <tr><th>Resolver discrepancias</th><td class="c si">✓</td><td class="c no">—</td><td class="c si">✓</td><td class="c no">—</td><td class="c no">—</td><td class="c no">—</td><td class="c no">—</td></tr>
+        <tr><th>Calcular y cerrar nómina</th><td class="c si">✓</td><td class="c no">—</td><td class="c no">—</td><td class="c si">✓</td><td class="c no">—</td><td class="c no">—</td><td class="c no">—</td></tr>
+        <tr><th>Autorizar descuentos</th><td class="c si">✓</td><td class="c no">—</td><td class="c no">—</td><td class="c si">✓</td><td class="c no">—</td><td class="c no">—</td><td class="c no">—</td></tr>
+        <tr><th>Inventario</th><td class="c si">✓</td><td class="c si">✓</td><td class="c no">—</td><td class="c no">—</td><td class="c no">—</td><td class="c si">✓</td><td class="c no">—</td></tr>
+        <tr><th>Mantenimiento</th><td class="c si">✓</td><td class="c si">✓</td><td class="c si">✓</td><td class="c no">—</td><td class="c si">✓</td><td class="c no">—</td><td class="c no">—</td></tr>
+        <tr><th>Reportes</th><td class="c si">✓</td><td class="c si">✓</td><td class="c si">✓</td><td class="c si">✓</td><td class="c si">✓</td><td class="c si">✓</td><td class="c no">—</td></tr>
+        <tr><th>Usuarios y parámetros legales</th><td class="c si">✓</td><td class="c no">—</td><td class="c no">—</td><td class="c no">—</td><td class="c no">—</td><td class="c no">—</td><td class="c no">—</td></tr>
+        <tr><th>PWA · abrir y cerrar corridas</th><td class="c no">—</td><td class="c no">—</td><td class="c no">—</td><td class="c no">—</td><td class="c no">—</td><td class="c no">—</td><td class="c si">✓</td></tr>
+        <tr><th>PWA · ver la ganancia propia</th><td class="c no">—</td><td class="c no">—</td><td class="c no">—</td><td class="c no">—</td><td class="c no">—</td><td class="c no">—</td><td class="c si">✓</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section>
+  <h2>Las 37 pantallas</h2>
+  <p class="dek">Veintinueve del panel de escritorio y ocho de la aplicación de piso. Los identificadores son los que usan los prompts.</p>
+  <div class="grupos">
+    <div class="grupo">
+      <h4>Tablero y acceso</h4>
+      <ol><li><span>A1</span>Ingreso al panel</li><li><span>B1</span>Tablero general</li></ol>
+      <h4>Operarios</h4>
+      <ol><li><span>C1</span>Listado</li><li><span>C2</span>Alta con validación de DPI</li><li><span>C3</span>Ficha del operario</li></ol>
+    </div>
+    <div class="grupo">
+      <h4>Máquinas</h4>
+      <ol><li><span>D1</span>Parrilla de estado</li><li><span>D2</span>Alta y edición</li><li><span>D3</span>Ficha de máquina</li><li><span>D4</span>Asignación a operarios</li></ol>
+      <h4>Ganancias</h4>
+      <ol><li><span>E1</span>Tarifas de destajo</li><li><span>E2</span>Simulador de ganancia</li><li><span>E3</span>Descuentos y bonificaciones</li></ol>
+    </div>
+    <div class="grupo">
+      <h4>Producción</h4>
+      <ol><li><span>F1</span>Corridas del día</li><li><span>F2</span>Bandeja de discrepancias</li><li><span>F3</span>Órdenes de producción</li><li><span>F4</span>Detalle de orden</li></ol>
+      <h4>Catálogo</h4>
+      <ol><li><span>G1</span>Diseños</li><li><span>G2</span>Alta desde archivo DST</li><li><span>G3</span>Productos</li><li><span>G4</span>Temporadas</li></ol>
+    </div>
+    <div class="grupo">
+      <h4>Nómina</h4>
+      <ol><li><span>H1</span>Períodos</li><li><span>H2</span>Cálculo del período</li><li><span>H3</span>Constancia de pago</li><li><span>H4</span>Libro de salarios e IGSS</li></ol>
+      <h4>Inventario</h4>
+      <ol><li><span>I1</span>Existencias</li><li><span>I2</span>Movimientos</li><li><span>I3</span>Alta de artículo</li></ol>
+    </div>
+    <div class="grupo">
+      <h4>Mantenimiento</h4>
+      <ol><li><span>J1</span>Semáforo por máquina</li><li><span>J2</span>Órdenes</li><li><span>J3</span>Planes y tareas</li></ol>
+      <h4>Reportes y ajustes</h4>
+      <ol><li><span>K1</span>Constructor de informes</li><li><span>L1</span>Usuarios y roles</li><li><span>L2</span>Parámetros legales</li><li><span>L3</span>Auditoría</li></ol>
+    </div>
+    <div class="grupo">
+      <h4>PWA del operario</h4>
+      <ol><li><span>P1</span>Ingreso por gafete</li><li><span>P2</span>Mis máquinas y mi ganancia</li><li><span>P3</span>Abrir corrida · escanear</li><li><span>P4</span>Contador y corrida en curso</li><li><span>P5</span>Cerrar y verificar</li><li><span>P6</span>Reportar paro</li><li><span>P7</span>Mi ganancia</li><li><span>P8</span>Sin conexión</li></ol>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2>Datos reales para todas las pantallas</h2>
+  <p class="dek">Nada de texto de relleno. Estos son los mismos en cada mesa de trabajo, para que las pantallas sean consistentes entre sí. Rosa Elena Batz Quiej dispara la alerta de complemento al mínimo; BOR-05 es la máquina en falla.</p>
+
+  <div class="scroller" style="margin-bottom:44px">
+    <table>
+      <caption>Operarios · quincena del 1 al 15 de septiembre de 2026</caption>
+      <thead><tr><th>Código</th><th>Nombre</th><th>Máquinas</th><th class="n">Puntadas</th><th class="n">Ganancia</th><th>Mínimo legal</th></tr></thead>
+      <tbody>
+        <tr><td class="n">OP-014</td><th>Juana Ixchop Tzoc</th><td>BOR-04</td><td class="n">2,918,400</td><td class="n">Q2,269.20</td><td>119%</td></tr>
+        <tr><td class="n">OP-021</td><th>Marta Chocoj Sical</th><td>BOR-02</td><td class="n">3,412,700</td><td class="n">Q2,653.66</td><td>139%</td></tr>
+        <tr><td class="n">OP-007</td><th>Diego Puac Ajanel</th><td>BOR-01, BOR-06</td><td class="n">4,105,220</td><td class="n">Q3,192.39</td><td>167%</td></tr>
+        <tr class="alerta"><td class="n">OP-033</td><th>Rosa Elena Batz Quiej</th><td>BOR-05</td><td class="n">1,884,900</td><td class="n">Q1,908.45</td><td>77% · complemento</td></tr>
+        <tr><td class="n">OP-018</td><th>Manuel Tzunún Coyoy</th><td>BOR-03</td><td class="n">2,451,180</td><td class="n">Q1,908.45</td><td>99.9% · complemento</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="scroller" style="margin-bottom:44px">
+    <table>
+      <caption>Máquinas · las cabezas son lo que separa puntadas de prendas</caption>
+      <thead><tr><th>Código</th><th>Modelo</th><th>Controlador</th><th class="n">Cabezas</th><th class="n">spm</th><th>Estado</th></tr></thead>
+      <tbody>
+        <tr><th>BOR-01</th><td>Feiya FY-1206</td><td>Dahao BECS-A15</td><td class="n">6</td><td class="n">850</td><td>corriendo</td></tr>
+        <tr><th>BOR-02</th><td>Feiya FY-1206</td><td>Dahao BECS-A15</td><td class="n">6</td><td class="n">850</td><td>corriendo</td></tr>
+        <tr><th>BOR-03</th><td>Ricoma EM-1010</td><td>propio</td><td class="n">1</td><td class="n">1,000</td><td>parada</td></tr>
+        <tr><th>BOR-04</th><td>Tajima TMEZ-1501</td><td>Tajima</td><td class="n">1</td><td class="n">1,000</td><td>corriendo</td></tr>
+        <tr class="alerta"><th>BOR-05</th><td>Yuemei YM-904</td><td>Dahao BECS-285A</td><td class="n">4</td><td class="n">750</td><td>en falla</td></tr>
+        <tr><th>BOR-06</th><td>Feiya FY-1202</td><td>Dahao BECS-A15</td><td class="n">2</td><td class="n">800</td><td>corriendo</td></tr>
+        <tr><th>BOR-07</th><td>Barudan BEXT-Y904</td><td>Barudan</td><td class="n">4</td><td class="n">900</td><td>en mantenimiento</td></tr>
+        <tr><th>BOR-08</th><td>Richpeace RPEM-1201</td><td>Dahao BECS-A18</td><td class="n">1</td><td class="n">900</td><td>sin datos</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="scroller">
+    <table>
+      <caption>Diseños · la firma de puntadas es lo que verifica la corrida</caption>
+      <thead><tr><th>Código</th><th>Nombre</th><th class="n">Puntadas</th><th class="n">Colores</th><th>Región</th></tr></thead>
+      <tbody>
+        <tr><th>HUI-001</th><td>Huipil Sololá cuello grande</td><td class="n">42,500</td><td class="n">9</td><td>Sololá</td></tr>
+        <tr><th>HUI-002</th><td>Huipil Quetzaltenango aves</td><td class="n">38,900</td><td class="n">11</td><td>Quetzaltenango</td></tr>
+        <tr><th>TZU-004</th><td>Tzute Chichicastenango</td><td class="n">21,300</td><td class="n">7</td><td>Quiché</td></tr>
+        <tr><th>FAJ-010</th><td>Faja Totonicapán greca</td><td class="n">12,400</td><td class="n">5</td><td>Totonicapán</td></tr>
+        <tr><th>COR-021</th><td>Randa para corte</td><td class="n">8,600</td><td class="n">3</td><td>Totonicapán</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section>
+  <h2>El prompt base</h2>
+  <p class="dek">Se pega al inicio de cada sesión de Claude Design, antes de cualquier lote. Versión abreviada; la completa, con el detalle de movimiento por componente, órdenes y temporadas, está en <code>docs/12-prompts-claude-design.md</code>.</p>
+  <div class="promptbar">
+    <span>Prompt base · pegar primero</span>
+    <button id="copiar" type="button">Copiar</button>
+  </div>
+  <pre id="prompt"><b>Vas a diseñar la interfaz de un sistema de administración para una fábrica de bordado
+computarizado de trajes típicos guatemaltecos, ubicada en Totonicapán.</b>
+
+El sistema tiene dos superficies distintas que comparten el mismo sistema de diseño:
+un PANEL DE ADMINISTRACIÓN de escritorio, denso en datos, para el dueño y su equipo;
+y una PWA MÓVIL de piso de planta, con muy pocos elementos y muy grandes, para los
+operarios que están junto a la máquina. No son la misma pantalla en dos anchos.
+
+<b>DIRECCIÓN VISUAL: MINIMALISMO</b>
+
+El estilo es minimalista, y aquí eso no significa vacío ni bonito: significa que cada
+elemento tiene que ganarse su lugar, y el criterio para ganárselo es que ayude a
+decidir algo.
+
+  · El dato es la interfaz. La cifra, no el contenedor. Un tablero es una retícula de
+    números bien compuestos, no una cuadrícula de tarjetas.
+  · El espacio separa antes que la línea, y la línea antes que la caja. Primero aire.
+    Si no alcanza, una hairline de 1px. La caja con relleno y borde es el último
+    recurso y hay que justificarla.
+  · Un solo acento: el índigo marca-700. Todo lo demás es tinta y neutros. Los colores
+    semánticos aparecen solo cuando hay algo que atender.
+  · La jerarquía la hace la tipografía: tamaño, peso y espacio. No fondos de color, no
+    bordes de énfasis, no barras de acento al costado.
+  · Nada compite con la alerta. Si la pantalla está tranquila, una sola mancha de color
+    crítico se ve desde la puerta.
+
+Consecuencias concretas:
+  · Los encabezados de tabla NO llevan fondo gris: llevan línea inferior y mayúscula
+    pequeña en Plex Mono.
+  · Los indicadores de estado NO llevan relleno de color: forma coloreada y texto en
+    tinta normal.
+  · El tablero NO usa tarjetas: retícula con hairlines y mucho aire.
+  · Radios: 2px en controles, 0 en tablas y contenedores. Ningún redondeo completo.
+  · Espaciado en el extremo alto de la escala: 56px entre bloques, 96px entre secciones.
+  · Iconos reducidos a los indispensables: las cinco formas de estado de máquina.
+
+Lo que el minimalismo NO autoriza: bajar el contraste, esconder acciones en menús,
+quitar etiquetas de los campos, ni encoger los objetivos táctiles de la PWA.
+
+<b>SISTEMA DE DISEÑO</b>
+
+Color, tema claro:
+  fondo #F4F5F7 · superficie #FFFFFF · superficie-2 #EDEFF3
+  tinta #14171C · tinta-2 #565D68 · tinta-3 #858D99
+  línea #D9DDE4 · línea-suave #E8EBF0
+  marca-700 #2B3A67 (primario) · marca-900 #1B2A4A (hover)
+  marca-500 #4A63A8 · marca-100 #E3E8F4
+
+Color, tema oscuro:
+  fondo #101318 · superficie #171B21 · superficie-2 #1E232B
+  tinta #E8EAEE · tinta-2 #9BA3AF · tinta-3 #6C7480
+  línea #2A3039 · línea-suave #21262E
+  marca-700 #8FA6DE · marca-900 #B3C4EC · marca-500 #6E86C4 · marca-100 #1E2740
+
+Semánticos (claro / oscuro), independientes del acento:
+  ok #2E6F4E / #6FBF8E · aviso #9A6400 / #E0A63C · crítico #B0322B / #E4837A
+  mantenimiento #6D4C9F / #B49AE0
+
+Tipografía:
+  Interfaz: Source Sans 3 (400/600/700)
+  Datos: IBM Plex Mono (400/500/600) con tabular-nums, para toda cifra
+  Escala: 11 12 14 16 18 21 26 32 42
+
+Densidad:
+  Escritorio: fila de tabla 40px, control 34px, texto base 14px, margen 24px
+  PWA: fila 64px, control 56px, botón primario 72px, texto base 17px, margen 16px
+
+<b>MOVIMIENTO</b>
+
+En una pantalla quieta, lo único que se mueve es lo único que mira la gente. Poca
+animación, y toda ella significa algo: se justifica solo si comunica estado, causa o
+continuidad.
+
+Tokens:
+  --dur-instante   90ms    retroalimentación al pulsar
+  --dur-rapido    140ms    chips, avisos, menús
+  --dur-base      200ms    cambio de estado, paneles
+  --dur-pausado   320ms    barras que crecen, paso a paso
+  --dur-cifra     420ms    conteo animado de una cifra
+  --dur-ambiente 2400ms    pulsos de "esto está vivo"
+  --sal cubic-bezier(.2,0,0,1) · --ent cubic-bezier(.4,0,1,1) · --suave cubic-bezier(.4,0,.2,1)
+
+Reglas duras: ningún rebote, ninguna escala mayor a 1.02, ninguna rotación decorativa,
+ningún desplazamiento mayor a 8px, nada dura más de 420ms fuera de lo ambiental.
+
+Estado de máquina: el movimiento ES un dato, junto al color y a la forma.
+  Corriendo         punto lleno · pulso de opacidad 1 → .45 → 1, 2.4s, infinito.
+                    En la versión avanzada el ciclo se deriva de las puntadas por
+                    minuto reales: más rápida la máquina, más rápido el latido,
+                    acotado entre 1.2s y 3s.
+  Parada            punto lleno · NINGUNA animación. La quietud es la señal.
+  En falla          triángulo · doble parpadeo de 120ms y luego 3s de reposo.
+  En mantenimiento  cuadrado · barrido diagonal lento de un brillo tenue, 3s.
+  Sin datos         punto hueco · desvanecimiento muy lento 1 → .35 → 1, 4s.
+
+Componentes:
+  Contador de puntadas   cuenta del valor anterior al nuevo, 420ms, tabular-nums para
+                         que el ancho no salte. Solo al llegar dato nuevo.
+  Barra de mínimo legal  crece desde 0 al aparecer, 320ms; destello en la marca del
+                         umbral al cruzarlo.
+  Semáforo de mtto.      late suave cada 4s solo por encima del 90% del intervalo.
+  Chip de verificación   cruza de pendiente a veredicto con opacidad y 4px.
+  Fila de tabla          entra con opacidad y 4px; al cambiar de estado su fondo
+                         destaca 600ms y vuelve.
+  Franja de alerta       entra desde arriba 8px; al resolverse colapsa su altura.
+  Botón                  cambio de fondo al pulsar, sin escala ni sombra.
+  Carga                  esqueleto con barrido de 1.4s. NUNCA un indicador giratorio.
+
+PWA:
+  Marco de escaneo       respira 2s; al leer colapsa al centro en 180ms, con sonido
+                         y vibración.
+  Pasos de la corrida    avance lateral de 8px más opacidad. Es la única transición de
+                         pantalla del sistema.
+  Teclado numérico       cada dígito responde con cambio de fondo de 90ms, sin escala.
+  Ganancia del día       la cifra cuenta hacia arriba al llegar una corrida nueva.
+  Cola sin conexión      el contador de pendientes baja con un desplazamiento corto.
+                         Nunca un spinner.
+
+NO se anima: transiciones entre pantallas del panel, aparición escalonada de listas,
+nada disparado por desplazamiento, números que cuentan solos al abrir una pantalla, ni
+nada en las pantallas de nómina salvo la entrada de un aviso.
+
+Con prefers-reduced-motion los pulsos se detienen y el estado sigue distinguiéndose por
+color y forma; los conteos saltan al valor final; las barras aparecen en su valor.
+Ninguna información depende únicamente del movimiento.
+
+<b>PRINCIPIOS</b>
+
+1. El número es el protagonista. Cifras en monoespaciada, tabular, alineadas a la
+   derecha, con separador de miles y SIN abreviar nunca. Se escribe 5,725,350,
+   jamás "5.7M".
+2. Puntadas y prendas son magnitudes distintas y nunca comparten columna: una
+   máquina de 6 cabezas produce 6 prendas con el mismo conteo de puntadas que una
+   de 1 cabeza produce 1.
+3. El estado se ve antes de leerse, a un metro de distancia, por color, forma Y
+   comportamiento.
+4. La planta tiene mala luz y sol directo: contraste alto obligatorio.
+5. Sin conexión es normal, no un error.
+6. Todo lo que toca dinero exige confirmación explícita y queda firmado con nombre
+   y hora, visible en la misma pantalla.
+
+<b>QUÉ EVITAR</b>
+
+Terracota sobre crema, degradados morado-azul, Inter o Space Grotesk, emoji como
+marcadores de sección, todo centrado, esquinas muy redondeadas, tarjetas con barra
+de acento a la izquierda. Nada de patrones de huipil como textura de fondo: el
+textil es el producto, no la decoración del software. Ninguna ilustración simpática
+en pantallas de dinero. Ningún movimiento decorativo: sin rebotes, sin parallax, sin
+aparición escalonada, sin spinners.
+
+<b>DATOS REALES — usar estos exactos en todas las pantallas</b>
+
+Fábrica en Totonicapán, circunscripción CE2, categoría no agrícola.
+Salario mínimo Q3,816.90 más bonificación incentivo Q250.00.
+Tarifa de destajo vigente: 1,500 puntadas = Q1.00, desde el 1 de enero de 2026.
+
+Operarios (código, nombre, máquina asignada, puntadas de la quincena):
+  OP-014 Juana Ixchop Tzoc — BOR-04 — 2,918,400
+  OP-021 Marta Chocoj Sical — BOR-02 — 3,412,700
+  OP-007 Diego Puac Ajanel — BOR-01 y BOR-06 — 4,105,220
+  OP-033 Rosa Elena Batz Quiej — BOR-05 — 1,884,900  ← bajo el umbral legal
+  OP-018 Manuel Tzunún Coyoy — BOR-03 — 2,451,180
+
+Máquinas (código, modelo, controlador, cabezas, spm, estado):
+  BOR-01 Feiya FY-1206 · Dahao BECS-A15 · 6 cabezas · 850 spm · corriendo
+  BOR-02 Feiya FY-1206 · Dahao BECS-A15 · 6 cabezas · 850 spm · corriendo
+  BOR-03 Ricoma EM-1010 · 1 cabeza · 1,000 spm · parada
+  BOR-04 Tajima TMEZ-1501 · 1 cabeza · 1,000 spm · corriendo
+  BOR-05 Yuemei YM-904 · Dahao BECS-285A · 4 cabezas · 750 spm · en falla
+  BOR-06 Feiya FY-1202 · Dahao BECS-A15 · 2 cabezas · 800 spm · corriendo
+  BOR-07 Barudan BEXT-Y904 · 4 cabezas · 900 spm · en mantenimiento
+  BOR-08 Richpeace RPEM-1201 · Dahao BECS-A18 · 1 cabeza · 900 spm · sin datos
+
+Diseños (código, nombre, puntadas, cambios de color):
+  HUI-001 Huipil Sololá cuello grande — 42,500 — 9
+  HUI-002 Huipil Quetzaltenango aves — 38,900 — 11
+  TZU-004 Tzute Chichicastenango — 21,300 — 7
+  FAJ-010 Faja Totonicapán greca — 12,400 — 5
+  COR-021 Randa para corte — 8,600 — 3
+
+Umbral legal de referencia: un operario necesita 2,453,721 puntadas por quincena para
+alcanzar el salario mínimo. Por debajo de eso, el patrono debe completar la diferencia.
+
+Confirma que entendiste el sistema de diseño y espera el primer lote de pantallas.</pre>
+</section>
+
+<section>
+  <h2>Los quince lotes</h2>
+  <p class="dek">Uno a la vez. Cada lote produce un lienzo con varias mesas de trabajo relacionadas; el texto completo de cada prompt está en el documento 12.</p>
+  <div class="lotes">
+    <div class="lote"><div class="id">Lote 1</div><div><b>Fundamentos y muestrario</b><span>Catálogo visual de componentes en todos sus estados, con su comportamiento anotado, más la pantalla de ingreso. <em>A1</em></span></div></div>
+    <div class="lote"><div class="id">Lote 2</div><div><b>Tablero general</b><span>Cifras de la jornada, franja de alertas, retícula de las 8 máquinas con sus estados vivos y últimas corridas. <em>B1</em></span></div></div>
+    <div class="lote"><div class="id">Lote 3</div><div><b>Máquinas y asignación</b><span>Parrilla, ficha con OEE y mantenimiento, y la pantalla que controla quién puede operar qué. <em>D1 · D3 · D4</em></span></div></div>
+    <div class="lote"><div class="id">Lote 4</div><div><b>Operarios</b><span>Listado, alta con validación de DPI en vivo y ficha con historial de producción y asignaciones. <em>C1 · C2 · C3</em></span></div></div>
+    <div class="lote"><div class="id">Lote 5</div><div><b>Ganancias</b><span>Tarifas con alcance y vigencia, simulador del efecto de una tarifa, descuentos y bonificaciones. <em>E1 · E2 · E3</em></span></div></div>
+    <div class="lote"><div class="id">Lote 6</div><div><b>Producción y verificación</b><span>Corridas del día, bandeja de discrepancias con candidatos sugeridos, órdenes y su avance. <em>F1 · F2 · F3 · F4</em></span></div></div>
+    <div class="lote"><div class="id">Lote 7</div><div><b>Catálogo</b><span>Diseños con su firma, alta desde archivo DST, productos y calendario de temporadas. <em>G1 · G2 · G3 · G4</em></span></div></div>
+    <div class="lote"><div class="id">Lote 8</div><div><b>Nómina</b><span>Períodos, cálculo con séptimo día y complemento, constancia de pago, libro de salarios e IGSS. <em>H1 · H2 · H3 · H4</em></span></div></div>
+    <div class="lote"><div class="id">Lote 9</div><div><b>Inventario y mantenimiento</b><span>Existencias, movimientos ligados a corridas, semáforo por puntadas y órdenes de servicio. <em>I1 · I2 · J1 · J2</em></span></div></div>
+    <div class="lote"><div class="id">Lote 10</div><div><b>Reportes y configuración</b><span>Constructor de informes por rango de fechas, parámetros legales versionados, usuarios y auditoría. <em>K1 · L1 · L2 · L3</em></span></div></div>
+    <div class="lote"><div class="id">Lote 11</div><div><b>PWA · abrir corrida</b><span>Ingreso por gafete, mis máquinas asignadas, escaneo y captura del contador. <em>P1 · P2 · P3 · P4</em></span></div></div>
+    <div class="lote"><div class="id">Lote 12</div><div><b>PWA · cerrar, paros y ganancia</b><span>Corrida en curso, verificación con sus dos desenlaces, reporte de paro y ganancia de la quincena. <em>P4 · P5 · P6 · P7 · P8</em></span></div></div>
+    <div class="lote"><div class="id">Lote 13</div><div><b>Movimiento y estados vivos</b><span>Especificación visual del sistema de animación: los cinco estados de máquina con su tira de fotogramas, el movimiento de cada componente, la PWA y la versión con movimiento reducido.</span></div></div>
+    <div class="lote"><div class="id">Lote 14</div><div><b>Modo oscuro y estados</b><span>Versión oscura de lo aprobado, más estados vacío, cargando, error, sin permiso y sin conexión.</span></div></div>
+    <div class="lote"><div class="id">Lote 15</div><div><b>Impresión e impresos de planta</b><span>Constancia, libro de salarios y planilla en tamaño carta; gafete, rótulo de máquina y etiqueta de bastidor.</span></div></div>
+  </div>
+</section>
+
+<section>
+  <h2>Qué evitar</h2>
+  <div class="evitar">
+    <div class="ev"><b>El aspecto genérico</b><span>Terracota sobre crema, degradados morado-azul, Inter o Space Grotesk, emoji como marcadores, todo centrado, esquinas muy redondeadas y tarjetas con barra de acento a la izquierda.</span></div>
+    <div class="ev"><b>Movimiento decorativo</b><span>Rebotes, escalas grandes, rotaciones, parallax, aparición escalonada y cualquier indicador giratorio. En una interfaz minimalista el movimiento gratuito se nota el doble.</span></div>
+    <div class="ev"><b>Minimalismo mal entendido</b><span>Bajar el contraste, esconder acciones en menús, quitar etiquetas de los campos o encoger los objetivos táctiles. La sobriedad es visual; la legibilidad en planta no se negocia.</span></div>
+    <div class="ev"><b>Huipil de fondo</b><span>El textil es el producto de la fábrica, no la decoración del software. Si aparece un motivo, es la fotografía real de una prenda dentro de la ficha del diseño que le corresponde.</span></div>
+    <div class="ev"><b>Ilustraciones donde hay dinero</b><span>Una nómina no se ilustra. Los iconos alegres restan credibilidad justo donde más se necesita.</span></div>
+    <div class="ev"><b>Cifras abreviadas</b><span><span class="num">5.7M</span> no es aceptable en ninguna pantalla de este sistema. Siempre <span class="num">5,725,350</span>.</span></div>
+  </div>
+</section>
+
+<footer>
+  <b>Base</b> &nbsp;Documentos 01 a 10 de la investigación · Brief completo en <code>docs/11-brief-de-diseno.md</code> · Prompts en <code>docs/12-prompts-claude-design.md</code> · Esquema de datos en <code>db/schema.sql</code><br><br>
+  <b>Cifras legales</b> &nbsp;Acuerdo Gubernativo 256-2025 y Código de Trabajo, Decreto 1441, artículos 91, 116, 121 y 126. La parametrización de nómina debe revisarla un contador antes de producción.
+</footer>
+
+</div>
+
+<script>
+(function(){
+  var reducido = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* Pulso derivado de las puntadas por minuto reales: 850 spm de BOR-01.
+     Se mapea el rango util de 600-1000 spm a un ciclo de 3s-1.2s. */
+  var spm = 850;
+  var ciclo = 3 - ((Math.min(Math.max(spm, 600), 1000) - 600) / 400) * 1.8;
+  var punto = document.getElementById('pulso-spm');
+  if (punto && !reducido) {
+    punto.style.animation = 'latir ' + ciclo.toFixed(2) + 's cubic-bezier(.4,0,.2,1) infinite';
+  }
+
+  /* Contador de puntadas: cuenta solo cuando llega dato nuevo, nunca al cargar. */
+  var elCifra = document.getElementById('contador');
+  var elTasa = document.getElementById('contador-tasa');
+  var valor = 312400;
+  var fmt = function(n){ return Math.round(n).toLocaleString('en-US'); };
+
+  function contarHasta(destino){
+    if (reducido){ valor = destino; elCifra.textContent = fmt(valor); return; }
+    var desde = valor, ini = null, dur = 420;
+    function paso(t){
+      if (ini === null) ini = t;
+      var p = Math.min((t - ini) / dur, 1);
+      var e = 1 - Math.pow(1 - p, 3);
+      elCifra.textContent = fmt(desde + (destino - desde) * e);
+      if (p < 1) requestAnimationFrame(paso); else valor = destino;
+    }
+    requestAnimationFrame(paso);
+  }
+
+  if (elCifra){
+    setInterval(function(){
+      var delta = 1800 + Math.floor(Math.random() * 1600);
+      elTasa.textContent = '+' + fmt(delta) + ' · ' + (395 + Math.floor(Math.random() * 40)) + ' ppm';
+      contarHasta(valor + delta);
+    }, 4200);
+  }
+
+  /* Chip de verificacion: cruce de pendiente a veredicto. */
+  var chip = document.getElementById('chip');
+  var chipMarca = document.getElementById('chip-marca');
+  var chipTxt = document.getElementById('chip-txt');
+  var chipPct = document.getElementById('chip-pct');
+  var estados = [
+    { clase:'c-nd', texto:'Pendiente',    pct:'' },
+    { clase:'c-ok', texto:'Verificada',   pct:'+0.18%' },
+    { clase:'c-av', texto:'Revisar',      pct:'+2.40%' },
+    { clase:'c-cr', texto:'Discrepancia', pct:'+4.97%' }
+  ];
+  var i = 0;
+  function pintar(e){
+    chipMarca.className = 'marca pt ' + e.clase;
+    chipTxt.textContent = e.texto;
+    chipPct.textContent = e.pct;
+  }
+  if (chip){
+    setInterval(function(){
+      i = (i + 1) % estados.length;
+      if (reducido){ pintar(estados[i]); return; }
+      chip.classList.add('fuera');
+      setTimeout(function(){
+        pintar(estados[i]);
+        chip.classList.remove('fuera');
+      }, 140);
+    }, 3000);
+  }
+
+  /* Copiar el prompt base. */
+  var boton = document.getElementById('copiar');
+  var pre = document.getElementById('prompt');
+  if (boton && pre){
+    boton.addEventListener('click', function(){
+      var listo = function(){
+        boton.textContent = 'Copiado';
+        setTimeout(function(){ boton.textContent = 'Copiar'; }, 2000);
+      };
+      var manual = function(){
+        boton.textContent = 'Seleccione y copie';
+        try{
+          var r = document.createRange();
+          r.selectNodeContents(pre);
+          var s = window.getSelection();
+          s.removeAllRanges();
+          s.addRange(r);
+        }catch(e){}
+        setTimeout(function(){ boton.textContent = 'Copiar'; }, 3000);
+      };
+      if (navigator.clipboard && navigator.clipboard.writeText){
+        navigator.clipboard.writeText(pre.innerText).then(listo).catch(manual);
+      } else {
+        manual();
+      }
+    });
+  }
+})();
+</script>
+
+</body>
+</html>

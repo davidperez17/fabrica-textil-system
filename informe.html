@@ -1,0 +1,718 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>body{margin:0;font:14px system-ui,sans-serif;background:#fafaf9}img{max-width:100%}[hidden]{display:none!important}</style>
+<title>Puntadas y Planilla</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Source+Sans+3:ital,wght@0,400;0,600;1,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+
+<style>
+:root{
+  --paper:#F2F2EE;
+  --raised:#FBFBF8;
+  --ink:#17191A;
+  --ink-2:#5A5F60;
+  --ink-3:#8A8F8E;
+  --rule:#D8D8D0;
+  --rule-soft:#E6E6DE;
+  --indigo:#2B3A67;
+  --indigo-soft:#E3E6EF;
+  --rojo:#B0322B;
+  --rojo-soft:#F2E2E0;
+  --verde:#3F6B4A;
+  --serif:"Instrument Serif",Georgia,"Times New Roman",serif;
+  --sans:"Source Sans 3",-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --paper:#14161A;
+    --raised:#1B1E23;
+    --ink:#E9E8E2;
+    --ink-2:#9DA1A2;
+    --ink-3:#71767A;
+    --rule:#2C3138;
+    --rule-soft:#23272D;
+    --indigo:#9BB0E2;
+    --indigo-soft:#232C42;
+    --rojo:#E4837A;
+    --rojo-soft:#3A2523;
+    --verde:#8FC29C;
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#14161A;
+  --raised:#1B1E23;
+  --ink:#E9E8E2;
+  --ink-2:#9DA1A2;
+  --ink-3:#71767A;
+  --rule:#2C3138;
+  --rule-soft:#23272D;
+  --indigo:#9BB0E2;
+  --indigo-soft:#232C42;
+  --rojo:#E4837A;
+  --rojo-soft:#3A2523;
+  --verde:#8FC29C;
+}
+
+*{box-sizing:border-box}
+body{
+  background:var(--paper);
+  color:var(--ink);
+  font-family:var(--sans);
+  font-size:17px;
+  line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+}
+.wrap{
+  max-width:830px;
+  margin:0 auto;
+  padding:0 28px 96px;
+}
+
+/* ---------- masthead ---------- */
+.masthead{
+  padding:56px 0 28px;
+  border-bottom:2px solid var(--ink);
+}
+.kicker{
+  font-family:var(--mono);
+  font-size:11.5px;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+  color:var(--indigo);
+  margin:0 0 20px;
+}
+h1{
+  font-family:var(--serif);
+  font-weight:400;
+  font-size:clamp(46px,8vw,78px);
+  line-height:.96;
+  letter-spacing:-.015em;
+  margin:0;
+  text-wrap:balance;
+}
+h1 em{font-style:italic;color:var(--indigo)}
+.standfirst{
+  font-size:20px;
+  line-height:1.45;
+  color:var(--ink-2);
+  max-width:60ch;
+  margin:22px 0 0;
+}
+.meta{
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px 26px;
+  margin-top:30px;
+  font-family:var(--mono);
+  font-size:11.5px;
+  letter-spacing:.06em;
+  text-transform:uppercase;
+  color:var(--ink-3);
+}
+.meta b{color:var(--ink-2);font-weight:500}
+
+/* ---------- sections ---------- */
+section{padding-top:52px}
+h2{
+  font-family:var(--serif);
+  font-weight:400;
+  font-size:34px;
+  line-height:1.12;
+  letter-spacing:-.01em;
+  margin:0 0 6px;
+  text-wrap:balance;
+}
+.dek{
+  color:var(--ink-2);
+  margin:0 0 26px;
+  max-width:66ch;
+}
+p{margin:0 0 16px;max-width:66ch}
+a{color:var(--indigo)}
+
+/* ---------- findings ledger ---------- */
+.ledger{
+  border-top:1px solid var(--rule);
+}
+.finding{
+  display:grid;
+  grid-template-columns:132px 1fr;
+  gap:0 28px;
+  padding:26px 0;
+  border-bottom:1px solid var(--rule-soft);
+}
+.tag{
+  font-family:var(--mono);
+  font-size:11px;
+  font-weight:600;
+  letter-spacing:.13em;
+  text-transform:uppercase;
+  color:var(--indigo);
+  padding-top:5px;
+}
+.finding h3{
+  font-family:var(--sans);
+  font-weight:600;
+  font-size:19px;
+  line-height:1.35;
+  margin:0 0 10px;
+  text-wrap:balance;
+}
+.finding p{margin:0 0 10px;color:var(--ink-2);font-size:16px}
+.finding p:last-child{margin-bottom:0}
+.finding strong{color:var(--ink);font-weight:600}
+.num{font-family:var(--mono);font-variant-numeric:tabular-nums;font-size:.94em}
+
+/* ---------- figures band ---------- */
+.figures{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(178px,1fr));
+  border-top:1px solid var(--rule);
+  border-bottom:1px solid var(--rule);
+}
+.fig{
+  padding:24px 22px 22px 0;
+  border-right:1px solid var(--rule-soft);
+}
+.fig:last-child{border-right:0}
+.fig .val{
+  font-family:var(--mono);
+  font-weight:500;
+  font-variant-numeric:tabular-nums;
+  font-size:31px;
+  line-height:1.05;
+  letter-spacing:-.03em;
+  color:var(--indigo);
+}
+.fig .val.alarm{color:var(--rojo)}
+.fig .unit{
+  font-family:var(--mono);
+  font-size:11px;
+  letter-spacing:.1em;
+  text-transform:uppercase;
+  color:var(--ink-3);
+  margin-top:9px;
+}
+.fig .note{font-size:14.5px;color:var(--ink-2);margin-top:7px;line-height:1.4}
+
+/* ---------- chart ---------- */
+.chart{
+  margin:8px 0 4px;
+  padding:24px 22px;
+  background:var(--raised);
+  border:1px solid var(--rule-soft);
+}
+.chart-title{
+  font-family:var(--mono);
+  font-size:11px;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+  color:var(--ink-3);
+  margin-bottom:20px;
+}
+.row{
+  display:grid;
+  grid-template-columns:92px 1fr 96px;
+  align-items:center;
+  gap:14px;
+  margin-bottom:12px;
+}
+.row .lbl{
+  font-family:var(--mono);
+  font-size:12.5px;
+  font-variant-numeric:tabular-nums;
+  color:var(--ink-2);
+  text-align:right;
+}
+.track{
+  position:relative;
+  height:26px;
+  background:var(--rule-soft);
+}
+.bar{
+  height:100%;
+  background:var(--indigo);
+}
+.bar.under{background:var(--rojo)}
+.threshold{
+  position:absolute;
+  top:-7px;
+  bottom:-7px;
+  width:2px;
+  background:var(--ink);
+}
+.row .amt{
+  font-family:var(--mono);
+  font-size:13px;
+  font-variant-numeric:tabular-nums;
+  font-weight:500;
+}
+.row .amt.under{color:var(--rojo)}
+.chart-key{
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px 22px;
+  margin-top:18px;
+  padding-top:16px;
+  border-top:1px solid var(--rule-soft);
+  font-family:var(--mono);
+  font-size:11.5px;
+  color:var(--ink-2);
+}
+.chart-key span{display:flex;align-items:center;gap:8px}
+.swatch{width:22px;height:3px;background:var(--ink);flex:none}
+.swatch.i{background:var(--indigo)}
+.swatch.r{background:var(--rojo)}
+
+/* ---------- tables ---------- */
+.scroller{overflow-x:auto;margin-bottom:8px}
+table{
+  border-collapse:collapse;
+  width:100%;
+  min-width:560px;
+  font-size:15px;
+}
+caption{
+  caption-side:top;
+  text-align:left;
+  font-family:var(--mono);
+  font-size:11px;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+  color:var(--ink-3);
+  padding-bottom:12px;
+}
+th,td{
+  text-align:left;
+  padding:10px 14px 10px 0;
+  border-bottom:1px solid var(--rule-soft);
+  vertical-align:top;
+}
+thead th{
+  font-family:var(--mono);
+  font-size:11px;
+  font-weight:500;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+  color:var(--ink-3);
+  border-bottom:1px solid var(--rule);
+}
+tbody th{font-weight:600;color:var(--ink)}
+td.n,th.n{
+  text-align:right;
+  font-family:var(--mono);
+  font-variant-numeric:tabular-nums;
+  font-size:14px;
+  padding-right:0;
+}
+tr.flag td,tr.flag th{background:var(--rojo-soft)}
+tr.flag td.n{color:var(--rojo);font-weight:600}
+.pick{color:var(--verde);font-weight:600}
+.warn{color:var(--rojo);font-weight:600}
+
+/* ---------- blocking questions ---------- */
+.blocking{
+  border:2px solid var(--rojo);
+  background:var(--rojo-soft);
+  padding:28px 30px 24px;
+}
+.blocking h2{margin-top:0;font-size:29px}
+.blocking p{color:var(--ink-2)}
+.blocking ol{margin:20px 0 0;padding:0;list-style:none;counter-reset:q}
+.blocking li{
+  counter-increment:q;
+  display:grid;
+  grid-template-columns:30px 1fr;
+  gap:14px;
+  padding:15px 0;
+  border-top:1px solid color-mix(in srgb,var(--rojo) 28%,transparent);
+  max-width:64ch;
+}
+.blocking li::before{
+  content:counter(q,decimal-leading-zero);
+  font-family:var(--mono);
+  font-size:12px;
+  font-weight:600;
+  color:var(--rojo);
+  padding-top:4px;
+}
+.blocking li b{display:block;margin-bottom:4px}
+.blocking li span{color:var(--ink-2);font-size:15.5px;line-height:1.5}
+
+/* ---------- roadmap ---------- */
+.phases{border-top:1px solid var(--rule)}
+.phase{
+  display:grid;
+  grid-template-columns:96px 1fr;
+  gap:0 28px;
+  padding:20px 0;
+  border-bottom:1px solid var(--rule-soft);
+}
+.phase .n{
+  font-family:var(--mono);
+  font-size:12px;
+  font-weight:600;
+  letter-spacing:.1em;
+  text-transform:uppercase;
+  color:var(--indigo);
+  padding-top:4px;
+}
+.phase h3{font-family:var(--sans);font-size:18px;font-weight:600;margin:0 0 6px}
+.phase p{margin:0;color:var(--ink-2);font-size:15.5px}
+.phase .out{
+  display:block;margin-top:7px;font-size:14.5px;color:var(--ink-3);
+}
+.phase .out b{font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--indigo)}
+
+/* ---------- deliverables ---------- */
+.files{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+  gap:1px;
+  background:var(--rule-soft);
+  border:1px solid var(--rule-soft);
+}
+.file{background:var(--paper);padding:18px 20px}
+.file code{
+  font-family:var(--mono);
+  font-size:13px;
+  font-weight:500;
+  color:var(--indigo);
+  display:block;
+  margin-bottom:6px;
+}
+.file span{font-size:14.5px;color:var(--ink-2);line-height:1.45}
+
+footer{
+  margin-top:56px;
+  padding-top:22px;
+  border-top:2px solid var(--ink);
+  font-family:var(--mono);
+  font-size:11.5px;
+  line-height:1.7;
+  letter-spacing:.04em;
+  color:var(--ink-3);
+}
+footer b{color:var(--ink-2);font-weight:500}
+
+@media (max-width:640px){
+  body{font-size:16px}
+  .finding,.phase{grid-template-columns:1fr;gap:8px}
+  .tag,.phase .n{padding-top:0}
+  .fig{border-right:0;border-bottom:1px solid var(--rule-soft);padding-right:0}
+  .row{grid-template-columns:74px 1fr;gap:10px}
+  .row .amt{grid-column:2;text-align:right}
+  .blocking{padding:22px 20px}
+}
+</style>
+
+<div class="wrap">
+
+  <header class="masthead">
+    <p class="kicker">Investigación previa al diseño · Guatemala · 7 septiembre 2026</p>
+    <h1>Puntadas <em>y</em> planilla</h1>
+    <p class="standfirst">Qué hace falta saber antes de construir el sistema de una fábrica de bordado de trajes típicos: cómo se cuenta lo que produce cada máquina, cómo se verifica qué prenda salió, y qué exige la ley al pagar por puntada.</p>
+    <div class="meta">
+      <span><b>Tarifa vigente</b> &nbsp;Q1 / 1,500 puntadas</span>
+      <span><b>Base legal</b> &nbsp;Dto. 1441 · AG 256-2025</span>
+      <span><b>Estado</b> &nbsp;Falta levantamiento en planta</span>
+    </div>
+  </header>
+
+  <section>
+    <h2>Los cinco hallazgos que condicionan todo</h2>
+    <p class="dek">Ordenados por cuánto cambia el sistema si la respuesta resulta distinta a la supuesta.</p>
+
+    <div class="ledger">
+
+      <article class="finding">
+        <div class="tag">Cabezas</div>
+        <div>
+          <h3>El contador cuenta puntadas del diseño, no prendas</h3>
+          <p>Todas las cabezas de una bordadora cuelgan del mismo eje principal. Una vuelta produce una puntada en cada cabeza al mismo tiempo, y el contador del panel avanza <strong>una sola vez</strong>.</p>
+          <p>Consecuencia: una máquina de 6 cabezas entrega seis prendas con el mismo conteo que una de 1 cabeza entrega una. Pagando por contador, los dos operarios cobran igual. El sistema debe registrar <span class="num">cabezas</span> por máquina y calcular por separado <strong>puntadas</strong> (base de pago) y <strong>prendas = repeticiones × cabezas</strong> (producción real).</p>
+        </div>
+      </article>
+
+      <article class="finding">
+        <div class="tag">Tarifa</div>
+        <div>
+          <h3>Q1 por 1,500 puntadas deja al operario al filo del mínimo</h3>
+          <p>Se necesitan <span class="num">2,453,721</span> puntadas por quincena —<span class="num">393</span> por minuto sostenidas toda la jornada— para alcanzar el salario mínimo no agrícola CE2 de <span class="num">Q3,816.90</span>.</p>
+          <p>Una máquina de 650 spm al 70 % de eficiencia no llega. <strong>El complemento patronal al mínimo no es un caso raro: es rutina</strong>, y tiene que estar automatizado y visible, no descubrirse en una inspección.</p>
+        </div>
+      </article>
+
+      <article class="finding">
+        <div class="tag">Verificación</div>
+        <div>
+          <h3>El conteo verifica el diseño declarado; no lo adivina</h3>
+          <p>Con un catálogo de 200 diseños, el acumulado de un turno de un millón de puntadas admite <span class="num">390</span> combinaciones compatibles de diseño y repeticiones. Afinar la tolerancia no lo arregla: a 0.5 % todavía quedan <span class="num">100</span>.</p>
+          <p>Sobre una <strong>corrida cerrada de un solo diseño</strong>, en cambio, el conteo identifica con 0 o 1 candidato. Por eso el operario declara el diseño escaneando su código y el sistema compara lo medido contra lo esperado. Requisito derivado: hay que capturar corridas con inicio y fin, no totales de turno.</p>
+        </div>
+      </article>
+
+      <article class="finding">
+        <div class="tag">Séptimo día</div>
+        <div>
+          <h3>Es una sexta parte, no una séptima</h3>
+          <p>Artículo 126 del Código de Trabajo, literal: «A quienes laboran por unidad de obra o por comisión, se les adicionará <strong>una sexta parte</strong> de los salarios totales devengados en la semana.»</p>
+          <p>Son <span class="num">+16.67 %</span> sobre lo devengado a destajo cada semana. Es el error de planilla más común en este esquema y el más caro de corregir tarde.</p>
+        </div>
+      </article>
+
+      <article class="finding">
+        <div class="tag">Captura</div>
+        <div>
+          <h3>El protocolo del panel es cerrado; no se puede apostar a él</h3>
+          <p>Los controladores Dahao BECS y las máquinas Tajima documentan función de red en sus manuales, pero <strong>el protocolo es propietario y no está publicado</strong>, y el software de reporte es del fabricante.</p>
+          <p>La arquitectura trata el origen del dato como intercambiable: cada lectura entra con una columna <span class="num">fuente</span> que dice si vino de captura manual, sensor, red del panel o archivo. Así se cambia de método sin rehacer nómina ni reportes.</p>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <section>
+    <h2>La aritmética de la tarifa</h2>
+    <p class="dek">Tarifa unitaria de Q0.00066667 por puntada, contrastada con lo que una bordadora produce realmente en un mes de 26 jornadas de ocho horas.</p>
+
+    <div class="figures">
+      <div class="fig">
+        <div class="val">393</div>
+        <div class="unit">puntadas / minuto</div>
+        <div class="note">Ritmo sostenido necesario para alcanzar el mínimo, ya contando el séptimo día.</div>
+      </div>
+      <div class="fig">
+        <div class="val">5,725,350</div>
+        <div class="unit">puntadas / mes</div>
+        <div class="note">Solo con destajo, sin el recargo del Art. 126.</div>
+      </div>
+      <div class="fig">
+        <div class="val alarm">41.8 %</div>
+        <div class="unit">sobrecosto patronal</div>
+        <div class="note">IGSS 12.67 % más provisiones de aguinaldo, Bono 14, vacaciones e indemnización.</div>
+      </div>
+    </div>
+
+    <div class="chart">
+      <div class="chart-title">Destajo mensual devengado según velocidad de máquina · eficiencia 70 %, 8 h × 26 días</div>
+
+      <div class="row">
+        <div class="lbl">650 spm</div>
+        <div class="track"><div class="bar under" style="width:63.1%"></div><div class="threshold" style="left:63.6%"></div></div>
+        <div class="amt under">Q3,785.60</div>
+      </div>
+      <div class="row">
+        <div class="lbl">750 spm</div>
+        <div class="track"><div class="bar" style="width:72.8%"></div><div class="threshold" style="left:63.6%"></div></div>
+        <div class="amt">Q4,368.00</div>
+      </div>
+      <div class="row">
+        <div class="lbl">850 spm</div>
+        <div class="track"><div class="bar" style="width:82.5%"></div><div class="threshold" style="left:63.6%"></div></div>
+        <div class="amt">Q4,950.40</div>
+      </div>
+      <div class="row">
+        <div class="lbl">1,000 spm</div>
+        <div class="track"><div class="bar" style="width:97.1%"></div><div class="threshold" style="left:63.6%"></div></div>
+        <div class="amt">Q5,824.00</div>
+      </div>
+
+      <div class="chart-key">
+        <span><i class="swatch"></i> Salario mínimo base CE2 no agrícola · Q3,816.90</span>
+        <span><i class="swatch r"></i> Requiere complemento patronal</span>
+        <span><i class="swatch i"></i> Destajo suficiente</span>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Cómo capturar el contador</h2>
+    <p class="dek">Cuatro vías posibles. La recomendación es empezar por la que no depende de nadie y añadir la automática después, sin cambiar el modelo de datos.</p>
+
+    <div class="scroller">
+      <table>
+        <caption>Matriz de decisión · captura de puntadas</caption>
+        <thead>
+          <tr>
+            <th>Vía</th><th>Hardware</th><th>Tiempo real</th><th>Detecta paros</th><th>Riesgo técnico</th><th>Cuándo</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th>Manual asistida (PWA)</th><td>ninguno</td><td>no</td><td>no</td><td>nulo</td><td class="pick">Fase 1</td>
+          </tr>
+          <tr>
+            <th>Sensor en el eje principal</th><td>sensor + ESP32 + gateway</td><td>sí</td><td>sí</td><td>bajo</td><td class="pick">Fase 3</td>
+          </tr>
+          <tr>
+            <th>Red del panel de control</th><td>cableado de red</td><td>sí</td><td>sí</td><td class="warn">alto · protocolo cerrado</td><td>Evaluar en sitio</td>
+          </tr>
+          <tr>
+            <th>Archivo exportado a USB</th><td>memoria USB</td><td>no</td><td>parcial</td><td>medio</td><td>Respaldo</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p>Un sensor inductivo sobre el eje produce <strong>exactamente la misma cuenta que el panel</strong>, porque cuenta las mismas vueltas. Eso es lo que hace viable el retrofit: no hay que interpretar la máquina, hay que contarla. Y trae gratis lo que la captura manual nunca da: puntadas por minuto en vivo, y la hora y duración de cada paro por rotura de hilo o falta de material.</p>
+  </section>
+
+  <section>
+    <h2>Qué paga la fábrica, quincena por quincena</h2>
+    <p class="dek">Liquidación calculada con <code class="num">tools/nomina.py</code> para la categoría CE2 no agrícola, con séptimo día del Art. 126 y complemento al mínimo del Art. 91.</p>
+
+    <div class="scroller">
+      <table>
+        <caption>Nómina quincenal a destajo · Q1 / 1,500 puntadas</caption>
+        <thead>
+          <tr>
+            <th class="n">Puntadas</th><th class="n">Destajo</th><th class="n">Séptimo día</th><th class="n">Complemento</th><th class="n">IGSS 4.83 %</th><th class="n">Neto</th><th class="n">Costo patronal</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="flag">
+            <td class="n">1,200,000</td><td class="n">800.00</td><td class="n">133.33</td><td class="n">975.12</td><td class="n">92.18</td><td class="n">1,941.27</td><td class="n">2,831.88</td>
+          </tr>
+          <tr class="flag">
+            <td class="n">2,000,000</td><td class="n">1,333.33</td><td class="n">222.22</td><td class="n">352.89</td><td class="n">92.18</td><td class="n">1,941.27</td><td class="n">2,831.88</td>
+          </tr>
+          <tr>
+            <td class="n">2,453,721</td><td class="n">1,635.81</td><td class="n">272.64</td><td class="n">0.00</td><td class="n">92.18</td><td class="n">1,941.27</td><td class="n">2,831.88</td>
+          </tr>
+          <tr>
+            <td class="n">3,000,000</td><td class="n">2,000.00</td><td class="n">333.33</td><td class="n">0.00</td><td class="n">112.70</td><td class="n">2,345.63</td><td class="n">3,434.52</td>
+          </tr>
+          <tr>
+            <td class="n">4,500,000</td><td class="n">3,000.00</td><td class="n">500.00</td><td class="n">0.00</td><td class="n">169.05</td><td class="n">3,455.95</td><td class="n">5,089.05</td>
+          </tr>
+          <tr>
+            <td class="n">6,000,000</td><td class="n">4,000.00</td><td class="n">666.67</td><td class="n">0.00</td><td class="n">225.40</td><td class="n">4,566.27</td><td class="n">6,743.73</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p>Las filas marcadas son las que obligan a complemento patronal. Nótese el efecto de meseta: por debajo del umbral de <span class="num">2,453,721</span> puntadas, producir más <strong>no aumenta el pago del operario</strong>, solo reduce lo que aporta el patrono. Es un problema de incentivos real, no un defecto del cálculo. Si el destajo debe motivar, la tarifa tiene que dejar al operario promedio claramente por encima del mínimo, no encima del filo.</p>
+  </section>
+
+  <section>
+    <div class="blocking">
+      <h2>Cuatro preguntas que bloquean el diseño</h2>
+      <p>Ninguna se puede deducir desde afuera, y cada una cambia el sistema si la respuesta es otra.</p>
+      <ol>
+        <li>
+          <b>¿La tarifa se aplica sobre el contador del panel o sobre puntadas × cabezas?</b>
+          <span>Con el contador, un operario de 6 cabezas gana igual que uno de 1 produciendo seis veces más. Multiplicando por cabezas, ese operario superaría los Q22,000 mensuales, lo cual no es plausible. La aritmética apunta a lo primero, pero hay que confirmarlo.</span>
+        </li>
+        <li>
+          <b>¿Cuántas cabezas, qué marca y qué controlador tiene cada máquina?</b>
+          <span>Determina la viabilidad de la captura por red, el cálculo de prendas y la conversión horas↔puntadas del mantenimiento preventivo. Hace falta inventario con foto de cada panel.</span>
+        </li>
+        <li>
+          <b>¿La empresa está acogida al régimen de maquila y exportación?</b>
+          <span>Cambia el mínimo aplicable de Q3,816.90 a Q3,221.10 mensuales, y con él todos los complementos calculados arriba.</span>
+        </li>
+        <li>
+          <b>¿El pago es semanal o quincenal?</b>
+          <span>El séptimo día se calcula sobre lo devengado <em>en la semana</em>. Si se paga quincenal hay que calcularlo semana por semana y sumar, no aplicar un sexto sobre el total: da resultados distintos cuando la producción es despareja.</span>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <section>
+    <h2>Hoja de ruta</h2>
+    <p class="dek">Cada fase cierra con algo utilizable. El orden importa: la captura automática es la última porque es la única que puede fallar por causas ajenas.</p>
+
+    <div class="phases">
+      <div class="phase">
+        <div class="n">Fase 0</div>
+        <div>
+          <h3>Levantamiento en planta</h3>
+          <p>Inventario de máquinas con marca, modelo, controlador, cabezas y velocidad. Fotos de los paneles. Recolección de archivos de diseño. Entrevistas con administración y supervisión.</p>
+          <span class="out"><b>Entregable</b> &nbsp;Especificación cerrada y decisión sobre la vía de captura.</span>
+        </div>
+      </div>
+      <div class="phase">
+        <div class="n">Fase 1</div>
+        <div>
+          <h3>Núcleo con captura manual</h3>
+          <p>Catálogo de máquinas, operarios con validación de DPI, diseños importados desde archivos DST y productos. Apertura y cierre de corridas desde la PWA con verificación de diseño. Reportes por máquina, operario y fecha.</p>
+          <span class="out"><b>Entregable</b> &nbsp;La producción deja de vivir en papel.</span>
+        </div>
+      </div>
+      <div class="phase">
+        <div class="n">Fase 2</div>
+        <div>
+          <h3>Nómina, inventario y mantenimiento</h3>
+          <p>Destajo con séptimo día y complemento automático. Descuentos y bonificaciones con autorización trazable. Cierre de período y constancias de pago. Inventario de hilo y prenda terminada. Preventivo disparado por puntadas.</p>
+          <span class="out"><b>Entregable</b> &nbsp;El sistema sustituye las hojas de cálculo de planilla.</span>
+        </div>
+      </div>
+      <div class="phase">
+        <div class="n">Fase 3</div>
+        <div>
+          <h3>Automatización de la captura</h3>
+          <p>Prueba de sensor retrofit en una máquina y, si responde, despliegue al resto. Tiempo real, detección de paros por causa, OEE por máquina.</p>
+          <span class="out"><b>Entregable</b> &nbsp;Desaparece el tecleo, aparece la visibilidad en vivo.</span>
+        </div>
+      </div>
+      <div class="phase">
+        <div class="n">Fase 4</div>
+        <div>
+          <h3>Extensiones</h3>
+          <p>Planeación por temporada con demanda estimada por feria patronal, costeo por prenda y, si el negocio lo pide, facturación electrónica FEL con certificador autorizado por la SAT.</p>
+          <span class="out"><b>Entregable</b> &nbsp;Del piso de planta hacia la administración comercial.</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Lo que ya está construido</h2>
+    <p class="dek">Herramientas de línea de comandos sin dependencias externas, probadas, y el esquema de base de datos completo. Todas viven en el repositorio junto a los diez documentos de la investigación.</p>
+
+    <div class="files">
+      <div class="file">
+        <code>db/schema.sql</code>
+        <span>Esquema PostgreSQL: operarios, máquinas, catálogo, corridas, lecturas del contador, nómina, inventario, mantenimiento, auditoría y vistas de reporte.</span>
+      </div>
+      <div class="file">
+        <code>tools/dst_info.py</code>
+        <span>Lee un archivo DST y extrae la firma del diseño: puntadas declaradas y contadas, cambios de color, saltos, dimensiones y hash. Alimenta el catálogo.</span>
+      </div>
+      <div class="file">
+        <code>tools/nomina.py</code>
+        <span>Liquida una quincena a destajo con séptimo día, complemento al mínimo, IGSS y costo patronal completo.</span>
+      </div>
+      <div class="file">
+        <code>tools/verificar_diseno.py</code>
+        <span>Verifica el diseño declarado contra las puntadas medidas y demuestra numéricamente por qué la inferencia sobre acumulados no sirve.</span>
+      </div>
+      <div class="file">
+        <code>tools/cui.py</code>
+        <span>Valida el CUI del DPI: 13 dígitos, dígito verificador por complemento 11 y tabla de municipios por departamento.</span>
+      </div>
+      <div class="file">
+        <code>docs/01 … 10</code>
+        <span>La investigación completa: captura, verificación, marco legal, arquitectura, mantenimiento, catálogo, reportes, riesgos y fuentes.</span>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <b>Fuentes principales</b> &nbsp;Código de Trabajo de Guatemala, Decreto 1441, artículos 88, 91, 92, 93, 102, 103, 116, 121, 126, 127 y 130 · Acuerdo Gubernativo 256-2025, salarios mínimos 2026 · Decreto 78-89, bonificación incentivo · Manuales Dahao BECS y documentación de red de Tajima · Especificación del formato DST de Tajima · RENAP, estructura del CUI.<br><br>
+    <b>Advertencia</b> &nbsp;Este documento resume una investigación técnica y normativa; no es asesoría legal. La parametrización de nómina debe revisarla un abogado laboralista o el contador de la empresa antes de usarse en producción.
+  </footer>
+
+</div>
+
+</body>
+</html>
