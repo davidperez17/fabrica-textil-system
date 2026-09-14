@@ -197,6 +197,14 @@ section.block{padding-block:4rem}
 .pay .p{font-size:.72rem;font-weight:700;color:var(--fg-3);text-transform:uppercase;letter-spacing:.06em}
 .pay .a{font-weight:800;color:var(--brand-dark);margin-top:.2rem;font-size:clamp(.8rem,3.2vw,1rem)}
 .pay .w{font-size:.75rem;color:var(--fg-2);margin-top:.15rem}
+.opts2{margin-top:.75rem;display:grid;gap:.6rem}
+@media(min-width:1100px){.opts2{grid-template-columns:1fr 1fr}}
+.opt2{border:1px solid var(--line-soft);border-radius:12px;padding:.9rem 1rem;background:var(--bg-2)}
+.opt2.sd{border-color:var(--brand);background:#fff}
+.opt2 .t{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--fg-3)}
+.opt2 .m{font-size:1.25rem;font-weight:800;color:var(--brand-dark);margin-top:.15rem}
+.opt2 .m small{font-size:.8rem;font-weight:500;color:var(--fg-2)}
+.opt2 p{font-size:.85rem;color:var(--fg-2);margin-top:.35rem}
 .plan-foot{padding:1.25rem 1.75rem 1.75rem;border-top:1px solid var(--line-soft);background:var(--bg-2)}
 .plan-foot .btn{width:100%}
 
@@ -206,7 +214,8 @@ section.block{padding-block:4rem}
 .cmp table{min-width:640px}
 .cmp th,.cmp td{padding:.85rem 1.1rem;border-bottom:1px solid var(--line-soft);text-align:left;vertical-align:top;font-size:.95rem}
 .cmp thead th{background:var(--brand-50);color:var(--brand-dark);font-weight:700;font-size:.85rem}
-.cmp tbody th{font-weight:600;color:var(--fg);width:34%}
+.cmp tbody th{font-weight:600;color:var(--fg);width:30%}
+.cmp thead th:nth-child(2),.cmp thead th:nth-child(3){width:35%}
 .cmp tr:last-child td,.cmp tr:last-child th{border-bottom:0}
 .cmp .y{color:var(--ok);font-weight:700}
 .cmp .n{color:var(--fg-3)}
@@ -342,7 +351,7 @@ footer .copy{font-size:.8rem;opacity:.7;grid-column:1/-1;border-top:1px solid #f
     <div class="stats">
       <div class="stat"><div class="n num">42</div><div class="l">pantallas diseñadas</div><div class="d">34 del panel administrativo y 8 de la app de piso</div></div>
       <div class="stat"><div class="n num">30</div><div class="l">tablas de base de datos</div><div class="d">esquema PostgreSQL completo, con auditoría</div></div>
-      <div class="stat"><div class="n num" data-k="totalA">Q42,000.00</div><div class="l">Compra total</div><div class="d">pago único en 3 partes · código incluido</div></div>
+      <div class="stat"><div class="n num" data-k="totalA">Q16,000.00</div><div class="l">Compra total</div><div class="d">pago único en 3 partes · código incluido</div></div>
       <div class="stat"><div class="n num" data-k="mensualB">Q400.00</div><div class="l">Suscripción por mes</div><div class="d">instancia exclusiva · sin comprar el código</div></div>
     </div>
   </div>
@@ -442,36 +451,44 @@ footer .copy{font-size:.8rem;opacity:.7;grid-column:1/-1;border-top:1px solid #f
           <div class="tag">Plan A · Compra total</div>
           <h3>El sistema es suyo</h3>
           <p>Licencia perpetua y entrega del código fuente completo. Puede alojarlo donde quiera, modificarlo o contratar a quien quiera para mantenerlo.</p>
-          <div class="price"><span class="amt num" data-k="totalA">Q42,000.00</span><span class="per">pago único</span></div>
-          <div class="price-sub">En tres pagos ligados a entregas. Servicios mensuales opcionales por <strong class="num" data-k="servicioA">Q350.00</strong>/mes.</div>
+          <div class="price"><span class="amt num" data-k="totalA">Q16,000.00</span><span class="per">pago único</span></div>
+          <div class="price-sub">En tres pagos ligados a entregas. Después, aprox. <strong class="num" data-k="mensualClienteA">Q350.00</strong>/mes si usted lo administra, o <strong class="num" data-k="mensualAdminA">Q400.00</strong>/mes administrado por Servicios Digitales.</div>
         </div>
         <div class="plan-body">
           <h4>Desglose</h4>
           <table class="bd">
             <thead><tr><th>Concepto</th><th class="r">Plazo</th><th class="r">Precio</th></tr></thead>
             <tbody>
-              <tr><td>Fase 0 · Levantamiento en planta<span class="sub">Inventario de máquinas, fotos de paneles, archivos de diseño, entrevistas, especificación cerrada</span></td><td class="r">1 semana</td><td class="r num" data-k="fase0">Q3,500.00</td></tr>
-              <tr><td>Fase 1 · Núcleo con captura manual<span class="sub">Operarios, máquinas, diseños, productos, app de piso con corridas, verificación de diseño, reportes de producción</span></td><td class="r">6 semanas</td><td class="r num" data-k="fase1">Q22,500.00</td></tr>
-              <tr><td>Fase 2 · Nómina, inventario y mantenimiento<span class="sub">Cálculo de destajo con séptimo día y complemento, cierre de período, constancias, inventario, mantenimiento por puntadas</span></td><td class="r">5 semanas</td><td class="r num" data-k="fase2">Q16,000.00</td></tr>
+              <tr><td>Fase 0 · Levantamiento en planta<span class="sub">Inventario de máquinas, fotos de paneles, archivos de diseño, entrevistas, especificación cerrada</span></td><td class="r">1 semana</td><td class="r num" data-k="fase0">Q1,500.00</td></tr>
+              <tr><td>Fase 1 · Núcleo con captura manual<span class="sub">Operarios, máquinas, diseños, productos, app de piso con corridas, verificación de diseño, reportes de producción</span></td><td class="r">6 semanas</td><td class="r num" data-k="fase1">Q8,500.00</td></tr>
+              <tr><td>Fase 2 · Nómina, inventario y mantenimiento<span class="sub">Cálculo de destajo con séptimo día y complemento, cierre de período, constancias, inventario, mantenimiento por puntadas</span></td><td class="r">5 semanas</td><td class="r num" data-k="fase2">Q6,000.00</td></tr>
               <tr><td>Entrega<span class="sub">Código fuente, documentación técnica, manual de usuario y dos sesiones de capacitación</span></td><td class="r">—</td><td class="r">Incluido</td></tr>
-              <tr class="total"><td colspan="2">Total</td><td class="r num" data-k="totalA">Q42,000.00</td></tr>
+              <tr class="total"><td colspan="2">Total</td><td class="r num" data-k="totalA">Q16,000.00</td></tr>
             </tbody>
           </table>
 
           <h4>Forma de pago</h4>
           <div class="pay">
-            <div><div class="p"><span data-k="pctA1">40</span> %</div><div class="a num" data-k="pagoA1">Q16,800.00</div><div class="w">al aceptar</div></div>
-            <div><div class="p"><span data-k="pctA2">30</span> %</div><div class="a num" data-k="pagoA2">Q12,600.00</div><div class="w">al entregar Fase 1</div></div>
-            <div><div class="p"><span data-k="pctA3">30</span> %</div><div class="a num" data-k="pagoA3">Q12,600.00</div><div class="w">al entregar Fase 2</div></div>
+            <div><div class="p"><span data-k="pctA1">40</span> %</div><div class="a num" data-k="pagoA1">Q6,400.00</div><div class="w">al aceptar</div></div>
+            <div><div class="p"><span data-k="pctA2">30</span> %</div><div class="a num" data-k="pagoA2">Q4,800.00</div><div class="w">al entregar Fase 1</div></div>
+            <div><div class="p"><span data-k="pctA3">30</span> %</div><div class="a num" data-k="pagoA3">Q4,800.00</div><div class="w">al entregar Fase 2</div></div>
           </div>
 
-          <h4>Servicios mensuales opcionales · <span class="num" data-k="servicioA">Q350.00</span>/mes</h4>
-          <ul class="inc">
-            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5L20 7"/></svg><span>Servidor dedicado, dominio y certificado SSL</span></li>
-            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5L20 7"/></svg><span>Respaldos diarios cifrados y prueba de restauración mensual</span></li>
-            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5L20 7"/></svg><span>Monitoreo y actualizaciones de seguridad</span></li>
-            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5L20 7"/></svg><span>Soporte por WhatsApp en horario laboral</span></li>
-            <li class="no"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 6l12 12M18 6 6 18"/></svg><span>Nuevas funciones: se cotizan por separado</span></li>
+          <h4>Después de la entrega · elija cómo se mantiene</h4>
+          <div class="opts2">
+            <div class="opt2">
+              <div class="t">Opción 1 · Lo administra usted</div>
+              <div class="m">aprox. <span class="num" data-k="mensualClienteA">Q350.00</span><small>/mes</small></div>
+              <p>Costo estimado de servidor, dominio y respaldos que usted paga directo al proveedor. Se entrega instalado y documentado; sin cuota a Servicios Digitales.</p>
+            </div>
+            <div class="opt2 sd">
+              <div class="t">Opción 2 · Lo administra Servicios Digitales</div>
+              <div class="m"><span class="num" data-k="mensualAdminA">Q400.00</span><small>/mes</small></div>
+              <p>Servidor, dominio y SSL, respaldos diarios cifrados, monitoreo, actualizaciones de seguridad y soporte por WhatsApp en horario laboral.</p>
+            </div>
+          </div>
+          <ul class="inc" style="margin-top:.75rem">
+            <li class="no"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 6l12 12M18 6 6 18"/></svg><span>Nuevas funciones: se cotizan por separado en ambas opciones</span></li>
           </ul>
 
           <h4>Garantía</h4>
@@ -539,21 +556,21 @@ footer .copy{font-size:.8rem;opacity:.7;grid-column:1/-1;border-top:1px solid #f
             <tr><th>Instancia exclusiva para la fábrica</th><td class="y">Sí</td><td class="y">Sí</td></tr>
             <tr><th>Alojarlo en servidor propio</th><td class="y">Sí</td><td class="n">No</td></tr>
             <tr><th>Modificarlo con otro proveedor</th><td class="y">Sí</td><td class="n">No</td></tr>
-            <tr><th>Hosting, respaldos y monitoreo</th><td>Con el servicio mensual opcional</td><td class="y">Incluido</td></tr>
-            <tr><th>Soporte</th><td>Con el servicio mensual opcional</td><td class="y">Incluido</td></tr>
+            <tr><th>Hosting, respaldos y monitoreo</th><td>Incluidos si lo administra Servicios Digitales (<span class="num" data-k="mensualAdminA">Q400.00</span>/mes); si lo administra usted, los paga directo al proveedor</td><td class="y">Incluido</td></tr>
+            <tr><th>Soporte</th><td>Incluido si lo administra Servicios Digitales</td><td class="y">Incluido</td></tr>
             <tr><th>Mejoras y nuevas funciones</th><td>Se cotizan por separado</td><td class="y">Incluidas</td></tr>
             <tr><th>Corrección de errores</th><td>90 días tras cada entrega</td><td class="y">Siempre</td></tr>
             <tr><th>Permanencia mínima</th><td>Ninguna</td><td><span data-k="permanenciaB">12</span> meses</td></tr>
-            <tr class="money"><th>Pago inicial</th><td class="num"><span data-k="pagoA1">Q16,800.00</span> <span style="font-weight:500;color:var(--fg-3)">(40 % de <span data-k="totalA">Q42,000.00</span>)</span></td><td class="num" data-k="puestaB">Q2,500.00</td></tr>
-            <tr class="money"><th>Mensualidad</th><td class="num"><span data-k="servicioA">Q350.00</span> <span style="font-weight:500;color:var(--fg-3)">(opcional)</span></td><td class="num" data-k="mensualB">Q400.00</td></tr>
-            <tr class="money"><th>Costo total año 1</th><td class="num" data-k="anio1A">Q46,200.00</td><td class="num" data-k="anio1B">Q7,300.00</td></tr>
-            <tr class="money"><th>Costo acumulado a 3 años</th><td class="num" data-k="anio3A">Q54,600.00</td><td class="num" data-k="anio3B">Q16,900.00</td></tr>
-            <tr class="money"><th>Costo acumulado a 5 años</th><td class="num" data-k="anio5A">Q63,000.00</td><td class="num" data-k="anio5B">Q26,500.00</td></tr>
+            <tr class="money"><th>Pago inicial</th><td class="num"><span data-k="pagoA1">Q6,400.00</span> <span style="font-weight:500;color:var(--fg-3)">(40 % de <span data-k="totalA">Q16,000.00</span>)</span></td><td class="num" data-k="puestaB">Q2,500.00</td></tr>
+            <tr class="money"><th>Mensualidad</th><td class="num">aprox. <span data-k="mensualClienteA">Q350.00</span> <span style="font-weight:500;color:var(--fg-3)">(lo administra usted)</span><br><span data-k="mensualAdminA">Q400.00</span> <span style="font-weight:500;color:var(--fg-3)">(administrado)</span></td><td class="num" data-k="mensualB">Q400.00</td></tr>
+            <tr class="money"><th>Costo total año 1</th><td class="num" data-k="anio1A">Q20,800.00</td><td class="num" data-k="anio1B">Q7,300.00</td></tr>
+            <tr class="money"><th>Costo acumulado a 3 años</th><td class="num" data-k="anio3A">Q30,400.00</td><td class="num" data-k="anio3B">Q16,900.00</td></tr>
+            <tr class="money"><th>Costo acumulado a 5 años</th><td class="num" data-k="anio5A">Q40,000.00</td><td class="num" data-k="anio5B">Q26,500.00</td></tr>
           </tbody>
         </table>
       </div>
     </div>
-    <p class="intro" style="font-size:.9rem;margin-top:1rem">Los acumulados del Plan A suponen contratar el servicio mensual opcional todos los meses. Fase 3 (sensores en máquina) y Fase 4 (facturación FEL, planeación por temporada) se cotizan por separado en ambos planes.</p>
+    <p class="intro" style="font-size:.9rem;margin-top:1rem">Los acumulados del Plan A suponen la opción administrada por Servicios Digitales (<span class="num" data-k="mensualAdminA">Q400.00</span>/mes); si usted lo administra, el gasto mensual es aproximado y se paga directo al proveedor. Fase 3 (sensores en máquina) y Fase 4 (facturación FEL, planeación por temporada) se cotizan por separado en ambos planes.</p>
   </div>
 </section>
 
@@ -658,7 +675,7 @@ footer .copy{font-size:.8rem;opacity:.7;grid-column:1/-1;border-top:1px solid #f
     <div class="accept">
       <p>Marque el plan elegido y firme. También puede aceptar por WhatsApp; con eso agendamos la Fase 0 en planta.</p>
       <div class="opts">
-        <div class="opt"><div class="box"></div><div><strong>Plan A · Compra total</strong><span><span class="num" data-k="totalA">Q42,000.00</span> en tres pagos · servicios mensuales opcionales de <span class="num" data-k="servicioA">Q350.00</span></span></div></div>
+        <div class="opt"><div class="box"></div><div><strong>Plan A · Compra total</strong><span><span class="num" data-k="totalA">Q16,000.00</span> en tres pagos · después aprox. <span class="num" data-k="mensualClienteA">Q350.00</span>/mes si lo administra usted o <span class="num" data-k="mensualAdminA">Q400.00</span>/mes administrado</span></div></div>
         <div class="opt"><div class="box"></div><div><strong>Plan B · Suscripción</strong><span><span class="num" data-k="mensualB">Q400.00</span> por mes · puesta en marcha de <span class="num" data-k="puestaB">Q2,500.00</span> · <span data-k="permanenciaB">12</span> meses mínimo</span></div></div>
       </div>
       <div class="sigs">
@@ -707,10 +724,11 @@ const COT = {
   notaImpuestos: "Precios no incluyen IVA",
   whatsapp: "50239607045",
   planA: {
-    fase0: 3500,
-    fase1: 22500,
-    fase2: 16000,
-    servicioMensual: 350,      // opcional
+    fase0: 1500,
+    fase1: 8500,
+    fase2: 6000,
+    mensualCliente: 350,       // aprox., lo paga el cliente a su proveedor
+    mensualAdministrado: 400,  // administrado por Servicios Digitales
     pagos: [40, 30, 30]        // % al aceptar, Fase 1, Fase 2
   },
   planB: {
@@ -730,14 +748,14 @@ const COT = {
     cliente: COT.cliente, clienteDetalle: COT.clienteDetalle,
     contacto: COT.contacto, notaImpuestos: COT.notaImpuestos,
     fase0: fmt(A.fase0), fase1: fmt(A.fase1), fase2: fmt(A.fase2),
-    totalA: fmt(totalA), servicioA: fmt(A.servicioMensual),
+    totalA: fmt(totalA), mensualClienteA: fmt(A.mensualCliente), mensualAdminA: fmt(A.mensualAdministrado),
     pctA1: A.pagos[0], pctA2: A.pagos[1], pctA3: A.pagos[2],
     pagoA1: fmt(totalA * A.pagos[0] / 100),
     pagoA2: fmt(totalA * A.pagos[1] / 100),
     pagoA3: fmt(totalA * A.pagos[2] / 100),
-    anio1A: fmt(totalA + A.servicioMensual * 12),
-    anio3A: fmt(totalA + A.servicioMensual * 36),
-    anio5A: fmt(totalA + A.servicioMensual * 60),
+    anio1A: fmt(totalA + A.mensualAdministrado * 12),
+    anio3A: fmt(totalA + A.mensualAdministrado * 36),
+    anio5A: fmt(totalA + A.mensualAdministrado * 60),
     mensualB: fmt(B.mensualidad), puestaB: fmt(B.puestaEnMarcha),
     permanenciaB: B.permanenciaMeses, maquinasB: B.maquinasIncluidas,
     anio1B: fmt(B.puestaEnMarcha + B.mensualidad * 12),
