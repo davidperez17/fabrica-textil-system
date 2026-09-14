@@ -35,7 +35,7 @@ GitHub Pages: <https://davidperez17.github.io/fabrica-textil-system/>
 
 | Página | Contenido |
 |---|---|
-| [`index.html`](https://davidperez17.github.io/fabrica-textil-system/) | **Cotización** con dos planes: compra total (código incluido) o suscripción mensual. Los montos se editan en el objeto `COT` al final del archivo y todo se recalcula. |
+| [`index.html`](https://davidperez17.github.io/fabrica-textil-system/) | **Cotización**: compra total del sistema con código fuente, y dos opciones de mantenimiento (por cuenta del cliente o mensual por Servicios Digitales). Los montos se editan en el objeto `COT` al final del archivo y todo se recalcula. |
 | [`informe.html`](https://davidperez17.github.io/fabrica-textil-system/informe.html) | Informe ejecutivo de la investigación |
 | [`brief.html`](https://davidperez17.github.io/fabrica-textil-system/brief.html) | Brief de diseño con el sistema de diseño en vivo |
 

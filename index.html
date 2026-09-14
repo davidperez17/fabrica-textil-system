@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Cotización · Sistema de administración para fábrica de bordado</title>
-<meta name="description" content="Cotización de Servicios Digitales Guatemala para el sistema de administración de una fábrica de bordado computarizado de trajes típicos: compra total o suscripción mensual.">
+<meta name="description" content="Cotización de Servicios Digitales Guatemala para el sistema de administración de una fábrica de bordado computarizado de trajes típicos: compra total con código fuente y mantenimiento mensual opcional.">
 <meta name="robots" content="noindex">
 <link rel="icon" href="assets/logo-icon.png" type="image/png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -170,6 +170,28 @@ section.block{padding-block:4rem}
   box-shadow:0 10px 30px #015afc12
 }
 .plan.featured{border-color:var(--brand);box-shadow:0 12px 36px #015afc26}
+.plan.single{margin-top:2.5rem}
+.plan-body.cols{display:grid;gap:1.5rem 2.5rem}
+@media(min-width:900px){.plan-body.cols{grid-template-columns:1.2fr 1fr}}
+.plan-body.cols h4:first-child{margin-top:0}
+.sub-h{font-size:clamp(1.3rem,2.4vw,1.75rem);font-weight:800;color:var(--brand-dark);margin-top:3.5rem}
+.mant{display:grid;gap:1.5rem;margin-top:1.75rem;align-items:stretch}
+@media(min-width:900px){.mant{grid-template-columns:1fr 1fr}}
+.mcard{display:flex;flex-direction:column;background:#fff;border:1px solid var(--line);border-radius:20px;padding:1.75rem;box-shadow:0 10px 30px #015afc12}
+.mcard.featured{border-color:var(--brand);box-shadow:0 12px 36px #015afc26}
+.mcard .tag{font-size:.75rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--brand)}
+.mcard h3{font-size:1.35rem;font-weight:800;color:var(--brand-dark);margin-top:.35rem}
+.mcard>p{color:var(--fg-2);margin-top:.5rem;font-size:.95rem}
+.mcard .price{margin-top:1rem}
+.mcard .price .amt{font-size:clamp(1.75rem,6vw,2.25rem)}
+.mcard .price .aprox{font-size:1rem;font-weight:600;color:var(--fg-2)}
+.mcard ul.inc{margin-top:1.1rem;display:grid;gap:.5rem;flex:1;align-content:start}
+.mcard ul.inc li{display:grid;grid-template-columns:auto 1fr;gap:.6rem;font-size:.95rem}
+.mcard ul.inc li svg{width:18px;height:18px;color:var(--ok);margin-top:.15rem}
+.mcard ul.inc li.no svg{color:var(--fg-3)}
+.mcard ul.inc li.no{color:var(--fg-2)}
+.mcard ul.inc li strong{color:var(--brand-dark)}
+.mcard .btn{margin-top:1.25rem;width:100%}
 .plan-head{padding:1.75rem 1.75rem 1.5rem;border-bottom:1px solid var(--line-soft)}
 .plan-head .tag{font-size:.75rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--brand)}
 .plan-head h3{font-size:1.6rem;font-weight:800;color:var(--brand-dark);margin-top:.35rem}
@@ -285,7 +307,7 @@ footer .copy{font-size:.8rem;opacity:.7;grid-column:1/-1;border-top:1px solid #f
   .top-right .btn{display:none}
   .hero{padding-block:2rem 4rem;border-radius:0}
   section.block{padding-block:2rem;break-inside:auto}
-  .plan,.check,.module,.phase,.card,.stat,.term,.accept,.cmp{break-inside:avoid;box-shadow:none}
+  .plan,.mcard,.check,.module,.phase,.card,.stat,.term,.accept,.cmp{break-inside:avoid;box-shadow:none}
   #planes,#condiciones{break-before:page}
   .plan-foot,.cta{display:none}
   a{color:inherit}
@@ -294,7 +316,8 @@ footer .copy{font-size:.8rem;opacity:.7;grid-column:1/-1;border-top:1px solid #f
   .wrap{padding-inline:0;max-width:none}
   .meta-card,.stats,.modules,.diff{grid-template-columns:repeat(4,1fr)}
   .checks,.surfaces,.two,.terms{grid-template-columns:1fr 1fr}
-  .plans{grid-template-columns:1fr}
+  .plans,.mant{grid-template-columns:1fr 1fr}
+  .mcard .btn{display:none}
   .timeline{grid-template-columns:repeat(3,1fr)}
   .hero{margin-inline:-14mm;padding-inline:14mm}
   .plan-head,.plan-body{padding:1.1rem 1.2rem}
@@ -347,12 +370,12 @@ footer .copy{font-size:.8rem;opacity:.7;grid-column:1/-1;border-top:1px solid #f
   <div class="wrap">
     <div class="kicker">En una página</div>
     <h2>Qué se cotiza</h2>
-    <p class="intro">Un sistema a la medida para administrar una fábrica de bordado computarizado de trajes típicos. La investigación, el diseño de la base de datos y el diseño de pantallas ya están terminados; lo que se cotiza es construirlo, ponerlo en marcha y sostenerlo. Se ofrecen dos formas de adquirirlo: <strong>comprarlo completo con su código</strong>, o <strong>usarlo por suscripción mensual</strong>.</p>
+    <p class="intro">Un sistema a la medida para administrar una fábrica de bordado computarizado de trajes típicos. La investigación, el diseño de la base de datos y el diseño de pantallas ya están terminados; lo que se cotiza es construirlo, ponerlo en marcha y sostenerlo. El sistema se entrega <strong>completo y con su código fuente</strong>; después de la entrega usted decide si lo mantiene por su cuenta o contrata el <strong>mantenimiento mensual</strong> de Servicios Digitales.</p>
     <div class="stats">
       <div class="stat"><div class="n num">42</div><div class="l">pantallas diseñadas</div><div class="d">34 del panel administrativo y 8 de la app de piso</div></div>
       <div class="stat"><div class="n num">30</div><div class="l">tablas de base de datos</div><div class="d">esquema PostgreSQL completo, con auditoría</div></div>
-      <div class="stat"><div class="n num" data-k="totalA">Q16,000.00</div><div class="l">Compra total</div><div class="d">pago único en 3 partes · código incluido</div></div>
-      <div class="stat"><div class="n num" data-k="mensualB">Q400.00</div><div class="l">Suscripción por mes</div><div class="d">instancia exclusiva · sin comprar el código</div></div>
+      <div class="stat"><div class="n num" data-k="total">Q16,000.00</div><div class="l">Inversión total</div><div class="d">pago único en 3 partes · código incluido</div></div>
+      <div class="stat"><div class="n num" data-k="mantSD">Q400.00</div><div class="l">Mantenimiento por mes</div><div class="d">opcional · <span data-k="fuertes">2</span> correcciones fuertes y <span data-k="basicas">2</span> básicas al mes</div></div>
     </div>
   </div>
 </section>
@@ -397,7 +420,7 @@ footer .copy{font-size:.8rem;opacity:.7;grid-column:1/-1;border-top:1px solid #f
         </div>
       </div>
     </div>
-    <div class="note">Este trabajo previo está incluido en los dos planes sin costo adicional. Su valor está en que el sistema se construye sobre una especificación cerrada, no sobre suposiciones.</div>
+    <div class="note">Este trabajo previo está incluido en el precio sin costo adicional. Su valor está en que el sistema se construye sobre una especificación cerrada, no sobre suposiciones.</div>
   </div>
 </section>
 
@@ -436,25 +459,23 @@ footer .copy{font-size:.8rem;opacity:.7;grid-column:1/-1;border-top:1px solid #f
   </div>
 </section>
 
-<!-- ================= PLANES ================= -->
+<!-- ================= INVERSIÓN ================= -->
 <section class="block alt" id="planes">
   <div class="wrap">
     <div class="kicker">Inversión</div>
-    <h2>Dos formas de adquirirlo</h2>
-    <p class="intro">El sistema que se construye es el mismo en ambos planes. La diferencia está en quién es dueño del código, cómo se paga y qué queda incluido mes a mes.</p>
+    <h2>Cuánto cuesta</h2>
+    <p class="intro">Un solo precio por el sistema completo, con su código fuente. Después de la entrega usted decide cómo se mantiene: por su cuenta, o con el mantenimiento mensual de Servicios Digitales.</p>
 
-    <div class="plans">
-
-      <!-- ---------- PLAN A ---------- -->
-      <article class="plan" id="plan-a">
-        <div class="plan-head">
-          <div class="tag">Plan A · Compra total</div>
-          <h3>El sistema es suyo</h3>
-          <p>Licencia perpetua y entrega del código fuente completo. Puede alojarlo donde quiera, modificarlo o contratar a quien quiera para mantenerlo.</p>
-          <div class="price"><span class="amt num" data-k="totalA">Q16,000.00</span><span class="per">pago único</span></div>
-          <div class="price-sub">En tres pagos ligados a entregas. Después, aprox. <strong class="num" data-k="mensualClienteA">Q350.00</strong>/mes si usted lo administra, o <strong class="num" data-k="mensualAdminA">Q400.00</strong>/mes administrado por Servicios Digitales.</div>
-        </div>
-        <div class="plan-body">
+    <article class="plan single" id="compra">
+      <div class="plan-head">
+        <div class="tag">Compra total · licencia perpetua</div>
+        <h3>El sistema es suyo</h3>
+        <p>Entrega del código fuente completo, documentación y capacitación. Puede alojarlo donde quiera, modificarlo o contratar a quien quiera para mantenerlo.</p>
+        <div class="price"><span class="amt num" data-k="total">Q16,000.00</span><span class="per">pago único</span></div>
+        <div class="price-sub">En tres pagos ligados a entregas. Incluye todo el trabajo previo ya realizado.</div>
+      </div>
+      <div class="plan-body cols">
+        <div>
           <h4>Desglose</h4>
           <table class="bd">
             <thead><tr><th>Concepto</th><th class="r">Plazo</th><th class="r">Precio</th></tr></thead>
@@ -463,114 +484,89 @@ footer .copy{font-size:.8rem;opacity:.7;grid-column:1/-1;border-top:1px solid #f
               <tr><td>Fase 1 · Núcleo con captura manual<span class="sub">Operarios, máquinas, diseños, productos, app de piso con corridas, verificación de diseño, reportes de producción</span></td><td class="r">6 semanas</td><td class="r num" data-k="fase1">Q8,500.00</td></tr>
               <tr><td>Fase 2 · Nómina, inventario y mantenimiento<span class="sub">Cálculo de destajo con séptimo día y complemento, cierre de período, constancias, inventario, mantenimiento por puntadas</span></td><td class="r">5 semanas</td><td class="r num" data-k="fase2">Q6,000.00</td></tr>
               <tr><td>Entrega<span class="sub">Código fuente, documentación técnica, manual de usuario y dos sesiones de capacitación</span></td><td class="r">—</td><td class="r">Incluido</td></tr>
-              <tr class="total"><td colspan="2">Total</td><td class="r num" data-k="totalA">Q16,000.00</td></tr>
+              <tr class="total"><td colspan="2">Total</td><td class="r num" data-k="total">Q16,000.00</td></tr>
             </tbody>
           </table>
-
+        </div>
+        <div>
           <h4>Forma de pago</h4>
           <div class="pay">
-            <div><div class="p"><span data-k="pctA1">40</span> %</div><div class="a num" data-k="pagoA1">Q6,400.00</div><div class="w">al aceptar</div></div>
-            <div><div class="p"><span data-k="pctA2">30</span> %</div><div class="a num" data-k="pagoA2">Q4,800.00</div><div class="w">al entregar Fase 1</div></div>
-            <div><div class="p"><span data-k="pctA3">30</span> %</div><div class="a num" data-k="pagoA3">Q4,800.00</div><div class="w">al entregar Fase 2</div></div>
+            <div><div class="p"><span data-k="pct1">40</span> %</div><div class="a num" data-k="pago1">Q6,400.00</div><div class="w">al aceptar</div></div>
+            <div><div class="p"><span data-k="pct2">30</span> %</div><div class="a num" data-k="pago2">Q4,800.00</div><div class="w">al entregar Fase 1</div></div>
+            <div><div class="p"><span data-k="pct3">30</span> %</div><div class="a num" data-k="pago3">Q4,800.00</div><div class="w">al entregar Fase 2</div></div>
           </div>
-
-          <h4>Después de la entrega · elija cómo se mantiene</h4>
-          <div class="opts2">
-            <div class="opt2">
-              <div class="t">Opción 1 · Lo administra usted</div>
-              <div class="m">aprox. <span class="num" data-k="mensualClienteA">Q350.00</span><small>/mes</small></div>
-              <p>Costo estimado de servidor, dominio y respaldos que usted paga directo al proveedor. Se entrega instalado y documentado; sin cuota a Servicios Digitales.</p>
-            </div>
-            <div class="opt2 sd">
-              <div class="t">Opción 2 · Lo administra Servicios Digitales</div>
-              <div class="m"><span class="num" data-k="mensualAdminA">Q400.00</span><small>/mes</small></div>
-              <p>Servidor, dominio y SSL, respaldos diarios cifrados, monitoreo, actualizaciones de seguridad y soporte por WhatsApp en horario laboral.</p>
-            </div>
-          </div>
-          <ul class="inc" style="margin-top:.75rem">
-            <li class="no"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 6l12 12M18 6 6 18"/></svg><span>Nuevas funciones: se cotizan por separado en ambas opciones</span></li>
-          </ul>
-
-          <h4>Garantía</h4>
+          <h4>Incluye</h4>
           <ul class="inc">
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5L20 7"/></svg><span>Código fuente completo y licencia perpetua</span></li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5L20 7"/></svg><span>Instalación en el servidor que usted elija</span></li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5L20 7"/></svg><span>Documentación técnica y manual de usuario</span></li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5L20 7"/></svg><span>Dos sesiones de capacitación: panel y app de piso</span></li>
             <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5L20 7"/></svg><span>90 días de corrección de errores sin costo después de cada entrega</span></li>
+            <li class="no"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 6l12 12M18 6 6 18"/></svg><span>Fase 3 (sensores) y Fase 4 (FEL, planeación): se cotizan aparte</span></li>
           </ul>
         </div>
-        <div class="plan-foot">
-          <a class="btn btn-primary" data-wa data-plan="A" href="https://wa.me/50239607045" target="_blank" rel="noopener">Elegir Plan A · Compra total</a>
-        </div>
+      </div>
+      <div class="plan-foot">
+        <a class="btn btn-primary" data-wa data-mant="" href="https://wa.me/50239607045" target="_blank" rel="noopener">Aceptar cotización por WhatsApp</a>
+      </div>
+    </article>
+
+    <h3 class="sub-h">Después de la entrega · cómo se mantiene</h3>
+    <p class="intro">El sistema es suyo en ambos casos. La diferencia es quién opera el servidor y quién hace los cambios que la fábrica vaya pidiendo.</p>
+    <div class="mant">
+      <article class="mcard" id="mant-cliente">
+        <div class="tag">Opción 1</div>
+        <h3>Lo administra usted</h3>
+        <div class="price"><span class="aprox">aprox.</span><span class="amt num" data-k="mantCliente">Q350.00</span><span class="per">/mes</span></div>
+        <p>Costo estimado de servidor, dominio y respaldos que usted paga directo al proveedor. No hay ninguna cuota a Servicios Digitales.</p>
+        <ul class="inc">
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5L20 7"/></svg><span>Se entrega instalado, documentado y con guía de respaldo y restauración</span></li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5L20 7"/></svg><span>Garantía de 90 días por cada entrega</span></li>
+            <li class="no"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 6l12 12M18 6 6 18"/></svg><span>Correcciones y cambios después de la garantía: se cotizan por separado</span></li>
+            <li class="no"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 6l12 12M18 6 6 18"/></svg><span>Servidor, respaldos, monitoreo y soporte: por su cuenta</span></li>
+        </ul>
+        <a class="btn btn-ghost" data-wa data-mant="cliente" href="https://wa.me/50239607045" target="_blank" rel="noopener">Aceptar · lo administro yo</a>
       </article>
-
-      <!-- ---------- PLAN B ---------- -->
-      <article class="plan featured" id="plan-b">
-        <div class="plan-head">
-          <div class="tag">Plan B · Suscripción</div>
-          <h3>Use el sistema, sin comprarlo</h3>
-          <p>Una instancia exclusiva para su fábrica —su base de datos, su dominio— con todo incluido por una mensualidad fija. El código sigue siendo de Servicios Digitales.</p>
-          <div class="price"><span class="amt num" data-k="mensualB">Q400.00</span><span class="per">por mes</span></div>
-          <div class="price-sub">Más una puesta en marcha única de <strong class="num" data-k="puestaB">Q2,500.00</strong>. Permanencia mínima de <span data-k="permanenciaB">12</span> meses.</div>
-        </div>
-        <div class="plan-body">
-          <h4>Desglose</h4>
-          <table class="bd">
-            <thead><tr><th>Concepto</th><th class="r">Cuándo</th><th class="r">Precio</th></tr></thead>
-            <tbody>
-              <tr><td>Puesta en marcha<span class="sub">Levantamiento en planta, configuración de la instancia, carga inicial de máquinas, operarios y diseños, capacitación</span></td><td class="r">al aceptar</td><td class="r num" data-k="puestaB">Q2,500.00</td></tr>
-              <tr><td>Mensualidad<span class="sub">Se cobra a partir de la entrega de la Fase 1, cuando el sistema ya está en uso</span></td><td class="r">cada mes</td><td class="r num" data-k="mensualB">Q400.00</td></tr>
-              <tr class="total"><td colspan="2">Primer año (<span data-k="permanenciaB">12</span> meses)</td><td class="r num" data-k="anio1B">Q7,300.00</td></tr>
-            </tbody>
-          </table>
-
-          <h4>La mensualidad incluye</h4>
-          <ul class="inc">
-            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5L20 7"/></svg><span>Instancia exclusiva: sus datos no se comparten con nadie</span></li>
-            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5L20 7"/></svg><span>Servidor, dominio, SSL, respaldos diarios y monitoreo</span></li>
-            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5L20 7"/></svg><span>Actualizaciones y mejoras continuas del sistema</span></li>
+      <article class="mcard featured" id="mant-sd">
+        <div class="tag">Opción 2 · recomendada</div>
+        <h3>Mantenimiento por Servicios Digitales</h3>
+        <div class="price"><span class="amt num" data-k="mantSD">Q400.00</span><span class="per">/mes</span></div>
+        <p>Nosotros operamos el sistema y lo vamos ajustando a su fábrica mes a mes.</p>
+        <ul class="inc">
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5L20 7"/></svg><span><strong><span data-k="fuertes">2</span> correcciones fuertes al mes</strong> — cambios de lógica, cálculos, reportes o pantallas</span></li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5L20 7"/></svg><span><strong><span data-k="basicas">2</span> correcciones básicas al mes</strong> — textos, campos, permisos, catálogos o formatos</span></li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5L20 7"/></svg><span>Servidor, dominio y certificado SSL</span></li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5L20 7"/></svg><span>Respaldos diarios cifrados y prueba de restauración mensual</span></li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5L20 7"/></svg><span>Monitoreo y actualizaciones de seguridad</span></li>
             <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5L20 7"/></svg><span>Soporte por WhatsApp en horario laboral</span></li>
-            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5L20 7"/></svg><span>Usuarios del panel sin límite · hasta <span data-k="maquinasB">20</span> máquinas (ampliable)</span></li>
-            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5L20 7"/></svg><span>Sus datos son suyos: exportación en Excel cuando la pida y al terminar</span></li>
-            <li class="no"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 6l12 12M18 6 6 18"/></svg><span>No incluye código fuente ni alojamiento propio</span></li>
-          </ul>
-
-          <h4>Condiciones</h4>
-          <ul class="inc">
-            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5L20 7"/></svg><span>Precio fijo durante los primeros <span data-k="permanenciaB">12</span> meses; después, mes a mes con 30 días de aviso</span></li>
-            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5L20 7"/></svg><span>Puede pasar al Plan A en cualquier momento: se descuenta la puesta en marcha pagada</span></li>
-          </ul>
-        </div>
-        <div class="plan-foot">
-          <a class="btn btn-primary" data-wa data-plan="B" href="https://wa.me/50239607045" target="_blank" rel="noopener">Elegir Plan B · Suscripción</a>
-        </div>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5L20 7"/></svg><span>Sin permanencia: se cancela con 30 días de aviso</span></li>
+        </ul>
+        <a class="btn btn-primary" data-wa data-mant="sd" href="https://wa.me/50239607045" target="_blank" rel="noopener">Aceptar · con mantenimiento</a>
       </article>
-
     </div>
 
-    <!-- ---------- COMPARACIÓN ---------- -->
     <div class="cmp">
       <div class="cmp-scroll">
         <table>
-          <thead><tr><th>Comparación</th><th>Plan A · Compra total</th><th>Plan B · Suscripción</th></tr></thead>
+          <thead><tr><th>Comparación</th><th>Lo administra usted</th><th>Mantenimiento por Servicios Digitales</th></tr></thead>
           <tbody>
-            <tr><th>Propiedad del código fuente</th><td class="y">Del cliente</td><td class="n">De Servicios Digitales</td></tr>
-            <tr><th>Licencia de uso</th><td>Perpetua</td><td>Mientras la suscripción esté activa</td></tr>
-            <tr><th>Instancia exclusiva para la fábrica</th><td class="y">Sí</td><td class="y">Sí</td></tr>
-            <tr><th>Alojarlo en servidor propio</th><td class="y">Sí</td><td class="n">No</td></tr>
-            <tr><th>Modificarlo con otro proveedor</th><td class="y">Sí</td><td class="n">No</td></tr>
-            <tr><th>Hosting, respaldos y monitoreo</th><td>Incluidos si lo administra Servicios Digitales (<span class="num" data-k="mensualAdminA">Q400.00</span>/mes); si lo administra usted, los paga directo al proveedor</td><td class="y">Incluido</td></tr>
-            <tr><th>Soporte</th><td>Incluido si lo administra Servicios Digitales</td><td class="y">Incluido</td></tr>
-            <tr><th>Mejoras y nuevas funciones</th><td>Se cotizan por separado</td><td class="y">Incluidas</td></tr>
-            <tr><th>Corrección de errores</th><td>90 días tras cada entrega</td><td class="y">Siempre</td></tr>
-            <tr><th>Permanencia mínima</th><td>Ninguna</td><td><span data-k="permanenciaB">12</span> meses</td></tr>
-            <tr class="money"><th>Pago inicial</th><td class="num"><span data-k="pagoA1">Q6,400.00</span> <span style="font-weight:500;color:var(--fg-3)">(40 % de <span data-k="totalA">Q16,000.00</span>)</span></td><td class="num" data-k="puestaB">Q2,500.00</td></tr>
-            <tr class="money"><th>Mensualidad</th><td class="num">aprox. <span data-k="mensualClienteA">Q350.00</span> <span style="font-weight:500;color:var(--fg-3)">(lo administra usted)</span><br><span data-k="mensualAdminA">Q400.00</span> <span style="font-weight:500;color:var(--fg-3)">(administrado)</span></td><td class="num" data-k="mensualB">Q400.00</td></tr>
-            <tr class="money"><th>Costo total año 1</th><td class="num" data-k="anio1A">Q20,800.00</td><td class="num" data-k="anio1B">Q7,300.00</td></tr>
-            <tr class="money"><th>Costo acumulado a 3 años</th><td class="num" data-k="anio3A">Q30,400.00</td><td class="num" data-k="anio3B">Q16,900.00</td></tr>
-            <tr class="money"><th>Costo acumulado a 5 años</th><td class="num" data-k="anio5A">Q40,000.00</td><td class="num" data-k="anio5B">Q26,500.00</td></tr>
+            <tr><th>Propiedad del código fuente</th><td class="y">Del cliente</td><td class="y">Del cliente</td></tr>
+            <tr><th>Quién opera el servidor</th><td>Usted</td><td>Servicios Digitales</td></tr>
+            <tr><th>Servidor, dominio y SSL</th><td>Los paga usted al proveedor</td><td class="y">Incluidos</td></tr>
+            <tr><th>Respaldos, monitoreo y seguridad</th><td class="n">Por su cuenta</td><td class="y">Incluidos</td></tr>
+            <tr><th>Correcciones fuertes al mes</th><td class="n">Se cotizan</td><td class="y"><span data-k="fuertes">2</span> incluidas</td></tr>
+            <tr><th>Correcciones básicas al mes</th><td class="n">Se cotizan</td><td class="y"><span data-k="basicas">2</span> incluidas</td></tr>
+            <tr><th>Soporte por WhatsApp</th><td>Durante la garantía</td><td class="y">Siempre</td></tr>
+            <tr><th>Módulos nuevos (Fases 3 y 4)</th><td>Se cotizan</td><td>Se cotizan</td></tr>
+            <tr><th>Permanencia</th><td>Ninguna</td><td>Ninguna · 30 días de aviso</td></tr>
+            <tr class="money"><th>Costo mensual</th><td class="num">aprox. <span data-k="mantCliente">Q350.00</span></td><td class="num" data-k="mantSD">Q400.00</td></tr>
+            <tr class="money"><th>Costo anual de mantenimiento</th><td class="num">aprox. <span data-k="anualCliente">Q4,200.00</span></td><td class="num" data-k="anualSD">Q4,800.00</td></tr>
+            <tr class="money"><th>Inversión total del primer año</th><td class="num">aprox. <span data-k="anio1Cliente">Q20,200.00</span></td><td class="num" data-k="anio1SD">Q20,800.00</td></tr>
           </tbody>
         </table>
       </div>
     </div>
-    <p class="intro" style="font-size:.9rem;margin-top:1rem">Los acumulados del Plan A suponen la opción administrada por Servicios Digitales (<span class="num" data-k="mensualAdminA">Q400.00</span>/mes); si usted lo administra, el gasto mensual es aproximado y se paga directo al proveedor. Fase 3 (sensores en máquina) y Fase 4 (facturación FEL, planeación por temporada) se cotizan por separado en ambos planes.</p>
+    <p class="intro" style="font-size:.9rem;margin-top:1rem">Una corrección fuerte modifica lógica, cálculos, reportes o pantallas existentes; una básica ajusta textos, campos, permisos, catálogos o formatos. Las correcciones del mes no se acumulan al siguiente; lo que exceda se cotiza por separado. El mantenimiento se cobra desde que el sistema entra en uso (entrega de la Fase 1).</p>
   </div>
 </section>
 
@@ -579,7 +575,7 @@ footer .copy{font-size:.8rem;opacity:.7;grid-column:1/-1;border-top:1px solid #f
   <div class="wrap">
     <div class="kicker">Entrega</div>
     <h2>Cronograma de trabajo</h2>
-    <p class="intro">Doce semanas en tres fases cerradas, cada una con un entregable que ya es útil por sí solo. El cronograma es el mismo para ambos planes.</p>
+    <p class="intro">Doce semanas en tres fases cerradas, cada una con un entregable que ya es útil por sí solo. El cronograma no cambia según la opción de mantenimiento.</p>
     <div class="bar"><div>Sem. 1</div><div>Semanas 2 – 7</div><div>Semanas 8 – 12</div></div>
     <div class="timeline">
       <div class="phase">
@@ -603,7 +599,7 @@ footer .copy{font-size:.8rem;opacity:.7;grid-column:1/-1;border-top:1px solid #f
           <li>Verificación de diseño y bandeja de discrepancias</li>
           <li>Tablero en vivo y reportes de producción por rango de fechas</li>
         </ul>
-        <div class="out"><strong>Entregable:</strong> la producción deja de vivir en papel. En el Plan B, aquí empieza la mensualidad.</div>
+        <div class="out"><strong>Entregable:</strong> la producción deja de vivir en papel. Si contrata el mantenimiento, aquí empieza la mensualidad.</div>
       </div>
       <div class="phase">
         <div class="w">Fase 2 · Semanas 8 – 12</div>
@@ -642,7 +638,7 @@ footer .copy{font-size:.8rem;opacity:.7;grid-column:1/-1;border-top:1px solid #f
           <li>Teléfonos o tabletas Android para el piso de planta y la red WiFi de la fábrica.</li>
           <li>Impresión de gafetes y etiquetas QR (el sistema los genera listos para imprimir).</li>
           <li>Disponibilidad del personal para el levantamiento en planta y las capacitaciones.</li>
-          <li>En el Plan A, si decide alojarlo por su cuenta: servidor, dominio y respaldos.</li>
+          <li>Si decide administrarlo por su cuenta: servidor, dominio, respaldos y su monitoreo.</li>
         </ul>
       </div>
     </div>
@@ -656,12 +652,12 @@ footer .copy{font-size:.8rem;opacity:.7;grid-column:1/-1;border-top:1px solid #f
     <h2>Términos de esta cotización</h2>
     <div class="terms">
       <div class="term"><strong>Validez</strong><p>Esta cotización es válida hasta el <span data-k="validez">14 de octubre de 2026</span>. Los precios están en quetzales. <span data-k="notaImpuestos">Precios no incluyen IVA</span>. Se emite factura.</p></div>
-      <div class="term"><strong>Formas de pago</strong><p>Transferencia bancaria o tarjeta de crédito y débito (procesado de forma segura por Recurrente). En el Plan B la mensualidad se cobra por adelantado, los primeros cinco días de cada mes.</p></div>
-      <div class="term"><strong>Propiedad intelectual</strong><p>Plan A: al recibir el último pago, el cliente es dueño del código y de la licencia a perpetuidad. Plan B: el código es propiedad de Servicios Digitales; el cliente es dueño de sus datos en todo momento.</p></div>
+      <div class="term"><strong>Formas de pago</strong><p>Transferencia bancaria o tarjeta de crédito y débito (procesado de forma segura por Recurrente). El mantenimiento mensual, si se contrata, se cobra por adelantado los primeros cinco días de cada mes.</p></div>
+      <div class="term"><strong>Propiedad intelectual</strong><p>Al recibir el último pago, el cliente es dueño del código fuente y de la licencia a perpetuidad. Los datos son del cliente en todo momento, contrate o no el mantenimiento.</p></div>
       <div class="term"><strong>Datos personales y confidencialidad</strong><p>DPI, direcciones y teléfonos de operarios se almacenan cifrados, visibles solo para dueño y RRHH, con auditoría de cada acceso. Servicios Digitales no comparte información del cliente con terceros.</p></div>
       <div class="term"><strong>Cambios de alcance</strong><p>Todo lo descrito en «Qué incluye el sistema» está cubierto. Lo que se pida fuera de eso se cotiza antes de hacerse; nunca se cobra sin acuerdo previo.</p></div>
-      <div class="term"><strong>Suspensión y cancelación (Plan B)</strong><p>Con 15 días de mora el acceso se suspende; los datos se conservan 60 días más y se entregan en Excel al cancelar. Terminada la permanencia mínima, se cancela con 30 días de aviso.</p></div>
-      <div class="term"><strong>Garantía</strong><p>Corrección sin costo de cualquier error de funcionamiento durante 90 días después de cada entrega (Plan A) o durante toda la suscripción (Plan B).</p></div>
+      <div class="term"><strong>Mantenimiento mensual</strong><p>Se contrata mes a mes, sin permanencia, y se cancela con 30 días de aviso. Al cancelar se entrega un respaldo completo y el acceso al servidor para que usted o quien designe continúe. Las correcciones del mes no se acumulan.</p></div>
+      <div class="term"><strong>Garantía</strong><p>Corrección sin costo de cualquier error de funcionamiento durante 90 días después de cada entrega. Con el mantenimiento contratado, la corrección de errores no consume las correcciones del mes.</p></div>
       <div class="term"><strong>Dependencia de la Fase 0</strong><p>Los plazos y precios suponen que el levantamiento en planta confirma los supuestos de la investigación. Si cambian de forma sustancial, se ajusta la cotización de común acuerdo antes de continuar.</p></div>
     </div>
   </div>
@@ -673,10 +669,10 @@ footer .copy{font-size:.8rem;opacity:.7;grid-column:1/-1;border-top:1px solid #f
     <div class="kicker">Siguiente paso</div>
     <h2>Aceptación</h2>
     <div class="accept">
-      <p>Marque el plan elegido y firme. También puede aceptar por WhatsApp; con eso agendamos la Fase 0 en planta.</p>
+      <p>Marque la opción de mantenimiento y firme. También puede aceptar por WhatsApp; con eso agendamos la Fase 0 en planta.</p>
       <div class="opts">
-        <div class="opt"><div class="box"></div><div><strong>Plan A · Compra total</strong><span><span class="num" data-k="totalA">Q16,000.00</span> en tres pagos · después aprox. <span class="num" data-k="mensualClienteA">Q350.00</span>/mes si lo administra usted o <span class="num" data-k="mensualAdminA">Q400.00</span>/mes administrado</span></div></div>
-        <div class="opt"><div class="box"></div><div><strong>Plan B · Suscripción</strong><span><span class="num" data-k="mensualB">Q400.00</span> por mes · puesta en marcha de <span class="num" data-k="puestaB">Q2,500.00</span> · <span data-k="permanenciaB">12</span> meses mínimo</span></div></div>
+        <div class="opt"><div class="box"></div><div><strong>Compra total del sistema</strong><span><span class="num" data-k="total">Q16,000.00</span> en tres pagos · código fuente incluido</span></div></div>
+        <div class="opt"><div class="box"></div><div><strong>Mantenimiento por Servicios Digitales</strong><span><span class="num" data-k="mantSD">Q400.00</span> por mes · <span data-k="fuertes">2</span> correcciones fuertes y <span data-k="basicas">2</span> básicas al mes · sin permanencia</span></div></div>
       </div>
       <div class="sigs">
         <div class="sig"><strong>Por el cliente</strong>Nombre, cargo, DPI y fecha</div>
@@ -723,44 +719,38 @@ const COT = {
   contacto: "David Pérez · +502 3960 7045",
   notaImpuestos: "Precios no incluyen IVA",
   whatsapp: "50239607045",
-  planA: {
+  inversion: {
     fase0: 1500,
     fase1: 8500,
     fase2: 6000,
-    mensualCliente: 350,       // aprox., lo paga el cliente a su proveedor
-    mensualAdministrado: 400,  // administrado por Servicios Digitales
     pagos: [40, 30, 30]        // % al aceptar, Fase 1, Fase 2
   },
-  planB: {
-    mensualidad: 400,
-    puestaEnMarcha: 2500,
-    permanenciaMeses: 12,
-    maquinasIncluidas: 20
+  mantenimiento: {
+    cliente: 350,              // aprox., lo paga el cliente a su proveedor
+    sd: 400,                   // mantenimiento por Servicios Digitales
+    fuertes: 2,                // correcciones fuertes incluidas al mes
+    basicas: 2                 // correcciones básicas incluidas al mes
   }
 };
 
 (function () {
-  const A = COT.planA, B = COT.planB;
-  const totalA = A.fase0 + A.fase1 + A.fase2;
+  const I = COT.inversion, M = COT.mantenimiento;
+  const total = I.fase0 + I.fase1 + I.fase2;
   const fmt = n => "Q" + n.toLocaleString("es-GT", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
   const v = {
     numero: COT.numero, fecha: COT.fecha, validez: COT.validez,
     cliente: COT.cliente, clienteDetalle: COT.clienteDetalle,
     contacto: COT.contacto, notaImpuestos: COT.notaImpuestos,
-    fase0: fmt(A.fase0), fase1: fmt(A.fase1), fase2: fmt(A.fase2),
-    totalA: fmt(totalA), mensualClienteA: fmt(A.mensualCliente), mensualAdminA: fmt(A.mensualAdministrado),
-    pctA1: A.pagos[0], pctA2: A.pagos[1], pctA3: A.pagos[2],
-    pagoA1: fmt(totalA * A.pagos[0] / 100),
-    pagoA2: fmt(totalA * A.pagos[1] / 100),
-    pagoA3: fmt(totalA * A.pagos[2] / 100),
-    anio1A: fmt(totalA + A.mensualAdministrado * 12),
-    anio3A: fmt(totalA + A.mensualAdministrado * 36),
-    anio5A: fmt(totalA + A.mensualAdministrado * 60),
-    mensualB: fmt(B.mensualidad), puestaB: fmt(B.puestaEnMarcha),
-    permanenciaB: B.permanenciaMeses, maquinasB: B.maquinasIncluidas,
-    anio1B: fmt(B.puestaEnMarcha + B.mensualidad * 12),
-    anio3B: fmt(B.puestaEnMarcha + B.mensualidad * 36),
-    anio5B: fmt(B.puestaEnMarcha + B.mensualidad * 60)
+    fase0: fmt(I.fase0), fase1: fmt(I.fase1), fase2: fmt(I.fase2),
+    total: fmt(total),
+    pct1: I.pagos[0], pct2: I.pagos[1], pct3: I.pagos[2],
+    pago1: fmt(total * I.pagos[0] / 100),
+    pago2: fmt(total * I.pagos[1] / 100),
+    pago3: fmt(total * I.pagos[2] / 100),
+    mantCliente: fmt(M.cliente), mantSD: fmt(M.sd),
+    fuertes: M.fuertes, basicas: M.basicas,
+    anualCliente: fmt(M.cliente * 12), anualSD: fmt(M.sd * 12),
+    anio1Cliente: fmt(total + M.cliente * 12), anio1SD: fmt(total + M.sd * 12)
   };
   document.querySelectorAll("[data-k]").forEach(el => {
     const k = el.getAttribute("data-k");
@@ -768,10 +758,12 @@ const COT = {
   });
   document.title = "Cotización " + COT.numero + " · Sistema para fábrica de bordado";
   document.querySelectorAll("a[data-wa]").forEach(a => {
-    const plan = a.getAttribute("data-plan");
-    const msg = plan
-      ? `Hola, acepto el Plan ${plan} de la cotización ${COT.numero} (sistema para fábrica de bordado). ¿Cuándo agendamos la Fase 0?`
-      : `Hola, tengo una consulta sobre la cotización ${COT.numero} (sistema para fábrica de bordado).`;
+    const mant = a.getAttribute("data-mant");
+    let msg;
+    if (mant === "sd") msg = `Hola, acepto la cotización ${COT.numero} (sistema para fábrica de bordado) con el mantenimiento mensual de Servicios Digitales. ¿Cuándo agendamos la Fase 0?`;
+    else if (mant === "cliente") msg = `Hola, acepto la cotización ${COT.numero} (sistema para fábrica de bordado); el mantenimiento lo administramos nosotros. ¿Cuándo agendamos la Fase 0?`;
+    else if (mant === "") msg = `Hola, acepto la cotización ${COT.numero} (sistema para fábrica de bordado). ¿Cuándo agendamos la Fase 0?`;
+    else msg = `Hola, tengo una consulta sobre la cotización ${COT.numero} (sistema para fábrica de bordado).`;
     a.href = "https://wa.me/" + COT.whatsapp + "?text=" + encodeURIComponent(msg);
   });
 })();
