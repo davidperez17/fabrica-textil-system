@@ -277,6 +277,7 @@ section.block{padding-block:4rem}
 @media(min-width:700px){.accept .opts{grid-template-columns:1fr 1fr}}
 .opt{display:flex;gap:.75rem;align-items:flex-start;padding:1rem;border:1px solid var(--line);border-radius:12px;cursor:pointer;user-select:none}
 .opt:has(.box:checked){border-color:var(--brand);background:var(--brand-50)}
+.opt.fixed{cursor:default;background:var(--bg-2)}
 .opt .box{appearance:none;-webkit-appearance:none;width:20px;height:20px;border:2px solid var(--brand);border-radius:5px;flex:none;margin:.1rem 0 0;background:#fff center/14px no-repeat;cursor:pointer;print-color-adjust:exact;-webkit-print-color-adjust:exact}
 .opt .box:checked{background-color:var(--brand);background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23fff' stroke-width='3.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m5 12 5 5L20 7'/%3E%3C/svg%3E")}
 .opt .box:focus-visible{outline:3px solid var(--brand-50);outline-offset:2px}
@@ -415,7 +416,7 @@ footer .copy{font-size:.8rem;opacity:.7;grid-column:1/-1;border-top:1px solid #f
         </div>
       </div>
     </div>
-    <div class="note">Este trabajo previo está incluido en el precio sin costo adicional. Su valor está en que el sistema se construye sobre una especificación cerrada, no sobre suposiciones.</div>
+    <div class="note">Este trabajo previo está incluido en el precio sin costo adicional. Su valor está en que el sistema se construye sobre un negocio ya estudiado, no sobre suposiciones.</div>
   </div>
 </section>
 
@@ -474,7 +475,7 @@ footer .copy{font-size:.8rem;opacity:.7;grid-column:1/-1;border-top:1px solid #f
           <thead><tr><th>Comparación</th><th>Servidor propio en la fábrica</th><th>En la nube · recomendado</th></tr></thead>
           <tbody>
             <tr><th>Inversión inicial en equipo</th><td class="n">aprox. Q5,000 a Q8,000 (equipo, UPS, instalación)</td><td class="y">Q0</td></tr>
-            <tr><th>Costo mensual</th><td>Electricidad 24 h, internet con IP fija, reposición del equipo</td><td class="y">Base de datos y despliegue, aprox. <span data-k="mantCliente">Q150.00</span></td></tr>
+            <tr><th>Costo mensual</th><td>Electricidad 24 h, internet con IP fija, reposición del equipo</td><td class="y">Base de datos, despliegue y dominio, aprox. <span data-k="mantCliente">Q150.00</span></td></tr>
             <tr><th>Acceso desde fuera de la fábrica</th><td class="n">Requiere VPN o IP fija y abrir puertos</td><td class="y">Desde cualquier lugar, con usuario y contraseña</td></tr>
             <tr><th>Si se va la luz en la fábrica</th><td class="n">El sistema se apaga; la app de piso trabaja sola hasta que vuelva</td><td class="y">Sigue en línea; la app de piso trabaja sola y sincroniza</td></tr>
             <tr><th>Respaldos</th><td class="n">Manuales, en el mismo edificio</td><td class="y">Diarios y automáticos, fuera de la fábrica</td></tr>
@@ -500,7 +501,7 @@ footer .copy{font-size:.8rem;opacity:.7;grid-column:1/-1;border-top:1px solid #f
       <div class="plan-head">
         <div class="tag">Compra total · licencia perpetua</div>
         <h3>El sistema es suyo</h3>
-        <p>Entrega del código fuente completo, documentación y capacitación. Puede alojarlo donde quiera, modificarlo o contratar a quien quiera para mantenerlo.</p>
+        <p>Entrega del código fuente completo, documentación y capacitación. Puede modificarlo o contratar a quien quiera para mantenerlo.</p>
         <div class="price"><span class="amt num" data-k="total">Q16,000.00</span><span class="per">pago único</span></div>
         <div class="price-sub">En tres pagos ligados a entregas. Seis semanas de programación una vez acordados los últimos detalles. Incluye todo el trabajo previo ya realizado.</div>
       </div>
@@ -691,8 +692,8 @@ footer .copy{font-size:.8rem;opacity:.7;grid-column:1/-1;border-top:1px solid #f
     <div class="accept">
       <p>Si le interesa, indique la opción de mantenimiento que prefiere y escríbanos por WhatsApp. La aceptación se formaliza en una reunión presencial, donde se firma el contrato y se agenda la Fase 0 en planta.</p>
       <div class="opts">
-        <label class="opt"><input type="checkbox" class="box" id="chk-compra" checked><div><strong>Compra total del sistema</strong><span><span class="num" data-k="total">Q16,000.00</span> en tres pagos · código fuente incluido</span></div></label>
-        <label class="opt"><input type="checkbox" class="box" id="chk-mant"><div><strong>Mantenimiento por Servicios Digitales</strong><span><span class="num" data-k="mantSD">Q500.00</span> por mes · <span data-k="fuertes">2</span> correcciones fuertes y <span data-k="basicas">2</span> básicas al mes · sin permanencia</span></div></label>
+        <div class="opt fixed"><div><strong>Compra total del sistema</strong><span><span class="num" data-k="total">Q16,000.00</span> en tres pagos · código fuente incluido</span></div></div>
+        <label class="opt"><input type="checkbox" class="box" id="chk-mant"><div><strong>Me interesa el mantenimiento por Servicios Digitales</strong><span><span class="num" data-k="mantSD">Q500.00</span> por mes · <span data-k="fuertes">2</span> correcciones fuertes y <span data-k="basicas">2</span> básicas al mes · sin permanencia</span></div></label>
       </div>
       <div class="cta">
         <a class="btn btn-wa" data-wa data-mant="" id="wa-aceptar" href="https://wa.me/50239607045" target="_blank" rel="noopener">
