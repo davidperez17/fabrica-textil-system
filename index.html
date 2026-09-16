@@ -370,7 +370,7 @@ footer .copy{font-size:.8rem;opacity:.7;grid-column:1/-1;border-top:1px solid #f
   <div class="wrap">
     <div class="kicker">En una página</div>
     <h2>Qué se cotiza</h2>
-    <p class="intro">Un sistema a la medida para administrar una fábrica de bordado computarizado de trajes típicos. La investigación, el diseño de la base de datos y el diseño de pantallas ya están terminados; lo que se cotiza es construirlo, ponerlo en marcha y sostenerlo. El sistema se entrega <strong>completo y con su código fuente</strong>; después de la entrega usted decide si lo mantiene por su cuenta o contrata el <strong>mantenimiento mensual</strong> de Servicios Digitales.</p>
+    <p class="intro">Un sistema a la medida para administrar una fábrica de bordado computarizado de trajes típicos. La investigación, el diseño de la base de datos y el diseño de pantallas ya están terminados; lo que se cotiza es construirlo, ponerlo en marcha y sostenerlo. El sistema corre <strong>en la nube</strong>, para ver la producción desde cualquier lugar, y se entrega <strong>completo y con su código fuente</strong>; después de la entrega usted decide si lo mantiene por su cuenta o contrata el <strong>mantenimiento mensual</strong> de Servicios Digitales.</p>
     <div class="stats">
       <div class="stat"><div class="n num">42</div><div class="l">pantallas diseñadas</div><div class="d">34 del panel administrativo y 8 de la app de piso</div></div>
       <div class="stat"><div class="n num">30</div><div class="l">tablas de base de datos</div><div class="d">esquema PostgreSQL completo, con auditoría</div></div>
@@ -455,8 +455,46 @@ footer .copy{font-size:.8rem;opacity:.7;grid-column:1/-1;border-top:1px solid #f
   </div>
 </section>
 
+<!-- ================= NUBE ================= -->
+<section class="block alt" id="nube">
+  <div class="wrap">
+    <div class="kicker">Dónde vive el sistema</div>
+    <h2>En la nube, no en un servidor propio</h2>
+    <p class="intro">Se conversó la posibilidad de instalar el sistema en un servidor dentro de la fábrica. Lo evaluamos y nuestra recomendación es que corra en la nube: una base de datos administrada y un servicio de despliegue, ambos contratados con proveedores especializados. Estas son las razones.</p>
+
+    <div class="modules">
+      <div class="module"><div class="i">01</div><h3>Ver la producción desde donde esté</h3><p>Con la nube, el dueño abre el tablero desde el celular en la calle, en casa o de viaje. Un servidor en la fábrica solo se ve desde la fábrica; sacarlo a internet exige IP fija, VPN y abrir puertos, y eso es justo lo que atacan.</p></div>
+      <div class="module"><div class="i">02</div><h3>Sale más barato</h3><p>Un servidor propio es comprar equipo, UPS, pagar luz las 24 horas, reponerlo en unos años y tener a alguien que lo atienda. La nube para un sistema de este tamaño cuesta menos al mes que la electricidad y el desgaste del equipo.</p></div>
+      <div class="module"><div class="i">03</div><h3>Respaldos y apagones</h3><p>Si se va la luz o el internet en Chimaltenango, el sistema sigue en línea y la app de piso sigue registrando sin conexión. En la nube los respaldos son diarios y automáticos; en un servidor local dependen de que alguien se acuerde.</p></div>
+      <div class="module"><div class="i">04</div><h3>Es mucho equipo para lo que se necesita</h3><p>El sistema mueve unos cuantos miles de registros al día. Un servidor físico quedaría casi apagado, pero el costo, el polvo, la pelusa del bordado, el calor y la seguridad física se pagan igual.</p></div>
+    </div>
+
+    <div class="cmp">
+      <div class="cmp-scroll">
+        <table>
+          <thead><tr><th>Comparación</th><th>Servidor propio en la fábrica</th><th>En la nube · recomendado</th></tr></thead>
+          <tbody>
+            <tr><th>Inversión inicial en equipo</th><td class="n">aprox. Q5,000 a Q8,000 (equipo, UPS, instalación)</td><td class="y">Q0</td></tr>
+            <tr><th>Costo mensual</th><td>Electricidad 24 h, internet con IP fija, reposición del equipo</td><td class="y">Base de datos y despliegue, aprox. <span data-k="mantCliente">Q350.00</span></td></tr>
+            <tr><th>Acceso desde fuera de la fábrica</th><td class="n">Requiere VPN o IP fija y abrir puertos</td><td class="y">Desde cualquier lugar, con usuario y contraseña</td></tr>
+            <tr><th>Si se va la luz en la fábrica</th><td class="n">El sistema se apaga; la app de piso trabaja sola hasta que vuelva</td><td class="y">Sigue en línea; la app de piso trabaja sola y sincroniza</td></tr>
+            <tr><th>Respaldos</th><td class="n">Manuales, en el mismo edificio</td><td class="y">Diarios y automáticos, fuera de la fábrica</td></tr>
+            <tr><th>Actualizaciones de seguridad</th><td class="n">Alguien tiene que hacerlas</td><td class="y">Las hace el proveedor</td></tr>
+            <tr><th>Riesgo físico (robo, incendio, humedad, polvo)</th><td class="n">Se pierde el sistema y los datos</td><td class="y">No aplica</td></tr>
+            <tr><th>Cuando la fábrica crezca</th><td>Comprar otro equipo</td><td class="y">Se sube de plan en minutos</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="note">
+      <strong>Si aun así prefiere un servidor propio, se puede.</strong> El código es suyo y el sistema se puede instalar en un servidor de la fábrica; en ese caso la compra del equipo, la instalación en sitio y la configuración de acceso remoto se cotizan por separado, y el respaldo y la seguridad del equipo quedan por cuenta del cliente. Los datos son suyos en cualquiera de los dos casos y se pueden mover de la nube a un servidor propio, o al revés, cuando lo decida.
+    </div>
+  </div>
+</section>
+
 <!-- ================= INVERSIÓN ================= -->
-<section class="block alt" id="planes">
+<section class="block" id="planes">
   <div class="wrap">
     <div class="kicker">Inversión</div>
     <h2>Cuánto cuesta</h2>
@@ -494,7 +532,7 @@ footer .copy{font-size:.8rem;opacity:.7;grid-column:1/-1;border-top:1px solid #f
           <h4>Incluye</h4>
           <ul class="inc">
             <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5L20 7"/></svg><span>Código fuente completo y licencia perpetua</span></li>
-            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5L20 7"/></svg><span>Instalación en el servidor que usted elija</span></li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5L20 7"/></svg><span>Puesta en marcha en la nube: base de datos y despliegue configurados y funcionando</span></li>
             <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5L20 7"/></svg><span>Documentación técnica y manual de usuario</span></li>
             <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5L20 7"/></svg><span>Dos sesiones de capacitación: panel y app de piso</span></li>
             <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5L20 7"/></svg><span>90 días de corrección de errores sin costo después de cada entrega</span></li>
@@ -508,18 +546,18 @@ footer .copy{font-size:.8rem;opacity:.7;grid-column:1/-1;border-top:1px solid #f
     </article>
 
     <h3 class="sub-h">Después de la entrega · cómo se mantiene</h3>
-    <p class="intro">El sistema es suyo en ambos casos. La diferencia es quién opera el servidor y quién hace los cambios que la fábrica vaya pidiendo.</p>
+    <p class="intro">El sistema es suyo en ambos casos. La diferencia es quién paga y vigila los servicios de nube, y quién hace los cambios que la fábrica vaya pidiendo.</p>
     <div class="mant">
       <article class="mcard" id="mant-cliente">
         <div class="tag">Opción 1</div>
         <h3>Lo administra usted</h3>
         <div class="price"><span class="aprox">aprox.</span><span class="amt num" data-k="mantCliente">Q350.00</span><span class="per">/mes</span></div>
-        <p>Costo estimado de servidor, dominio y respaldos que usted paga directo al proveedor. No hay ninguna cuota a Servicios Digitales.</p>
+        <p>Costo estimado de la base de datos, el despliegue y el dominio, que usted paga directo a los proveedores de nube. No hay ninguna cuota a Servicios Digitales.</p>
         <ul class="inc">
-            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5L20 7"/></svg><span>Se entrega instalado, documentado y con guía de respaldo y restauración</span></li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5L20 7"/></svg><span>Se entrega en la nube, en cuentas a su nombre, documentado y con guía de respaldo y restauración</span></li>
             <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5L20 7"/></svg><span>Garantía de 90 días por cada entrega</span></li>
             <li class="no"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 6l12 12M18 6 6 18"/></svg><span>Correcciones y cambios después de la garantía: se cotizan por separado</span></li>
-            <li class="no"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 6l12 12M18 6 6 18"/></svg><span>Servidor, respaldos, monitoreo y soporte: por su cuenta</span></li>
+            <li class="no"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 6l12 12M18 6 6 18"/></svg><span>Pago de la nube, respaldos, monitoreo y soporte: por su cuenta</span></li>
         </ul>
         <a class="btn btn-ghost" data-wa data-mant="cliente" href="https://wa.me/50239607045" target="_blank" rel="noopener">Aceptar · lo administro yo</a>
       </article>
@@ -531,7 +569,7 @@ footer .copy{font-size:.8rem;opacity:.7;grid-column:1/-1;border-top:1px solid #f
         <ul class="inc">
             <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5L20 7"/></svg><span><strong><span data-k="fuertes">2</span> correcciones fuertes al mes</strong> — cambios de lógica, cálculos, reportes o pantallas</span></li>
             <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5L20 7"/></svg><span><strong><span data-k="basicas">2</span> correcciones básicas al mes</strong> — textos, campos, permisos, catálogos o formatos</span></li>
-            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5L20 7"/></svg><span>Servidor, dominio y certificado SSL</span></li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5L20 7"/></svg><span>Servicios de nube (base de datos y despliegue), dominio y certificado SSL</span></li>
             <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5L20 7"/></svg><span>Respaldos diarios cifrados y prueba de restauración mensual</span></li>
             <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5L20 7"/></svg><span>Monitoreo y actualizaciones de seguridad</span></li>
             <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5L20 7"/></svg><span>Soporte por WhatsApp en horario laboral</span></li>
@@ -547,8 +585,8 @@ footer .copy{font-size:.8rem;opacity:.7;grid-column:1/-1;border-top:1px solid #f
           <thead><tr><th>Comparación</th><th>Lo administra usted</th><th>Mantenimiento por Servicios Digitales</th></tr></thead>
           <tbody>
             <tr><th>Propiedad del código fuente</th><td class="y">Del cliente</td><td class="y">Del cliente</td></tr>
-            <tr><th>Quién opera el servidor</th><td>Usted</td><td>Servicios Digitales</td></tr>
-            <tr><th>Servidor, dominio y SSL</th><td>Los paga usted al proveedor</td><td class="y">Incluidos</td></tr>
+            <tr><th>Quién opera la nube</th><td>Usted</td><td>Servicios Digitales</td></tr>
+            <tr><th>Nube (base de datos y despliegue), dominio y SSL</th><td>Los paga usted a los proveedores</td><td class="y">Incluidos</td></tr>
             <tr><th>Respaldos, monitoreo y seguridad</th><td class="n">Por su cuenta</td><td class="y">Incluidos</td></tr>
             <tr><th>Correcciones fuertes al mes</th><td class="n">Se cotizan</td><td class="y"><span data-k="fuertes">2</span> incluidas</td></tr>
             <tr><th>Correcciones básicas al mes</th><td class="n">Se cotizan</td><td class="y"><span data-k="basicas">2</span> incluidas</td></tr>
@@ -567,7 +605,7 @@ footer .copy{font-size:.8rem;opacity:.7;grid-column:1/-1;border-top:1px solid #f
 </section>
 
 <!-- ================= CRONOGRAMA ================= -->
-<section class="block" id="cronograma">
+<section class="block alt" id="cronograma">
   <div class="wrap">
     <div class="kicker">Entrega</div>
     <h2>Cronograma de trabajo</h2>
@@ -615,7 +653,7 @@ footer .copy{font-size:.8rem;opacity:.7;grid-column:1/-1;border-top:1px solid #f
 </section>
 
 <!-- ================= FUERA DE ALCANCE ================= -->
-<section class="block alt" id="exclusiones">
+<section class="block" id="exclusiones">
   <div class="wrap">
     <div class="kicker">Para evitar malentendidos</div>
     <h2>Qué no está incluido</h2>
@@ -635,7 +673,8 @@ footer .copy{font-size:.8rem;opacity:.7;grid-column:1/-1;border-top:1px solid #f
           <li>Teléfonos o tabletas Android para el piso de planta y la red WiFi de la fábrica.</li>
           <li>Impresión de gafetes y etiquetas QR (el sistema los genera listos para imprimir).</li>
           <li>Disponibilidad del personal para el levantamiento en planta y las capacitaciones.</li>
-          <li>Si decide administrarlo por su cuenta: servidor, dominio, respaldos y su monitoreo.</li>
+          <li>Si decide administrarlo por su cuenta: pago de los servicios de nube, dominio, respaldos y su monitoreo.</li>
+          <li>Si prefiere un servidor propio en la fábrica: el equipo, la instalación en sitio y el acceso remoto se cotizan aparte.</li>
         </ul>
       </div>
     </div>
@@ -643,7 +682,7 @@ footer .copy{font-size:.8rem;opacity:.7;grid-column:1/-1;border-top:1px solid #f
 </section>
 
 <!-- ================= CONDICIONES ================= -->
-<section class="block" id="condiciones">
+<section class="block alt" id="condiciones">
   <div class="wrap">
     <div class="kicker">Condiciones</div>
     <h2>Términos de esta cotización</h2>
@@ -653,7 +692,7 @@ footer .copy{font-size:.8rem;opacity:.7;grid-column:1/-1;border-top:1px solid #f
       <div class="term"><strong>Propiedad intelectual</strong><p>Al recibir el último pago, el cliente es dueño del código fuente y de la licencia a perpetuidad. Los datos son del cliente en todo momento, contrate o no el mantenimiento.</p></div>
       <div class="term"><strong>Datos personales y confidencialidad</strong><p>DPI, direcciones y teléfonos de operarios se almacenan cifrados, visibles solo para dueño y RRHH, con auditoría de cada acceso. Servicios Digitales no comparte información del cliente con terceros.</p></div>
       <div class="term"><strong>Cambios de alcance</strong><p>Todo lo descrito en «Qué incluye el sistema» está cubierto. Lo que se pida fuera de eso se cotiza antes de hacerse; nunca se cobra sin acuerdo previo.</p></div>
-      <div class="term"><strong>Mantenimiento mensual</strong><p>Se contrata mes a mes, sin permanencia, y se cancela con 30 días de aviso. Al cancelar se entrega un respaldo completo y el acceso al servidor para que usted o quien designe continúe. Las correcciones del mes no se acumulan.</p></div>
+      <div class="term"><strong>Mantenimiento mensual</strong><p>Se contrata mes a mes, sin permanencia, y se cancela con 30 días de aviso. Al cancelar se entrega un respaldo completo y se traspasan las cuentas de nube a su nombre para que usted o quien designe continúe. Las correcciones del mes no se acumulan.</p></div>
       <div class="term"><strong>Garantía</strong><p>Corrección sin costo de cualquier error de funcionamiento durante 90 días después de cada entrega. Con el mantenimiento contratado, la corrección de errores no consume las correcciones del mes.</p></div>
       <div class="term"><strong>Dependencia de la Fase 0</strong><p>Los plazos y precios suponen que el levantamiento en planta confirma los supuestos de la investigación. Si cambian de forma sustancial, se ajusta la cotización de común acuerdo antes de continuar.</p></div>
     </div>
@@ -661,7 +700,7 @@ footer .copy{font-size:.8rem;opacity:.7;grid-column:1/-1;border-top:1px solid #f
 </section>
 
 <!-- ================= ACEPTACIÓN ================= -->
-<section class="block alt" id="aceptacion">
+<section class="block" id="aceptacion">
   <div class="wrap">
     <div class="kicker">Siguiente paso</div>
     <h2>Aceptación</h2>
