@@ -316,27 +316,54 @@ footer .copy{font-size:.8rem;opacity:.7;grid-column:1/-1;border-top:1px solid #f
 /* ---------- impresión ---------- */
 @media print{
   @page{size:letter;margin:14mm}
-  body{font-size:11.5pt;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  html{font-size:14px}
+  body{font-size:10.5pt;-webkit-print-color-adjust:exact;print-color-adjust:exact}
   .top{position:static;border:0}
   .top-right .btn{display:none}
-  .hero{padding-block:2rem 4rem;border-radius:0}
-  section.block{padding-block:2rem;break-inside:auto}
-  .plan,.mcard,.check,.module,.phase,.card,.stat,.term,.accept,.cmp{break-inside:avoid;box-shadow:none}
-  #planes,#condiciones{break-before:page}
-  .plan-foot,.cta{display:none}
-  a{color:inherit}
-  .cmp table{min-width:0}
+  .hero{padding-block:1.5rem 2.5rem;border-radius:0;margin-inline:-14mm;padding-inline:14mm}
+  .hero h1{font-size:2rem}
+  section.block{padding-block:1rem;break-inside:auto}
   .alt{background:#fff}
   .wrap{padding-inline:0;max-width:none}
-  .meta-card,.stats,.modules,.diff{grid-template-columns:repeat(4,1fr)}
-  .checks,.surfaces,.two,.terms{grid-template-columns:1fr 1fr}
-  .plans,.mant{grid-template-columns:1fr 1fr}
-  .mcard .btn{display:none}
+  a{color:inherit}
+  /* Cada sección grande arranca en página nueva; las tarjetas chicas no se parten */
+  #hecho,#alcance,#nube,#planes,#cronograma,#condiciones,#aceptacion,#planes .sub-h{break-before:page}
+  .mcard,.check,.module,.phase,.card,.stat,.term,.accept,.meta-card,.diff div,.surface,.cmp tr,.bd tr{break-inside:avoid}
+  .plan,.mcard,.cmp{box-shadow:none}
+  #planes .sub-h{margin-top:0}
+  /* Rejillas al ancho de carta */
+  .meta-card{grid-template-columns:repeat(4,1fr)}
+  .stats{grid-template-columns:repeat(4,1fr)}
+  .stat .n{font-size:1.5rem;white-space:nowrap}
+  .checks,.surfaces,.two,.terms,.modules,.plans,.mant,.accept .opts{grid-template-columns:1fr 1fr}
+  .plan-body.cols{grid-template-columns:1.2fr 1fr}
   .timeline{grid-template-columns:repeat(3,1fr)}
-  .hero{margin-inline:-14mm;padding-inline:14mm}
-  .plan-head,.plan-body{padding:1.1rem 1.2rem}
-  .plan{box-shadow:none}
-  footer{margin-inline:-14mm;padding-inline:14mm}
+  .cmp table{min-width:0}
+  .cmp th,.cmp td{padding:.3rem .6rem;font-size:.76rem}
+  .cmp{margin-top:1rem}
+  .cmp+.intro{font-size:.78rem!important;margin-top:.5rem}
+  #planes .sub-h+.intro{margin-top:.4rem}
+  .mant{gap:1rem;margin-top:1rem}
+  .mcard{padding:1rem 1.1rem}
+  .mcard ul.inc{gap:.3rem;margin-top:.7rem}
+  .mcard ul.inc li,.mcard>p{font-size:.8rem}
+  .mcard ul.inc li svg{width:14px;height:14px}
+  .mcard .price{margin-top:.5rem}
+  .mcard .price .amt{font-size:1.5rem}
+  .mcard h3{font-size:1.1rem}
+  /* Alcance en una sola página */
+  .modules{gap:.6rem;margin-top:1rem}
+  .module{padding:.7rem .8rem}
+  .module p{font-size:.8rem}
+  .surfaces{margin-top:.75rem}
+  .surface{padding:.9rem 1rem}
+  .surface p{font-size:.85rem}
+  .diff{grid-template-columns:repeat(4,1fr);gap:.5rem;margin-top:1rem}
+  .diff div{padding:.6rem .7rem;font-size:.78rem}
+  .module,.card,.term,.mcard,.check{padding:.9rem 1rem}
+  .plan-head,.plan-body{padding:1rem 1.1rem}
+  .plan-foot,.cta,.mcard .btn{display:none}
+  footer{margin-inline:-14mm;padding-inline:14mm;padding-block:1.25rem}
 }
 </style>
 </head>
