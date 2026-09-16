@@ -398,7 +398,7 @@ footer .copy{font-size:.8rem;opacity:.7;grid-column:1/-1;border-top:1px solid #f
         <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5L20 7"/></svg></div>
         <div>
           <h3>Base de datos diseñada (30 tablas, 3 vistas de reporte)</h3>
-          <p>Operarios, máquinas, diseños, órdenes, corridas, lecturas de contador, tarifas con vigencia, nómina, inventario, mantenimiento y auditoría. Incluye la regla de que cada operario solo opera las máquinas que tiene asignadas.</p>
+          <p>Operarios, máquinas, diseños, órdenes, trabajos por máquina, lecturas de contador, tarifas con vigencia, nómina, inventario, mantenimiento y auditoría. Incluye la regla de que cada operario solo opera las máquinas que tiene asignadas.</p>
         </div>
       </div>
       <div class="check">
@@ -425,11 +425,11 @@ footer .copy{font-size:.8rem;opacity:.7;grid-column:1/-1;border-top:1px solid #f
   <div class="wrap">
     <div class="kicker">Alcance</div>
     <h2>Qué incluye el sistema</h2>
-    <p class="intro">Ocho módulos que cubren la operación completa, desde que el operario abre una corrida hasta que RRHH cierra la quincena.</p>
+    <p class="intro">Ocho módulos que cubren la operación completa, desde que el operario comienza un trabajo en su máquina hasta que RRHH cierra la quincena.</p>
     <div class="modules">
-      <div class="module"><div class="i">01</div><h3>Captura de puntadas</h3><p>Apertura y cierre de corridas por máquina con contador inicial y final. Preparado para sensores en el futuro sin cambiar nada.</p></div>
-      <div class="module"><div class="i">02</div><h3>Verificación de diseño</h3><p>El operario declara el diseño con un QR; el sistema compara las puntadas medidas contra las esperadas y marca discrepancias.</p></div>
-      <div class="module"><div class="i">03</div><h3>Producción y órdenes</h3><p>Total por máquina, operario, orden y período. Prendas calculadas por cabezas, separadas de las puntadas.</p></div>
+      <div class="module"><div class="i">01</div><h3>Registro de trabajos por máquina</h3><p>El operario, desde su máquina, <strong>comienza, pausa, reanuda y finaliza</strong> cada trabajo con un botón y teclea el contador al comenzar y al finalizar. Todo manual: sin sensores ni instalación en las máquinas.</p></div>
+      <div class="module"><div class="i">02</div><h3>Verificación de diseño</h3><p>El operario declara el diseño con un QR; el sistema compara el contador tecleado contra las puntadas que el diseño debería tener y marca discrepancias.</p></div>
+      <div class="module"><div class="i">03</div><h3>Producción y órdenes</h3><p>Los dueños ven desde el celular qué está bordando cada máquina, quién y cuánto lleva, sin bajar a planta. Totales por máquina, operario, orden y período.</p></div>
       <div class="module"><div class="i">04</div><h3>Nómina a destajo</h3><p>Q1 por cada 1,500 puntadas, séptimo día (1/6, Art. 126), complemento al salario mínimo, descuentos, bonificaciones, constancias e IGSS.</p></div>
       <div class="module"><div class="i">05</div><h3>Operarios y acceso</h3><p>Registro con validación de DPI, gafete con QR, asignación de máquinas. Datos personales visibles solo para dueño y RRHH.</p></div>
       <div class="module"><div class="i">06</div><h3>Catálogo y temporadas</h3><p>Diseños importados desde archivos DST, productos, y calendario de ferias, Semana Santa y graduaciones.</p></div>
@@ -438,11 +438,11 @@ footer .copy{font-size:.8rem;opacity:.7;grid-column:1/-1;border-top:1px solid #f
     </div>
     <div class="surfaces">
       <div class="surface">
-        <div><h3>Panel de administración</h3><p>Para el dueño, gerencia, supervisión, RRHH, mantenimiento y bodega. Tablero en vivo, reportes por rango de fechas, nómina, inventario, configuración y auditoría. Uso en escritorio.</p></div>
+        <div><h3>Panel de administración</h3><p>Para el dueño, gerencia, supervisión, RRHH, mantenimiento y bodega. Tablero en vivo con el estado de cada máquina (trabajando, en pausa, libre), reportes por rango de fechas, nómina, inventario, configuración y auditoría. Escritorio o celular.</p></div>
         <div class="big num">34<small>pantallas</small></div>
       </div>
       <div class="surface">
-        <div><h3>App de piso para operarios (PWA)</h3><p>Se instala desde el navegador en cualquier Android o tableta. Ingreso por QR de gafete, abrir y cerrar corridas, reportar paros y ver su propia ganancia del día. Funciona sin conexión y sincroniza sola.</p></div>
+        <div><h3>App de piso para operarios (PWA)</h3><p>Se instala desde el navegador en cualquier Android o tableta. Ingreso por QR de gafete; comenzar, pausar, reanudar y finalizar trabajos solo en las máquinas que tiene asignadas; ver su propia ganancia del día. Funciona sin conexión y sincroniza sola.</p></div>
         <div class="big num">8<small>pantallas</small></div>
       </div>
     </div>
@@ -512,7 +512,7 @@ footer .copy{font-size:.8rem;opacity:.7;grid-column:1/-1;border-top:1px solid #f
             <thead><tr><th>Concepto</th><th class="r">Plazo</th><th class="r">Precio</th></tr></thead>
             <tbody>
               <tr><td>Fase 0 · Levantamiento y acuerdo de detalles<span class="sub">Inventario de máquinas, fotos de paneles, archivos de diseño, entrevistas; se acuerdan los últimos detalles con usted y se cierra la especificación</span></td><td class="r">1 semana</td><td class="r num" data-k="fase0">Q1,500.00</td></tr>
-              <tr><td>Fase 1 · Núcleo con captura manual<span class="sub">Operarios, máquinas, diseños, productos, app de piso con corridas, verificación de diseño, reportes de producción</span></td><td class="r">2 semanas</td><td class="r num" data-k="fase1">Q8,500.00</td></tr>
+              <tr><td>Fase 1 · Núcleo con captura manual<span class="sub">Operarios, máquinas, diseños, productos, app de piso para comenzar, pausar y finalizar trabajos, verificación de diseño, reportes de producción</span></td><td class="r">2 semanas</td><td class="r num" data-k="fase1">Q8,500.00</td></tr>
               <tr><td>Fase 2 · Nómina, inventario y mantenimiento<span class="sub">Cálculo de destajo con séptimo día y complemento, cierre de período, constancias, inventario, mantenimiento por puntadas</span></td><td class="r">2 semanas</td><td class="r num" data-k="fase2">Q6,000.00</td></tr>
               <tr><td>Entrega<span class="sub">Código fuente, documentación técnica, manual de usuario y dos sesiones de capacitación</span></td><td class="r">—</td><td class="r">Incluido</td></tr>
               <tr class="total"><td colspan="2">Total</td><td class="r num" data-k="total">Q16,000.00</td></tr>
@@ -533,7 +533,7 @@ footer .copy{font-size:.8rem;opacity:.7;grid-column:1/-1;border-top:1px solid #f
             <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5L20 7"/></svg><span>Documentación técnica y manual de usuario</span></li>
             <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5L20 7"/></svg><span>Dos sesiones de capacitación: panel y app de piso</span></li>
             <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5L20 7"/></svg><span>90 días de corrección de errores sin costo después de cada entrega</span></li>
-            <li class="no"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 6l12 12M18 6 6 18"/></svg><span>Fase 3 (sensores) y Fase 4 (FEL, planeación): se cotizan aparte</span></li>
+            <li class="no"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 6l12 12M18 6 6 18"/></svg><span>Facturación electrónica FEL y planeación por temporada: se cotizan aparte</span></li>
           </ul>
         </div>
       </div>
@@ -627,9 +627,9 @@ footer .copy{font-size:.8rem;opacity:.7;grid-column:1/-1;border-top:1px solid #f
         <ul>
           <li>Operarios con validación de DPI, máquinas, diseños desde DST, productos y temporadas</li>
           <li>Asignación de máquinas a operarios y gafetes con QR</li>
-          <li>App de piso: abrir y cerrar corridas, reportar paros, ver ganancia propia; funciona sin conexión</li>
+          <li>App de piso: comenzar, pausar, reanudar y finalizar trabajos; ver ganancia propia; funciona sin conexión</li>
           <li>Verificación de diseño y bandeja de discrepancias</li>
-          <li>Tablero en vivo y reportes de producción por rango de fechas</li>
+          <li>Tablero en vivo para los dueños: estado de cada máquina desde el celular; reportes de producción por rango de fechas</li>
         </ul>
         <div class="out"><strong>Entregable:</strong> la producción deja de vivir en papel. Si contrata el mantenimiento, aquí empieza la mensualidad.</div>
       </div>
@@ -658,8 +658,7 @@ footer .copy{font-size:.8rem;opacity:.7;grid-column:1/-1;border-top:1px solid #f
       <div class="card">
         <h3>Se cotiza por separado cuando lo pida</h3>
         <ul class="dots">
-          <li><strong>Fase 3 · Sensores en máquina:</strong> lectura automática del contador con sensor y gateway local; tiempo real, detección de paros y OEE. Requiere prueba piloto en una máquina.</li>
-          <li><strong>Fase 4 · Extensiones:</strong> facturación electrónica FEL con certificador, planeación por temporada con demanda estimada, costeo por prenda.</li>
+          <li><strong>Extensiones:</strong> facturación electrónica FEL con certificador, planeación por temporada con demanda estimada, costeo por prenda.</li>
           <li>Integración con contabilidad o ERP existente.</li>
           <li>Migración de históricos en papel u hojas de cálculo más allá de la carga inicial.</li>
         </ul>
