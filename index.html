@@ -275,8 +275,11 @@ section.block{padding-block:4rem}
 .accept{margin-top:2rem;background:#fff;border:1px solid var(--line);border-radius:20px;padding:1.75rem}
 .accept .opts{display:grid;gap:.75rem;margin-top:1rem}
 @media(min-width:700px){.accept .opts{grid-template-columns:1fr 1fr}}
-.opt{display:flex;gap:.75rem;align-items:flex-start;padding:1rem;border:1px solid var(--line);border-radius:12px}
-.opt .box{width:20px;height:20px;border:2px solid var(--brand);border-radius:5px;flex:none;margin-top:.1rem}
+.opt{display:flex;gap:.75rem;align-items:flex-start;padding:1rem;border:1px solid var(--line);border-radius:12px;cursor:pointer;user-select:none}
+.opt:has(.box:checked){border-color:var(--brand);background:var(--brand-50)}
+.opt .box{appearance:none;-webkit-appearance:none;width:20px;height:20px;border:2px solid var(--brand);border-radius:5px;flex:none;margin:.1rem 0 0;background:#fff center/14px no-repeat;cursor:pointer;print-color-adjust:exact;-webkit-print-color-adjust:exact}
+.opt .box:checked{background-color:var(--brand);background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23fff' stroke-width='3.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m5 12 5 5L20 7'/%3E%3C/svg%3E")}
+.opt .box:focus-visible{outline:3px solid var(--brand-50);outline-offset:2px}
 .opt strong{display:block}
 .opt span{font-size:.9rem;color:var(--fg-2)}
 .sigs{display:grid;gap:2rem;margin-top:2.5rem}
@@ -700,17 +703,17 @@ footer .copy{font-size:.8rem;opacity:.7;grid-column:1/-1;border-top:1px solid #f
     <div class="kicker">Siguiente paso</div>
     <h2>Aceptación</h2>
     <div class="accept">
-      <p>Marque la opción de mantenimiento y firme. También puede aceptar por WhatsApp; con eso agendamos la Fase 0 en planta.</p>
+      <p>Marque las opciones que acepta y firme. También puede aceptar por WhatsApp; con eso agendamos la Fase 0 en planta.</p>
       <div class="opts">
-        <div class="opt"><div class="box"></div><div><strong>Compra total del sistema</strong><span><span class="num" data-k="total">Q16,000.00</span> en tres pagos · código fuente incluido</span></div></div>
-        <div class="opt"><div class="box"></div><div><strong>Mantenimiento por Servicios Digitales</strong><span><span class="num" data-k="mantSD">Q400.00</span> por mes · <span data-k="fuertes">2</span> correcciones fuertes y <span data-k="basicas">2</span> básicas al mes · sin permanencia</span></div></div>
+        <label class="opt"><input type="checkbox" class="box" id="chk-compra" checked><div><strong>Compra total del sistema</strong><span><span class="num" data-k="total">Q16,000.00</span> en tres pagos · código fuente incluido</span></div></label>
+        <label class="opt"><input type="checkbox" class="box" id="chk-mant"><div><strong>Mantenimiento por Servicios Digitales</strong><span><span class="num" data-k="mantSD">Q400.00</span> por mes · <span data-k="fuertes">2</span> correcciones fuertes y <span data-k="basicas">2</span> básicas al mes · sin permanencia</span></div></label>
       </div>
       <div class="sigs">
         <div class="sig"><strong>Por el cliente</strong>Nombre, cargo, DPI y fecha</div>
         <div class="sig"><strong>Por Servicios Digitales Guatemala</strong><span data-k="contacto">David Pérez · +502 3960 7045</span></div>
       </div>
       <div class="cta">
-        <a class="btn btn-wa" data-wa href="https://wa.me/50239607045" target="_blank" rel="noopener">
+        <a class="btn btn-wa" data-wa data-mant="" id="wa-aceptar" href="https://wa.me/50239607045" target="_blank" rel="noopener">
           <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.1-1.8-.9-2-1-.3-.1-.5-.1-.7.1-.2.3-.8 1-.9 1.2-.2.2-.3.2-.6.1-.3-.1-1.3-.5-2.4-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.6l.4-.5c.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5l-.9-2.2c-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.1.2 2.1 3.2 5.1 4.5.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.8-.7 2-1.4.2-.7.2-1.3.2-1.4-.1-.2-.3-.3-.6-.4zM12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2c-1.5 0-3-.4-4.3-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2z"/></svg>
           Aceptar por WhatsApp
         </a>
@@ -788,15 +791,21 @@ const COT = {
     if (k in v) el.textContent = v[k];
   });
   document.title = "Cotización " + COT.numero + " · Sistema para fábrica de bordado";
-  document.querySelectorAll("a[data-wa]").forEach(a => {
-    const mant = a.getAttribute("data-mant");
+  const waHref = mant => {
     let msg;
     if (mant === "sd") msg = `Hola, acepto la cotización ${COT.numero} (sistema para fábrica de bordado) con el mantenimiento mensual de Servicios Digitales. ¿Cuándo agendamos la Fase 0?`;
     else if (mant === "cliente") msg = `Hola, acepto la cotización ${COT.numero} (sistema para fábrica de bordado); el mantenimiento lo administramos nosotros. ¿Cuándo agendamos la Fase 0?`;
     else if (mant === "") msg = `Hola, acepto la cotización ${COT.numero} (sistema para fábrica de bordado). ¿Cuándo agendamos la Fase 0?`;
     else msg = `Hola, tengo una consulta sobre la cotización ${COT.numero} (sistema para fábrica de bordado).`;
-    a.href = "https://wa.me/" + COT.whatsapp + "?text=" + encodeURIComponent(msg);
-  });
+    return "https://wa.me/" + COT.whatsapp + "?text=" + encodeURIComponent(msg);
+  };
+  document.querySelectorAll("a[data-wa]").forEach(a => { a.href = waHref(a.getAttribute("data-mant")); });
+  // La casilla de mantenimiento en «Aceptación» decide el mensaje del botón final.
+  const chkMant = document.getElementById("chk-mant"), waAceptar = document.getElementById("wa-aceptar");
+  if (chkMant && waAceptar) {
+    const sync = () => { waAceptar.href = waHref(chkMant.checked ? "sd" : ""); };
+    chkMant.addEventListener("change", sync); sync();
+  }
 })();
 </script>
 </body>
