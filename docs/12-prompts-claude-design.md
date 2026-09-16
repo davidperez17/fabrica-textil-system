@@ -24,7 +24,7 @@ aparecer en todas las pantallas, siempre iguales.
 
 ```
 Vas a diseñar la interfaz de un sistema de administración para una fábrica de bordado
-computarizado de trajes típicos guatemaltecos, ubicada en Totonicapán.
+computarizado de trajes típicos guatemaltecos, ubicada en Chimaltenango.
 
 El sistema tiene dos superficies distintas que comparten el mismo sistema de diseño:
 un PANEL DE ADMINISTRACIÓN de escritorio, denso en datos, para el dueño y su equipo;
@@ -195,7 +195,7 @@ aparición escalonada, sin spinners.
 
 DATOS REALES — usar estos exactos en todas las pantallas
 
-Fábrica en Totonicapán, circunscripción CE2, categoría no agrícola.
+Fábrica en Chimaltenango, circunscripción CE2, categoría no agrícola.
 Salario mínimo Q3,816.90 más bonificación incentivo Q250.00.
 Tarifa de destajo vigente: 1,500 puntadas = Q1.00, desde el 1 de enero de 2026.
 
@@ -247,7 +247,7 @@ MESA 1 — "Muestrario de componentes", 1440×1600
 Un catálogo visual del sistema, agrupado con títulos de sección en mayúscula:
 · Botones: primario, secundario, terciario y destructivo, en estados normal,
   hover, activo, foco y deshabilitado.
-· Campos: texto, texto con formato (DPI 3056 78914 0801), numérico de puntadas
+· Campos: texto, texto con formato (DPI 3056 78914 0401), numérico de puntadas
   (2,918,400), selector, selector de rango de fechas, casilla, interruptor.
   Mostrar también un campo con error: "El DPI no es válido. Revise el dígito
   verificador." y uno validado con marca de correcto.
@@ -379,9 +379,9 @@ Al pie, totales de columna sumables.
 MESA 2 — "Operario · alta" (C2), alto 1400
 Formulario de una sola columna, ancho máximo 640px, con secciones separadas por
 línea y título en mayúscula:
-· Identificación: DPI de 13 dígitos con formato en vivo 3056 78914 0801 y validación
+· Identificación: DPI de 13 dígitos con formato en vivo 3056 78914 0401 y validación
   del dígito verificador; al validar, muestra debajo, en texto pequeño, el
-  departamento y municipio deducidos ("Totonicapán · Totonicapán"). Nombres y
+  departamento y municipio deducidos ("Chimaltenango · Chimaltenango"). Nombres y
   apellidos en campos separados, incluido apellido de casada. Fecha de nacimiento.
 · Contacto: teléfono, dirección, departamento, municipio.
 · Laboral: fecha de ingreso, modalidad de pago (destajo, tiempo, mixto), turno,

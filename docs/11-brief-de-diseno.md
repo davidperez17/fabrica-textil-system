@@ -431,7 +431,7 @@ y qué puede hacer la persona.
 Nada de texto de relleno. Estos son los datos que deben aparecer en todas las pantallas, para
 que sean consistentes entre sí.
 
-**Fábrica:** planta en Totonicapán, circunscripción CE2, categoría no agrícola.
+**Fábrica:** planta en Chimaltenango, circunscripción CE2, categoría no agrícola.
 Salario mínimo aplicable **Q3,816.90** más bonificación incentivo de **Q250.00**.
 Tarifa vigente: **1,500 puntadas = Q1.00**, vigente desde el 1 de enero de 2026.
 
@@ -439,11 +439,11 @@ Tarifa vigente: **1,500 puntadas = Q1.00**, vigente desde el 1 de enero de 2026.
 
 | Código | Nombre | DPI | Máquina asignada | Puntadas quincena |
 |---|---|---|---|---|
-| OP-014 | Juana Ixchop Tzoc | 3056 78914 0801 | BOR-04 | 2,918,400 |
-| OP-021 | Marta Chocoj Sical | 4567 81234 0801 | BOR-02 | 3,412,700 |
+| OP-014 | Juana Ixchop Tzoc | 3056 78914 0401 | BOR-04 | 2,918,400 |
+| OP-021 | Marta Chocoj Sical | 4567 81234 0401 | BOR-02 | 3,412,700 |
 | OP-007 | Diego Puac Ajanel | 1928 37465 0805 | BOR-01, BOR-06 | 4,105,220 |
 | OP-033 | Rosa Elena Batz Quiej | 2233 44556 0803 | BOR-05 | 1,884,900 |
-| OP-018 | Manuel Tzunún Coyoy | 6677 88991 0801 | BOR-03 | 2,451,180 |
+| OP-018 | Manuel Tzunún Coyoy | 6677 88999 0401 | BOR-03 | 2,451,180 |
 
 Rosa Elena Batz Quiej va por debajo del umbral: es el caso que muestra la alerta de complemento
 al mínimo.
