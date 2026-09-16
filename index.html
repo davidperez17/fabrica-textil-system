@@ -475,7 +475,7 @@ footer .copy{font-size:.8rem;opacity:.7;grid-column:1/-1;border-top:1px solid #f
           <thead><tr><th>Comparación</th><th>Servidor propio en la fábrica</th><th>En la nube · recomendado</th></tr></thead>
           <tbody>
             <tr><th>Inversión inicial en equipo</th><td class="n">aprox. Q5,000 a Q8,000 (equipo, UPS, instalación)</td><td class="y">Q0</td></tr>
-            <tr><th>Costo mensual</th><td>Electricidad 24 h, internet con IP fija, reposición del equipo</td><td class="y">Base de datos, despliegue y dominio, aprox. <span data-k="mantCliente">Q150.00</span></td></tr>
+            <tr><th>Costo mensual</th><td>Electricidad 24 h, internet con IP fija, reposición del equipo</td><td class="y">Base de datos, despliegue y dominio, aprox. <span data-k="mantCliente">Q350.00</span></td></tr>
             <tr><th>Acceso desde fuera de la fábrica</th><td class="n">Requiere VPN o IP fija y abrir puertos</td><td class="y">Desde cualquier lugar, con usuario y contraseña</td></tr>
             <tr><th>Si se va la luz en la fábrica</th><td class="n">El sistema se apaga; la app de piso trabaja sola hasta que vuelva</td><td class="y">Sigue en línea; la app de piso trabaja sola y sincroniza</td></tr>
             <tr><th>Respaldos</th><td class="n">Manuales, en el mismo edificio</td><td class="y">Diarios y automáticos, fuera de la fábrica</td></tr>
@@ -547,7 +547,7 @@ footer .copy{font-size:.8rem;opacity:.7;grid-column:1/-1;border-top:1px solid #f
       <article class="mcard" id="mant-cliente">
         <div class="tag">Opción 1</div>
         <h3>Lo administra usted</h3>
-        <div class="price"><span class="aprox">aprox.</span><span class="amt num" data-k="mantCliente">Q150.00</span><span class="per">/mes</span></div>
+        <div class="price"><span class="aprox">aprox.</span><span class="amt num" data-k="mantCliente">Q350.00</span><span class="per">/mes</span></div>
         <p>Costo estimado de la base de datos, el despliegue y el dominio, que usted paga directo a los proveedores de nube. No hay ninguna cuota a Servicios Digitales.</p>
         <ul class="inc">
             <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5L20 7"/></svg><span>Se entrega en la nube, en cuentas a su nombre, documentado y con guía de respaldo y restauración</span></li>
@@ -588,9 +588,9 @@ footer .copy{font-size:.8rem;opacity:.7;grid-column:1/-1;border-top:1px solid #f
             <tr><th>Soporte por WhatsApp</th><td>Durante la garantía</td><td class="y">Siempre</td></tr>
             <tr><th>Módulos nuevos</th><td>Se cotizan</td><td>Se cotizan</td></tr>
             <tr><th>Permanencia</th><td>Ninguna</td><td>Ninguna · 30 días de aviso</td></tr>
-            <tr class="money"><th>Costo mensual</th><td class="num">aprox. <span data-k="mantCliente">Q150.00</span></td><td class="num" data-k="mantSD">Q500.00</td></tr>
-            <tr class="money"><th>Costo anual de mantenimiento</th><td class="num">aprox. <span data-k="anualCliente">Q1,800.00</span></td><td class="num" data-k="anualSD">Q6,000.00</td></tr>
-            <tr class="money"><th>Inversión total del primer año</th><td class="num">aprox. <span data-k="anio1Cliente">Q17,800.00</span></td><td class="num" data-k="anio1SD">Q22,000.00</td></tr>
+            <tr class="money"><th>Costo mensual</th><td class="num">aprox. <span data-k="mantCliente">Q350.00</span></td><td class="num" data-k="mantSD">Q500.00</td></tr>
+            <tr class="money"><th>Costo anual de mantenimiento</th><td class="num">aprox. <span data-k="anualCliente">Q4,200.00</span></td><td class="num" data-k="anualSD">Q6,000.00</td></tr>
+            <tr class="money"><th>Inversión total del primer año</th><td class="num">aprox. <span data-k="anio1Cliente">Q20,200.00</span></td><td class="num" data-k="anio1SD">Q22,000.00</td></tr>
           </tbody>
         </table>
       </div>
@@ -743,7 +743,7 @@ const COT = {
     pagos: [40, 30, 30]        // % al aceptar, Fase 1, Fase 2
   },
   mantenimiento: {
-    cliente: 150,              // aprox., base de datos + despliegue que el cliente paga a los proveedores
+    cliente: 350,              // aprox., base de datos + despliegue + dominio que el cliente paga a los proveedores
     sd: 500,                   // mantenimiento por Servicios Digitales (incluye la nube)
     fuertes: 2,                // correcciones fuertes incluidas al mes
     basicas: 2                 // correcciones básicas incluidas al mes
