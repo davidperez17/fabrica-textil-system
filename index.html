@@ -282,21 +282,6 @@ section.block{padding-block:4rem}
 .opt .box:focus-visible{outline:3px solid var(--brand-50);outline-offset:2px}
 .opt strong{display:block}
 .opt span{font-size:.9rem;color:var(--fg-2)}
-.sigs{display:grid;gap:1.5rem;margin-top:2rem}
-@media(min-width:700px){.sigs{grid-template-columns:1fr 1fr}}
-.sig strong{display:block;color:var(--fg);font-size:.85rem;margin-bottom:.5rem}
-.sig .pad{position:relative;height:150px;border:1px dashed var(--fg-3);border-radius:12px;background:#fff;overflow:hidden;touch-action:none}
-.sig .pad canvas{display:block;width:100%;height:100%;cursor:crosshair}
-.sig .pad .hint{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:.85rem;color:var(--fg-3);pointer-events:none}
-.sig .pad.signed .hint{display:none}
-.sig .pad .clear{position:absolute;top:.4rem;right:.5rem;font-size:.75rem;color:var(--brand);background:none;border:0;cursor:pointer;font-family:inherit;display:none}
-.sig .pad.signed .clear{display:block}
-.sig .line{border-top:1px solid var(--fg);margin-top:.35rem;padding-top:.35rem;font-size:.75rem;color:var(--fg-3);text-align:center}
-.sig .fields{display:grid;grid-template-columns:1fr 1fr;gap:.5rem;margin-top:.75rem}
-.sig .fields label{display:block;font-size:.7rem;font-weight:600;color:var(--fg-3);text-transform:uppercase;letter-spacing:.05em}
-.sig .fields input{width:100%;font:inherit;font-size:.9rem;padding:.4rem .5rem;border:0;border-bottom:1px solid var(--line);background:transparent;color:var(--fg);border-radius:0}
-.sig .fields input:focus{outline:0;border-bottom-color:var(--brand)}
-.sig .fields .full{grid-column:1/-1}
 .cta{margin-top:1.75rem;display:flex;gap:.75rem;flex-wrap:wrap;align-items:center}
 .cta p{font-size:.85rem;color:var(--fg-2)}
 
@@ -323,9 +308,7 @@ footer .copy{font-size:.8rem;opacity:.7;grid-column:1/-1;border-top:1px solid #f
   section.block{padding-block:2rem;break-inside:auto}
   .plan,.mcard,.check,.module,.phase,.card,.stat,.term,.accept,.cmp{break-inside:avoid;box-shadow:none}
   #planes,#condiciones{break-before:page}
-  .plan-foot,.cta,.sig .pad .clear,.sig .pad .hint{display:none}
-  .sig .pad{border-style:solid;border-color:var(--fg-3)}
-  .sig .fields input::placeholder{color:transparent}
+  .plan-foot,.cta{display:none}
   a{color:inherit}
   .cmp table{min-width:0}
   .alt{background:#fff}
@@ -538,7 +521,7 @@ footer .copy{font-size:.8rem;opacity:.7;grid-column:1/-1;border-top:1px solid #f
         <div>
           <h4>Forma de pago</h4>
           <div class="pay">
-            <div><div class="p"><span data-k="pct1">40</span> %</div><div class="a num" data-k="pago1">Q6,400.00</div><div class="w">al aceptar</div></div>
+            <div><div class="p"><span data-k="pct1">40</span> %</div><div class="a num" data-k="pago1">Q6,400.00</div><div class="w">al firmar el contrato</div></div>
             <div><div class="p"><span data-k="pct2">30</span> %</div><div class="a num" data-k="pago2">Q4,800.00</div><div class="w">al entregar Fase 1</div></div>
             <div><div class="p"><span data-k="pct3">30</span> %</div><div class="a num" data-k="pago3">Q4,800.00</div><div class="w">al entregar Fase 2</div></div>
           </div>
@@ -553,7 +536,7 @@ footer .copy{font-size:.8rem;opacity:.7;grid-column:1/-1;border-top:1px solid #f
         </div>
       </div>
       <div class="plan-foot">
-        <a class="btn btn-primary" data-wa data-mant="" href="https://wa.me/50239607045" target="_blank" rel="noopener">Aceptar cotización por WhatsApp</a>
+        <a class="btn btn-primary" data-wa data-mant="" href="https://wa.me/50239607045" target="_blank" rel="noopener">Me interesa · escribir por WhatsApp</a>
       </div>
     </article>
 
@@ -704,40 +687,17 @@ footer .copy{font-size:.8rem;opacity:.7;grid-column:1/-1;border-top:1px solid #f
 <section class="block" id="aceptacion">
   <div class="wrap">
     <div class="kicker">Siguiente paso</div>
-    <h2>Aceptación</h2>
+    <h2>Cómo continuamos</h2>
     <div class="accept">
-      <p>Marque las opciones que acepta y firme. También puede aceptar por WhatsApp; con eso agendamos la Fase 0 en planta.</p>
+      <p>Si le interesa, indique la opción de mantenimiento que prefiere y escríbanos por WhatsApp. La aceptación se formaliza en una reunión presencial, donde se firma el contrato y se agenda la Fase 0 en planta.</p>
       <div class="opts">
         <label class="opt"><input type="checkbox" class="box" id="chk-compra" checked><div><strong>Compra total del sistema</strong><span><span class="num" data-k="total">Q16,000.00</span> en tres pagos · código fuente incluido</span></div></label>
         <label class="opt"><input type="checkbox" class="box" id="chk-mant"><div><strong>Mantenimiento por Servicios Digitales</strong><span><span class="num" data-k="mantSD">Q500.00</span> por mes · <span data-k="fuertes">2</span> correcciones fuertes y <span data-k="basicas">2</span> básicas al mes · sin permanencia</span></div></label>
       </div>
-      <div class="sigs">
-        <div class="sig">
-          <strong>Por el cliente</strong>
-          <div class="pad" data-sig><canvas></canvas><span class="hint">Firme aquí con el dedo o el mouse</span><button type="button" class="clear">Limpiar</button></div>
-          <div class="line">Firma</div>
-          <div class="fields">
-            <div class="full"><label for="sig-nombre">Nombre</label><input id="sig-nombre" type="text" autocomplete="name"></div>
-            <div><label for="sig-cargo">Cargo</label><input id="sig-cargo" type="text" placeholder="Propietario"></div>
-            <div><label for="sig-dpi">DPI</label><input id="sig-dpi" type="text" inputmode="numeric" placeholder="0000 00000 0000"></div>
-            <div class="full"><label for="sig-fecha">Fecha</label><input id="sig-fecha" type="text" placeholder="Día / mes / año"></div>
-          </div>
-        </div>
-        <div class="sig">
-          <strong>Por Servicios Digitales Guatemala</strong>
-          <div class="pad" data-sig><canvas></canvas><span class="hint">Firma</span><button type="button" class="clear">Limpiar</button></div>
-          <div class="line">Firma</div>
-          <div class="fields">
-            <div class="full"><label>Nombre</label><input type="text" value="David Pérez" readonly></div>
-            <div><label>Cargo</label><input type="text" value="Director" readonly></div>
-            <div><label>Contacto</label><input type="text" value="+502 3960 7045" readonly></div>
-          </div>
-        </div>
-      </div>
       <div class="cta">
         <a class="btn btn-wa" data-wa data-mant="" id="wa-aceptar" href="https://wa.me/50239607045" target="_blank" rel="noopener">
           <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.1-1.8-.9-2-1-.3-.1-.5-.1-.7.1-.2.3-.8 1-.9 1.2-.2.2-.3.2-.6.1-.3-.1-1.3-.5-2.4-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.6l.4-.5c.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5l-.9-2.2c-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.1.2 2.1 3.2 5.1 4.5.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.8-.7 2-1.4.2-.7.2-1.3.2-1.4-.1-.2-.3-.3-.6-.4zM12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2c-1.5 0-3-.4-4.3-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2z"/></svg>
-          Aceptar por WhatsApp
+          Escribir por WhatsApp
         </a>
         <button class="btn btn-ghost" type="button" onclick="window.print()">Guardar en PDF</button>
         <p>Dudas: <a href="mailto:info@serviciosdigitalesgtm.com">info@serviciosdigitalesgtm.com</a> · +502 3960 7045</p>
@@ -815,43 +775,13 @@ const COT = {
   document.title = "Cotización " + COT.numero + " · Sistema para fábrica de bordado";
   const waHref = mant => {
     let msg;
-    if (mant === "sd") msg = `Hola, acepto la cotización ${COT.numero} (sistema para fábrica de bordado) con el mantenimiento mensual de Servicios Digitales. ¿Cuándo agendamos la Fase 0?`;
-    else if (mant === "cliente") msg = `Hola, acepto la cotización ${COT.numero} (sistema para fábrica de bordado); el mantenimiento lo administramos nosotros. ¿Cuándo agendamos la Fase 0?`;
-    else if (mant === "") msg = `Hola, acepto la cotización ${COT.numero} (sistema para fábrica de bordado). ¿Cuándo agendamos la Fase 0?`;
+    if (mant === "sd") msg = `Hola, me interesa la cotización ${COT.numero} (sistema para fábrica de bordado) con el mantenimiento mensual de Servicios Digitales. ¿Cuándo podemos reunirnos para formalizarla?`;
+    else if (mant === "cliente") msg = `Hola, me interesa la cotización ${COT.numero} (sistema para fábrica de bordado); el mantenimiento lo administraríamos nosotros. ¿Cuándo podemos reunirnos para formalizarla?`;
+    else if (mant === "") msg = `Hola, me interesa la cotización ${COT.numero} (sistema para fábrica de bordado). ¿Cuándo podemos reunirnos para formalizarla?`;
     else msg = `Hola, tengo una consulta sobre la cotización ${COT.numero} (sistema para fábrica de bordado).`;
     return "https://wa.me/" + COT.whatsapp + "?text=" + encodeURIComponent(msg);
   };
   document.querySelectorAll("a[data-wa]").forEach(a => { a.href = waHref(a.getAttribute("data-mant")); });
-  // Pads de firma: dibujar con mouse o dedo; la imagen queda en el canvas y se imprime.
-  document.querySelectorAll("[data-sig]").forEach(pad => {
-    const c = pad.querySelector("canvas"), ctx = c.getContext && c.getContext("2d");
-    if (!ctx) return;
-    let drawing = false, last = null;
-    const fit = () => {
-      const img = c.width ? ctx.getImageData(0, 0, c.width, c.height) : null;
-      const r = pad.getBoundingClientRect(), dpr = window.devicePixelRatio || 1;
-      c.width = Math.round(r.width * dpr); c.height = Math.round(r.height * dpr);
-      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-      ctx.lineWidth = 2; ctx.lineCap = "round"; ctx.lineJoin = "round"; ctx.strokeStyle = "#0a1a3a";
-      if (img) ctx.putImageData(img, 0, 0);
-    };
-    const pos = e => { const r = c.getBoundingClientRect(); return { x: e.clientX - r.left, y: e.clientY - r.top }; };
-    c.addEventListener("pointerdown", e => { drawing = true; last = pos(e); c.setPointerCapture(e.pointerId); pad.classList.add("signed"); e.preventDefault(); });
-    c.addEventListener("pointermove", e => {
-      if (!drawing) return;
-      const p = pos(e); ctx.beginPath(); ctx.moveTo(last.x, last.y); ctx.lineTo(p.x, p.y); ctx.stroke(); last = p;
-    });
-    const stop = () => { drawing = false; };
-    c.addEventListener("pointerup", stop); c.addEventListener("pointercancel", stop);
-    pad.querySelector(".clear").addEventListener("click", () => { ctx.clearRect(0, 0, c.width, c.height); pad.classList.remove("signed"); });
-    fit(); window.addEventListener("resize", fit);
-  });
-  // Nombre del cliente y fecha de hoy precargados; se pueden editar.
-  const n = document.getElementById("sig-nombre");
-  if (n) n.value = COT.cliente;
-  const f = document.getElementById("sig-fecha");
-  if (f) f.value = new Date().toLocaleDateString("es-GT", { day: "numeric", month: "long", year: "numeric" });
-
   // La casilla de mantenimiento en «Aceptación» decide el mensaje del botón final.
   const chkMant = document.getElementById("chk-mant"), waAceptar = document.getElementById("wa-aceptar");
   if (chkMant && waAceptar) {
