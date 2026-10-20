@@ -15,48 +15,70 @@ guatemaltecos. Dos superficies muy distintas que comparten un solo sistema de di
 
 | Superficie | Quién la usa | Dónde | Densidad |
 |---|---|---|---|
-| **Panel de administración** | Dueño, gerencia, supervisión, RRHH, mantenimiento, bodega | Escritorio, oficina | Alta: tablas densas, muchos datos por pantalla |
+| **Panel de administración** | Dueño, gerencia, supervisión, RRHH, mantenimiento, bodega | Escritorio en la oficina; el dueño también lo abre en su teléfono, fuera de la planta | Alta en escritorio; en el teléfono, solo lo de ver y decidir (§6.5) |
 | **PWA de piso** | Operarios | Teléfono o tableta compartida, junto a la máquina | Baja: pocos elementos, muy grandes |
 
 No son la misma aplicación con distinto ancho. Son dos productos con distinta finalidad que
 comparten tokens, tipografía y vocabulario. Diseñarlas como un solo responsive es el error
 más caro que se puede cometer aquí.
 
-## 2. Dirección visual: minimalismo funcional
+El panel sí se adapta al teléfono, pero no se encoge. Ver cada máquina desde el teléfono, sin
+bajar a la planta, es lo que la cotización le promete al dueño. En el teléfono el dueño **mira
+y decide**: cómo va la planta, qué está detenido, autorizar un anticipo, revisar la quincena.
+Lo que se **arma** (altas, catálogo, informes, configuración) queda para el escritorio. Las
+reglas están en §6.5.
 
-El sistema se diseña en estilo **minimalista**. Aquí eso no significa «vacío» ni «bonito»:
-significa que **cada elemento tiene que ganarse su lugar**, y en una fábrica el criterio para
-ganárselo es que ayude a decidir algo.
+## 2. Dirección visual: moderna, con el dato al frente
+
+El sistema se diseña en estilo **moderno**: lienzo gris claro, una tarjeta blanca muy
+redondeada por tema, navegación en píldoras, cifras protagonistas enormes y gráficas con un
+solo tramo resaltado. La referencia es un tablero financiero de ese lenguaje; se toma el
+lenguaje, no el contenido. La tabla completa de qué se toma, qué se adapta y qué no está en
+[`13-hoja-del-sistema.md`](13-hoja-del-sistema.md) §1.3.
 
 Cinco reglas que hacen operativa la dirección:
 
 | Regla | Qué implica en la pantalla |
 |---|---|
-| **El dato es la interfaz** | La cifra, no el contenedor. Un tablero es una retícula de números bien compuestos, no una cuadrícula de tarjetas. |
-| **El espacio separa antes que la línea, y la línea antes que la caja** | Primero se intenta separar con aire. Si no alcanza, una hairline. La caja con relleno y borde es el último recurso y hay que justificarla. |
-| **Un solo acento** | El índigo `--marca-700`. Todo lo demás es tinta y neutros. Los colores semánticos no son decoración: aparecen solo cuando hay algo que atender, y desaparecen cuando no. |
-| **La jerarquía la hace la tipografía** | Tamaño, peso y espacio. No fondos de color, no bordes de énfasis, no barras de acento al costado de las tarjetas. |
-| **Nada compite con la alerta** | Si la pantalla está tranquila, una sola mancha de color crítico se ve desde la puerta. Ese es el rendimiento que compra el minimalismo aquí. |
+| **El dato es la interfaz** | Cada tarjeta responde una pregunta y su cifra es lo más grande que contiene. La tarjeta es el marco del dato, no un adorno. |
+| **Una tarjeta por tema, nunca una dentro de otra** | Dentro de la tarjeta, lo repetido va en filas de `superficie-2` sin borde. Las tarjetas no llevan borde ni sombra. |
+| **El negro manda, el color señala** | Botón primario, píldora activa y tramo seleccionado van en `--tinta`. El color principal de la paleta aparece poco: la barra de hoy, la selección, los enlaces, el foco. |
+| **La jerarquía la hace el tamaño** | Una sola cifra protagonista (48 px en el panel, 56 px en la app) por pantalla, y solo donde la cifra decide; el resto a 22–28 px. Saludo de 40 px, etiquetas pequeñas en `tinta-2`. No fondos de color ni barras de acento al costado. |
+| **Nada compite con la alerta** | Con todo en tinta y gris, una sola mancha de color crítico se ve desde la puerta. |
 
-Consecuencias concretas frente a un diseño convencional:
+Consecuencias concretas:
 
-- Los encabezados de tabla **no llevan fondo gris**: llevan una línea inferior y tipografía en
-  mayúscula pequeña.
-- Las píldoras de estado **no llevan relleno de color**: llevan su forma coloreada y el texto en
-  tinta normal. El color va en la marca, no en el fondo.
-- El tablero **no usa tarjetas**: usa una retícula con hairlines y mucho aire.
-- Los iconos se reducen a los indispensables. Las cinco formas de estado de máquina y poco más.
-- Las secciones respiran: 56 px entre bloques en escritorio, no 24 px.
+- La navegación entre módulos es un **riel de íconos con etiqueta debajo**; la navegación
+  dentro del módulo, **píldoras** arriba. La activa, rellena en tinta.
+- Cada tarjeta lleva en la esquina un botón circular **↗** que siempre significa «abrir el
+  detalle».
+- En el panel, los quetzales muestran los **centavos atenuados** (`Q866`**`.79`**); en la app del
+  operario van completos, porque se leen al sol. Las puntadas, enteras
+  y completas.
+- Las variaciones van en **chip de píldora** verde o rojo suave, con la base de comparación
+  escrita al lado.
+- Las personas se representan con **iniciales en círculo**, nunca con fotos.
+- **La planta es la protagonista.** El tablero abre con las máquinas, una fila por máquina con
+  su **tira del turno**, no con una fila de cifras. Lo detenido va arriba con su acción.
+- **Cada tarjeta tiene la forma de su pregunta:** planilla para la nómina, tira de tiempo para
+  los trabajos, lista por urgencia para mantenimiento. La cuadrícula de tarjetas iguales es
+  solo para elementos equivalentes, como el catálogo de diseños. Nunca una fila de tres o
+  cuatro tarjetas con cifra gigante y etiqueta.
+- La **cifra protagonista** aparece en tres lugares: «Puntadas de hoy» en el tablero, la
+  tarifa vigente y la ganancia del operario en la app.
+- Las píldoras de estado de máquina **no llevan relleno de color**: llevan su forma coloreada,
+  dentro de un círculo neutro, y el texto en tinta.
 
-Lo que el minimalismo **no** autoriza en este proyecto: bajar el contraste, esconder acciones
-detrás de menús, quitar etiquetas de los campos, ni reducir el tamaño de los objetivos táctiles
-de la PWA. Sobriedad visual, nunca a costa de la legibilidad en planta.
+Lo que lo moderno **no** autoriza en este proyecto: bajar el contraste, esconder acciones
+detrás de menús, quitar etiquetas de los campos, íconos sin texto, abreviar cifras, ni reducir
+el tamaño de los objetivos táctiles de la PWA. Estilo actual, nunca a costa de la legibilidad
+en planta.
 
 ## 3. Principios, derivados de restricciones reales
 
 1. **El número es el protagonista.** Todo en este negocio es una cifra: puntadas, quetzales,
-   porcentajes de avance. Las cifras van en monoespaciada con `tabular-nums`, alineadas a la
-   derecha, sin abreviar. Nunca «5.7M puntadas»; siempre `5,725,350`.
+   porcentajes de avance. Las cifras van con `tabular-nums`, alineadas a la derecha en tablas,
+   sin abreviar. Nunca «5.7M puntadas»; siempre `5,725,350`.
 2. **Separar producción de pago.** Puntadas y prendas son cosas distintas (una máquina de 6
    cabezas hace 6 prendas con el mismo conteo). Nunca mostrarlas en la misma columna ni con el
    mismo formato.
@@ -71,8 +93,12 @@ de la PWA. Sobriedad visual, nunca a costa de la legibilidad en planta.
 7. **Todo lo que toca dinero deja rastro.** Cambiar una tarifa, autorizar un descuento o cerrar
    una nómina exige confirmación explícita y queda firmado con nombre y hora, visible en la
    misma pantalla.
-8. **Nada de tarjetas por defecto.** Se separa con línea de 1 px. El borde, el relleno y la
-   sombra se gastan solo donde algo debe destacar de verdad.
+8. **Lo cerrado es exacto; lo abierto se dice abierto.** No hay sensores en las máquinas: las
+   puntadas de una corrida se conocen cuando el operario la finaliza y teclea el contador.
+   Ninguna pantalla presenta como medido lo que sigue bordándose (ver §9, «Dato cerrado y
+   dato en curso»).
+9. **Una tarjeta por tema.** Cada tarjeta responde una pregunta; nunca una tarjeta dentro de
+   otra. Las tarjetas no llevan borde ni sombra: las separa el fondo gris.
 
 ## 4. Roles y permisos
 
@@ -128,6 +154,16 @@ Cómo se traduce en interfaz:
 
 ### 6.1 Color
 
+> **Paleta pendiente de elección.** Los valores de abajo son la propuesta A · Añil. El cliente
+> elige entre A · Añil, B · Jade y C · Grafito en la hoja del sistema
+> ([`13-hoja-del-sistema.md`](13-hoja-del-sistema.md) §1.5); al elegir, se reemplazan aquí.
+
+**Roles en la dirección moderna.** El botón primario, la píldora activa, el tramo seleccionado
+de una gráfica y su globo van en `--tinta` (casi negro en claro, casi blanco en oscuro) en
+cualquier paleta. La familia `--marca-*` es el color principal: barra destacada de las
+gráficas (`--marca-500`, rayada en `--marca-700`), selección, enlaces, punto de no leído y
+foco.
+
 Los neutros están sesgados hacia el azul índigo del acento, no son grises puros. El acento
 sale del azul profundo del **corte** guatemalteco; el rojo de alerta, del rojo de los huipiles
 de Totonicapán. Los colores de estado son independientes del acento y no se usan nunca como
@@ -136,37 +172,60 @@ decoración.
 **Tema claro**
 
 ```
---fondo          #F4F5F7    fondo de página
---superficie     #FFFFFF    tarjetas, tablas, modales
---superficie-2   #EDEFF3    encabezados de tabla, filas alternas
+--fondo          #E7E8EB    lienzo de la página, entre tarjetas (1.23:1 con la tarjeta)
+--superficie     #FFFFFF    tarjetas, modales, panel de avisos
+--superficie-2   #EDEFF3    filas internas, campos, botones de ícono, píldoras inactivas
 --tinta          #14171C    texto principal
 --tinta-2        #565D68    texto secundario
 --tinta-3        #858D99    etiquetas, texto deshabilitado
 --linea          #D9DDE4    bordes, divisores
 --linea-suave    #E8EBF0    divisores internos
+--linea-fuerte   #838A96    línea inferior de campos, barras pasadas, bordes en la app (≥ 3:1)
 
---marca-700      #2B3A67    primario: botones, enlaces, selección
---marca-900      #1B2A4A    hover del primario
---marca-500      #4A63A8    acento secundario, gráficas
---marca-100      #E3E8F4    fondo de selección, píldoras informativas
+--marca-700      #2B3A67    color principal: enlaces, foco, rayado de la barra destacada
+--marca-900      #1B2A4A    texto sobre marca-100
+--marca-500      #4A63A8    barra destacada de las gráficas, punto de no leído
+--marca-100      #E3E8F4    fondo de selección, avisos informativos
 ```
+
+**Interruptor de modo día / noche.** El sistema tiene los dos modos y cada persona elige el
+suyo con un interruptor siempre visible, sin entrar a Configuración:
+
+- **Forma:** dos segmentos en una píldora, «☀ Día» y «☾ Noche», con el modo vigente relleno en
+  tinta. Se ven los dos a la vez, así nadie tiene que adivinar si el ícono dice el modo actual
+  o el siguiente, y no depende de pasar el cursor, que en el teléfono no existe. Es un grupo de
+  dos botones con `aria-pressed`.
+- **Panel en escritorio:** en la barra superior, entre la búsqueda y la campana, 40 px de alto,
+  cada segmento con ícono y palabra.
+- **Panel en el teléfono:** en la barra superior, solo los dos íconos, cada segmento de
+  44 × 44 px, con su nombre en `aria-label`. Al verse sol y luna juntos, sigue sin ambigüedad.
+- **App del operario:** en el encabezado de Inicio, 56 px de alto y cada segmento de 72 px de
+  ancho, con ícono y palabra visibles, porque el operario lo cambia con guantes.
+- **Por defecto** sigue al teléfono o a la computadora (`prefers-color-scheme`). Al tocarlo,
+  la elección queda guardada **en la cuenta de la persona**, no solo en el navegador: el
+  operario que usa una tableta compartida encuentra su modo al ingresar. Se guarda también en
+  el dispositivo para que la app abra en el modo correcto sin conexión.
+- **Al cambiar:** transición de color de 200 ms en toda la pantalla, sin destello blanco al
+  cargar (el modo se aplica antes de pintar).
+- En impresiones, constancias y PDF siempre se usa el modo día.
 
 **Tema oscuro** — mismos nombres, valores redefinidos:
 
 ```
 --fondo          #101318
---superficie     #171B21
---superficie-2   #1E232B
+--superficie     #22262B
+--superficie-2   #2A2F36
 --tinta          #E8EAEE
 --tinta-2        #9BA3AF
 --tinta-3        #6C7480
---linea          #2A3039
---linea-suave    #21262E
+--linea          #363A3E
+--linea-suave    #2C3035
+--linea-fuerte   #707883
 
 --marca-700      #8FA6DE
 --marca-900      #B3C4EC
 --marca-500      #6E86C4
---marca-100      #1E2740
+--marca-100      #293553
 ```
 
 **Semánticos** (claro / oscuro):
@@ -194,32 +253,69 @@ El color nunca es la única señal: siempre lo acompaña la forma y la palabra.
 
 ### 6.2 Tipografía
 
+Una sola familia, **IBM Plex**, en dos cortes. Se eligió por tres razones verificadas en el
+archivo de la fuente: sus números son **tabulares de fábrica** (los diez dígitos miden lo
+mismo, así que las columnas de puntadas y quetzales se alinean sin depender de `tnum`);
+trae un eje de **ancho** (`wdth` 75–100) que deja condensar la planilla de nómina sin cargar
+otra fuente; y su carácter de placa técnica encaja con una herramienta de planta mejor que
+una geométrica de moda. La versión mono comparte esqueleto, así que los códigos no parecen
+pegados de otro sistema.
+
 | Rol | Familia | Uso |
 |---|---|---|
-| Interfaz | **Source Sans 3** 400/600/700 | Todo el texto de interfaz. Buen soporte de acentos y de ñ. |
-| Datos | **IBM Plex Mono** 400/500/600 | Puntadas, quetzales, códigos de diseño, DPI, horas, porcentajes. Siempre con `font-variant-numeric: tabular-nums`. |
+| Interfaz y cifras | **IBM Plex Sans** variable, `wght` 400–700, `wdth` 85–100 | Todo el texto y todas las cifras. Se declara `font-variant-numeric: tabular-nums` igual, por si cae la fuente de respaldo. |
+| Códigos | **IBM Plex Mono** 400/500 | Identificadores que se dictan o se copian: BOR-05, OP-007, HUI-001, DPI, hash, valores hex. |
 
-Escala: `11 · 12 · 14 · 16 · 18 · 21 · 26 · 32 · 42`
+Respaldo: `"IBM Plex Sans", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif`, con
+`font-display: swap`.
 
-- Texto de tabla y formulario: 14 px escritorio, 17 px PWA.
-- Etiquetas en mayúscula: 11 px, Plex Mono 500, `letter-spacing: .1em`.
-- Cifras destacadas del tablero: 32 px o 42 px, Plex Mono 500, `letter-spacing: -.02em`.
-- Longitud de línea de texto corrido: máximo 66 caracteres.
+**Escala del panel** (px, fija, sin tamaños fluidos):
+
+| Rol | Tamaño / interlínea | Peso | Notas |
+|---|---|---|---|
+| Rótulo del riel, marcas de hora | 11 / 14 | 500 | Solo en esos dos lugares |
+| Etiqueta, eje de gráfica | 12 / 16 | 500 | `--tinta-2`, tipo oración |
+| Migas, texto secundario | 13 / 18 | 400 | `--tinta-2` |
+| Tabla, control, cuerpo del panel | 14 / 20 | 400 | Tabla densa: `wdth` 90 |
+| Párrafo, nota larga | 16 / 24 | 400 | Máximo 66 caracteres por línea |
+| Título de tarjeta | 18 / 24 | 600 | |
+| Cifra de ficha | 22 / 28 | 500 | |
+| Cifra de tarjeta, título de sección | 28 / 34 | 500 | `letter-spacing: -.01em` |
+| Saludo o título de pantalla | 40 / 46 | 500 | `letter-spacing: -.02em` |
+| Cifra protagonista | 48 / 52 | 500 | `letter-spacing: -.02em`; una por pantalla |
+
+**Escala de la app del operario:** 13 · 15 · **17** (base) · 20 · 24 · 32 (código de la
+máquina) · 56 (ganancia, cifra protagonista) · 64 (dígitos del teclado).
+
+- En modo noche el texto de 16 px o menos sube a peso 450 (la fuente es variable) y
+  `letter-spacing: .005em`: el texto claro sobre oscuro se ve más delgado.
+- Etiquetas en tipo oración, nunca en mayúscula espaciada.
+- `text-wrap: balance` en títulos; `text-wrap: pretty` en párrafos.
+- En quetzales del panel, los centavos van en `--tinta-3`; en la app, completos.
 
 ### 6.3 Espaciado, forma y elevación
 
 - Escala de espaciado base 4: `4 · 8 · 12 · 16 · 20 · 24 · 32 · 40 · 56 · 72 · 96`.
-  En dirección minimalista se usa el extremo alto: **56 px entre bloques**, 96 px entre
-  secciones mayores. El aire es el separador por defecto.
-- Radios: **2 px** en controles, **0** en tablas y contenedores. En todo el sistema no hay una
-  sola esquina muy redondeada. Las píldoras de estado tampoco llevan redondeo completo: al no
-  tener relleno, no son píldoras sino marca más texto.
-- Bordes: **una sola hairline de 1 px** y solo donde el aire no basta para separar. Los
-  encabezados de tabla no llevan fondo; llevan línea inferior.
-- Elevación: una sola sombra en todo el producto, reservada a menús desplegables y modales.
-  Ningún otro elemento proyecta sombra.
-- Relleno de color: reservado a los estados semánticos y solo en su versión suave, para franjas
-  de alerta y filas marcadas. Nunca como decoración.
+  16 px entre tarjetas en escritorio y 12 px en celular; 24 px de relleno interno (20 px en
+  celular); 56 px entre bloques de una página larga.
+- Radios: **28 px** en tarjetas de escritorio y **24 px** en celular, **20 px** en filas
+  internas y campos, **completo** en píldoras, botones y botones de ícono. Un radio por nivel,
+  sin mezclar.
+- Bordes: las tarjetas y las filas internas del panel no llevan borde; la tarjeta se separa
+  del fondo por aire y por un contraste de 1.23:1, suficiente porque no es un control. Todo
+  lo que hay que distinguir para actuar lleva `--linea-fuerte` (≥ 3:1, WCAG 1.4.11): la línea
+  inferior de 2 px de los campos, las barras de días pasados en las gráficas y el borde de
+  1.5 px de las tarjetas que se tocan en la app del operario. Las tablas separan filas con
+  `--linea-suave` y su encabezado con una línea inferior, sin fondo.
+- `--tinta-3` solo sobre la tarjeta y en texto de 24 px o más; nunca sobre `--superficie-2`
+  ni sobre el fondo.
+- Enlaces siempre subrayados (1 px, separación 3 px), en cualquier paleta.
+- Selección: fondo `--marca-100`, borde de 1 px en `--marca-500` y ✓. Nunca se marca con el
+  mismo contorno que el foco.
+- Elevación: una sola sombra en todo el producto, `0 24px 48px rgb(0 0 0 / .12)`, reservada al
+  panel de avisos, menús desplegables y modales. Ninguna tarjeta proyecta sombra.
+- Relleno de color: el de los estados semánticos, solo en su versión suave, para chips de
+  variación, franjas de alerta y filas marcadas. Nunca como decoración.
 - Foco de teclado: contorno de 2 px en `--marca-700` con 2 px de separación. Visible siempre,
   nunca suprimido.
 
@@ -227,15 +323,75 @@ Escala: `11 · 12 · 14 · 16 · 18 · 21 · 26 · 32 · 42`
 
 | | Escritorio | PWA |
 |---|---|---|
-| Alto de fila | 40 px | 64 px |
-| Alto de control | 34 px | 56 px |
-| Botón primario | 34 px | 72 px |
+| Alto de fila de tabla | 52 px | 64 px |
+| Alto de fila interna de tarjeta | 56 px | 96 a 112 px |
+| Alto de control y píldora | 40 px | 56 px |
+| Botón primario | 40 px | 72 px |
 | Texto base | 14 px | 17 px |
 | Margen lateral | 24 px | 16 px |
+| Ancho del riel lateral | 84 px | — |
+
+El panel en el teléfono toma valores intermedios: filas de lista de 64 px, controles de 40 px
+visibles con 44 px de área táctil, texto base de 15 px, margen de 16 px y barra inferior de
+64 px en lugar del riel.
+
+### 6.5 El panel en el teléfono
+
+Tres diseños, con cortes en `em` para que el zoom al 200 % en escritorio también pase al
+diseño siguiente en lugar de desbordarse:
+
+| Ancho | Diseño |
+|---|---|
+| Desde 75 em (1200 px) | **Escritorio:** riel de 84 px y cuadrícula de 12 columnas. |
+| 48 a 75 em (768–1199 px) | **Tableta:** el riel se queda; cuadrícula de 8 columnas; las filas de dos tarjetas se apilan; las tablas guardan sus columnas de menor prioridad detrás de ↗. |
+| Menos de 48 em (768 px) | **Teléfono:** una columna, con las reglas de abajo. |
+
+En el teléfono:
+
+- **Navegación:** el riel pasa a una **barra inferior** de 64 px más el área segura
+  (`env(safe-area-inset-bottom)`), con cinco destinos con ícono y etiqueta. Para el dueño:
+  Tablero · Máquinas · Producción · Nómina · Más. «Más» abre los demás módulos en una hoja
+  inferior. Los destinos cambian con el rol.
+- **Barra superior:** «Bastidor», el interruptor de dos íconos, la campana y las iniciales. La
+  búsqueda pasa a «Más». Sin migas: el título de la pantalla dice dónde está.
+- **Píldoras de sección:** una fila que se desplaza de lado dentro de sí misma, con la activa a
+  la vista al entrar. La página nunca se desplaza de lado.
+- **Encabezado:** saludo y títulos de 40 px bajan a 28 px. La cifra protagonista se queda en
+  48 px: «1,300,180» ocupa unos 230 px.
+- **Orden:** una columna en el orden de prioridad de la pantalla, no en el del escritorio leído
+  de izquierda a derecha. En el tablero: La planta ahora → Hoy → La quincena. El orden del
+  código es el mismo, para que el teclado y el lector de pantalla lean igual que el ojo.
+- **La planta ahora:** las máquinas **detenidas** van abiertas, en una fila de dos niveles:
+  código, cabezas y estado con «desde» en la primera línea; operario y motivo en la segunda;
+  la acción a todo el ancho y la tira del turno a todo el ancho, con marcas solo en 06 · 10 ·
+  14 y la línea «ahora». Las que están **corriendo** van compactas: código, iniciales, puntadas
+  terminadas y su tira; tocarla la abre. Nada se esconde; cambia cuánto ocupa.
+- **Tablas:** pasan a lista de filas internas: la primera columna como título, dos o tres
+  cifras clave a la derecha y el resto al abrir la fila. Excepción: la **planilla de nómina**
+  sigue siendo planilla, porque así la conoce el dueño. Arriba va un resumen (total a pagar,
+  complementos, quién no llega al mínimo) y debajo la planilla, con la primera columna fija,
+  desplazamiento lateral dentro de su tarjeta y la señal visible «Deslice para ver las
+  9 columnas →».
+- **Gráficas:** las 15 barras de la quincena caben en la tarjeta: a 390 px, barras de 14 px
+  con 7 px de separación (308 de 318 px útiles); a 360 px, barras de 12 px. El eje rotula 1 · 5 · 10 · 15 y el globo se queda. La tira del turno no baja de 12 px
+  de alto.
+- **Tacto:** todo control tiene al menos 44 × 44 px de área táctil, aunque se vea de 40 px; el
+  botón ↗ también. Nada depende de pasar el cursor: lo que en escritorio aparece al pasar
+  (el detalle de un tramo de la tira, el valor de una barra) aparece al tocar.
+- **Panel de avisos:** hoja inferior a todo el ancho, con las acciones al alcance del pulgar.
+  Lo que toca dinero sigue abriendo su confirmación.
+- **Lo que se arma en escritorio:** las altas y ediciones largas (`C2`, `D2`, `G2`, `I3`), el
+  constructor de informes (`K1`) y la configuración (`L1`, `L2`) abren en el teléfono, con la
+  nota «Esta pantalla es más cómoda en una computadora», y siguen funcionando. Nunca se
+  bloquean.
+
+**La app del operario en la tableta compartida** no cambia de tamaños: una columna de 560 px
+como máximo, centrada. En horizontal, «Su ganancia hoy» va a la izquierda y «Mis máquinas» a
+la derecha.
 
 ## 7. Movimiento
 
-El minimalismo hace que el movimiento pese más: en una pantalla quieta, lo único que se mueve
+Con todo en tinta y gris, el movimiento pesa más: en una pantalla quieta, lo único que se mueve
 es lo único que mira la gente. Por eso el sistema tiene poca animación y toda ella significa
 algo.
 
@@ -267,10 +423,20 @@ Es la pieza más importante del sistema de movimiento: el estado de la máquina 
 **por color, por forma y por comportamiento**. A un metro de distancia, el comportamiento es lo
 primero que se percibe.
 
+El estado sale del **último registro**, no de un sensor, y por eso siempre va acompañado de
+«desde HH:MM»:
+
+| Estado | Se registra cuando |
+|---|---|
+| Corriendo | El operario tocó Comenzar o Reanudar y la corrida sigue abierta |
+| Parada | No hay corrida abierta, o el operario tocó Pausar; muestra el motivo del paro |
+| En falla | El operario reportó un paro por «falla de la máquina» |
+| En mantenimiento | Hay una orden de mantenimiento abierta para la máquina |
+| Sin datos | No hay ningún registro de la máquina en el turno |
+
 | Estado | Forma | Movimiento | Por qué así |
 |---|---|---|---|
 | **Corriendo** | punto lleno | Pulso de opacidad `1 → .45 → 1`, `--dur-ambiente`, infinito, curva `--suave` | La máquina está viva. El ritmo lento late sin distraer. |
-| **Corriendo · avanzado** | punto lleno | El mismo pulso, pero **la duración del ciclo se deriva de las puntadas por minuto reales**: más rápida la máquina, más rápido el latido. Rango acotado de 1.2 s a 3 s. | Convierte un dato en algo que se lee sin leer. Es la animación que da identidad al producto. |
 | **Parada** | punto lleno | **Ninguna.** Absolutamente quieto. | La quietud *es* la señal. Una máquina parada en una pantalla donde todo lo demás late se ve al instante. |
 | **En falla** | triángulo | Doble parpadeo de 120 ms, y luego 3 s de reposo. Nunca parpadeo continuo. | Llama la atención sin agotarla ni volverse ruido de fondo. |
 | **En mantenimiento** | cuadrado | Barrido diagonal lento de un brillo tenue sobre la forma, 3 s, infinito | Dice «se está trabajando en ella», distinto de «está produciendo». |
@@ -288,6 +454,8 @@ primero que se percibe.
 | **Franja de alerta** | Entra desde arriba con 8 px y opacidad. Al resolverse, colapsa su altura. | `--dur-base`, `--sal` |
 | **Botón** | Cambio de fondo al pulsar, sin escala ni sombra. | `--dur-instante` |
 | **Modal y panel lateral** | Fondo se oscurece; el panel entra 8 px. Sin escala. | `--dur-base` |
+| **Panel de avisos** | Entra 8 px bajo la campana con opacidad; el punto de no leído desaparece al abrir el aviso. | `--dur-base`, `--sal` |
+| **Tarjeta** | No se eleva ni escala al pasar el cursor. Solo su botón ↗ cambia de fondo. | `--dur-instante` |
 | **Esqueleto de carga** | Barrido suave de 1.4 s. **Nunca un indicador giratorio** en ninguna pantalla del sistema. | ambiente |
 
 ### 7.4 Movimiento en la PWA
@@ -335,23 +503,59 @@ selector de fecha y rango, casilla, interruptor, píldora de estado, etiqueta, t
 paginación, migas, pestañas, barra lateral, modal, panel lateral, aviso en línea, notificación
 temporal, estado vacío, esqueleto de carga.
 
+**Del estilo moderno** — definen el lenguaje de §2 y se usan igual en todo el panel:
+
+| Componente | Qué hace |
+|---|---|
+| **Tarjeta** | Contenedor de un tema: `--superficie`, radio 28 px, sin borde ni sombra, título arriba a la izquierda y botón ↗ arriba a la derecha. |
+| **Fila interna** | Elemento repetido dentro de una tarjeta: `--superficie-2`, radio 20 px, sin borde. |
+| **Riel lateral** | 84 px, un ícono en círculo de 44 px por módulo con su etiqueta de 11 px debajo; activo relleno en tinta. |
+| **Píldoras de sección** | Subsecciones del módulo, máximo 5; la activa rellena en tinta. |
+| **Cifra con centavos** | Cifra protagonista de 48 px en el panel y 56 px en la app, una por pantalla como máximo; en quetzales, los centavos en `--tinta-3`. |
+| **Chip de variación** | Píldora verde o roja suave con el porcentaje, y la base de comparación escrita al lado. |
+| **Gráfica de barras con globo** | Barras redondeadas; días cerrados en `--linea-fuerte`; hoy en dos tramos, lo terminado sólido en `--marca-500` y lo en curso rayado encima; globo en tinta con las dos cifras exactas. |
+| **Iniciales apiladas** | Personas en turno en círculos de 32 px, con «+N». Nunca fotos. |
+| **Panel de avisos** | Bajo la campana: pestañas Todas / Sin leer, punto de no leído en `--marca-500`, acciones en línea. Lo que toca dinero abre su confirmación. |
+| **Interruptor día / noche** | Dos segmentos en píldora, «Día» y «Noche», el vigente relleno en tinta: 40 px en el panel, solo íconos de 44 px en el teléfono, 56 px de alto con palabra en la app. La elección se guarda en la cuenta (§6.1). |
+| **Barra inferior** | Solo en el panel en el teléfono: 64 px más el área segura, cinco destinos con ícono y etiqueta, el activo relleno en tinta (§6.5). |
+
 **Propios del dominio** — son los que dan identidad al sistema y hay que diseñarlos con cuidado:
 
 | Componente | Qué hace | Movimiento |
 |---|---|---|
-| **Ficha de máquina** | Estado, operario a cargo, diseño en curso, puntadas del día, avance hacia el próximo mantenimiento. Es la unidad que se repite en el tablero. | Hereda el del estado (§7.2) |
-| **Contador de puntadas** | Cifra grande en Plex Mono con separador de miles, con su delta y su tasa por minuto. | Conteo animado al cambiar |
+| **Ficha de máquina** | Código, modelo, **sus cabezas dibujadas** (cuadrados llenos si está corriendo, contorno si no), estado con «desde HH:MM», operario, puntadas terminadas hoy, su tira del turno y el avance hacia el próximo mantenimiento. En la parrilla de máquinas su ancho es proporcional al número de cabezas. Es la unidad que se repite en tablero, máquinas y app. | Hereda el del estado (§7.2) |
+| **Tira del turno** | Barra de 06:00 a 14:00 con un tramo por trabajo: terminado sólido en `--marca-500`, en curso rayado, paro en aviso, falla en crítico, mantenimiento en su color; huecos sin registro en la pista. Línea «ahora» y marcas de hora una vez por tarjeta. Cada tramo da diseño, horario y puntadas al tocarlo. Es la pieza que identifica al sistema. | El tramo en curso crece con el reloj, sin animación propia |
+| **Contador de puntadas** | Cifra grande con `tabular-nums` y separador de miles. Muestra puntadas de corridas cerradas; las de una corrida en curso aparecen aparte como «esperadas», rayadas. | Conteo animado al cambiar |
 | **Chip de verificación** | `ok` / `revisar` / `discrepancia` / `sin declarar`, con la desviación en porcentaje. Sin relleno: marca coloreada más texto en tinta. | Cruce al resolverse |
-| **Firma de diseño** | Código, miniatura, puntadas y número de cambios de color. Se repite en catálogo, corrida y verificación. | Ninguno |
+| **Firma de diseño** | Código, puntadas en 28 px y una tira con un segmento por cambio de color. Se repite en catálogo, corrida y verificación. | Ninguno |
 | **Barra de mínimo legal** | Progreso del operario hacia el umbral de 2,453,721 puntadas quincenales, con marca del umbral. Pasa a `--critico` si va por debajo del ritmo. | Crece al aparecer; destello al cruzar |
 | **Semáforo de mantenimiento** | Avance porcentual hacia el intervalo, con aviso al 90 %. | Latido suave por encima del 90 % |
 | **Escáner QR** | Visor de cámara a pantalla completa con marco, con alternativa de tecleo manual siempre visible. | Marco que respira; colapso al leer |
 | **Teclado numérico grande** | Para capturar el contador en la PWA. Dígitos de 64 px, sin teclado del sistema. | Fondo de 90 ms por dígito |
-| **Selector de rango de fechas** | Con atajos: hoy, ayer, esta semana, esta quincena, este mes, rango libre. Es el control más usado de todo el panel. | Apertura de 200 ms |
+| **Selector de rango de fechas** | Con cinco atajos: hoy, esta semana, esta quincena, este mes, rango libre (ayer se elige desde el rango libre). Es el control más usado de todo el panel. | Apertura de 200 ms |
 
 ## 9. Patrones
 
-**Tablas de datos.** Encabezado fijo. Números a la derecha en Plex Mono. Fila con `hover`
+**Vocabulario en pantalla.** La interfaz dice **trabajo** («Comenzar trabajo», «Trabajos de
+hoy»), como la cotización que conoce el cliente. «Corrida» es el término interno de estos
+documentos y no aparece en pantalla.
+
+**Dato cerrado y dato en curso.** La captura es manual: el operario declara el diseño, toca
+Comenzar, Pausar, Reanudar o Finalizar, y al finalizar teclea el contador de la máquina. Por
+eso:
+
+- Toda cifra de «hoy» o del período cuenta **solo corridas cerradas** y lo dice en su
+  etiqueta («Puntadas de hoy · de trabajos terminados»).
+- Una corrida abierta muestra su hora de inicio, el tiempo transcurrido y sus puntadas
+  **esperadas** (repeticiones planeadas × puntadas del diseño), con la palabra «en curso».
+- En gráficas y fichas, lo cerrado va **sólido** y lo en curso **rayado** encima. El rayado
+  significa siempre «todavía no medido» y no se usa para nada más.
+- El tablero dice cuándo fue el último registro («Último registro: 13:20 · BOR-06 comenzó
+  HUI-002 · hace 30 min»), para que nadie confunda una planta tranquila con una pantalla sin
+  datos nuevos.
+- No hay tasas por minuto ni pulsos derivados de la velocidad real: el sistema no la conoce.
+
+**Tablas de datos.** Encabezado fijo. Números a la derecha con `tabular-nums`. Fila con `hover`
 sutil. Ordenamiento por columna. Filtros arriba, no en un panel escondido. Total al pie cuando
 la columna es sumable. Nunca paginación menor a 50 filas en escritorio: el dueño quiere ver.
 
@@ -359,27 +563,132 @@ la columna es sumable. Nunca paginación menor a 50 filas en escritorio: el due�
 campo, no mientras se escribe. El error dice qué pasó y cómo arreglarlo. Los campos con formato
 propio —DPI, teléfono, puntadas— validan y dan formato en vivo.
 
-**Estados vacíos.** Dicen qué falta y ofrecen la acción. «Aún no hay corridas hoy. Las corridas
-aparecen aquí cuando un operario abre una en la PWA.»
+**Estados vacíos.** Dicen qué falta y ofrecen la acción. «Aún no hay trabajos terminados hoy.
+Aparecen aquí cuando un operario finaliza uno en su teléfono.» Si hay trabajos en curso, el
+vacío lo dice: «Aún no hay trabajos terminados hoy · 3 en curso desde las 06:05».
+
+**Nómina como planilla.** El cálculo de la quincena se ve como la planilla de papel que ya
+conoce el dueño: encabezado en dos niveles con los grupos Operario · Producción · Devengado ·
+Descuentos · A pagar, primera columna fija, fila de totales sobre línea doble. Las
+explicaciones de ley van en subfilas visibles, no al pasar el cursor, porque el dueño revisa
+desde el teléfono.
+
+**Máximo cinco píldoras en una fila.** Si un filtro necesita más opciones, pasa a selector.
 
 **Confirmaciones destructivas o financieras.** Modal que nombra la consecuencia exacta y exige
 una acción deliberada. Cerrar una nómina: «Se cerrará la quincena del 1 al 15 de septiembre
-con 18 operarios y Q47,812.30 en total. Después de cerrar no se pueden editar las corridas de
-este período.»
+con 5 operarios y Q11,982.63 a pagar. Después de cerrar no se pueden editar los trabajos de
+este período. Hay 2 trabajos en curso: se pagarán en la quincena en que se finalicen.» Si
+quedan discrepancias sin resolver, el botón no cierra: lleva a resolverlas.
 
 **Errores.** Nunca códigos. Nunca «algo salió mal». Siempre qué pasó, qué se hizo con los datos
 y qué puede hacer la persona.
+
+### Casos límite
+
+Lo que pasa en una planta real y cada pantalla tiene que resistir. Cada regla nombra la
+pantalla donde se diseña.
+
+**Sin conexión en la app (`P8`).** Es el estado normal, no un error.
+
+- Una franja fija arriba, en `--aviso-suave`, nunca un modal: «Sin conexión · 1 registro
+  guardado en este teléfono. Se enviará solo al volver la señal. Puede seguir trabajando.»
+  Al tocarla, la lista de lo pendiente.
+- Cada registro pendiente lleva un reloj y «pendiente»; al enviarse, ✓ y «enviado 13:14».
+  La franja desaparece sola cuando la cola llega a cero; no hay botón de reintentar porque
+  el reintento es automático.
+- Todo se registra con la **hora del toque**, no la de llegada. El servidor guarda las dos.
+  Si el reloj del teléfono difiere más de 5 minutos del servidor, el registro llega marcado
+  para el supervisor; nunca se corrige en silencio.
+- La ganancia del día se calcula en el teléfono y lo dice: «calculada en este teléfono · se
+  confirma al enviar».
+- Ingreso con gafete sin señal: el teléfono reconoce a los operarios asignados a sus máquinas
+  en la última sincronización. Un teléfono nuevo dice «Este teléfono necesita conexión la
+  primera vez» y no deja empezar a medias.
+- Diseño que no está en el teléfono: «Este diseño no está guardado en el teléfono. Puede
+  comenzar igual; se confirma al volver la señal.» El trabajo queda `sin declarar` hasta
+  entonces.
+- Conflictos al sincronizar (la misma máquina comenzada desde dos teléfonos): se guardan los
+  dos registros y el caso va a la bandeja `F2`. Nunca se descarta uno sin avisar.
+
+**Sin noticias de un teléfono (`B1`, `D1`).** Sin sensores, un trabajo largo no manda nada
+durante horas, y una planta tranquila se confunde con un teléfono apagado. La app avisa que
+sigue viva cada 5 minutos mientras tiene señal. Si una máquina tiene un trabajo en curso y su
+teléfono lleva más de 15 minutos sin avisar, la ficha agrega una línea en `tinta-2`: «Sin
+noticias del teléfono desde 12:41». No cambia el estado de la máquina, porque no se sabe que
+haya cambiado.
+
+**Panel sin conexión.** El dueño en su teléfono con mala señal: franja «Sin conexión. Lo que ve
+es de las 13:50.» Las cifras se quedan, con su hora. Lo que toca dinero (autorizar, cerrar,
+cambiar tarifas) queda desactivado con la razón escrita: «Autorizar necesita conexión».
+
+**Contador al finalizar (`P5`).** El número se revisa antes de guardar, en la misma hoja,
+debajo del número, nunca en un modal:
+
+| Caso | Qué dice la app | Qué puede hacer |
+|---|---|---|
+| Final menor que el inicial | «Este número es menor que el del inicio (8,412,300). Revise el número que marca la máquina.» | «Corregir número» (principal) o «La máquina se reinició»: pide el número de ahora y el trabajo queda `revisar` para el supervisor. |
+| Final igual al inicial | «La máquina no marcó puntadas.» | Corregir el número o «Cancelar el trabajo», que pide motivo. |
+| Más de lo que la máquina puede bordar | «Ese número da 527,940 puntadas. BOR-06 no puede bordar tantas en 2 h 7 min: como máximo 101,600. Revise el número.» El máximo es puntadas por minuto × minutos bordando, sin pausas. | Solo corregir. Si el supervisor confirma que el número es correcto, lo registra él en `F2`. |
+| Número válido | El resultado de la verificación, ya calculado. | «Guardar». |
+
+El teclado acepta hasta 9 dígitos y pone el separador de miles mientras se teclea. «Guardar»
+se desactiva al tocarlo y muestra «Guardando…»; cada registro lleva un identificador propio,
+así que un doble toque o un reenvío con mala señal nunca crea dos trabajos.
+
+**Discrepancia vista por el operario (`P5`, `P2`).** La desviación mayor a 3 % no es una falta
+del operario: casi siempre es un diseño o unas repeticiones mal declarados.
+
+- En la app se muestra con la forma y el color de aviso, nunca de falla: «Diferencia de
+  +4.97 % con lo esperado. Su supervisor lo revisará. Esto no es una falta: a veces el
+  diseño declarado no es el que se bordó.»
+- Tres botones grandes para decir qué pasó, opcionales: «Cambié de diseño» · «Se rompió el
+  hilo y repetí» · «Otra cosa».
+- La ganancia de ese trabajo **cuenta con lo medido**, marcada «en revisión». Nunca se le
+  quita al operario sin avisar: si el supervisor la corrige, la diferencia aparece en «Mi
+  ganancia» como ajuste con su motivo, y el operario recibe el aviso («Su supervisor revisó
+  FAJ-010: se pagan 148,800 puntadas»).
+- En Inicio, mientras no se resuelva, una fila: «1 trabajo en revisión».
+
+**Corregir después de guardar (`P2`, `F2`).** El operario puede corregir su último registro
+durante 15 minutos: la tarjeta del trabajo terminado muestra «Corregir · hasta 13:25». Pasado
+ese tiempo, solo el supervisor corrige, desde `F2`, con motivo obligatorio. Toda corrección
+deja rastro visible en el trabajo: el valor anterior tachado, el nuevo, quién y a qué hora
+(principio 7). Con la quincena cerrada ya no se corrige: la diferencia entra en la quincena
+siguiente como ajuste, con referencia al trabajo.
+
+**Turno de noche.** Un turno que cruza la medianoche cuenta para el día en que empezó: «hoy»
+de las 02:00 es el turno que comenzó ayer a las 22:00, y la pantalla lo dice («turno nocturno
+del domingo 13»).
+
+**Quincena con trabajos abiertos.** Al cerrar, los trabajos en curso no se pagan a medias: se
+pagan en la quincena en que se finalizan. La confirmación de cierre lo dice.
+
+**Tableta compartida.** Tras 30 minutos sin uso o al terminar el turno, la app vuelve a pedir
+el gafete. Los registros pendientes se conservan aunque cambie la persona.
+
+**Nombres y cifras largas.** Los nombres completos se escriben enteros en fichas, nómina y
+constancias, en dos líneas si hace falta («María de los Ángeles Xiloj Tzoc de Chávez»); solo
+las filas compactas usan iniciales, con el nombre completo para el lector de pantalla. Las
+columnas de cifras se miden para 99,999,999 puntadas y Q999,999.99.
+
+**Carga.** Esqueletos con la forma de lo que viene (filas, barras, tiras), nunca un indicador
+giratorio. Si tarda más de 10 segundos, el esqueleto dice qué espera: «Calculando la
+quincena…».
+
+**Permisos.** Lo que un rol no puede ver no aparece; lo que puede ver pero no cambiar se
+muestra sin el control y con la razón: «Solo el dueño cambia tarifas».
 
 ## 10. Inventario de pantallas
 
 37 pantallas. Los identificadores se usan en los prompts del documento 12.
 
-### Panel de administración (escritorio)
+### Panel de administración (escritorio y teléfono)
 
 | ID | Pantalla | Rol |
 |---|---|---|
 | `A1` | Ingreso al panel | todos |
-| `B1` | Tablero general: máquinas en vivo, producción del día, alertas | dueño, gerencia, supervisor |
+| `B1` | Tablero general: estado de las máquinas según el último registro, producción cerrada del día, corridas en curso, alertas | dueño, gerencia, supervisor |
 | `C1` | Operarios · listado | dueño, RRHH |
 | `C2` | Operario · alta y edición, con validación de DPI | dueño, RRHH |
 | `C3` | Operario · ficha: producción, ganancia, asignaciones, historial | dueño, RRHH |
@@ -413,6 +722,10 @@ y qué puede hacer la persona.
 | `L2` | Configuración · parámetros legales | dueño |
 | `L3` | Auditoría | dueño |
 
+Todas se adaptan al teléfono con las reglas de §6.5. Cuatro se diseñan también en teléfono,
+porque son las que el dueño abre fuera de la oficina: `B1` tablero, `D1` máquinas, `H2`
+planilla de la quincena y el panel de avisos.
+
 ### PWA del operario (móvil)
 
 | ID | Pantalla |
@@ -420,7 +733,7 @@ y qué puede hacer la persona.
 | `P1` | Ingreso por QR de gafete |
 | `P2` | Inicio: mis máquinas asignadas y mi ganancia de hoy |
 | `P3` | Abrir corrida: escanear máquina, escanear diseño, contador inicial |
-| `P4` | Corrida en curso |
+| `P4` | Corrida en curso: tiempo, puntadas esperadas, Pausar / Reanudar / Finalizar |
 | `P5` | Cerrar corrida y resultado de la verificación |
 | `P6` | Reportar paro |
 | `P7` | Mi ganancia: día y quincena, con desglose |
@@ -429,7 +742,10 @@ y qué puede hacer la persona.
 ## 11. Contenido real para los diseños
 
 Nada de texto de relleno. Estos son los datos que deben aparecer en todas las pantallas, para
-que sean consistentes entre sí.
+que sean consistentes entre sí. Son **datos de ejemplo** de un solo momento, el **lunes 14 de
+septiembre de 2026 a las 13:50**; el detalle completo (trabajos del día, tiras del turno,
+puntadas por día, nómina) está en [`13-hoja-del-sistema.md`](13-hoja-del-sistema.md),
+prompt 1, y manda sobre esta sección si alguna cifra difiere.
 
 **Fábrica:** planta en Chimaltenango, circunscripción CE2, categoría no agrícola.
 Salario mínimo aplicable **Q3,816.90** más bonificación incentivo de **Q250.00**.
@@ -473,24 +789,38 @@ al mínimo.
 
 **Órdenes de producción**
 
-| Código | Producto | Objetivo | Producidas | Compromiso | Temporada |
-|---|---|---|---|---|---|
-| OP-2026-114 | Huipil Sololá cuello grande | 240 | 186 | 8 ago 2026 | Feria de Sololá |
-| OP-2026-119 | Faja Totonicapán greca | 500 | 132 | 1 sep 2026 | Independencia |
-| OP-2026-121 | Tzute Chichicastenango | 90 | 90 | 20 jul 2026 | Regular |
+| Código | Producto | Objetivo | Producidas | Compromiso | Temporada | Estado al 14 sep |
+|---|---|---|---|---|---|---|
+| OP-2026-122 | Huipil Quetzaltenango aves | 120 | 88 | 15 sep 2026 | Feria de Xelajú | **Vence mañana**: faltan 32 y hay 16 en curso |
+| OP-2026-119 | Faja Totonicapán greca | 500 | 132 | 25 sep 2026 | Feria de Totonicapán (29 sep) | **En riesgo**: necesita 37 prendas por día; hoy hizo 36 con BOR-05 en falla |
+| OP-2026-114 | Huipil Sololá cuello grande | 240 | 186 | 2 oct 2026 | Regular | A tiempo |
+| OP-2026-121 | Tzute Chichicastenango | 90 | 90 | 20 jul 2026 | Regular | Entregada |
+
+Una orden con el compromiso vencido y sin terminar se marca **Vencida** en `--critico`, con
+los días de atraso; ninguna lo está hoy.
 
 **Corrida de ejemplo con discrepancia:** BOR-05, Rosa Elena Batz Quiej, diseño declarado
 FAJ-010, 12 repeticiones, esperado `148,800`, medido `156,200`, desviación **+4.97 %**,
 veredicto `discrepancia`.
 
-**Mantenimiento pendiente:** BOR-01, engrase de la pista de la lanzadera, intervalo
-`250,000` puntadas, lleva `237,400`, avance **94.9 %**, en aviso.
+**Mantenimiento pendiente:** BOR-01, lubricación de barras de aguja, intervalo `2,500,000`
+puntadas, lleva `2,372,500`, avance **94.9 %**, en aviso: le faltan 127,500, justo las
+esperadas del trabajo en curso. El aceite diario de la lanzadera no va en el semáforo (avisaría
+cada día): es parte de la lista de arranque del turno.
+
+**Inventario:** HIL-1147 hilo rojo granate **agotado** (0 de un mínimo de 20 conos), causa del
+paro de BOR-03; HIL-1520 verde quetzal y AGU-7511 agujas 75/11, bajo el mínimo.
+
+**Nómina al 14 de septiembre:** 5 operarios, destajo Q9,848.26, séptimo Q1,641.38,
+complementos al mínimo Q444.40 (Rosa Q442.42, Manuel Q1.98), bonificación incentivo Q625.00,
+IGSS laboral Q576.41, **neto Q11,982.63**; cuotas patronales (IGSS 10.67 %, INTECAP 1 %, IRTRA
+1 %) Q1,512.04.
 
 ## 12. Qué evitar
 
 - Terracota sobre crema, degradados morado-azul, tipografías Inter o Space Grotesk, emoji como
-  marcadores de sección, todo centrado, esquinas muy redondeadas y tarjetas con barra de acento
-  a la izquierda. Es el aspecto que delata un diseño generado sin criterio.
+  marcadores de sección, todo centrado, tarjetas dentro de tarjetas, sombras en las tarjetas,
+  efecto vidrio y tarjetas con barra de acento a la izquierda. Es el aspecto que delata un diseño generado sin criterio.
 - **Patrones de huipil como textura de fondo.** El textil es el producto de la fábrica, no la
   decoración del software. Si aparece un motivo, es una fotografía real de una prenda dentro de
   la ficha del diseño que le corresponde, nunca un adorno de la interfaz.
@@ -500,7 +830,11 @@ veredicto `discrepancia`.
 - Abreviar cifras. `5.7M` no es aceptable en ninguna pantalla de este sistema.
 - **Movimiento decorativo.** Rebotes, escalas grandes, rotaciones, parallax, aparición
   escalonada de listas, animaciones disparadas por desplazamiento y cualquier indicador
-  giratorio. En una interfaz minimalista el movimiento gratuito se nota el doble.
-- **Minimalismo mal entendido:** bajar el contraste, esconder acciones detrás de menús, quitar
-  las etiquetas de los campos o encoger los objetivos táctiles de la PWA. La sobriedad es
-  visual; la legibilidad en planta no se negocia.
+  giratorio. Con todo en tinta y gris, el movimiento gratuito se nota el doble.
+- **Copiar la referencia:** textos en inglés, fotos de personas, íconos sin etiqueta, verde lima
+  como color principal (se confunde con «corriendo»), gráficas que no responden una pregunta.
+- **Encoger el escritorio en el teléfono.** Una pantalla de 1280 px reducida a 360 px deja el
+  texto de 14 px en menos de 4 px. En el teléfono se reordena (§6.5), no se reduce.
+- **Moderno mal entendido:** bajar el contraste, esconder acciones detrás de menús, quitar
+  las etiquetas de los campos o encoger los objetivos táctiles de la PWA. El estilo es visual;
+  la legibilidad en planta no se negocia.

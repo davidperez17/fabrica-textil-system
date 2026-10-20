@@ -28,6 +28,7 @@ mantenimiento preventivo disparado por puntadas.
 | 10 | [Fuentes](docs/10-fuentes.md) | Todo lo consultado, con enlaces |
 | 11 | [Brief de diseño](docs/11-brief-de-diseno.md) | Roles y permisos, tokens, componentes, las 37 pantallas, datos de ejemplo |
 | 12 | [Prompts para Claude Design](docs/12-prompts-claude-design.md) | Prompt base más 14 lotes listos para copiar |
+| 13 | [Hoja del sistema](docs/13-hoja-del-sistema.md) | Estilo moderno, tres paletas y una pantalla por sección: brief y 9 prompts |
 
 ## Sitio publicado
 

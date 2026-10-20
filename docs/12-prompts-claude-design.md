@@ -1,20 +1,29 @@
 # 12 · Prompts para Claude Design
 
 Prompts listos para copiar. Se apoyan en el [brief de diseño](11-brief-de-diseno.md), que es
-donde viven los tokens completos, la matriz de permisos y los datos de ejemplo.
+donde viven los tokens completos, la matriz de permisos y las reglas, y en la
+[hoja del sistema](13-hoja-del-sistema.md), que fija el estilo moderno y los datos de ejemplo.
+
+> **Reescrito el 20 oct 2026** al estilo moderno (brief 11 §2): una tarjeta por tema, píldoras,
+> riel con etiquetas, tira del turno, IBM Plex Sans para todo y Plex Mono solo para códigos.
+> Los datos son los de la hoja: lunes 14 de septiembre de 2026, 13:50.
 
 ## Cómo usarlos
 
-1. **Pegar primero el prompt base (§1).** Establece el sistema de diseño y los datos de la
-   fábrica. Sin él, cada lote saldrá con una identidad distinta.
+1. **Pegar primero el prompt base (§1)** y, dentro de él, el bloque de datos de la hoja.
+   Establece el sistema de diseño y los datos de la fábrica. Sin él, cada lote saldrá con una
+   identidad distinta.
 2. **Luego un lote a la vez (§2).** Cada lote produce un lienzo con varias mesas de trabajo
    relacionadas. No pedir los catorce de golpe: la calidad cae y las pantallas dejan de
    parecerse entre sí.
-3. **Refinar con §3** cuando el lote ya esté aprobado.
+3. **Las pantallas que ya están en la hoja no se redactan dos veces.** Donde un lote dice
+   «hoja, prompt N, PANTALLA X», se pega ese bloque del documento 13 tal cual: así la pantalla
+   aprobada por el cliente y la pantalla final son la misma.
+4. **Refinar con §3** cuando el lote ya esté aprobado.
 
-Regla que conviene repetir en cada lote: **datos reales, nunca texto de relleno.** Los nombres,
-códigos de máquina, cifras de puntadas y montos en quetzales del prompt base son los que deben
-aparecer en todas las pantallas, siempre iguales.
+Regla que conviene repetir en cada lote: **datos de ejemplo exactos, nunca texto de relleno.**
+Los nombres, códigos, puntadas y quetzales del prompt base son los que aparecen en todas las
+pantallas, siempre iguales. En pantalla se dice **trabajo**, nunca «corrida».
 
 ---
 
@@ -23,213 +32,226 @@ aparecer en todas las pantallas, siempre iguales.
 > Pegar al inicio de cada sesión de diseño, antes de cualquier lote.
 
 ```
-Vas a diseñar la interfaz de un sistema de administración para una fábrica de bordado
-computarizado de trajes típicos guatemaltecos, ubicada en Chimaltenango.
+Vas a diseñar "Bastidor", el sistema de administración de una fábrica de bordado
+computarizado de trajes típicos guatemaltecos, en Chimaltenango. Todo en español de
+Guatemala, de usted.
 
-El sistema tiene dos superficies distintas que comparten el mismo sistema de diseño:
-un PANEL DE ADMINISTRACIÓN de escritorio, denso en datos, para el dueño y su equipo;
-y una PWA MÓVIL de piso de planta, con muy pocos elementos y muy grandes, para los
-operarios que están junto a la máquina. No son la misma pantalla en dos anchos.
+DOS SUPERFICIES, UN SISTEMA DE DISEÑO
+  · PANEL DE ADMINISTRACIÓN para el dueño y su equipo. En escritorio es denso en
+    datos. El dueño también lo abre en su teléfono, fuera de la planta, para ver cada
+    máquina, autorizar y revisar la quincena: en el teléfono el panel se REORDENA,
+    no se encoge.
+  · APP DEL OPERARIO (PWA) en el teléfono, junto a la máquina: pocos elementos, muy
+    grandes, para usarse de pie, con guantes, con mala luz o sol.
+  No son la misma pantalla en dos anchos.
 
-DIRECCIÓN VISUAL: MINIMALISMO
+CÓMO SE CAPTURA (define lo que una pantalla puede mostrar)
+  No hay sensores en las máquinas. El operario ingresa con el QR de su gafete,
+  declara el diseño con su QR, toca Comenzar, Pausar, Reanudar o Finalizar y teclea
+  el contador de la máquina al comenzar y al finalizar. Por eso:
+  · Las puntadas de un trabajo solo se conocen al finalizarlo. Toda cifra de "hoy" o
+    del período dice "de trabajos terminados".
+  · Un trabajo en curso muestra su hora de inicio y sus puntadas ESPERADAS
+    (repeticiones planeadas × puntadas del diseño), rayadas y con la palabra
+    "en curso". Nunca puntadas "avanzadas" ni velocidad real: el sistema no las sabe.
+  · El estado de una máquina sale del último registro y siempre dice "desde HH:MM".
+  · El tablero dice cuándo fue el último registro.
 
-El estilo es minimalista, y aquí eso no significa vacío ni bonito: significa que cada
-elemento tiene que ganarse su lugar, y el criterio para ganárselo es que ayude a
-decidir algo.
-
-  · El dato es la interfaz. La cifra, no el contenedor. Un tablero es una retícula de
-    números bien compuestos, no una cuadrícula de tarjetas.
-  · El espacio separa antes que la línea, y la línea antes que la caja. Primero aire.
-    Si no alcanza, una hairline de 1px. La caja con relleno y borde es el último
-    recurso y hay que justificarla.
-  · Un solo acento: el índigo marca-700. Todo lo demás es tinta y neutros. Los colores
-    semánticos aparecen solo cuando hay algo que atender.
-  · La jerarquía la hace la tipografía: tamaño, peso y espacio. No fondos de color, no
-    bordes de énfasis, no barras de acento al costado.
-  · Nada compite con la alerta. Si la pantalla está tranquila, una sola mancha de color
+DIRECCIÓN VISUAL: MODERNA, CON EL DATO AL FRENTE
+Lenguaje de tablero moderno (no copiar ninguna marca): lienzo gris claro, una tarjeta
+blanca muy redondeada por tema, navegación en píldoras, cifras grandes, gráficas con un
+solo tramo resaltado.
+  · El dato es la interfaz: cada tarjeta responde una pregunta y su cifra es lo más
+    grande que contiene.
+  · Una tarjeta por tema, NUNCA una dentro de otra. Lo repetido dentro de la tarjeta va
+    en filas de superficie-2 sin borde. Las tarjetas no llevan borde ni sombra.
+  · Cada tarjeta tiene la forma de su pregunta: planilla para la nómina, tira de tiempo
+    para los trabajos, lista por urgencia para mantenimiento. La cuadrícula de tarjetas
+    iguales solo para elementos equivalentes (el catálogo de diseños). Nunca una fila
+    de tres o cuatro tarjetas con cifra gigante y etiqueta.
+  · El negro manda, el color señala: botón primario, píldora activa, tramo
+    seleccionado y globo en TINTA. El color principal aparece poco: barra destacada,
+    selección, enlaces, punto de no leído, foco.
+  · Nada compite con la alerta: con todo en tinta y gris, una sola mancha de color
     crítico se ve desde la puerta.
+  · La planta es la protagonista: el tablero abre con las máquinas, una fila por
+    máquina con su tira del turno; lo detenido va arriba con su acción.
+Lo moderno NO autoriza: bajar el contraste, esconder acciones en menús, quitar
+etiquetas de los campos, íconos sin texto, abreviar cifras ni encoger los objetivos
+táctiles de la app.
 
-Consecuencias concretas:
-  · Los encabezados de tabla NO llevan fondo gris: llevan línea inferior y mayúscula
-    pequeña en Plex Mono.
-  · Las píldoras de estado NO llevan relleno de color: llevan su forma coloreada y el
-    texto en tinta normal.
-  · El tablero NO usa tarjetas: retícula con hairlines y mucho aire.
-  · Radios: 2px en controles, 0 en tablas y contenedores. Ningún redondeo completo.
-  · Espaciado en el extremo alto de la escala: 56px entre bloques, 96px entre secciones.
-  · Iconos reducidos a los indispensables: las cinco formas de estado de máquina y poco más.
+PIEZAS DEL ESTILO
+  · Tarjeta: superficie, radio 28px en escritorio y 24px en teléfono, relleno 24px
+    (20px en teléfono), 16px entre tarjetas (12px en teléfono). Título arriba a la
+    izquierda; arriba a la derecha, botón circular de 40px en superficie-2 con ↗, que
+    siempre significa "abrir el detalle".
+  · Riel lateral de 84px con los 11 módulos (Tablero, Operarios, Máquinas, Ganancias,
+    Producción, Catálogo, Nómina, Inventario, Mantenimiento, Reportes, Configuración):
+    ícono en círculo de 44px y etiqueta de 11px debajo; activo relleno en tinta.
+    Arriba, "Bastidor" en texto, sin logotipo inventado.
+  · Barra superior: píldoras de las subsecciones (alto 40px, máximo 5; activa en
+    tinta con texto superficie), y a la derecha búsqueda, INTERRUPTOR DÍA / NOCHE,
+    campana con punto de no leído en marca-500 e iniciales del usuario ("JC").
+  · Interruptor día / noche: dos segmentos en píldora, "☀ Día" y "☾ Noche", el
+    vigente relleno en tinta; se ven los dos a la vez. Panel: 40px con ícono y
+    palabra. Panel en teléfono: solo íconos, 44px cada uno. App: 56px de alto y 72px
+    de ancho por segmento, con ícono y palabra.
+  · Encabezado: migas de 13px en tinta-2, título o saludo de 40px peso 500.
+  · Cifra protagonista: 48px en el panel, 56px en la app, peso 500, -.02em. UNA por
+    pantalla y solo donde la cifra decide: "Puntadas de hoy" en el tablero, la tarifa
+    vigente y la ganancia del operario. El resto a 22–28px. En el panel, los
+    centavos van en tinta-3 (Q866.79 con ".79" atenuado); en la app, completos.
+  · Chip de variación en píldora de 24px (ok-suave o critico-suave) con la base de
+    comparación escrita al lado ("frente a la quincena anterior a la misma fecha").
+  · Gráfica de barras: extremos redondeados; días cerrados en linea-fuerte; hoy en
+    dos tramos: abajo SÓLIDO en marca-500 lo terminado, encima RAYADO a 45° (marca-700
+    sobre marca-100) lo esperado en curso; globo en píldora tinta con las dos cifras.
+    Leyenda: sólido = cerrado y medido; rayado = en curso, todavía no medido.
+  · TIRA DEL TURNO (la pieza propia del sistema): barra de 06:00 a 14:00, 16px de alto
+    (12px en fichas pequeñas), un tramo por trabajo: terminado sólido en marca-500, en
+    curso rayado hasta la línea "ahora", paro en aviso-suave, falla en critico-suave,
+    mantenimiento en mtto; huecos sin registro en la pista. Marcas de hora y línea
+    "ahora" una sola vez por tarjeta.
+  · FICHA DE MÁQUINA: código en Plex Mono, modelo, sus cabezas dibujadas (cuadrados de
+    10px, llenos si corre, contorno si no), estado con forma y "desde", operario,
+    puntadas terminadas hoy, su tira y el avance al próximo mantenimiento.
+  · Iniciales en círculo de 32px, nunca fotos.
+  · Tablas dentro de su tarjeta: encabezado sin fondo, 12px tinta-2 en tipo oración,
+    línea inferior; filas de 52px separadas por linea-suave; números a la derecha;
+    total al pie en 600.
+  · Campos: etiqueta arriba siempre visible; superficie-2, radio 20px, línea inferior
+    de 2px en linea-fuerte.
+  · SELECCIÓN (fondo marca-100, borde 1px marca-500, ✓) distinta del FOCO (contorno 2px
+    marca-700 a 2px de separación).
+  · Enlaces siempre subrayados. tinta-3 nunca sobre superficie-2 ni sobre fondo.
+  · Una sola sombra, 0 24px 48px rgb(0 0 0 / .12), solo en panel de avisos, menús y
+    modales.
 
-Lo que el minimalismo NO autoriza: bajar el contraste, esconder acciones en menús,
-quitar etiquetas de los campos, ni encoger los objetivos táctiles de la PWA.
+COLOR — propuesta A · Añil (si el cliente eligió B · Jade o C · Grafito, reemplace este
+bloque por el de su propuesta, documento 13, prompt 1, PROPUESTAS)
+  Día:   fondo #E7E8EB · superficie #FFFFFF · superficie-2 #EDEFF3
+         tinta #14171C · tinta-2 #565D68 · tinta-3 #858D99
+         linea #D9DDE4 · linea-suave #E8EBF0 · linea-fuerte #838A96
+         marca-900 #1B2A4A · marca-700 #2B3A67 · marca-500 #4A63A8 · marca-100 #E3E8F4
+  Noche: fondo #101318 · superficie #22262B · superficie-2 #2A2F36
+         tinta #E8EAEE · tinta-2 #9BA3AF · tinta-3 #6C7480
+         linea #363A3E · linea-suave #2C3035 · linea-fuerte #707883
+         marca-900 #B3C4EC · marca-700 #8FA6DE · marca-500 #6E86C4 · marca-100 #293553
+  Semánticos, iguales en las tres propuestas (día / noche):
+         ok #2E6F4E / #6FBF8E · ok-suave #E2F0E7 / #17301F
+         aviso #9A6400 / #E0A63C · aviso-suave #F7EDD9 / #33270F
+         critico #B0322B / #E4837A · critico-suave #F7E4E2 / #3A2523
+         mtto #6D4C9F / #B49AE0
+  En chips y franjas el texto va en tinta; el color semántico solo en la forma y el
+  fondo suave. Nunca verde, rojo o ámbar como decoración.
 
-SISTEMA DE DISEÑO
+ESTADO DE MÁQUINA — color + forma + palabra + "desde HH:MM"
+  Corriendo: ok, punto lleno, pulso de opacidad 1 → .45 → 1 cada 2.4s.
+  Parada: aviso, punto lleno, totalmente quieto, con el motivo del paro.
+  En falla: critico, triángulo, doble parpadeo de 120ms y 3s de reposo.
+  En mantenimiento: mtto, cuadrado, barrido diagonal tenue de 3s.
+  Sin datos: tinta-3, punto hueco, desvanecimiento 1 → .35 → 1 en 4s.
+  Dentro de una tarjeta, la forma va en un círculo neutro de 36px; nunca píldora
+  rellena de color.
 
-Color, tema claro:
-  fondo #F4F5F7 · superficie #FFFFFF · superficie-2 #EDEFF3
-  tinta #14171C · tinta-2 #565D68 · tinta-3 #858D99
-  línea #D9DDE4 · línea-suave #E8EBF0
-  marca-700 #2B3A67 (primario) · marca-900 #1B2A4A (hover)
-  marca-500 #4A63A8 · marca-100 #E3E8F4
+TIPOGRAFÍA — IBM Plex
+  IBM Plex Sans variable (wght 400–700, wdth 85–100) para todo el texto y todas las
+  cifras: sus dígitos son tabulares de fábrica; declarar igual tabular-nums.
+  IBM Plex Mono 400/500 solo para códigos: BOR-05, OP-007, HUI-001, DPI, hash.
+  Escala del panel (px tamaño/interlínea/peso): 11/14/500 riel y marcas de hora ·
+  12/16/500 etiquetas y ejes · 13/18/400 migas y secundario · 14/20/400 tablas y
+  controles · 16/24/400 párrafos (máx. 66 caracteres) · 18/24/600 título de tarjeta ·
+  22/28/500 cifra de ficha · 28/34/500 cifra de tarjeta · 40/46/500 saludo ·
+  48/52/500 cifra protagonista.
+  App: 13 · 15 · 17 base · 20 · 24 · 32 código de máquina · 56 ganancia · 64 teclado.
+  Planilla y tablas densas con font-stretch 90%. En modo noche, texto de 16px o menos
+  con peso 450. Etiquetas en tipo oración, nunca mayúscula espaciada.
 
-Color, tema oscuro:
-  fondo #101318 · superficie #171B21 · superficie-2 #1E232B
-  tinta #E8EAEE · tinta-2 #9BA3AF · tinta-3 #6C7480
-  línea #2A3039 · línea-suave #21262E
-  marca-700 #8FA6DE · marca-900 #B3C4EC · marca-500 #6E86C4 · marca-100 #1E2740
-
-Semánticos (claro / oscuro), independientes del acento:
-  ok #2E6F4E / #6FBF8E · fondo suave #E2F0E7 / #17301F
-  aviso #9A6400 / #E0A63C · fondo suave #F7EDD9 / #33270F
-  crítico #B0322B / #E4837A · fondo suave #F7E4E2 / #3A2523
-
-Estado de máquina, cada uno con color Y forma:
-  corriendo = ok, punto lleno · parada = aviso, punto lleno
-  en falla = crítico, triángulo · en mantenimiento = #6D4C9F, cuadrado
-  sin datos = tinta-3, punto hueco
-
-Tipografía:
-  Interfaz: Source Sans 3 (400/600/700)
-  Datos: IBM Plex Mono (400/500/600) con tabular-nums, para toda cifra:
-  puntadas, quetzales, códigos, DPI, horas, porcentajes
-  Escala: 11 12 14 16 18 21 26 32 42
-  Etiquetas en mayúscula: 11px, Plex Mono 500, letter-spacing .1em
-
-Forma y espacio:
-  Espaciado base 4: 4 8 12 16 20 24 32 40 56 72
-  Radios: 2px en controles y tablas, 4px en contenedores grandes,
-  redondeo completo SOLO en píldoras de estado. Ninguna esquina muy redondeada.
-  Elevación: una sola sombra en todo el producto, solo para menús y modales.
-  Los objetos se separan con línea de 1px, no con sombra.
-  Foco de teclado: contorno 2px marca-700, siempre visible.
-
-Densidad:
-  Escritorio: fila de tabla 40px, control 34px, texto base 14px, margen 24px
-  PWA: fila 64px, control 56px, botón primario 72px, texto base 17px, margen 16px
+DENSIDAD
+  Panel en escritorio: fila de tabla 52px, control y botón 40px, texto base 14px,
+  margen 24px, riel 84px.
+  Panel en teléfono: una columna; riel → barra inferior de 64px más área segura con
+  5 destinos (Tablero · Máquinas · Producción · Nómina · Más); sin migas; saludo de
+  28px; píldoras que se deslizan dentro de su fila; tablas → listas de filas (salvo
+  la planilla de nómina, que conserva primera columna fija y "Deslice para ver las
+  9 columnas →"); área táctil de 44px en todo; nada depende de pasar el cursor.
+  App: fila interna 96–112px, control 56px, botón 72px en píldora, texto base 17px,
+  margen 16px; toda tarjeta que se toca con borde de 1.5px en linea-fuerte.
 
 MOVIMIENTO
-
-En una pantalla quieta, lo único que se mueve es lo único que mira la gente. Poca
-animación, y toda ella significa algo. Una animación se justifica solo si comunica
-estado, causa o continuidad.
-
-Tokens:
-  --dur-instante   90ms    retroalimentación al pulsar
-  --dur-rapido    140ms    chips, avisos, menús
-  --dur-base      200ms    cambio de estado, paneles
-  --dur-pausado   320ms    barras que crecen, paso a paso
-  --dur-cifra     420ms    conteo animado de una cifra
-  --dur-ambiente 2400ms    pulsos de "esto está vivo"
-  --sal    cubic-bezier(.2,0,0,1)    curva por defecto
-  --ent    cubic-bezier(.4,0,1,1)    salidas
-  --suave  cubic-bezier(.4,0,.2,1)   ambiental
-
-Reglas duras: ningún rebote, ninguna escala mayor a 1.02, ninguna rotación decorativa,
-ningún desplazamiento mayor a 8px, nada dura más de 420ms fuera de lo ambiental.
-
-Estado de máquina: el movimiento ES un dato, junto al color y a la forma.
-  Corriendo         punto lleno · pulso de opacidad 1 → .45 → 1, 2.4s, infinito.
-                    En la versión avanzada el ciclo se deriva de las puntadas por
-                    minuto reales: más rápida la máquina, más rápido el latido,
-                    acotado entre 1.2s y 3s.
-  Parada            punto lleno · NINGUNA animación. La quietud es la señal.
-  En falla          triángulo · doble parpadeo de 120ms y luego 3s de reposo.
-                    Nunca parpadeo continuo.
-  En mantenimiento  cuadrado · barrido diagonal lento de un brillo tenue, 3s.
-  Sin datos         punto hueco · desvanecimiento muy lento 1 → .35 → 1, 4s.
-
-Componentes:
-  Contador de puntadas   cuenta del valor anterior al nuevo, 420ms, con tabular-nums
-                         para que el ancho no salte. Solo al llegar dato nuevo.
-  Barra de mínimo legal  crece desde 0 al aparecer, 320ms; destello único en la marca
-                         del umbral al cruzarlo.
-  Semáforo de mtto.      late suave cada 4s solo por encima del 90% del intervalo.
-  Chip de verificación   cruza de pendiente a veredicto con opacidad y 4px.
-  Fila de tabla          entra con opacidad y 4px; al cambiar de estado su fondo
-                         destaca 600ms y vuelve.
-  Franja de alerta       entra desde arriba 8px; al resolverse colapsa su altura.
-  Botón                  cambio de fondo al pulsar, sin escala ni sombra.
-  Modal y panel          el panel entra 8px, sin escala.
-  Carga                  esqueleto con barrido de 1.4s. NUNCA un indicador giratorio.
-
-PWA:
-  Marco de escaneo       respira 2s; al leer el código colapsa al centro en 180ms,
-                         con sonido y vibración.
-  Pasos de la corrida    avance lateral de 8px más opacidad entre máquina, diseño y
-                         contador. Es la única transición de pantalla del sistema.
-  Teclado numérico       cada dígito responde con cambio de fondo de 90ms, sin escala.
-  Ganancia del día       la cifra cuenta hacia arriba al llegar una corrida nueva.
-  Cola sin conexión      el contador de pendientes baja con un desplazamiento corto por
-                         cada envío. Nunca un spinner.
-
-NO se anima: transiciones entre pantallas del panel, aparición escalonada de listas,
-nada disparado por desplazamiento de la página, números que cuentan solos al abrir una
-pantalla, ni nada en las pantallas de nómina salvo la entrada de un aviso.
-
-Con prefers-reduced-motion los pulsos se detienen y el estado sigue distinguiéndose por
-color y forma; los conteos saltan al valor final; las barras aparecen en su valor.
-Ninguna información depende únicamente del movimiento.
+  Solo se mueve lo que comunica estado, causa o continuidad.
+  Tokens: instante 90ms · rápido 140ms · base 200ms · pausado 320ms · cifra 420ms ·
+  ambiente 2400ms. Curvas: --sal cubic-bezier(.2,0,0,1) por defecto ·
+  --ent cubic-bezier(.4,0,1,1) salidas · --suave cubic-bezier(.4,0,.2,1) ambiental.
+  Componentes: contador de puntadas cuenta al llegar dato nuevo (420ms); barra de
+  mínimo legal crece al aparecer (320ms) con destello único al cruzar el umbral;
+  semáforo de mantenimiento late cada 4s solo por encima del 90%; chip de
+  verificación cruza de pendiente a veredicto con opacidad y 4px; franja de alerta
+  entra 8px desde arriba; panel de avisos y modales entran 8px, sin escala; cambio de
+  modo día/noche con transición de color de 200ms; carga con esqueletos de 1.4s.
+  App: marco de escaneo respira 2s y colapsa al centro en 180ms al leer, con sonido
+  y vibración; los pasos máquina → diseño → contador avanzan 8px de lado; cada
+  dígito del teclado cambia de fondo 90ms; la ganancia cuenta hacia arriba al
+  guardar un trabajo; la cola sin conexión baja de a uno.
+  NO se anima: transiciones entre pantallas del panel, listas escalonadas, nada
+  disparado por desplazamiento, cifras que cuentan al abrir, nada en pantallas de
+  dinero salvo la entrada de un aviso. Sin rebotes, sin escalas mayores a 1.02,
+  nunca un indicador giratorio. Con prefers-reduced-motion los pulsos se detienen y
+  el estado se sigue leyendo por color y forma.
 
 PRINCIPIOS
-
-1. El número es el protagonista. Cifras en monoespaciada, tabular, alineadas a la
-   derecha, con separador de miles y SIN abreviar nunca. Se escribe 5,725,350,
-   jamás "5.7M".
-2. Puntadas y prendas son magnitudes distintas y nunca comparten columna: una
-   máquina de 6 cabezas produce 6 prendas con el mismo conteo de puntadas que una
-   de 1 cabeza produce 1.
-3. El estado se ve antes de leerse, a un metro de distancia, por color Y forma.
-4. La planta tiene mala luz y sol directo: contraste alto obligatorio.
-5. Sin conexión es normal, no un error.
-6. Todo lo que toca dinero exige confirmación explícita y queda firmado con nombre
-   y hora, visible en la misma pantalla.
-7. Nada de tarjetas por defecto: se separa con línea de 1px.
+  1. El número es el protagonista: tabular, a la derecha, con separador de miles, SIN
+     abreviar nunca. 5,725,350, jamás "5.7M".
+  2. Puntadas y prendas son magnitudes distintas y nunca comparten columna: una
+     máquina de 6 cabezas hace 6 prendas con el mismo conteo que una de 1 cabeza hace 1.
+  3. El estado se ve antes de leerse, a un metro, por color Y forma.
+  4. Contraste alto obligatorio: la planta tiene mala luz y sol directo.
+  5. Sin conexión es el estado normal de la app, no un error: franja arriba, cola
+     pendiente, nunca un bloqueo.
+  6. Todo lo que toca dinero exige confirmación explícita y queda firmado con nombre y
+     hora, visible en la misma pantalla. Nada de dinero se autoriza con un solo toque.
+  7. Lo cerrado es exacto; lo abierto se dice abierto.
+  8. Errores sin códigos ni "algo salió mal": qué pasó, qué se hizo con los datos y
+     qué puede hacer la persona. Un error del operario nunca se trata como falta.
 
 QUÉ EVITAR
+  Copiar la referencia (marcas, textos en inglés, íconos de criptomonedas, fotos de
+  personas). Tarjetas dentro de tarjetas, sombras en tarjetas, degradados, efecto
+  vidrio, barras de acento al costado, emoji, Lorem ipsum. Inter o Space Grotesk.
+  Patrones de huipil como textura: el textil es el producto, no la decoración. Ninguna
+  ilustración en pantallas de dinero. Rankings de operarios. Cifras abreviadas.
+  Verde lima como color principal (se confunde con "corriendo").
 
-Terracota sobre crema, degradados morado-azul, Inter o Space Grotesk, emoji como
-marcadores de sección, todo centrado, esquinas muy redondeadas, tarjetas con barra
-de acento a la izquierda. Nada de patrones de huipil como textura de fondo: el
-textil es el producto, no la decoración del software. Ninguna ilustración simpática
-en pantallas de dinero. Ningún movimiento decorativo: sin rebotes, sin parallax, sin
-aparición escalonada, sin spinners.
+DATOS — pegue aquí, completo, el bloque "DATOS" del prompt 1 del documento 13
+(desde "DATOS — un solo momento" hasta "Personas del panel"). Son datos de ejemplo de
+un solo momento: lunes 14 de septiembre de 2026, 13:50. Úsalos exactos.
 
-DATOS REALES — usar estos exactos en todas las pantallas
-
-Fábrica en Chimaltenango, circunscripción CE2, categoría no agrícola.
-Salario mínimo Q3,816.90 más bonificación incentivo Q250.00.
-Tarifa de destajo vigente: 1,500 puntadas = Q1.00, desde el 1 de enero de 2026.
-
-Operarios (código, nombre, máquina asignada, puntadas de la quincena):
-  OP-014 Juana Ixchop Tzoc — BOR-04 — 2,918,400
-  OP-021 Marta Chocoj Sical — BOR-02 — 3,412,700
-  OP-007 Diego Puac Ajanel — BOR-01 y BOR-06 — 4,105,220
-  OP-033 Rosa Elena Batz Quiej — BOR-05 — 1,884,900  ← bajo el umbral legal
-  OP-018 Manuel Tzunún Coyoy — BOR-03 — 2,451,180
-
-Máquinas (código, modelo, controlador, cabezas, spm, estado):
-  BOR-01 Feiya FY-1206 · Dahao BECS-A15 · 6 cabezas · 850 spm · corriendo
-  BOR-02 Feiya FY-1206 · Dahao BECS-A15 · 6 cabezas · 850 spm · corriendo
-  BOR-03 Ricoma EM-1010 · 1 cabeza · 1,000 spm · parada
-  BOR-04 Tajima TMEZ-1501 · 1 cabeza · 1,000 spm · corriendo
-  BOR-05 Yuemei YM-904 · Dahao BECS-285A · 4 cabezas · 750 spm · en falla
-  BOR-06 Feiya FY-1202 · Dahao BECS-A15 · 2 cabezas · 800 spm · corriendo
-  BOR-07 Barudan BEXT-Y904 · 4 cabezas · 900 spm · en mantenimiento
-  BOR-08 Richpeace RPEM-1201 · Dahao BECS-A18 · 1 cabeza · 900 spm · sin datos
-
-Diseños (código, nombre, puntadas, cambios de color):
-  HUI-001 Huipil Sololá cuello grande — 42,500 — 9
-  HUI-002 Huipil Quetzaltenango aves — 38,900 — 11
-  TZU-004 Tzute Chichicastenango — 21,300 — 7
-  FAJ-010 Faja Totonicapán greca — 12,400 — 5
-  COR-021 Randa para corte — 8,600 — 3
-
-Órdenes de producción:
-  OP-2026-114 Huipil Sololá cuello grande — 186 de 240 — entrega 8 ago 2026 — Feria de Sololá
-  OP-2026-119 Faja Totonicapán greca — 132 de 500 — entrega 1 sep 2026 — Independencia
-  OP-2026-121 Tzute Chichicastenango — 90 de 90 — entrega 20 jul 2026 — Regular
-
-Umbral legal de referencia: un operario necesita 2,453,721 puntadas por quincena para
-alcanzar el salario mínimo. Por debajo de eso, el patrono debe completar la diferencia.
+DATOS ADICIONALES
+  Órdenes de producción (código · producto · producidas de objetivo · compromiso ·
+  temporada · estado):
+    OP-2026-122 Huipil Quetzaltenango aves · 88 de 120 · 15 sep 2026 · Feria de
+      Xelajú · vence mañana: faltan 32 y hay 16 en curso
+    OP-2026-119 Faja Totonicapán greca · 132 de 500 · 25 sep 2026 · Feria de
+      Totonicapán (29 sep) · en riesgo: necesita 37 prendas por día; hoy hizo 36
+      con BOR-05 en falla
+    OP-2026-114 Huipil Sololá cuello grande · 186 de 240 · 2 oct 2026 · Regular ·
+      a tiempo
+    OP-2026-121 Tzute Chichicastenango · 90 de 90 · 20 jul 2026 · Regular · entregada
+  Inventario: HIL-1147 hilo rojo granate agotado (0 de mínimo 20 conos; causa del
+  paro de BOR-03); HIL-1520 verde quetzal 9 de 15 y AGU-7511 agujas 75/11 3 de 4 cajas,
+  bajo el mínimo; consumo de hilo superior 5.2 m por mil puntadas; cono de 5,000 m.
+  Mantenimiento: BOR-01 lubricación de barras de aguja 2,372,500 de 2,500,000
+  (94.9%, aviso); BOR-05 orden correctiva en proceso desde las 09:30 (Óscar Cumes);
+  BOR-07 preventivo desde las 07:30.
+  Personal: Josue Chuc (Dueño), Ana Lucía Sajché (Gerencia), Pedro Xicará
+  (Supervisión), Claudia Mux (RRHH), Óscar Cumes (Mantenimiento), Elena Tubac (Bodega).
+  Anticipo por autorizar: Manuel Tzunún Coyoy, Q300.00, registrado por Claudia Mux a
+  las 13:25.
+  Nómina: cuotas patronales (IGSS 10.67%, INTECAP 1%, IRTRA 1%) Q1,512.04 sobre
+  Q11,934.04 devengados sin bonificación.
+  Discrepancias sin resolver: BOR-05 · Rosa Elena Batz Quiej · FAJ-010 × 12 ·
+  esperado 148,800 · medido 156,200 · +4.97% · sábado 12 sep; BOR-03 · Manuel Tzunún
+  Coyoy · COR-021 · −3.12% · viernes 11 sep.
 
 Confirma que entendiste el sistema de diseño y espera el primer lote de pantallas.
 ```
@@ -243,125 +265,97 @@ Confirma que entendiste el sistema de diseño y espera el primer lote de pantall
 ```
 Diseña un lienzo con 2 mesas de trabajo.
 
-MESA 1 — "Muestrario de componentes", 1440×1600
-Un catálogo visual del sistema, agrupado con títulos de sección en mayúscula:
-· Botones: primario, secundario, terciario y destructivo, en estados normal,
-  hover, activo, foco y deshabilitado.
-· Campos: texto, texto con formato (DPI 3056 78914 0401), numérico de puntadas
-  (2,918,400), selector, selector de rango de fechas, casilla, interruptor.
-  Mostrar también un campo con error: "El DPI no es válido. Revise el dígito
-  verificador." y uno validado con marca de correcto.
-· Indicadores de estado de máquina: corriendo, parada, en falla, en mantenimiento,
-  sin datos. Cada uno con su color Y su forma, SIN relleno de fondo: la forma va
-  coloreada y el texto en tinta normal. Anotar junto a cada uno su comportamiento
-  según la sección MOVIMIENTO: pulso de 2.4s, quieto, doble parpadeo, barrido
-  diagonal, desvanecimiento de 4s.
-· Chips de verificación de corrida: ok +0.12%, revisar +2.4%, discrepancia +4.97%,
-  sin declarar.
-· Contador de puntadas: cifra grande 2,918,400 en Plex Mono, con su delta del día
-  +187,200 y su tasa 412 ppm.
-· Barra de mínimo legal: la de Diego Puac Ajanel al 167% del umbral en verde, y la
-  de Rosa Elena Batz Quiej al 77% en rojo, ambas con la marca del umbral
-  2,453,721 visible sobre la barra.
-· Semáforo de mantenimiento: BOR-01 al 94.9% en aviso, BOR-04 al 31% normal.
-· Fila de tabla de datos con encabezado, dos filas normales y una seleccionada.
+MESA 1 — "Piezas del sistema", 1440×1800, en modo día y, al lado, en modo noche.
+Agrupado con títulos de sección en tipo oración:
+· Tarjeta con su título y botón ↗; fila interna; riel con Tablero activo;
+  píldoras con una activa; barra inferior del teléfono.
+· Interruptor día / noche en sus tres tamaños: panel (40px con palabra), panel en
+  teléfono (44px solo íconos) y app (56 × 72px por segmento, con palabra).
+· Botones: primario, secundario y destructivo, en normal, hover, presionado, foco,
+  deshabilitado y "Guardando…". Alto 40px en el panel, 72px en la app.
+· Campos: texto, DPI con formato en vivo (3056 78914 0401), puntadas (2,918,400),
+  selector, rango de fechas con sus cinco atajos (Hoy · Esta semana · Esta quincena ·
+  Este mes · Rango libre), casilla. Un campo con error: "El dígito verificador no
+  corresponde. Revise el número del DPI." y uno validado con ✓. Selección y foco
+  lado a lado para que se vea que no son lo mismo.
+· Estados de máquina: los cinco, con forma en círculo neutro, palabra y "desde
+  HH:MM", y su movimiento anotado.
+· Chips de verificación: ok +0.18% · revisar +2.40% · discrepancia +4.97% · sin
+  declarar. Sin relleno de color: forma coloreada y texto en tinta.
+· Contador de puntadas: 2,918,400 en la quincena de Juana Ixchop Tzoc, con "+305,670
+  hoy, de trabajos terminados" y, aparte y rayado, "en curso: 85,200 esperadas".
+· Barra de mínimo legal: Diego Puac Ajanel al 167.3% en ok y Rosa Elena Batz Quiej
+  al 76.8% en critico, ambas con la marca del umbral 2,453,721.
+· Semáforo de mantenimiento: BOR-01 al 94.9% en aviso, BOR-04 al 31%.
+· Ficha de máquina de BOR-06 (2 cabezas) con su tira del turno.
+· Gráfica de barras de la quincena con hoy en sólido y rayado y su globo.
+· Panel de avisos con un aviso sin leer y uno leído.
+· Fila de tabla: encabezado, dos filas y una seleccionada.
 
-MESA 2 — "Ingreso al panel", 1440×900
-Pantalla de ingreso para el dueño y el personal de oficina. Columna izquierda con
-el formulario en un ancho máximo de 380px: nombre de usuario, contraseña, botón
-primario "Entrar". Sin ilustración. El nombre de la fábrica en tipografía de
-interfaz, no un logotipo inventado. Debajo del formulario, una línea discreta:
-"¿Es operario? Use la aplicación de piso en su teléfono."
-La mitad derecha es un plano de color marca-900 con un dato real en Plex Mono
-grande, como una pizarra de planta: "8 máquinas · 5 operarios · turno diurno".
+MESA 2 — "Ingreso al panel" (A1): pega la PANTALLA A1 de la hoja, prompt 7.
 ```
 
-### Lote 2 · Tablero general
+### Lote 2 · Tablero
 
 ```
-Diseña 1 mesa de trabajo de 1440×1400: "Tablero general" (pantalla B1), la primera
-que ve el dueño al entrar.
+Diseña 1 lienzo con 4 mesas.
 
-Barra lateral izquierda de 220px, fija, con los módulos: Tablero, Operarios,
-Máquinas, Producción, Catálogo, Nómina, Inventario, Mantenimiento, Reportes,
-Configuración. El activo es Tablero. Al pie, el usuario en sesión con su rol.
-
-Contenido, de arriba abajo:
-
-1. Encabezado con el título, la fecha (lunes 7 de septiembre de 2026), el turno en
-   curso y un selector de rango con atajos: hoy, ayer, esta semana, esta quincena,
-   este mes, rango libre. "Hoy" está activo.
-
-2. Cuatro cifras de la jornada, separadas por líneas verticales, no en tarjetas:
-   Puntadas del día 1,847,300 · Prendas terminadas 412 · Máquinas corriendo 4 de 8 ·
-   Ganancia devengada del día Q1,231.53. Cada una en Plex Mono grande con su
-   etiqueta en mayúscula pequeña arriba y su comparación contra ayer debajo.
-
-3. Franja de alertas, la sección más importante: tres avisos en línea, cada uno con
-   su color semántico, su ícono de forma y un botón de acción a la derecha.
-   · crítico — "BOR-05 en falla desde las 09:14. Rosa Elena Batz Quiej sin máquina
-     hace 2 h 40 min." → "Reasignar máquina"
-   · crítico — "Rosa Elena Batz Quiej va por debajo del mínimo legal: lleva
-     1,884,900 de 2,453,721 puntadas de la quincena." → "Ver nómina"
-   · aviso — "BOR-01 al 94.9% del intervalo de engrase de la lanzadera." →
-     "Programar mantenimiento"
-
-4. Retícula de 8 fichas de máquina en 4 columnas, separadas por hairline y aire, sin
-   tarjetas ni sombras. Los estados están vivos: las cuatro máquinas corriendo laten
-   con su pulso de 2.4s, BOR-03 está completamente quieta, BOR-05 da su doble
-   parpadeo, BOR-07 tiene el barrido de mantenimiento y BOR-08 se desvanece muy
-   lento. Cada ficha muestra: código grande, estado con punto y palabra, operario a
-   cargo, diseño en curso con su código, puntadas del día en Plex Mono, y una barra
-   fina de avance hacia el próximo mantenimiento. BOR-05 se ve en falla, BOR-07 en
-   mantenimiento sin operario, BOR-08 sin datos y en gris.
-
-5. Al pie, tabla compacta "Últimas corridas cerradas" con seis filas: hora, máquina,
-   operario, diseño, repeticiones, puntadas y chip de verificación. Una fila con
-   discrepancia, en rojo suave.
+MESA 1 — "Tablero general" (B1), 1440 de ancho: pega la PANTALLA B1 de la hoja,
+prompt 2.
+MESA 2 — "Tablero con los avisos abiertos": pega la PANTALLA B1 · con los avisos
+abiertos de la hoja, prompt 2.
+MESA 3 — "Tablero en el teléfono del dueño" (B1·T), 390 de ancho: pega la PANTALLA
+B1·T de la hoja, prompt 2.
+MESA 4 — "Tablero · estados", 1440×1200, tres recortes del mismo tablero:
+  · A las 06:20, sin trabajos terminados: la tarjeta "Hoy" dice "Aún no hay trabajos
+    terminados hoy · 6 en curso desde las 06:01" con las esperadas rayadas; la
+    gráfica muestra hoy solo rayado.
+  · Sin conexión, en el teléfono del dueño: franja "Sin conexión. Lo que ve es de las
+    13:50."; la acción "Autorizar" del anticipo desactivada con "Autorizar necesita
+    conexión".
+  · Sin noticias de un teléfono: la fila de BOR-02 agrega en tinta-2 "Sin noticias
+    del teléfono desde 12:41"; su estado sigue "corriendo desde 12:40".
 ```
 
 ### Lote 3 · Máquinas y asignación
 
 ```
-Diseña 1 lienzo con 3 mesas de 1440 de ancho.
+Diseña 1 lienzo con 5 mesas de 1440 de ancho.
 
-MESA 1 — "Máquinas · parrilla" (D1)
-Encabezado con filtros: estado, controlador, número de cabezas, y un conmutador
-entre vista de parrilla y vista de tabla. Botón primario "Agregar máquina".
-Vista de tabla con las 8 máquinas y columnas: código, modelo, controlador, cabezas,
-spm nominal, estado, operario a cargo, puntadas de hoy, puntadas acumuladas
-históricas, próximo mantenimiento en porcentaje. Los números a la derecha en Plex
-Mono. La columna de cabezas es relevante y debe leerse claro: es lo que separa
-puntadas de prendas.
+MESA 1 — "Máquinas · parrilla" (D1): pega la PANTALLA D1 de la hoja, prompt 3.
 
-MESA 2 — "Máquina · ficha BOR-01" (D3), alto 1500
-Encabezado con el código en grande, el modelo Feiya FY-1206, el controlador Dahao
-BECS-A15, 6 cabezas, 850 spm y la píldora de estado "corriendo".
-Debajo, cuatro cifras: puntadas de hoy 312,400 · prendas de hoy 108 ·
-puntadas acumuladas 41,882,300 · disponibilidad del mes 87.4%.
-Una gráfica de puntadas por hora del turno, de 06:00 a 14:00, con barras y los
-huecos de paro marcados en el color de aviso; el eje etiquetado con valores reales.
-Sección "Mantenimiento" con tres tareas y su semáforo: engrase de lanzadera 94.9%
-en aviso, lubricación de barras de aguja 41%, revisión de correas 12%. Botón
-"Generar orden de mantenimiento".
-Sección "Corridas de hoy" en tabla.
-Pestañas arriba: Resumen · Producción · Mantenimiento · Historial.
+MESA 2 — "Máquinas en el teléfono" (D1·T), 390 de ancho: las 8 fichas en una
+columna, detenidas primero (BOR-05, BOR-03, BOR-07, BOR-08) y abiertas con su acción
+a todo el ancho; las que corren, compactas con su tira. Filtros en píldoras que se
+deslizan. Barra inferior con Máquinas activo.
 
-MESA 3 — "Asignación de máquinas a operarios" (D4), alto 1100
-La pantalla que controla quién puede operar qué. Dos columnas.
-Izquierda, lista de las 8 máquinas: cada una con su estado y el operario asignado,
-o la marca "sin asignar" en color de aviso cuando no lo tiene (BOR-07 y BOR-08).
-Derecha, panel de la máquina seleccionada (BOR-05): operario actual Rosa Elena Batz
-Quiej, tipo de asignación "permanente", vigente desde el 12 de febrero de 2026,
-asignada por "Dueño · 12 feb 2026 08:41".
-Debajo, el formulario para reasignar: selector de operario, tipo de asignación
-(permanente, de turno, temporal, cobertura), rango de vigencia, campo de motivo, y
-botón primario "Asignar máquina".
-Un aviso en línea, informativo, explica la consecuencia con claridad:
-"El operario asignado será el único que pueda abrir corridas en esta máquina desde
-la aplicación de piso."
-Al pie del panel, historial de asignaciones de esa máquina, con quién la asignó y
-cuándo.
+MESA 3 — "Máquina · ficha BOR-01" (D3), alto 1400
+  Píldoras: Resumen (activa) · Producción · Mantenimiento · Historial.
+  Encabezado: BOR-01 en Plex Mono 40px, "Feiya FY-1206 · Dahao BECS-A15 · 6 cabezas
+  · 850 puntadas por minuto" y sus 6 cabezas dibujadas, llenas; estado "corriendo
+  desde 12:05" con Diego Puac Ajanel.
+  Tarjeta "Hoy" en una franja: "213,300 puntadas de trabajos terminados" en 28px,
+  "42 prendas", "+ 127,500 en curso" rayado y "Con trabajo abierto 7 h 31 min de
+  7 h 50 min de turno (96%)". Debajo, su tira del turno a todo el ancho con los
+  códigos de diseño dentro de los tramos.
+  Tarjeta "Trabajos de hoy": tabla con los dos terminados (TZU-004 × 4 · 24 prendas
+  · 85,420 · ok +0.26% y HUI-001 × 3 · 18 · 127,880 · ok +0.30%) y el en curso
+  arriba, rayado.
+  Tarjeta "Mantenimiento", lista por urgencia: lubricación de barras de aguja
+  2,372,500 de 2,500,000 (94.9%, aviso) con "Faltan 127,500: se cruzan al terminar el
+  trabajo en curso" · cambio de cuchilla de corte 41% · revisión de correas 12%.
+  Botón "Generar orden de mantenimiento".
+  Tarjeta "Quincena": 2,287,400 puntadas · Q1,524.93.
+
+MESA 4 — "Máquina · alta" (D2), alto 1000
+  Formulario de una columna, máx. 640px: código (BOR-09), marca, modelo,
+  controlador, cabezas (al teclear el número, las cabezas se dibujan), puntadas por
+  minuto nominales, fecha de ingreso, ubicación en planta. Vista previa del rótulo
+  con QR y botón "Imprimir rótulo". Barra fija al pie: "Cancelar" y "Guardar
+  máquina". Nota: "Esta pantalla es más cómoda en una computadora" en su versión de
+  teléfono.
+
+MESA 5 — "Asignación de máquinas" (D4): pega la PANTALLA D4 de la hoja, prompt 3.
 ```
 
 ### Lote 4 · Operarios
@@ -370,88 +364,73 @@ cuándo.
 Diseña 1 lienzo con 3 mesas de 1440 de ancho.
 
 MESA 1 — "Operarios · listado" (C1)
-Tabla de los 5 operarios con columnas: código, nombre, teléfono, máquinas asignadas,
-puntadas de la quincena, ganancia devengada, estado del mínimo legal y estado
-activo. La fila de Rosa Elena Batz Quiej muestra su indicador de mínimo en rojo.
-Filtros arriba: activo, máquina, rango de fechas. Botón primario "Agregar operario".
-Al pie, totales de columna sumables.
+  Píldoras: Activos 5 (activa) · Inactivos · Todos. Botón "+ Agregar operario".
+  Tarjeta con tabla: iniciales y nombre · código · máquinas · puntadas de la
+  quincena · devengado (destajo + séptimo) · mínimo legal.
+    Juana Ixchop Tzoc · OP-014 · BOR-04 · 2,918,400 · Q2,269.87 · 118.9%
+    Marta Chocoj Sical · OP-021 · BOR-02 · 3,412,700 · Q2,654.32 · 139.1%
+    Diego Puac Ajanel · OP-007 · BOR-01, BOR-06 · 4,105,220 · Q3,192.95 · 167.3%
+    Rosa Elena Batz Quiej · OP-033 · BOR-05 · 1,884,900 · Q1,466.03 · 76.8%, con
+      forma critico y subfila "Le faltan 568,821 puntadas: complemento Q442.42"
+    Manuel Tzunún Coyoy · OP-018 · BOR-03 · 2,451,180 · Q1,906.47 · 99.9%, con
+      subfila "Le faltan 2,541 puntadas: complemento Q1.98"
+    Total · 14,772,400 · Q11,489.64
+  Las puntadas cuentan solo trabajos terminados; nota al pie: "Hay 4 trabajos en
+  curso que se suman al finalizar." Ordenado por nombre, nunca por producción: no es
+  un ranking.
 
 MESA 2 — "Operario · alta" (C2), alto 1400
-Formulario de una sola columna, ancho máximo 640px, con secciones separadas por
-línea y título en mayúscula:
-· Identificación: DPI de 13 dígitos con formato en vivo 3056 78914 0401 y validación
-  del dígito verificador; al validar, muestra debajo, en texto pequeño, el
-  departamento y municipio deducidos ("Chimaltenango · Chimaltenango"). Nombres y
-  apellidos en campos separados, incluido apellido de casada. Fecha de nacimiento.
-· Contacto: teléfono, dirección, departamento, municipio.
-· Laboral: fecha de ingreso, modalidad de pago (destajo, tiempo, mixto), turno,
-  número de IGSS, NIT.
-· Acceso: máquinas asignadas, con un selector múltiple que muestra cuáles están
-  libres y cuáles ya tienen operario. Aviso en línea: "El operario solo podrá abrir
-  corridas en las máquinas que se le asignen aquí."
-· Gafete: vista previa del código QR con el código OP-041 y botón "Imprimir gafete".
-Barra de acciones fija al pie: "Cancelar" y botón primario "Guardar operario".
-Mostrar además un campo de DPI con error de validación:
-"El dígito verificador no corresponde. Revise el número del DPI."
+  Formulario de una columna, máx. 640px, con secciones separadas por título:
+  · Identificación: DPI de 13 dígitos con formato en vivo 3056 78914 0401 y
+    validación del dígito verificador; al validar, debajo en 13px el departamento y
+    municipio deducidos ("Chimaltenango · Chimaltenango"). Nombres y apellidos en
+    campos separados, incluido apellido de casada. Fecha de nacimiento.
+  · Contacto: teléfono, dirección, departamento, municipio.
+  · Laboral: fecha de ingreso, modalidad de pago (destajo, tiempo, mixto) en píldoras,
+    turno, número de IGSS, NIT.
+  · Máquinas: selector múltiple que muestra cuáles están libres y cuáles ya tienen
+    operario. Aviso informativo: "Solo podrá comenzar trabajos en las máquinas que se
+    le asignen aquí."
+  · Gafete: vista previa con el código OP-041 y su QR; botón "Imprimir gafete".
+  Barra fija al pie: "Cancelar" y "Guardar operario". Un campo de DPI con el error
+  "El dígito verificador no corresponde. Revise el número del DPI." y el valor
+  tecleado intacto.
 
-MESA 3 — "Operario · ficha" (C3), alto 1400
-Ficha de Diego Puac Ajanel. Encabezado con nombre, código OP-007, máquinas BOR-01 y
-BOR-06, fecha de ingreso. El DPI aparece parcialmente oculto con un control para
-revelarlo, con la nota "Visible solo para dueño y RRHH".
-Cuatro cifras: puntadas de la quincena 4,105,220 · ganancia devengada Q3,192.39 ·
-prendas 1,842 · días trabajados 11.
-Barra de mínimo legal al 167% del umbral, en verde.
-Gráfica de puntadas por día de la quincena, con la línea del ritmo necesario
-(188,748 por día) sobrepuesta y etiquetada.
-Tabla de corridas recientes y, al pie, historial de asignaciones y de movimientos de
-nómina.
+MESA 3 — "Operario · ficha" (C3): pega la PANTALLA C3 de la hoja, prompt 3.
 ```
 
-### Lote 5 · Ganancias: tarifas, simulador y conceptos
+### Lote 5 · Ganancias
 
 ```
-Diseña 1 lienzo con 3 mesas de 1440 de ancho. Este lote es exclusivo del dueño y es
-donde define cuánto gana la gente. Debe transmitir peso y consecuencia.
+Diseña 1 lienzo con 3 mesas de 1440 de ancho. Solo el dueño entra aquí; es donde
+define cuánto gana la gente. Sin movimiento salvo la entrada de un aviso.
 
-MESA 1 — "Tarifas de destajo" (E1), alto 1200
-Arriba, la tarifa vigente destacada sin ser una tarjeta decorativa: una franja con
-línea superior de 2px en color marca, que dice "1,500 puntadas = Q1.00", con
-"Q0.00066667 por puntada" debajo en texto secundario, alcance "Global", vigente
-desde el 1 de enero de 2026, autorizada por "Dueño · 28 dic 2025 16:20".
-Junto a ella, un bloque de consecuencia calculada, en Plex Mono:
-"Con esta tarifa, un operario necesita 2,453,721 puntadas por quincena para alcanzar
-el salario mínimo de Q3,816.90. Equivale a 393 puntadas por minuto sostenidas."
-Debajo, tabla de tarifas con columnas: nombre, alcance (global, por operario, por
-máquina, por diseño, por producto), referencia, puntadas por quetzal, vigente desde,
-vigente hasta, autorizada por. Dos filas históricas ya cerradas y una vigente.
-Una nota de precedencia visible: "Al liquidar gana la tarifa más específica:
-operario, luego máquina, luego diseño, luego producto, luego global."
-Botón primario "Nueva tarifa".
-Incluir también el modal de confirmación al crear una tarifa nueva, que nombra la
-consecuencia exacta: "Se cerrará la tarifa vigente el 30 de septiembre de 2026 y la
-nueva regirá desde el 1 de octubre. Las quincenas ya cerradas no cambian."
+MESA 1 — "Tarifas de destajo" (E1): pega la PANTALLA E1 de la hoja, prompt 4. Agrega
+al lado el modal de "+ Nueva tarifa" con la consecuencia exacta: "La tarifa vigente
+se cerrará el 30 de septiembre de 2026 y la nueva regirá desde el 1 de octubre. Las
+quincenas ya cerradas no cambian. Quedará firmada a su nombre." Botones "Cancelar" y
+"Crear tarifa".
 
 MESA 2 — "Simulador de ganancia" (E2), alto 900
-Herramienta para que el dueño vea el efecto de una tarifa antes de aplicarla.
-Panel de entradas a la izquierda: puntadas por quetzal (1,500), velocidad de la
-máquina (850 spm), eficiencia estimada (70%), días trabajados en la quincena (13),
-categoría salarial (CE2 no agrícola).
-Resultado a la derecha, en Plex Mono con etiquetas claras: puntadas proyectadas
-3,714,600 · destajo Q2,476.40 · séptimo día Q412.73 · complemento al mínimo Q0.00 ·
-bonificación incentivo Q125.00 · IGSS laboral Q139.51 · NETO Q2,874.62 ·
-costo patronal Q4,208.15.
-Debajo, una gráfica de barras horizontales con el destajo mensual a 650, 750, 850 y
-1,000 spm, y una línea vertical marcada en Q3,816.90 que es el salario mínimo. La
-barra de 650 spm queda por debajo de la línea y va en color crítico.
+  Tarjeta "Supongamos" a la izquierda: puntadas por Q1.00 (1,500), velocidad de la
+  máquina (850 puntadas por minuto), eficiencia (70%), días trabajados en la
+  quincena (13), categoría (CE2 no agrícola).
+  Tarjeta "Resultado por operario en la quincena" a la derecha, en filas:
+    puntadas proyectadas 3,712,800 · destajo Q2,475.20 · séptimo día Q412.53 ·
+    complemento al mínimo Q0.00 · bonificación incentivo Q125.00 · IGSS laboral
+    −Q139.48 · neto Q2,873.25 · cuotas patronales Q365.88 · costo para la fábrica
+    Q3,378.61 (sin prestaciones).
+  Nota: "Es una simulación. No cambia ninguna tarifa ni ninguna quincena."
 
 MESA 3 — "Descuentos y bonificaciones" (E3), alto 900
-Dos tablas separadas por título. Bonificaciones: puntualidad, producción, antigüedad.
-Descuentos: anticipo, préstamo, pérdida de material, con su tope como porcentaje del
-salario y la marca de "requiere autorización".
-Panel lateral para aplicar un movimiento a un operario, con selector de concepto,
-monto, motivo obligatorio y la línea de firma "Autorizado por · Dueño".
-Un aviso en línea, en color de aviso: "Un descuento no puede dejar el pago neto por
-debajo del salario mínimo protegido."
+  Dos tarjetas: "Bonificaciones" (puntualidad, producción, antigüedad) y "Descuentos"
+  (anticipo, préstamo, pérdida de material), cada concepto con su tope como
+  porcentaje del salario y "requiere autorización".
+  Tarjeta "Por autorizar": anticipo de Manuel Tzunún Coyoy, Q300.00, registrado por
+  Claudia Mux a las 13:25, con "Rechazar" y "Autorizar"; "Autorizar" abre la
+  confirmación con la firma "Autorizado por · Josue Chuc · Dueño".
+  Aviso: "Un descuento no puede dejar el pago neto por debajo del salario mínimo
+  protegido."
 ```
 
 ### Lote 6 · Producción y verificación
@@ -459,40 +438,38 @@ debajo del salario mínimo protegido."
 ```
 Diseña 1 lienzo con 4 mesas de 1440 de ancho.
 
-MESA 1 — "Corridas del día" (F1)
-Tabla en vivo con columnas: hora de inicio, hora de cierre, máquina, operario,
-diseño declarado, repeticiones, prendas, puntadas medidas, puntadas esperadas,
-desviación, chip de verificación y fuente del dato (manual, sensor, red, archivo).
-Filtros de máquina, operario y estado de verificación. Un indicador discreto arriba
-dice "3 corridas abiertas ahora".
-Incluir la corrida con discrepancia: BOR-05, Rosa Elena Batz Quiej, FAJ-010,
-12 repeticiones, esperado 148,800, medido 156,200, +4.97%, en rojo suave.
+MESA 1 — "Trabajos del día" (F1)
+  Píldoras: Trabajos del día (activa) · Discrepancias 2 · Órdenes.
+  Arriba, "4 en curso" en filas rayadas con hora de inicio y esperadas (BOR-01
+  HUI-001 × 3 desde 12:05 · 127,500; BOR-02 HUI-002 × 2 desde 12:40 · 77,800;
+  BOR-04 TZU-004 × 4 desde 13:02 · 85,200; BOR-06 HUI-002 × 2 desde 13:20 · 77,800)
+  y el de BOR-05 "detenido por la falla desde las 09:14".
+  Debajo, los 15 trabajos terminados de hoy en tabla: inicio–fin · máquina ·
+  operario · diseño × repeticiones · cabezas · prendas · esperado · medido ·
+  verificación · registrado desde ("teléfono de Diego", o "corregido por Pedro
+  Xicará" con el valor anterior tachado). Total: 168 prendas · 1,300,180 puntadas.
+  Filtros de máquina, operario y verificación.
 
-MESA 2 — "Bandeja de discrepancias" (F2), alto 1000
-La cola de trabajo del supervisor. Lista a la izquierda con las corridas por
-resolver; detalle a la derecha de la seleccionada.
-El detalle muestra, lado a lado, lo declarado y lo medido, con la diferencia grande
-en Plex Mono. Debajo, los candidatos alternativos que el sistema propone según el
-conteo, ordenados por cercanía, cada uno con su código, nombre, puntadas y
-desviación.
-Explicación en texto pequeño y honesto: "El conteo por sí solo no identifica el
-diseño; solo verifica el declarado. Estos candidatos son una sugerencia."
-Acciones: "Confirmar el diseño declarado", "Cambiar al diseño sugerido",
-"Marcar como reproceso por rotura de hilo", "Anular la corrida". La última pide
-motivo obligatorio.
-Un aviso fijo arriba: "2 corridas sin resolver bloquean el cierre de la quincena."
+MESA 2 — "Bandeja de discrepancias" (F2): pega la PANTALLA F2 de la hoja, prompt 4.
 
 MESA 3 — "Órdenes de producción" (F3)
-Tabla de las tres órdenes con avance en barra, cantidad producida sobre objetivo,
-fecha de compromiso, temporada asociada y estado. La orden OP-2026-119 va al 26% con
-entrega el 1 de septiembre y aparece marcada como en riesgo.
+  Tarjeta con una fila por orden, ordenadas por urgencia, cada una con su barra de
+  avance (producidas sobre objetivo), compromiso, temporada y estado:
+    OP-2026-122 · vence mañana (forma de aviso) · 88 de 120 · "faltan 32 · 16 en curso"
+    OP-2026-119 · en riesgo (forma de aviso) · 132 de 500 · "necesita 37 por día"
+    OP-2026-114 · a tiempo · 186 de 240
+    OP-2026-121 · entregada · 90 de 90
+  Una orden vencida sin terminar se marcaría "Vencida hace N días" en critico;
+  muéstrala como variante en un recorte.
 
 MESA 4 — "Orden · detalle" (F4), alto 1200
-Detalle de OP-2026-114, huipil Sololá cuello grande, 186 de 240.
-Encabezado con avance grande, días restantes y ritmo necesario para llegar.
-Diseños que componen el producto, con su firma de puntadas.
-Consumo de hilo proyectado contra el real.
-Tabla de corridas atribuidas a la orden, agrupadas por máquina.
+  OP-2026-119 · Faja Totonicapán greca · 132 de 500 · compromiso 25 sep 2026.
+  Tarjeta "Cómo va": 26.4% en 28px, "faltan 368 prendas en 10 días hábiles" y
+  "necesita 37 por día; hoy hizo 36". Chip de aviso "En riesgo".
+  Tarjeta "Hilo": "4,563,200 puntadas · unos 23,729 m · unos 5 conos" y el aviso
+  "HIL-1147 rojo granate está agotado" con enlace a Inventario.
+  Tarjeta "Trabajos de la orden hoy": BOR-04 FAJ-010 × 4 · 4 prendas · 49,710; BOR-05
+  FAJ-010 × 8 · 32 prendas · 99,410; BOR-05 FAJ-010 × 8 detenido por la falla.
 ```
 
 ### Lote 7 · Catálogo
@@ -500,297 +477,255 @@ Tabla de corridas atribuidas a la orden, agrupadas por máquina.
 ```
 Diseña 1 lienzo con 4 mesas de 1440 de ancho.
 
-MESA 1 — "Diseños · catálogo" (G1)
-Parrilla de fichas de diseño en 4 columnas. Cada ficha: miniatura real del bordado,
-código, nombre, puntadas en Plex Mono, número de cambios de color, región cultural y
-dimensiones en milímetros. Filtros por región, por tipo de prenda y por rango de
-puntadas. El rango de puntadas importa porque es la firma de verificación.
+MESA 1 — "Diseños" (G1): pega la PANTALLA G1 de la hoja, prompt 5.
 
 MESA 2 — "Diseño · alta desde archivo" (G2), alto 1000
-Zona para soltar un archivo DST. Después de leerlo, el sistema muestra la firma
-extraída en dos columnas comparadas: lo declarado en el encabezado del archivo
-contra lo contado realmente en los registros.
-  Puntadas declaradas 42,500 · contadas 42,500 · coinciden
-  Cambios de color declarados 9 · contados 9 · coinciden
-  Saltos 214 · ancho 186.4 mm · alto 203.1 mm
-  Hash SHA-256 truncado, en Plex Mono
-Incluir también el caso de discrepancia, con aviso: "El encabezado declara 42,500
-puntadas pero el archivo contiene 42,731. Se usará el conteo real. El archivo
-probablemente fue editado."
-Campos: código, nombre, versión, región cultural, producto asociado. Vista previa
-del QR del código de diseño y botón "Imprimir etiqueta para el bastidor".
+  Zona para soltar un archivo DST. Después de leerlo, la firma extraída en dos
+  columnas: lo que declara el encabezado del archivo y lo contado en sus registros.
+    Puntadas declaradas 42,500 · contadas 42,500 · coinciden
+    Cambios de color declarados 9 · contados 9 · coinciden
+    Saltos 214 · ancho 186.4 mm · alto 203.1 mm
+    Huella del archivo (SHA-256, truncada) en Plex Mono
+  Variante con discrepancia, en aviso: "El encabezado declara 42,500 puntadas, pero
+  el archivo contiene 42,731. Se usará el conteo real. Es probable que el archivo se
+  haya editado."
+  Campos: código, nombre, versión, región, producto asociado. Vista previa de la
+  etiqueta con QR y botón "Imprimir etiqueta para el bastidor".
 
 MESA 3 — "Productos" (G3)
-Tabla de productos con SKU, nombre, tipo de prenda (huipil, sobrehuipil, corte,
-faja, tzute, perraje, tocoyal), región, talla, diseños que lo componen, puntadas
-totales por prenda, costo estimado y precio de venta.
+  Tabla: código, nombre, tipo de prenda (huipil, sobrehuipil, corte, faja, tzute,
+  perraje, tocoyal), región, talla, diseños que lo componen, puntadas por prenda,
+  costo estimado y precio de venta.
 
 MESA 4 — "Temporadas" (G4), alto 1000
-Calendario anual en franja horizontal con las temporadas marcadas: ferias patronales
-por municipio, Semana Santa, Día de la Madre, Independencia el 15 de septiembre,
-graduaciones y Navidad. Hoy es 7 de septiembre de 2026, así que Independencia está
-a 8 días y debe verse inminente.
-Debajo, tabla de temporadas con producto asociado, demanda estimada y producción
-comprometida. La Feria de Sololá del 15 de agosto ya pasó; la de Independencia está
-activa.
+  Calendario del año en una franja horizontal con la línea "hoy, 14 sep": Feria de
+  Xelajú e Independencia el 15 de septiembre (mañana, en aviso), Feria de Totonicapán
+  el 29 de septiembre, Todos Santos el 1 de noviembre, Navidad; Semana Santa y Día de
+  la Madre ya pasadas, en linea-suave.
+  Debajo, tabla de temporadas con sus órdenes: Feria de Xelajú → OP-2026-122;
+  Feria de Totonicapán → OP-2026-119.
 ```
 
 ### Lote 8 · Nómina
 
 ```
-Diseña 1 lienzo con 4 mesas. Este lote es el de mayor consecuencia legal: todo
-número debe verse verificable y todo cierre debe verse deliberado.
+Diseña 1 lienzo con 5 mesas. Es el lote de mayor consecuencia legal: todo número
+debe verse verificable y todo cierre debe verse deliberado. Sin movimiento.
 
 MESA 1 — "Nómina · períodos" (H1), 1440×900
-Tabla de quincenas con estado (abierto, calculado, aprobado, pagado, cerrado),
-rango de fechas, operarios incluidos, total bruto, total neto, costo patronal y
-quién aprobó. La quincena del 1 al 15 de septiembre de 2026 está abierta.
+  Tarjeta con una fila por quincena: período · estado · operarios · puntadas · neto ·
+  aprobó.
+    1 al 15 sep 2026 · Abierta · 5 · 14,772,400 al 14 sep · Q11,982.63 al 14 sep · —
+    16 al 31 ago 2026 · Pagada · 5 · 14,998,200 · Q11,726.84 · Josue Chuc, 1 sep 09:12
+    1 al 15 ago 2026 · Pagada · 5 · 15,206,900 · Q11,881.32 · Josue Chuc, 17 ago 08:47
+  La abierta dice "cierra mañana" y "2 trabajos sin resolver".
 
-MESA 2 — "Nómina · cálculo del período" (H2), 1440×1300
-La pantalla central del módulo. Encabezado con el período, el estado y el resumen:
-5 operarios · total neto Q14,247.83 · costo patronal Q20,884.11.
-Aviso crítico arriba, que bloquea: "2 corridas con discrepancia impiden cerrar el
-período." con enlace a la bandeja.
-Tabla por operario con columnas en Plex Mono, alineadas a la derecha: puntadas,
-días, destajo, séptimo día, complemento al mínimo, bonificación incentivo,
-bonificaciones, descuentos, IGSS 4.83%, neto y costo patronal.
-La fila de Rosa Elena Batz Quiej muestra complemento Q567.53 y una marca de alerta;
-al pasar el cursor, la explicación: "Su destajo no alcanza el salario mínimo. El
-patrono completa la diferencia, según el artículo 91 del Código de Trabajo."
-Una columna debe dejar claro que el séptimo día es un sexto de lo devengado, con la
-nota al pie: "Séptimo día calculado como una sexta parte de lo devengado en la
-semana, artículo 126 del Código de Trabajo."
-Totales al pie. Acciones: "Recalcular", "Exportar", y botón primario "Cerrar
-período", deshabilitado mientras haya discrepancias.
-Incluir el modal de cierre, que nombra la consecuencia:
-"Se cerrará la quincena del 1 al 15 de septiembre de 2026 con 5 operarios y
-Q14,247.83 de pago neto. Después de cerrar no se podrán editar las corridas de este
-período. Esta acción queda registrada a su nombre."
+MESA 2 — "Cálculo de la quincena" (H2): pega la PANTALLA H2 de la hoja, prompt 5.
+Agrega al lado el modal de cierre, mostrado como variante sin discrepancias: "Se
+cerrará la quincena del 1 al 15 de septiembre con 5 operarios y Q11,982.63 a pagar.
+Después de cerrar no se pueden editar los trabajos de este período. Hay 2 trabajos en
+curso: se pagarán en la quincena en que se finalicen. Quedará registrado a su
+nombre." Botones "Cancelar" y "Cerrar quincena".
 
-MESA 3 — "Constancia de pago" (H3), 900×1200, formato de impresión
-Boleta de Rosa Elena Batz Quiej. Encabezado con la fábrica, el período y el
-operario con su código. Desglose línea por línea de devengado y deducido, con el
-complemento al mínimo nombrado explícitamente. Total neto grande. Al pie, espacio
-de firma y la referencia legal de la tarifa aplicada.
+MESA 3 — "Planilla en el teléfono" (H2·T), 390 de ancho
+  Resumen arriba: "A pagar Q11,982.63", "Complementos Q444.40", y una fila con
+  forma critico "Rosa Elena Batz Quiej no llega al mínimo". Debajo, la planilla con la
+  primera columna fija y "Deslice para ver las 9 columnas →". Barra inferior con
+  Nómina activo.
 
-MESA 4 — "Libro de salarios y planilla IGSS" (H4), 1440×1000
-Vista de exportación con dos pestañas. Formato tabular sobrio, pensado para
-imprimir. Nota visible: "Libro de salarios autorizado por el Ministerio de Trabajo,
-obligatorio con 10 o más trabajadores permanentes, artículo 102 del Código de
-Trabajo."
+MESA 4 — "Constancia de pago" (H3), carta vertical, para imprimir en modo día
+  Constancia de Rosa Elena Batz Quiej, OP-033, quincena del 1 al 15 de septiembre
+  (cálculo al 14). Devengado: destajo Q1,256.60 (1,884,900 puntadas a 1,500 por
+  Q1.00) · séptimo día Q209.43 · complemento al mínimo Q442.42, nombrado y con su
+  artículo · bonificación incentivo Q125.00. Descuentos: IGSS 4.83% Q92.18. Neto
+  Q1,941.27 grande. Al pie, espacio de firma y la tarifa aplicada.
+
+MESA 5 — "Libro de salarios y planilla IGSS" (H4), 1440×1000
+  Dos pestañas, formato tabular sobrio para imprimir. Nota: "Libro de salarios
+  autorizado por el Ministerio de Trabajo, obligatorio con 10 o más trabajadores
+  permanentes, artículo 102 del Código de Trabajo."
 ```
 
 ### Lote 9 · Inventario y mantenimiento
 
 ```
-Diseña 1 lienzo con 4 mesas de 1440 de ancho.
+Diseña 1 lienzo con 5 mesas de 1440 de ancho.
 
-MESA 1 — "Inventario · existencias" (I1)
-Tabla por bodega y artículo: SKU, nombre, clase (hilo, tela, aguja, entretela, avío,
-repuesto, producto terminado), unidad, existencia, mínimo, y estado. Tres artículos
-bajo el mínimo, marcados en aviso. Filtro por bodega: materia prima, producto
-terminado, repuestos.
-Para los hilos, mostrar la columna "consumo por mil puntadas", que es lo que permite
-proyectar el hilo de una orden.
+MESA 1 — "Existencias" (I1): pega la PANTALLA I1 de la hoja, prompt 6.
 
-MESA 2 — "Inventario · movimientos" (I2)
-Registro cronológico con tipo (entrada, salida, ajuste, traslado, consumo de
-producción, merma), artículo, cantidad, bodega, referencia a la corrida u orden que
-lo originó, usuario y fecha. Los consumos de producción enlazan a su corrida.
+MESA 2 — "Movimientos" (I2)
+  Lista cronológica en una tarjeta: tipo (entrada, salida, ajuste, traslado,
+  consumo de producción, merma) · artículo · cantidad · bodega · referencia · quién ·
+  cuándo. Los consumos enlazan a su trabajo ("BOR-03 · COR-021 × 4 · 11:52–12:30").
+  La última salida de HIL-1147 hoy a las 11:40 dejó la existencia en 0.
 
-MESA 3 — "Mantenimiento · semáforo" (J1), alto 1000
-Las 8 máquinas en filas, y por cada una las tareas con su barra de avance hacia el
-intervalo. Ordenadas por urgencia: BOR-01 engrase de lanzadera al 94.9% arriba, en
-aviso. Cada barra muestra el intervalo en puntadas y las puntadas transcurridas.
-Un conmutador permite ver los intervalos en puntadas o en horas equivalentes, con la
-nota: "8 horas de operación equivalen a unas 250,000 puntadas."
-Botón por fila: "Generar orden".
+MESA 3 — "Artículo · alta" (I3), alto 900
+  Formulario de una columna: código, nombre, clase, unidad, bodega, mínimo y, para
+  hilos, consumo por mil puntadas con la ayuda "Sirve para calcular el hilo de una
+  orden antes de empezarla".
 
-MESA 4 — "Mantenimiento · órdenes" (J2)
-Tabla de órdenes preventivas y correctivas con máquina, tarea, disparador
-(puntadas, horas, días, falla), estado, programada para, ejecutada por y costo de
-repuestos. La orden correctiva de BOR-05 por la falla de hoy está en proceso.
+MESA 4 — "Semáforo por máquina" (J1): pega la PANTALLA J1 de la hoja, prompt 6.
+
+MESA 5 — "Órdenes de mantenimiento" (J2)
+  Tarjeta con filas: máquina · tarea · disparador (puntadas, días, falla) · estado ·
+  programada · quién · repuestos.
+    BOR-05 · correctiva por "falla de la máquina" · en proceso desde 09:30 · Óscar
+      Cumes · arriba, con forma critico
+    BOR-07 · preventivo · en proceso desde 07:30 · Óscar Cumes
+    BOR-01 · lubricación de barras de aguja · por generar (94.9%)
+  Al cerrar una orden se pide qué se hizo y los repuestos usados.
 ```
 
 ### Lote 10 · Reportes y configuración
 
 ```
-Diseña 1 lienzo con 3 mesas de 1440 de ancho.
+Diseña 1 lienzo con 4 mesas de 1440 de ancho.
 
-MESA 1 — "Reportes" (K1), alto 1300
-Constructor de informes. Barra superior con el selector de rango de fechas y sus
-atajos, que es el control más usado del sistema entero: hoy, ayer, esta semana,
-esta quincena, este mes, rango libre. Está en "del 1 al 15 de septiembre de 2026".
-Panel de configuración a la izquierda: granularidad (hora, día, semana, mes),
-dimensión (máquina, operario, diseño, producto, orden, temporada, turno) y medidas
-(puntadas, prendas, corridas, horas operativas, horas de paro, quetzales
-devengados), en casillas.
-Resultado a la derecha: una gráfica de puntadas por día del período, con el eje
-etiquetado con valores reales, y debajo la tabla con totales al pie.
-Botones de exportación a PDF y a hoja de cálculo.
-Debajo, en pestañas, los dos informes fijos: "Producción por máquina" y "Producción
-por operario".
+MESA 1 — "Constructor de informes" (K1): pega la PANTALLA K1 de la hoja, prompt 7.
 
-MESA 2 — "Configuración · parámetros legales" (L2), alto 1000
-Los valores que cambian por acuerdo gubernativo y nunca deben estar en el código.
-Tabla con: salario mínimo CE1 y CE2 en sus tres categorías, bonificación incentivo
-Q250.00, IGSS laboral 4.83%, patronal 10.67%, INTECAP 1%, IRTRA 1%, provisiones de
-aguinaldo, Bono 14, vacaciones e indemnización. Cada valor con su vigencia y su
-fuente citada: "Acuerdo Gubernativo 256-2025".
-Aviso en línea: "Cambiar un parámetro no altera los períodos de nómina ya cerrados."
+MESA 2 — "Usuarios y roles" (L1): pega la PANTALLA L1 de la hoja, prompt 7.
 
-MESA 3 — "Configuración · usuarios y auditoría" (L1 y L3), alto 1100
-Arriba, tabla de usuarios con nombre, rol, operario vinculado, último ingreso y
-estado. Los siete roles visibles: dueño, gerencia, supervisor, RRHH, mantenimiento,
-bodega, operario.
-Abajo, registro de auditoría en tabla densa: usuario, acción, tabla afectada,
-registro, antes y después, fecha y hora, dirección IP. Filtrable. Entradas reales
-como "Dueño cambió tarifa_destajo #3: puntadas_por_quetzal 1,600 → 1,500".
+MESA 3 — "Parámetros legales" (L2), alto 1000
+  Los valores que cambian por acuerdo gubernativo y nunca van en el código: salario
+  mínimo por circunscripción y categoría, bonificación incentivo Q250.00, IGSS
+  laboral 4.83%, patronal 10.67%, INTECAP 1%, IRTRA 1%, provisiones de aguinaldo,
+  Bono 14, vacaciones e indemnización. Cada valor con su vigencia y su fuente.
+  Aviso: "Cambiar un parámetro no altera las quincenas ya cerradas." Botón de cambio
+  con confirmación y firma.
+
+MESA 4 — "Auditoría" (L3)
+  Tabla densa filtrable: quién · qué hizo · registro · antes → después · cuándo ·
+  desde dónde. Entradas:
+    Josue Chuc cambió la tarifa general: 1,600 → 1,500 puntadas por Q1.00 · 28 dic
+      2025 16:20
+    Pedro Xicará asignó BOR-06 a Diego Puac Ajanel · de turno · 14 sep 2026 05:58
+    Claudia Mux registró un anticipo de Q300.00 para Manuel Tzunún Coyoy · 14 sep
+      2026 13:25
+    Pedro Xicará corrigió el contador final de BOR-03 · 8,203,410 → 8,203,140 ·
+      11 sep 2026 15:02 · motivo "dígitos invertidos"
 ```
 
-### Lote 11 · PWA · abrir corrida
+### Lote 11 · App del operario · ingresar y comenzar
 
 ```
-Diseña 1 lienzo con 4 mesas de 390×844, para teléfono. Esta es la aplicación del
-piso de planta: pocos elementos, muy grandes, contraste alto, pensada para usarse de
-pie junto a una máquina y con las manos ocupadas. Texto base 17px, botón primario
-72px de alto, objetivos táctiles generosos.
+Diseña 1 lienzo con 4 mesas de 390×844. Reglas de la app del prompt base: texto base
+17px, botones de 72px, tarjetas que se tocan con borde de 1.5px en linea-fuerte,
+cifras completas sin centavos atenuados. Fluidas de 360 a 430px.
 
-MESA 1 — "Ingreso por gafete" (P1)
-Pantalla casi vacía. Instrucción corta: "Escanee su gafete". Un visor de cámara
-grande con marco de enfoque. Debajo, alternativa siempre visible: "Ingresar mi
-código". Nada más.
+MESA 1 — "Ingreso con gafete" (P1)
+  Casi vacía: "Escanee su gafete", visor de cámara grande con su marco, y la
+  alternativa siempre visible "Ingresar mi código". Variante sin señal en un teléfono
+  nuevo: "Este teléfono necesita conexión la primera vez."
 
-MESA 2 — "Inicio" (P2)
-Encabezado con "Buenos días, Diego" y el código OP-007.
-Bloque de ganancia del día, lo primero y lo más grande: "Q184.20 hoy" en Plex Mono
-enorme, con "276,300 puntadas" debajo, y una barra fina hacia la meta de la quincena
-con el texto "Va al 167% del mínimo".
-Luego el título "Mis máquinas" y SOLO las dos máquinas asignadas a Diego: BOR-01 y
-BOR-06, cada una como una fila alta de 96px con su código grande, su estado con
-punto y palabra, el diseño en curso y las puntadas del día. BOR-01 tiene una corrida
-abierta y muestra el botón "Continuar"; BOR-06 muestra "Abrir corrida".
-No hay buscador de máquinas ni lista completa: solo estas dos.
-Al pie, una barra de navegación de tres destinos: Inicio, Mi ganancia, Paros.
+MESA 2 — "Inicio" (P2): pega la PANTALLA P2 de la hoja, prompt 8.
 
-MESA 3 — "Abrir corrida · escanear" (P3)
-Tres pasos numerados en la parte superior, con el segundo activo: máquina, diseño,
-contador.
-Visor de cámara a pantalla completa con marco. Texto: "Escanee el código del
-diseño". Debajo, botón secundario "Escribir el código".
-Incluir además, como variante en la misma mesa o en un recuadro contiguo, el caso de
-máquina no asignada, que es la regla de acceso hecha visible:
-mensaje claro con ícono de aviso, "La máquina BOR-07 no está asignada a usted",
-y debajo "Pida a su supervisor que se la asigne", con botón "Volver a mis máquinas".
+MESA 3 — "Comenzar · escanear" (P3)
+  Tres pasos en píldoras arriba: Máquina ✓ · Diseño (activo) · Contador.
+  Visor a pantalla completa: "Escanee el código del diseño" y botón secundario
+  "Escribir el código".
+  Variante, la regla de acceso hecha visible: forma de aviso, "La máquina BOR-07 no
+  está asignada a usted", "Pida a su supervisor que se la asigne", y "Volver a mis
+  máquinas".
+  Variante sin señal: "Este diseño no está guardado en el teléfono. Puede comenzar
+  igual; se confirma al volver la señal."
 
-MESA 4 — "Abrir corrida · contador" (P4)
-Confirmación de lo escaneado arriba: máquina BOR-06, diseño HUI-002 Huipil
-Quetzaltenango aves con su miniatura y "38,900 puntadas por repetición".
-Campo grande para el contador inicial de la máquina, con teclado numérico propio de
-dígitos de 64px, no el del sistema. El número tecleado se ve enorme en Plex Mono con
-separador de miles: 8,412,300.
-Campo de repeticiones planeadas.
-Botón primario de 72px: "Abrir corrida".
-Enlace discreto: "Tomar foto del panel".
+MESA 4 — "Comenzar · contador" (P4, 10:51)
+  Arriba, lo escaneado: BOR-06 · HUI-002 Huipil Quetzaltenango aves · "38,900
+  puntadas por repetición".
+  "Teclee el número que marca la máquina": 8,412,300 enorme con separador, teclado
+  numérico propio de dígitos de 64px. Repeticiones planeadas: 2, con "→ 4 prendas ·
+  77,800 puntadas esperadas".
+  Botón primario de 72px: "Comenzar". Enlace "Tomar foto del contador", opcional.
 ```
 
-### Lote 12 · PWA · cerrar corrida, paros y ganancia
+### Lote 12 · App del operario · en curso, finalizar, paros y ganancia
 
 ```
-Diseña 1 lienzo con 4 mesas de 390×844.
+Diseña 1 lienzo con 5 mesas de 390×844.
 
-MESA 1 — "Corrida en curso" (P4 continuación)
-Máquina BOR-06 y diseño HUI-002 arriba. Cronómetro de la corrida: 2 h 14 min.
-Cifra grande de puntadas avanzadas 71,400 y su barra hacia lo esperado
-(2 repeticiones = 77,800), con el porcentaje. Debajo, ganancia acumulada de la
-corrida Q47.60.
-Dos botones grandes: "Reportar paro" en secundario y "Cerrar corrida" en primario.
+MESA 1 — "En curso y finalizar" (P4): pega la PANTALLA P4 de la hoja, prompt 8, con
+sus tres marcos (incluido el número que no cuadra).
 
-MESA 2 — "Cerrar corrida · verificación" (P5)
-Campo del contador final con el teclado numérico grande. Campo de repeticiones
-terminadas: 2.
-Al confirmar, el resultado de la verificación ocupa la pantalla:
-Variante correcta: marca en verde, "Corrida verificada", esperado 77,800,
-medido 77,940, desviación +0.18%, prendas 4 (2 repeticiones × 2 cabezas), ganancia
-de la corrida Q51.96.
-Variante con discrepancia, en la misma mesa o contigua: marca en rojo, "Revisar con
-el supervisor", esperado 148,800, medido 156,200, +4.97%, y el texto "La corrida
-quedó registrada. Su supervisor la revisará." Nunca se pierde el dato ni se culpa al
-operario.
-Hacer explícita en pantalla la distinción entre repeticiones y prendas: es lo que
-diferencia una máquina de 1 cabeza de una de 6.
+MESA 2 — "Resultado" (P5)
+  Variante correcta, ya en la hoja como marco 2 de P4: forma ok, "Trabajo
+  verificado", esperado 77,800, medido 77,940, +0.18%, 4 prendas (2 repeticiones ×
+  2 cabezas), ganancia del trabajo Q51.96.
+  Variante con discrepancia (Rosa Elena Batz Quiej, sábado 12 sep): forma y color de
+  aviso, nunca de falla; "Revisar con el supervisor"; esperado 148,800, medido
+  156,200, +4.97%; "El trabajo quedó registrado y cuenta con lo medido. Su supervisor
+  lo revisará. Esto no es una falta: a veces el diseño declarado no es el que se
+  bordó." Tres botones opcionales de 72px: "Cambié de diseño" · "Se rompió el hilo y
+  repetí" · "Otra cosa".
+  Explícita en pantalla la diferencia entre repeticiones y prendas.
 
-MESA 3 — "Reportar paro" (P6)
-Cinco botones grandes de 88px de alto, uno por causa, cada uno con su forma y color:
-rotura de hilo, falta de material, cambio de bastidor, falla de la máquina, fin de
-turno. Debajo, campo opcional de nota. El paro se registra con la hora exacta y se
-muestra confirmación breve.
+MESA 3 — "Reportar paro" (P6, BOR-03, 12:30)
+  Cinco botones de 88px, uno por causa, cada uno con su forma: rotura de hilo, falta
+  de material, cambio de bastidor, falla de la máquina, fin de turno. Elegida "falta
+  de material", pide cuál: HIL-1147 hilo rojo granate. Nota opcional. Confirmación
+  breve con la hora: "Paro registrado a las 12:30."
 
-MESA 4 — "Mi ganancia" (P7)
-Conmutador entre "Hoy" y "Esta quincena". En la vista de quincena:
-Cifra grande Q3,192.39 en Plex Mono, con "4,105,220 puntadas" debajo.
-Barra hacia el mínimo legal con la marca del umbral 2,453,721 y el texto "Va al 167%
-del mínimo".
-Desglose en filas de etiqueta y valor: destajo Q2,736.81 · séptimo día Q456.14 ·
-bonificación incentivo Q125.00 · descuentos Q0.00 · IGSS Q154.19 · neto estimado
-Q3,163.76. Nota al pie: "Estimado. El monto final se confirma al cerrar la quincena."
-Al pie, lista de los días con sus puntadas.
-Incluir también, como recuadro contiguo, el estado sin conexión (P8): franja
-discreta en la parte superior, no un bloqueo, que dice "Sin conexión · 3 corridas
-pendientes de enviar", con la lista de lo encolado y la nota "Se enviarán solas
-cuando vuelva la señal. Puede seguir trabajando."
+MESA 4 — "Mi ganancia" (P7): pega la PANTALLA P7 de la hoja, prompt 8.
+
+MESA 5 — "Sin conexión" (P8): pega la PANTALLA P8 de la hoja, prompt 8.
 ```
 
 ### Lote 13 · Movimiento y estados vivos
 
 ```
 Diseña 1 lienzo dedicado al sistema de movimiento. Es una especificación visual: cada
-animación se muestra con su nombre, su duración, su curva y una tira de fotogramas que
-la explica sin necesidad de verla correr.
+animación con su nombre, duración, curva y una tira de fotogramas que la explica sin
+verla correr. Mismo estilo moderno: tarjetas, anotaciones en Plex Sans de 12px.
 
-MESA 1 — "Estados de máquina en movimiento", 1440×900
-Cinco filas, una por estado. Cada fila lleva: el indicador a tamaño real, el nombre del
-estado, y una tira de 5 fotogramas que muestra el ciclo completo con su tiempo marcado
-debajo de cada uno.
-  Corriendo — punto lleno, opacidad 1 → .45 → 1, 2.4s, curva suave, infinito
-  Corriendo avanzado — el mismo pulso con la duración derivada de las puntadas por
-    minuto reales: mostrar tres máquinas en paralelo, BOR-04 a 1,000 spm latiendo a
-    1.4s, BOR-01 a 850 spm a 1.8s y BOR-05 a 750 spm a 2.2s
-  Parada — punto lleno, sin animación; dejar la fila de fotogramas idéntica a
-    propósito, con la anotación "la quietud es la señal"
-  En falla — triángulo, doble parpadeo de 120ms y 3s de reposo
-  En mantenimiento — cuadrado, barrido diagonal de brillo tenue, 3s
-  Sin datos — punto hueco, desvanecimiento 1 → .35 → 1, 4s
+MESA 1 — "Estados de máquina", 1440×900
+  Cinco filas, una por estado, con el indicador a tamaño real y 5 fotogramas:
+    Corriendo — opacidad 1 → .45 → 1, 2.4s, --suave, infinito
+    Parada — sin animación; fotogramas idénticos a propósito, "la quietud es la señal"
+    En falla — doble parpadeo de 120ms y 3s de reposo
+    En mantenimiento — barrido diagonal tenue, 3s
+    Sin datos — 1 → .35 → 1, 4s
 
-MESA 2 — "Movimiento de componentes", 1440×1100
-Una fila por componente, cada una con estado inicial, estado intermedio y estado final,
-más su duración y curva anotadas en Plex Mono:
-  Contador de puntadas — de 276,300 a 312,400 en 420ms, dígito a dígito, ancho fijo
-  Barra de mínimo legal — de 0 a 167% en 320ms, con destello en la marca del umbral
-  Semáforo de mantenimiento — BOR-01 al 94.9% latiendo cada 4s; BOR-04 al 31% quieto
-  Chip de verificación — de "pendiente" a "verificada +0.18%", opacidad y 4px
-  Fila de tabla — entrada de una corrida nueva, y el destaque de 600ms al cambiar
-  Franja de alerta — entrada desde arriba 8px, y colapso de altura al resolverse
-  Esqueleto de carga — barrido de 1.4s; incluir una nota tachada que diga
-    "nunca un indicador giratorio"
+MESA 2 — "Componentes", 1440×1100
+    Contador de puntadas — de 290,990 a 368,930 en 420ms al guardar el trabajo de
+      BOR-06, ancho fijo
+    Barra de mínimo legal — de 0 a 167.3% en 320ms, destello en la marca del umbral
+    Semáforo — BOR-01 al 94.9% latiendo cada 4s; BOR-04 al 31% quieto
+    Chip de verificación — de "pendiente" a "ok +0.18%", opacidad y 4px
+    Franja de alerta — entra 8px desde arriba; colapsa al resolverse
+    Interruptor día / noche — transición de color de 200ms en toda la pantalla
+    Esqueleto de carga — barrido de 1.4s, con la nota tachada "nunca un indicador
+      giratorio"
 
-MESA 3 — "Movimiento en la PWA", 3 pantallas de 390×844 en secuencia
-  Marco de escaneo respirando a 2s y su colapso al centro en 180ms al leer el código,
-  con los indicadores de sonido y vibración anotados al margen.
-  Los tres pasos de la corrida —máquina, diseño, contador— con el avance lateral de
-  8px entre ellos, dibujado con una flecha y su duración.
-  La ganancia del día contando de Q147.90 a Q184.20.
+MESA 3 — "En la app", 3 pantallas de 390×844 en secuencia
+    Marco de escaneo respirando 2s y su colapso en 180ms, con sonido y vibración
+    anotados; los tres pasos máquina → diseño → contador con su avance de 8px; la
+    ganancia del día contando de Q193.99 a Q245.95 al guardar; la cola sin conexión
+    bajando de 1 a 0.
 
 MESA 4 — "Movimiento reducido", 1440×600
-La misma tira de los cinco estados de máquina con prefers-reduced-motion activo:
-sin pulsos, con el estado distinguiéndose solo por color y forma. Al lado, la lista de
-lo que cambia: los conteos saltan al valor final, las barras aparecen en su valor, las
-transiciones se reducen a 90ms de opacidad.
-Encabezar la mesa con la regla: "Ninguna información de este sistema depende
-únicamente del movimiento."
+    Los cinco estados con prefers-reduced-motion: sin pulsos, por color y forma. Al
+    lado, lo que cambia: los conteos saltan al valor final, las barras aparecen en su
+    valor, las transiciones quedan en 90ms de opacidad. Encabezado: "Ninguna
+    información de este sistema depende únicamente del movimiento."
+```
 
-Todo el lienzo en estilo minimalista: fondo limpio, anotaciones en Plex Mono pequeño,
-sin marcos decorativos alrededor de los ejemplos.
+### Lote 14 · El panel en el teléfono del dueño
+
+```
+Diseña 1 lienzo con 3 mesas de 390 de ancho y alto propio, con las reglas de
+"Panel en teléfono" del prompt base (brief 11 §6.5). Si los lotes 2, 3 y 8 ya trajeron
+B1·T, D1·T y H2·T, este lote los reúne y agrega lo que falta:
+
+MESA 1 — "Avisos en el teléfono": el panel de avisos de B1 como hoja inferior a todo
+el ancho, con las acciones al alcance del pulgar. El anticipo de Manuel Tzunún Coyoy
+con "Rechazar" y "Autorizar"; al tocar "Autorizar", la confirmación también como hoja
+inferior, con el monto, el nombre y "Quedará firmado a su nombre".
+
+MESA 2 — "Más": la hoja inferior con los demás módulos (Operarios, Ganancias,
+Catálogo, Inventario, Mantenimiento, Reportes, Configuración) y la búsqueda.
+
+MESA 3 — "Pantalla de escritorio en el teléfono": Reportes (K1) abierta en el
+teléfono, en una columna y con la nota "Esta pantalla es más cómoda en una
+computadora". Sigue funcionando; nunca se bloquea.
 ```
 
 ---
@@ -799,77 +734,92 @@ sin marcos decorativos alrededor de los ejemplos.
 
 Usar después de aprobar un lote.
 
-### Auditoría minimalista
+### Revisión del estilo moderno
 
 ```
-Revisa las mesas de trabajo aprobadas contra la dirección minimalista y quita lo que no
-se gane su lugar. En concreto:
-· Elimina toda tarjeta que pueda ser una retícula con hairline y aire.
-· Quita los fondos grises de encabezado de tabla y déjalos con línea inferior.
-· Quita el relleno de color de los indicadores de estado: forma coloreada más texto
-  en tinta.
-· Sube el espaciado entre bloques a 56px y entre secciones a 96px.
-· Reduce los iconos a los indispensables.
-· Comprueba que en cada pantalla haya como máximo un elemento con color semántico
-  cuando no hay nada que atender.
-Devuelve la versión depurada y una lista corta de qué quitaste y por qué.
+Revisa las mesas aprobadas contra la dirección moderna del prompt base y corrige lo
+que no cumpla, sin cambiar lo aprobado:
+· Ninguna tarjeta dentro de otra; ninguna sombra fuera de avisos, menús y modales.
+· Una sola cifra protagonista por pantalla, y solo donde decide.
+· Ninguna fila de tres o cuatro tarjetas con cifra gigante y etiqueta: cada tarjeta
+  con la forma de su pregunta.
+· Estados de máquina con forma en círculo neutro, sin píldora rellena de color.
+· Ninguna puntada de un trabajo abierto como si fuera medida; todo "hoy" dice "de
+  trabajos terminados"; todo estado dice "desde HH:MM".
+· Campos con línea inferior en linea-fuerte, enlaces subrayados, selección distinta
+  del foco, tinta-3 nunca sobre superficie-2 ni fondo.
+· Ningún verde, rojo o ámbar como decoración. En pantalla, "trabajo", nunca
+  "corrida".
+Devuelve la versión corregida y una lista corta de qué cambiaste y por qué.
 ```
 
-### Modo oscuro
+### Modo noche
 
 ```
-Toma las mesas de trabajo aprobadas y produce su versión en tema oscuro, usando los
-tokens oscuros del prompt base. No inviertas los colores mecánicamente: revisa que
-el contraste del texto sobre superficie siga siendo alto, que los colores semánticos
-sigan distinguiéndose entre sí y que el acento marca-700 #8FA6DE funcione sobre el
-fondo #101318. Las gráficas y los indicadores de estado deben tomar su color de los
-mismos tokens, no de valores fijos.
-Prioriza la PWA: el turno de noche es cuando más se usa.
+Produce la versión en modo noche de las mesas aprobadas, con los tokens de noche del
+prompt base. No inviertas mecánicamente: el texto de 16px o menos sube a peso 450;
+los colores semánticos siguen distinguiéndose entre sí; la píldora activa y el botón
+primario van en tinta clara con texto oscuro; el rayado de "en curso" sigue
+viéndose sobre la tarjeta. Gráficas e indicadores toman su color de los tokens. El
+interruptor muestra "Noche" como vigente.
+Prioriza la app del operario: el turno de noche es cuando más se usa.
 ```
 
 ### Estados de cada pantalla
 
 ```
-Para las pantallas del lote anterior, diseña sus estados:
-· Vacío, con el texto que dice qué falta y ofrece la acción. Ejemplo para corridas:
-  "Aún no hay corridas hoy. Aparecerán aquí cuando un operario abra una desde la
-  aplicación de piso."
-· Cargando, con esqueletos que respetan la forma final, no con un indicador giratorio.
-· Error de servidor, que dice qué pasó, qué se hizo con los datos y qué puede hacer
-  la persona. Nunca un código ni "algo salió mal".
-· Sin permiso, cuando un rol entra a una pantalla que no le corresponde: explica de
-  qué rol depende y a quién pedirlo.
-· Sin conexión, solo en la PWA: nunca bloquea, siempre muestra la cola pendiente.
+Para las pantallas del lote anterior, diseña sus estados según brief 11 §9, Casos
+límite:
+· Vacío, que dice qué falta y ofrece la acción: "Aún no hay trabajos terminados hoy.
+  Aparecen aquí cuando un operario finaliza uno en su teléfono." Si hay trabajos en
+  curso, el vacío lo dice.
+· Cargando, con esqueletos de la forma final (filas, barras, tiras), nunca un
+  indicador giratorio; si tarda más de 10 segundos, dice qué espera.
+· Error de servidor: qué pasó, qué se hizo con los datos y qué puede hacer la
+  persona, con lo tecleado intacto. Nunca un código ni "algo salió mal".
+· Sin permiso: lo que el rol puede ver pero no cambiar aparece sin el control y con
+  la razón ("Solo el dueño cambia tarifas").
+· Sin conexión: en la app, franja y cola pendiente con la hora del toque; en el
+  panel, "Lo que ve es de las 13:50" y lo de dinero desactivado con su razón.
+· Nombres largos: "María de los Ángeles Xiloj Tzoc de Chávez" entero, en dos líneas;
+  cifras hasta 99,999,999 puntadas y Q999,999.99 sin romper columnas.
 ```
 
-### Responsivo del panel
+### El panel en tableta y teléfono
 
 ```
-Adapta las pantallas del panel de administración a 1024px y a 768px de ancho.
-La barra lateral se colapsa a iconos y luego a un menú. Las tablas conservan sus
-columnas de identificación y de cifras y desplazan horizontalmente el resto dentro
-de su propio contenedor: el cuerpo de la página nunca se desplaza de lado.
-No conviertas las tablas en tarjetas apiladas: el dueño necesita comparar filas.
+Adapta las pantallas aprobadas del panel con brief 11 §6.5. No las reduzcas:
+reordénalas.
+· Tableta (768 a 1199px): el riel se queda; cuadrícula de 8 columnas; las filas de
+  dos tarjetas se apilan; las tablas guardan sus columnas de menor prioridad detrás
+  de ↗.
+· Teléfono (menos de 768px): una columna en orden de prioridad; barra inferior de 5
+  destinos; sin migas; saludo de 28px; píldoras que se deslizan; tablas → listas de
+  filas con la primera columna como título y 2 o 3 cifras clave; la planilla de
+  nómina se queda planilla con primera columna fija; área táctil de 44px; nada al
+  pasar el cursor.
+· La página nunca se desplaza de lado. Con zoom al 200% en escritorio, pasa al
+  diseño siguiente.
 ```
 
 ### Impresión
 
 ```
 Diseña las versiones para imprimir de la constancia de pago, el libro de salarios,
-la planilla del IGSS y la orden de mantenimiento. Tamaño carta, tinta negra sobre
-blanco, sin fondos de color, con las cifras en monoespaciada tabular y espacio de
-firma. Encabezado con la fábrica, el período y el folio; pie con la fecha de emisión
-y quién la generó.
+la planilla del IGSS y la orden de mantenimiento. Tamaño carta, modo día, tinta
+negra sobre blanco, sin fondos de color ni tarjetas, cifras en Plex Sans tabular y
+espacio de firma. Encabezado con la fábrica, el período y el folio; pie con la fecha
+de emisión y quién la generó.
 ```
 
 ### Impresos de planta
 
 ```
-Diseña las etiquetas físicas que conectan el mundo real con el sistema:
-· Gafete del operario: nombre, código OP-007, foto y código QR grande.
-· Rótulo de máquina: código BOR-01 muy grande, legible a varios metros, con el QR
-  debajo y el modelo en letra pequeña.
-· Etiqueta de bastidor con el código de diseño: HUI-001, nombre, puntadas 42,500,
-  cambios de color 9 y su QR.
+Diseña las etiquetas físicas que conectan la planta con el sistema:
+· Gafete del operario: nombre, código OP-007, foto (solo en el gafete físico; en
+  pantalla las personas van con iniciales) y QR grande.
+· Rótulo de máquina: BOR-01 muy grande, legible a varios metros, con el QR debajo y
+  el modelo en letra pequeña.
+· Etiqueta de bastidor: HUI-001, nombre, 42,500 puntadas, 9 cambios de color y su QR.
 Los tres deben resistir una fotocopia en blanco y negro y seguir escaneándose.
 ```
