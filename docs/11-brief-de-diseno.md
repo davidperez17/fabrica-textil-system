@@ -806,9 +806,9 @@ los días de atraso; ninguna lo está hoy.
 FAJ-010, 12 repeticiones, esperado `148,800`, medido `156,200`, desviación **+4.97 %**,
 veredicto `discrepancia`.
 
-**Mantenimiento pendiente:** BOR-01, lubricación de barras de aguja, intervalo `2,500,000`
-puntadas, lleva `2,372,500`, avance **94.9 %**, en aviso: le faltan 127,500, justo las
-esperadas del trabajo en curso. El aceite diario de la lanzadera no va en el semáforo (avisaría
+**Mantenimiento pendiente:** BOR-01, lubricación de barras de aguja, intervalo `1,250,000`
+puntadas (cada 40 h, documento 06), lleva `1,186,300`, avance **94.9 %**, en aviso: le faltan
+63,700, menos que las 127,500 esperadas del trabajo en curso, así que se cruza hoy. El aceite diario de la lanzadera no va en el semáforo (avisaría
 cada día): es parte de la lista de arranque del turno.
 
 **Inventario:** HIL-1147 hilo rojo granate **agotado** (0 de un mínimo de 20 conos), causa del

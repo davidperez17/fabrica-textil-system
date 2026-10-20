@@ -1,5 +1,12 @@
 # 09 · Riesgos, hoja de ruta y preguntas abiertas
 
+> **Nota de vigencia (20 oct 2026).** Investigación previa a la cotización. Desde el 16 de
+> septiembre de 2026 la captura es **solo manual**: el operario ingresa con el QR de su gafete,
+> declara el diseño con su QR, toca Comenzar, Pausar, Reanudar o Finalizar y teclea el contador.
+> No hay sensores, gateway en planta ni «Fase 3», y el sistema corre en la nube. La hoja de ruta se alineó con las fases de la cotización; las preguntas abiertas siguen pendientes para la Fase 0.
+> En pantalla se dice «trabajo»; «corrida» queda como término interno. Para diseñar mandan los
+> documentos 11 a 13.
+
 ## Preguntas que hay que responder antes de escribir código de producción
 
 Están ordenadas por cuánto cambian el diseño si la respuesta es distinta a la supuesta.
@@ -17,6 +24,12 @@ Están ordenadas por cuánto cambian el diseño si la respuesta es distinta a la
 
 4. **¿Cuál es el período de pago: semanal o quincenal?**
    El séptimo día del Art. 126 se calcula sobre lo devengado **en la semana**. Si se paga quincenal, el cálculo debe hacerse semana por semana y sumarse, no aplicar 1/6 sobre el total de la quincena. Da resultados distintos cuando la producción es despareja entre semanas.
+   *Precisión (20 oct 2026):* un sexto es proporcional, así que la suma de los sextos semanales
+   es igual al sexto de la quincena. La diferencia aparece en las semanas que caen entre dos
+   quincenas, en las ausencias que hacen perder el día de descanso y si el complemento al
+   mínimo se calcula por semana. La cotización promete el cálculo por semana; los ejemplos de
+   diseño (brief 11 §11, hoja 13) lo simplifican sobre la quincena y deben ajustarse cuando se
+   confirme la regla.
 
 ### Importantes
 
@@ -33,7 +46,7 @@ Están ordenadas por cuánto cambian el diseño si la respuesta es distinta a la
 
 | Riesgo | Impacto | Probabilidad | Mitigación |
 |---|---|---|---|
-| El protocolo de red del controlador resulta inaccesible | Alto | **Alta** | No depender de él. Fase 1 manual, fase 3 con sensor retrofit. La abstracción de `fuente` permite cambiar sin rehacer nada. |
+| El protocolo de red del controlador resulta inaccesible | Alto | **Alta** | No depender de él: la captura es manual. La abstracción de `fuente` permitiría sumar otra vía más adelante sin rehacer nada. |
 | Captura manual manipulada para inflar el pago | Alto | Media | Verificación por diseño (una cifra inventada no cuadra con las puntadas esperadas), validación de delta contra capacidad física de la máquina, foto del panel, cotejo periódico contra el acumulado real del panel |
 | Nómina mal calculada → contingencia laboral | **Muy alto** | Media | Séptimo día como 1/6 según Art. 126; complemento automático al mínimo; tarifa y parámetros legales versionados; período cerrable; revisión por contador antes de producción |
 | La tarifa deja al operario bajo el mínimo de forma sistemática | Alto | **Alta** (la aritmética lo muestra) | Alerta temprana de proyección en la PWA y en el panel de RRHH; conversación con el cliente sobre recalibrar la tarifa |
@@ -43,26 +56,35 @@ Están ordenadas por cuánto cambian el diseño si la respuesta es distinta a la
 | Fuga de datos personales (DPI, dirección) | Alto | Baja | Cifrado, control por rol, auditoría de accesos, retención definida |
 | Alcance que crece hacia ERP completo | Medio | **Alta** | Fases cerradas con entregable útil cada una; FEL explícitamente fuera de la fase 1 |
 
-## Hoja de ruta propuesta
+## Hoja de ruta
 
-### Fase 0 — Levantamiento en planta
-Inventario de máquinas con marca, modelo, controlador, cabezas y velocidad. Fotos de los paneles. Recolección de los archivos de diseño. Entrevista con administración sobre nómina y con supervisión sobre el proceso actual. Respuestas a las preguntas bloqueantes.
-**Entregable:** especificación cerrada y decisión sobre la vía de captura.
+Alineada con la cotización (rev. 2): siete semanas en total, tres pagos ligados a entregas.
 
-### Fase 1 — Núcleo con captura manual
-Catálogo de máquinas, operarios (con validación de DPI), diseños (importados desde DST) y productos. Apertura y cierre de corridas desde la PWA. Verificación de diseño por puntadas. Reportes de producción por máquina, operario y fecha.
+### Fase 0 — Levantamiento y acuerdo de detalles (semana 1)
+Inventario de máquinas con marca, modelo, controlador, cabezas y velocidad. Fotos de los
+paneles. Recolección de los archivos de diseño. Entrevista con administración sobre nómina y
+con supervisión sobre el proceso actual. Respuestas a las preguntas bloqueantes de arriba.
+Diseño, con el cliente, de las pantallas de configuración (catálogos, campos personalizados,
+reportes).
+**Entregable:** especificación cerrada.
+
+### Fase 1 — Núcleo con captura manual (semanas 2 a 4)
+Operarios (con validación de DPI), máquinas, diseños (importados desde DST) y productos. App
+del operario para comenzar, pausar, reanudar y finalizar trabajos con el contador tecleado.
+Verificación de diseño por puntadas. Reportes de producción. Configuración de catálogos y
+campos personalizados.
 **Entregable:** el dato de producción deja de vivir en papel. Ya es útil por sí solo.
 
-### Fase 2 — Nómina, inventario y mantenimiento
-Cálculo de destajo con séptimo día y complemento al mínimo. Descuentos y bonificaciones. Cierre de período y constancias de pago. Inventario de materia prima y producto terminado. Mantenimiento preventivo por puntadas con avisos.
+### Fase 2 — Nómina, inventario y mantenimiento (semanas 5 a 7)
+Destajo con séptimo día y complemento al mínimo, cierre de período y constancias. Inventario.
+Mantenimiento preventivo por puntadas. Reportes configurables. Copia diaria automática a una
+computadora de la fábrica.
 **Entregable:** el sistema sustituye las hojas de cálculo de planilla.
 
-### Fase 3 — Automatización de la captura
-Prueba de sensor retrofit en una máquina. Si funciona, despliegue al resto. Tiempo real, detección de paros, OEE.
-**Entregable:** desaparece el tecleo, aparece la visibilidad en vivo.
-
-### Fase 4 — Extensiones
-Planeación por temporada con demanda estimada, costeo por prenda, y —si el negocio lo pide— facturación FEL con certificador.
+### Fuera de la cotización
+Se cotizan aparte si el negocio las pide: captura automática con sensores (descartada por
+ahora), planeación por temporada con demanda estimada, costeo por prenda y facturación FEL con
+certificador.
 
 ## Criterio de éxito
 

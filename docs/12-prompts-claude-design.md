@@ -239,7 +239,7 @@ DATOS ADICIONALES
   Inventario: HIL-1147 hilo rojo granate agotado (0 de mínimo 20 conos; causa del
   paro de BOR-03); HIL-1520 verde quetzal 9 de 15 y AGU-7511 agujas 75/11 3 de 4 cajas,
   bajo el mínimo; consumo de hilo superior 5.2 m por mil puntadas; cono de 5,000 m.
-  Mantenimiento: BOR-01 lubricación de barras de aguja 2,372,500 de 2,500,000
+  Mantenimiento: BOR-01 lubricación de barras de aguja 1,186,300 de 1,250,000
   (94.9%, aviso); BOR-05 orden correctiva en proceso desde las 09:30 (Óscar Cumes);
   BOR-07 preventivo desde las 07:30.
   Personal: Josue Chuc (Dueño), Ana Lucía Sajché (Gerencia), Pedro Xicará
@@ -341,8 +341,8 @@ MESA 3 — "Máquina · ficha BOR-01" (D3), alto 1400
   · 85,420 · ok +0.26% y HUI-001 × 3 · 18 · 127,880 · ok +0.30%) y el en curso
   arriba, rayado.
   Tarjeta "Mantenimiento", lista por urgencia: lubricación de barras de aguja
-  2,372,500 de 2,500,000 (94.9%, aviso) con "Faltan 127,500: se cruzan al terminar el
-  trabajo en curso" · cambio de cuchilla de corte 41% · revisión de correas 12%.
+  1,186,300 de 1,250,000 (94.9%, aviso) con "Faltan 63,700: se cruzan antes de terminar
+  el trabajo en curso" · cambio de cuchilla de corte 41% · revisión de correas 12%.
   Botón "Generar orden de mantenimiento".
   Tarjeta "Quincena": 2,287,400 puntadas · Q1,524.93.
 

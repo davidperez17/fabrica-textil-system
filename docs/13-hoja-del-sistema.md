@@ -454,7 +454,7 @@ todas las pantallas; nunca texto de relleno ni cifras inventadas fuera de esta l
   hoy de trabajos terminados · trabajo en curso · puntadas de la quincena · mantenimiento):
     BOR-01 Feiya FY-1206 · 6 · 850 · corriendo desde 12:05 · Diego Puac Ajanel ·
            213,300 · HUI-001 × 3 desde 12:05, esperadas 127,500 · 2,287,400 ·
-           lubricación de barras de aguja 2,372,500 de 2,500,000 (94.9%, aviso)
+           lubricación de barras de aguja 1,186,300 de 1,250,000 (94.9%, aviso)
     BOR-02 Feiya FY-1206 · 6 · 850 · corriendo desde 12:40 · Marta Chocoj Sical ·
            233,430 · HUI-002 × 2 desde 12:40, esperadas 77,800 · 3,412,700 · 62%
     BOR-03 Ricoma EM-1010 · 1 · 1,000 · parada desde 12:30, paro "falta de material"
@@ -994,11 +994,11 @@ PANTALLA J1 · Semáforo por máquina, 1280 × 1000
   por urgencia; las tareas de cada máquina como barras apiladas con su nombre:
     BOR-05 · en falla · orden correctiva en proceso desde las 09:30 · botón "Ver orden"
     BOR-07 · en mantenimiento ahora · "Mantenimiento preventivo, sin operario"
-    BOR-01 · tres tareas con su barra: lubricación de barras de aguja 2,372,500 de
-      2,500,000 (94.9%, aviso, late suave) con "Faltan 127,500: se cruzan al
+    BOR-01 · tres tareas con su barra: lubricación de barras de aguja 1,186,300 de
+      1,250,000 (94.9%, aviso, late suave) con "Faltan 63,700: se cruzan antes de
       terminar el trabajo en curso" · cambio de cuchilla de corte 41% · revisión de
       correas 12% · botón "Generar orden"
-    BOR-02 · lubricación de barras de aguja 1,550,000 de 2,500,000 (62%)
+    BOR-02 · lubricación de barras de aguja 775,000 de 1,250,000 (62%)
     BOR-03 · 48% · BOR-04 · 31% · BOR-06 · 22% · BOR-08 · sin datos
   Cada barra muestra el intervalo en puntadas y lo transcurrido. Nota al pie: "El
   aceite diario de la lanzadera va en la lista de arranque del turno, no aquí:

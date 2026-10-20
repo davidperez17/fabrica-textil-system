@@ -1,5 +1,12 @@
 # 05 · Arquitectura del sistema y PWA para operarios
 
+> **Nota de vigencia (20 oct 2026).** Investigación previa a la cotización. Desde el 16 de
+> septiembre de 2026 la captura es **solo manual**: el operario ingresa con el QR de su gafete,
+> declara el diseño con su QR, toca Comenzar, Pausar, Reanudar o Finalizar y teclea el contador.
+> No hay sensores, gateway en planta ni «Fase 3», y el sistema corre en la nube. En el diagrama, los sensores y el gateway quedan fuera; el modelo sin conexión con cola idempotente y la PWA siguen vigentes.
+> En pantalla se dice «trabajo»; «corrida» queda como término interno. Para diseñar mandan los
+> documentos 11 a 13.
+
 ## Restricciones que mandan sobre el diseño
 
 1. **Planta industrial, conectividad irregular.** WiFi con zonas muertas entre máquinas, cortes de energía. La app no puede depender de la red para funcionar.

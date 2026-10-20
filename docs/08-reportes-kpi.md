@@ -1,5 +1,12 @@
 # 08 · Reportes e indicadores
 
+> **Nota de vigencia (20 oct 2026).** Investigación previa a la cotización. Desde el 16 de
+> septiembre de 2026 la captura es **solo manual**: el operario ingresa con el QR de su gafete,
+> declara el diseño con su QR, toca Comenzar, Pausar, Reanudar o Finalizar y teclea el contador.
+> No hay sensores, gateway en planta ni «Fase 3», y el sistema corre en la nube. Los indicadores que dependen de sensor (OEE completo, máquina detenida sin pulsos) no aplican; el resto sale de los registros manuales.
+> En pantalla se dice «trabajo»; «corrida» queda como término interno. Para diseñar mandan los
+> documentos 11 a 13.
+
 ## Principio
 
 Todos los reportes se derivan de dos tablas de hechos: `corrida` (producción atribuida y verificada) y `lectura_contador` (serie cruda del contador). Nada se calcula dos veces por caminos distintos: si el reporte de nómina y el de producción dan cifras diferentes para el mismo período, el sistema perdió su razón de ser.

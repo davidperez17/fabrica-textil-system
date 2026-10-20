@@ -1,5 +1,12 @@
 # 01 · Resumen ejecutivo y decisiones críticas
 
+> **Nota de vigencia (20 oct 2026).** Investigación previa a la cotización. Desde el 16 de
+> septiembre de 2026 la captura es **solo manual**: el operario ingresa con el QR de su gafete,
+> declara el diseño con su QR, toca Comenzar, Pausar, Reanudar o Finalizar y teclea el contador.
+> No hay sensores, gateway en planta ni «Fase 3», y el sistema corre en la nube. Los cinco hallazgos siguen vigentes; la recomendación de enfoque ya se aplicó con la vía manual, y el sensor del final queda como referencia histórica.
+> En pantalla se dice «trabajo»; «corrida» queda como término interno. Para diseñar mandan los
+> documentos 11 a 13.
+
 Fecha de la investigación: 7 de septiembre de 2026.
 Estado: investigación previa al diseño. Nada de esto está validado todavía en el piso de planta.
 
