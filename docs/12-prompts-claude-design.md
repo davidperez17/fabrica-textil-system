@@ -127,8 +127,7 @@ PIEZAS DEL ESTILO
   · Una sola sombra, 0 24px 48px rgb(0 0 0 / .12), solo en panel de avisos, menús y
     modales.
 
-COLOR — propuesta A · Añil (si el cliente eligió B · Jade o C · Grafito, reemplace este
-bloque por el de su propuesta, documento 13, prompt 1, PROPUESTAS)
+COLOR — A · Añil, aprobado (azul profundo del corte guatemalteco). No uses otra paleta.
   Día:   fondo #E7E8EB · superficie #FFFFFF · superficie-2 #EDEFF3
          tinta #14171C · tinta-2 #565D68 · tinta-3 #858D99
          linea #D9DDE4 · linea-suave #E8EBF0 · linea-fuerte #838A96
@@ -137,7 +136,7 @@ bloque por el de su propuesta, documento 13, prompt 1, PROPUESTAS)
          tinta #E8EAEE · tinta-2 #9BA3AF · tinta-3 #6C7480
          linea #363A3E · linea-suave #2C3035 · linea-fuerte #707883
          marca-900 #B3C4EC · marca-700 #8FA6DE · marca-500 #6E86C4 · marca-100 #293553
-  Semánticos, iguales en las tres propuestas (día / noche):
+  Colores de estado, independientes del añil (día / noche):
          ok #2E6F4E / #6FBF8E · ok-suave #E2F0E7 / #17301F
          aviso #9A6400 / #E0A63C · aviso-suave #F7EDD9 / #33270F
          critico #B0322B / #E4837A · critico-suave #F7E4E2 / #3A2523

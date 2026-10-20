@@ -1,13 +1,16 @@
-# 13 · Hoja del sistema: estilo moderno, color y una pantalla por sección
+# 13 · Hoja del sistema: estilo moderno, color añil y una pantalla por sección
 
 Brief y prompts para producir la **hoja del sistema**: una página que Servicios Digitales le
-envía a Josue Chuc para que vea cómo se verá Bastidor —el estilo, la paleta y una pantalla de
-cada sección de la aplicación— y elija la paleta antes de diseñar el resto de pantallas.
+envía a Josue Chuc para que vea cómo se verá Bastidor —el estilo, su color y una pantalla de
+cada sección de la aplicación— y dé el visto bueno antes de diseñar el resto de pantallas.
 
 La dirección visual es **moderna**, tomada como referencia (no como copia) de un tablero
 financiero de tarjetas blancas sobre gris claro, navegación en píldoras y cifras grandes. Lo
 que se toma, lo que se adapta y lo que no se toma está en §1.3. La dirección completa vive en
 el [brief de diseño](11-brief-de-diseno.md) §2; este documento la aplica a la hoja.
+
+> **Color aprobado: A · Añil** (20 oct 2026). Las propuestas B · Jade y C · Grafito quedan
+> descartadas; las razones están en §1.4 para no reabrir la decisión.
 
 ---
 
@@ -15,15 +18,13 @@ el [brief de diseño](11-brief-de-diseno.md) §2; este documento la aplica a la 
 
 ### 1.1 Objetivo
 
-Dos decisiones en una sola revisión, comunicadas por WhatsApp:
-
-1. **Visto bueno del estilo**, viéndolo aplicado a pantallas reales de su fábrica, una por
-   sección, sin tener que imaginar nada.
-2. **Una de tres paletas** («propuesta A, B o C»).
+Una sola decisión, comunicada por WhatsApp: el **visto bueno del estilo**, viéndolo aplicado
+a pantallas reales de su fábrica, una por sección, en día y en noche, sin tener que imaginar
+nada. El color ya está aprobado.
 
 ### 1.2 Público
 
-- **Quien decide:** el dueño de la fábrica (Josue Chuc). No es diseñador: elige por lo que ve,
+- **Quien decide:** el dueño de la fábrica (Josue Chuc). No es diseñador: decide por lo que ve,
   no por códigos hexadecimales.
 - **Dónde la abre:** en el teléfono, desde el enlace de WhatsApp. Debe verse bien primero en
   celular, luego en escritorio, y poder guardarse en PDF. A 360 px, una pantalla de escritorio
@@ -47,80 +48,74 @@ Dos decisiones en una sola revisión, comunicadas por WhatsApp:
 | Avatares apilados con «+5» | **Iniciales** en círculo de los operarios en turno | Fotos de personas (datos personales; ver brief 11 §4) |
 | Panel de avisos con pestañas Todas / Sin leer, punto de no leído y acciones en línea | Avisos de planta: falla de máquina, discrepancia, anticipo por autorizar. Las acciones de dinero abren su confirmación: **nada que toque dinero se autoriza con un solo toque** | Punto de no leído en rojo (el rojo es «crítico») |
 | Rango de fechas en píldora con ícono de calendario | Con los atajos del brief: hoy, ayer, esta semana, esta quincena, este mes, rango libre | — |
-| Acento verde lima | El color principal es el de la paleta elegida (A, B o C) | Verde como color principal: se confunde con «corriendo» y con «correcto» |
+| Acento verde lima | El color principal es el **añil** del corte guatemalteco | Verde como color principal: se confunde con «corriendo» y con «correcto» |
 
-### 1.4 Qué se elige y qué no
+### 1.4 Por qué añil
 
-| Se elige | No se elige (fijo en las tres) |
+Se eligió entre tres propuestas que cumplían AA. El criterio no fue el gusto sino lo que la
+planta necesita: que el color principal **no se confunda con ningún color de estado**, que el
+sistema se vea **propio** y no como la referencia, y que la selección y los enlaces se
+distingan sin depender solo del subrayado. Distancia de color (ΔE, CIELAB) entre el color de
+las barras (`marca-500`) y cada color de estado, día · noche:
+
+| | Corriendo (`ok`) | Atención (`aviso`) | Falla (`critico`) | Mantenimiento |
+|---|---|---|---|---|
+| **A · Añil** | 66 · 69 | 95 · 97 | 84 · 64 | **21 · 20** |
+| B · Jade | **26 · 33** | 76 · 81 | 85 · 68 | 61 · 51 |
+| C · Grafito | 36 · 43 | 65 · 68 | 66 · 46 | 45 · 35 |
+
+- **B · Jade, descartada:** queda a 26 del verde de «corriendo», el estado más frecuente. En
+  la tira del turno, los tramos terminados en jade quedarían junto a los puntos verdes de las
+  máquinas que corren: «terminado» y «corriendo» se confunden justo en la pieza que
+  identifica al sistema. No se arregla sin mover el verde, que es universal para «en marcha».
+- **C · Grafito, descartada:** el mejor contraste, pero sin color la selección queda casi
+  igual que una fila interna (1.03:1), los enlaces solo se distinguen por el subrayado
+  (1.22:1 contra el texto) y la barra de hoy solo por el gris. Además es la más parecida a la
+  referencia, y la dirección pide un sistema propio.
+- **A · Añil, elegida:** lejos de los estados que importan (corriendo, atención, falla); la
+  selección y los enlaces se distinguen por color además de por forma; sale del azul del
+  corte, así que es propia. Su único acercamiento es al morado de mantenimiento (21), que no
+  se corrige: llevar mantenimiento hacia el ciruela lo acercaría al rojo de falla (35 a 49),
+  y confundir falla con mantenimiento es peor. Se resuelve con forma: mantenimiento siempre
+  con su cuadrado, y el añil nunca se usa para un estado.
+
+### 1.5 La paleta: A · Añil
+
+Medida a WCAG 2.1. Texto normal ≥ 4.5:1; la barra destacada de las gráficas, como elemento
+gráfico, ≥ 3:1.
+
+| Par medido | Día · noche |
 |---|---|
-| Color principal: barra destacada de las gráficas, selección, enlaces, punto de no leído, foco | Botón primario, píldora activa, tramo seleccionado y globo de las gráficas: **siempre en tinta** (casi negro en día, casi blanco en noche), como en la referencia |
-| Matiz de los neutros: fondo, tarjetas, filas internas, líneas, texto secundario | Colores de estado: correcto, atención, crítico |
-| | Colores y formas de estado de máquina |
-| | Tipografía: IBM Plex Sans + IBM Plex Mono |
-| | Radios, espaciado, densidad, movimiento |
-
-Los colores de estado no se someten a gusto porque son señal operativa: el rojo de falla tiene
-que verse igual de alarmante con cualquier paleta. La hoja lo explica en una línea.
-
-### 1.5 Las tres propuestas
-
-Todas medidas a WCAG 2.1. Texto normal ≥ 4.5:1; la barra destacada de las gráficas, como
-elemento gráfico, ≥ 3:1.
-
-| Par medido | A · Añil | B · Jade | C · Grafito |
-|---|---|---|---|
-| Botón primario: superficie sobre tinta (día) · fondo sobre tinta (noche) | 18.0 · 15.5 | 17.6 · 15.6 | 18.3 · 15.9 |
-| Color principal (`marca-700`) sobre superficie, día · noche | 11.0 · 6.3 | 7.6 · 7.6 | 15.0 · 10.7 |
-| Selección (`marca-900` sobre `marca-100`), día · noche | 11.6 · 7.0 | 9.8 · 7.9 | 15.5 · 10.8 |
-| Barra destacada y tramos terminados (`marca-500` sobre superficie), día · noche | 5.8 · 4.3 | 4.7 · 5.2 | 6.1 · 5.8 |
-| Texto secundario sobre fila interna (`tinta-2` sobre `superficie-2`), día · noche | 5.8 · 5.3 | 5.6 · 5.4 | 5.7 · 5.4 |
-| Texto secundario sobre fondo (migas, fecha), día · noche | 5.4 · 7.3 | 5.3 · 7.5 | 5.4 · 7.4 |
-| **Línea fuerte** sobre fila interna y sobre tarjeta (campos, barras pasadas, bordes de la app), día y noche | ≥ 3.0 | ≥ 3.0 | ≥ 3.0 |
-| Tarjeta sobre fondo, día · noche | 1.23 · 1.22 | 1.22 · 1.22 | 1.23 · 1.22 |
+| Botón primario: superficie sobre tinta (día) · fondo sobre tinta (noche) | 18.0 · 15.5 |
+| Color principal (`marca-700`) sobre superficie | 11.0 · 6.3 |
+| Selección (`marca-900` sobre `marca-100`) | 11.6 · 7.0 |
+| Barra destacada y tramos terminados (`marca-500` sobre superficie) | 5.8 · 4.3 |
+| Texto secundario sobre fila interna (`tinta-2` sobre `superficie-2`) | 5.8 · 5.3 |
+| Texto secundario sobre fondo (migas, fecha) | 5.4 · 7.3 |
+| **Línea fuerte** sobre fila interna y sobre tarjeta (campos, barras pasadas, bordes de la app) | ≥ 3.0 |
+| Tarjeta sobre fondo | 1.23 · 1.22 |
 
 La tarjeta sobre el fondo no pasa de 1.23:1 a propósito: la separa el aire y no es un
 control. Todo lo que el usuario tiene que distinguir para actuar —campos, barras de una
 gráfica, tarjetas que se tocan en la app— lleva `linea-fuerte` (≥ 3:1, WCAG 1.4.11).
 
-`tinta-3` mide entre 3.1 y 3.4:1 sobre la tarjeta: solo se usa en texto de 24 px o más (los centavos atenuados
-de una cifra grande) o en texto no esencial. Nunca en etiquetas ni en datos.
+`tinta-3` mide entre 3.1 y 3.4:1 sobre la tarjeta: solo se usa en texto de 24 px o más (los
+centavos atenuados de una cifra grande) o en texto no esencial. Nunca en etiquetas ni en datos.
 
 **A · Añil.** Azul profundo del corte guatemalteco. Sobria, formal, neutros fríos azulados.
 
 ```
 claro   marca-900 #1B2A4A · marca-700 #2B3A67 · marca-500 #4A63A8 · marca-100 #E3E8F4
         fondo #E7E8EB · superficie #FFFFFF · superficie-2 #EDEFF3 · línea #D9DDE4
-        tinta #14171C · tinta-2 #565D68 · tinta-3 #858D99 · línea fuerte #838A96
+        línea suave #E8EBF0 · tinta #14171C · tinta-2 #565D68 · tinta-3 #858D99
+        línea fuerte #838A96
 noche   marca-900 #B3C4EC · marca-700 #8FA6DE · marca-500 #6E86C4 · marca-100 #293553
         fondo #101318 · superficie #22262B · superficie-2 #2A2F36 · línea #363A3E
-        tinta #E8EAEE · tinta-2 #9BA3AF · tinta-3 #6C7480 · línea fuerte #707883
+        línea suave #2C3035 · tinta #E8EAEE · tinta-2 #9BA3AF · tinta-3 #6C7480
+        línea fuerte #707883
 ```
 
-**B · Jade.** Verde azulado profundo, guiño al jade maya. Más cálida y propia que el azul,
-sin confundirse con el verde de «correcto» (matiz ~186° contra ~150°).
-
-```
-claro   marca-900 #133F44 · marca-700 #1D5C63 · marca-500 #2F7F87 · marca-100 #E0EFF0
-        fondo #E6E9EA · superficie #FFFFFF · superficie-2 #EAF0F0 · línea #D5DEDF
-        tinta #131A1B · tinta-2 #526163 · tinta-3 #829092 · línea fuerte #7F8C8E
-noche   marca-900 #A6DADF · marca-700 #7CC3C9 · marca-500 #4FA3AB · marca-100 #1B3B3E
-        fondo #0E1415 · superficie #202728 · superficie-2 #273031 · línea #343B3B
-        tinta #E6ECEC · tinta-2 #98A7A9 · tinta-3 #687577 · línea fuerte #6D797B
-```
-
-**C · Grafito.** Sin color principal: lo destacado va en tinta y gris. Es la más cercana a la
-referencia sin su verde; las alertas son el único color en pantalla.
-
-```
-claro   marca-900 #111317 · marca-700 #24272D · marca-500 #5B6270 · marca-100 #E9EAEE
-        fondo #E8E8E8 · superficie #FFFFFF · superficie-2 #EEEEEC · línea #DADAD7
-        tinta #141517 · tinta-2 #5A5D63 · tinta-3 #8A8D93 · línea fuerte #86898F
-noche   marca-900 #F0F1F4 · marca-700 #D5D8DE · marca-500 #9AA0AB · marca-100 #31363D
-        fondo #111214 · superficie #242528 · superficie-2 #2D2E32 · línea #38393B
-        tinta #ECECEE · tinta-2 #A0A3A9 · tinta-3 #6E7177 · línea fuerte #74777C
-```
-
-**Fijos en las tres** (claro / noche):
+**Colores de estado** (claro / noche), independientes del color principal:
 
 ```
 ok #2E6F4E / #6FBF8E        ok-suave #E2F0E7 / #17301F       5.1 · 6.4 : 1
@@ -132,10 +127,11 @@ mantenimiento #6D4C9F / #B49AE0
 `aviso` sobre `aviso-suave` en día queda en 4.3:1: en chips y franjas de aviso, el texto va
 en `tinta` y el color de aviso solo en la forma.
 
-Descartados y por qué (para no reabrirlos): rojo o vino (choca con «crítico»), morado (choca
-con «mantenimiento»), ámbar o terracota (choca con «atención»), verde lima de la referencia
-(choca con «corriendo»), el azul de Servicios Digitales (el sistema es del cliente, no
-nuestro).
+Descartados como color principal y por qué (para no reabrirlos): jade (choca con
+«corriendo»), grafito (sin color, la selección no se distingue), rojo o vino (choca con
+«crítico»), morado o ciruela (chocan con «mantenimiento» y con «crítico»), ámbar o terracota
+(choca con «atención»), verde lima de la referencia (choca con «corriendo»), el azul de
+Servicios Digitales (el sistema es del cliente, no nuestro).
 
 ### 1.6 Contenido de la hoja
 
@@ -143,9 +139,9 @@ nuestro).
    sección», «Preparado para Josue Chuc», fecha, logo de Servicios Digitales pequeño.
 2. **Cómo revisarla.** Tres consejos: mírela en el celular dentro de la planta; pruebe el modo
    noche; fíjese en que una máquina en falla se vea al instante en cada pantalla.
-3. **Barra fija.** A · B · C, interruptor Día / Noche de dos segmentos y un menú «Ir a la
-   sección». Cambian toda la página en vivo, pantallas incluidas.
-4. **El estilo.** Muestras de color de la propuesta activa y las piezas del estilo, sueltas:
+3. **Barra fija.** Interruptor Día / Noche de dos segmentos y un menú «Ir a la sección». El
+   interruptor cambia toda la página en vivo, pantallas incluidas.
+4. **El estilo.** Muestras del color añil y de los neutros, y las piezas del estilo, sueltas:
    tarjeta, píldoras, riel, botón ↗, cifra con centavos atenuados, chip de variación, barras
    con globo, iniciales, rango de fechas, panel de avisos, estados de máquina, botones y campo.
 5. **Las pantallas, una por sección**, cada una con su número, para qué sirve, quién la usa,
@@ -171,12 +167,12 @@ nuestro).
    detalles de sus notas «Fíjese en…» a tamaño real. Las de la app se ven sin marco, a todo el
    ancho, como en el teléfono del operario.
 
-6. **Comparación lado a lado.** La misma tarjeta de máquina y la misma gráfica en A, B y C, en
-   día y en noche (6 miniaturas), independiente del selector.
-7. **Lo que no cambia.** Estados y tipografía, con una línea de por qué.
-8. **Cómo continuamos.** Tres botones de WhatsApp con la paleta («Elijo la propuesta B · Jade
-   para Bastidor») y uno «Quiero ajustar algo» que abre el mensaje con la lista de secciones
-   para que marque cuál.
+6. **Día y noche lado a lado.** La misma ficha de máquina en falla y la misma gráfica en los
+   dos modos, independiente del interruptor.
+7. **Por qué estos colores.** El añil y los colores de estado, con una línea de por qué: la
+   falla, la atención y lo que corre nunca se confunden con el color principal.
+8. **Cómo continuamos.** Dos botones de WhatsApp: «Apruebo el estilo de Bastidor» y «Quiero
+   ajustar algo», que abre el mensaje con la lista de secciones para que marque cuál.
 
 ### 1.7 Datos de la hoja
 
@@ -209,9 +205,8 @@ pasadas al brief 11 §11 y a los lotes del documento 12 (20 oct 2026):
 - **Tailwind CSS v4** (el mismo que usará el sistema), configurado CSS-first con `@theme`.
   La hoja usa `@tailwindcss/browser` fijado a versión exacta; el sistema real lo compilará.
 - Los tokens viven como variables CSS y Tailwind los expone como utilidades
-  (`bg-superficie`, `text-tinta-2`, `bg-marca-500`, `rounded-tarjeta`). Las propuestas solo
-  redefinen variables bajo `[data-paleta="b"]`; las clases no cambian. Así el bloque `@theme`
-  de la paleta elegida pasa tal cual al proyecto.
+  (`bg-superficie`, `text-tinta-2`, `bg-marca-500`, `rounded-tarjeta`). Así el bloque
+  `@theme` de la hoja pasa tal cual al proyecto.
 - Modo noche con variante propia sobre `[data-tema="noche"]`, y por defecto según
   `prefers-color-scheme`. El interruptor día / noche aparece en la barra fija de la hoja y
   también dentro de cada pantalla, donde estará en el sistema (brief 11 §6.1); todos
@@ -232,15 +227,15 @@ pasadas al brief 11 §11 y a los lotes del documento 12 (20 oct 2026):
 - Un solo archivo HTML, sin dependencias fuera de CDN permitidos y Google Fonts. Íconos en
   SVG en línea, de trazo de 1.5 px.
 - Responsive desde 360 px, margen lateral 16 px, sin desplazamiento horizontal de la página.
-- Imprimible: al guardar en PDF imprime en A4 horizontal, en modo día, la propuesta activa,
-  una pantalla por página, sin la barra fija.
-- Recordar la última propuesta vista en `localStorage`, envuelto en try/catch.
+- Imprimible: al guardar en PDF imprime en A4 horizontal, en modo día, una pantalla por
+  página, sin la barra fija.
+- Recordar el último modo elegido en `localStorage`, envuelto en try/catch.
 
 ### 1.9 Qué evitar
 
 Copiar la referencia (su logotipo, sus textos, sus íconos de criptomonedas, sus fotos).
 Tarjetas dentro de tarjetas. Sombras en las tarjetas. Degradados, efecto vidrio, emoji, Lorem
-ipsum. La palabra «paleta» sin explicar, hex sin nombre al lado, más de tres propuestas.
+ipsum. Hex sin nombre al lado. Volver a ofrecer paletas: el color ya está aprobado.
 Cifras abreviadas. Rankings de operarios.
 
 ---
@@ -250,7 +245,7 @@ Cifras abreviadas. Rankings de operarios.
 ### Cómo usarlos
 
 1. Pegar el **prompt 1** al inicio de la sesión. Construye la hoja completa salvo las
-   pantallas, con el estilo, las propuestas y todos los datos. Si se usa en Claude Design,
+   pantallas, con el estilo, el color añil y todos los datos. Si se usa en Claude Design,
    no hace falta el prompt base del documento 12: el prompt 1 lo sustituye para la hoja.
 2. Pegar los **prompts 2 a 8 en orden**, uno por mensaje, en la misma conversación. Cada uno
    agrega sus pantallas a la sección 5 y devuelve el archivo completo.
@@ -264,7 +259,8 @@ No pedir todo de golpe: la calidad cae y las pantallas dejan de parecerse entre 
 Crea la HOJA DEL SISTEMA de Bastidor: una sola página HTML que Servicios Digitales
 Guatemala le envía por WhatsApp a su cliente, Josue Chuc, dueño de una fábrica de
 bordado computarizado de trajes típicos en Chimaltenango. Con ella aprueba el estilo
-visual y elige la paleta de color, viendo una pantalla de cada sección del sistema.
+visual, viendo una pantalla de cada sección del sistema. El color ya está aprobado:
+añil (A · Añil); no ofrezcas otras paletas.
 Él no es diseñador: decide por lo que ve. Escribe todo en español de Guatemala, de
 usted, frases cortas, sin jerga ("color principal", "modo noche").
 
@@ -286,11 +282,10 @@ TECNOLOGÍA
       --color-aviso-suave, --color-critico, --color-critico-suave, --color-mtto
       --radius-tarjeta: 28px; --radius-fila: 20px; --radius-control: 999px
     para usar bg-superficie, text-tinta-2, bg-marca-500, rounded-tarjeta, etc.
-  · Las propuestas redefinen SOLO variables bajo [data-paleta="a|b|c"] en <html>.
-    Las clases de los elementos nunca cambian entre propuestas.
-  · Modo noche: @custom-variant noche (&:where([data-tema="noche"], [data-tema="noche"] *));
-    valores de noche bajo [data-tema="noche"][data-paleta="…"]. Inicial según
-    prefers-color-scheme.
+  · Valores de día en :root. Modo noche: @custom-variant noche (&:where([data-tema="noche"],
+    [data-tema="noche"] *)); los valores de noche redefinen las mismas variables bajo
+    [data-tema="noche"]. Las clases nunca cambian entre modos. Inicial según
+    prefers-color-scheme, aplicado antes de pintar.
   · Google Fonts, una sola familia: IBM Plex Sans variable
     (family=IBM+Plex+Sans:wdth,wght@85..100,400..700) para interfaz y cifras, e
     IBM Plex Mono (400/500) solo para códigos (BOR-05, OP-007, HUI-001, DPI) y
@@ -307,10 +302,9 @@ TECNOLOGÍA
     texto de 16px o menos con peso 450 y letter-spacing .005em. Etiquetas en tipo
     oración. text-wrap: balance en títulos, pretty en párrafos.
   · Íconos en SVG en línea, trazo 1.5px, 20px, sin relleno. Solo íconos funcionales.
-  · Un solo archivo. JS mínimo y sin librerías: selector de paleta, interruptor
-    día/noche, menú "Ir a la sección", visor "Ver en grande", escalado de los marcos,
-    recortes "De cerca" y recordar la última paleta en localStorage dentro de
-    try/catch.
+  · Un solo archivo. JS mínimo y sin librerías: interruptor día/noche, menú "Ir a la
+    sección", visor "Ver en grande", escalado de los marcos, recortes "De cerca" y
+    recordar el último modo en localStorage dentro de try/catch.
 
 ESTILO: MODERNO, CON EL DATO AL FRENTE
 Referencia de lenguaje (no copiar): tablero de tarjetas blancas sobre gris claro,
@@ -394,8 +388,7 @@ navegación en píldoras, cifras enormes, gráficas de barras con un tramo resal
   · Selección y foco se distinguen: SELECCIÓN = fondo marca-100, borde de 1px en
     marca-500 y ✓ en marca-900; FOCO = contorno de 2px marca-700 a 2px de
     separación. Nunca el mismo contorno para las dos cosas.
-  · Enlaces siempre subrayados (1px, separación 3px), en las tres propuestas: en
-    Grafito el color de enlace casi no se distingue del texto.
+  · Enlaces siempre subrayados (1px, separación 3px) además de su color.
   · tinta-3 nunca sobre superficie-2 ni sobre fondo; solo sobre la tarjeta y en texto
     de 24px o más.
   · Una sola sombra en todo el producto, 0 24px 48px rgb(0 0 0 / .12), y solo en el
@@ -403,7 +396,7 @@ navegación en píldoras, cifras enormes, gráficas de barras con un tramo resal
   · Jerarquía por tamaño y peso, no por color. El color principal aparece poco:
     barra destacada, selección, enlaces, punto de no leído, foco.
 
-ESTADO DE MÁQUINA — color + forma + palabra, igual en las tres propuestas
+ESTADO DE MÁQUINA — color + forma + palabra
   Corriendo: ok, punto lleno, pulso de opacidad 1 → .45 → 1 cada 2.4s.
   Parada: aviso, punto lleno, totalmente quieto.
   En falla: critico, triángulo, doble parpadeo de 120ms y luego 3s de reposo.
@@ -419,17 +412,16 @@ ESTADO DE MÁQUINA — color + forma + palabra, igual en las tres propuestas
   forma y color. Nada se anima en pantallas de dinero.
 
 MOVIMIENTO
-  Cambio de paleta y de modo: transición de color de 200ms. Panel de avisos y
+  Cambio de modo: transición de color de 200ms. Panel de avisos y
   modales: entran 8px con opacidad, 200ms, cubic-bezier(.2,0,0,1). Sin rebotes, sin
   escalas mayores a 1.02, sin aparición escalonada, sin nada disparado por el
   desplazamiento, nunca un indicador giratorio. Las tarjetas no se elevan al pasar el
   cursor; solo su botón ↗ cambia de fondo.
 
-PROPUESTAS (los valores son exactos; no los inventes ni los "mejores")
-  En las tres, botón primario, píldora activa, tramo seleccionado y globo van en
-  TINTA (en noche la tinta es clara: texto en fondo, nunca text-white).
-
-  A · Añil — azul profundo del corte guatemalteco. Sobria y formal.
+COLOR — A · Añil, aprobado (los valores son exactos; no los inventes ni los "mejores")
+  Azul profundo del corte guatemalteco. Botón primario, píldora activa, tramo
+  seleccionado y globo van en TINTA (en noche la tinta es clara: texto en fondo, nunca
+  text-white).
     día:   marca-900 #1B2A4A · marca-700 #2B3A67 · marca-500 #4A63A8 · marca-100 #E3E8F4
            fondo #E7E8EB · superficie #FFFFFF · superficie-2 #EDEFF3 · linea #D9DDE4
            linea-suave #E8EBF0 · tinta #14171C · tinta-2 #565D68 · tinta-3 #858D99 · linea-fuerte #838A96
@@ -438,26 +430,7 @@ PROPUESTAS (los valores son exactos; no los inventes ni los "mejores")
            linea-suave #2C3035 · tinta #E8EAEE · tinta-2 #9BA3AF · tinta-3 #6C7480 · linea-fuerte #707883
     contraste del color principal: 11.0:1 día · 6.3:1 noche
 
-  B · Jade — verde azulado profundo, guiño al jade maya. Más cálida y propia.
-    día:   marca-900 #133F44 · marca-700 #1D5C63 · marca-500 #2F7F87 · marca-100 #E0EFF0
-           fondo #E6E9EA · superficie #FFFFFF · superficie-2 #EAF0F0 · linea #D5DEDF
-           linea-suave #E6ECEC · tinta #131A1B · tinta-2 #526163 · tinta-3 #829092 · linea-fuerte #7F8C8E
-    noche: marca-900 #A6DADF · marca-700 #7CC3C9 · marca-500 #4FA3AB · marca-100 #1B3B3E
-           fondo #0E1415 · superficie #202728 · superficie-2 #273031 · linea #343B3B
-           linea-suave #2A3132 · tinta #E6ECEC · tinta-2 #98A7A9 · tinta-3 #687577 · linea-fuerte #6D797B
-    contraste del color principal: 7.6:1 día · 7.6:1 noche
-
-  C · Grafito — sin color principal; lo destacado va en tinta y gris. La más cercana
-  a la referencia; las alertas son el único color en pantalla.
-    día:   marca-900 #111317 · marca-700 #24272D · marca-500 #5B6270 · marca-100 #E9EAEE
-           fondo #E8E8E8 · superficie #FFFFFF · superficie-2 #EEEEEC · linea #DADAD7
-           linea-suave #E9E9E7 · tinta #141517 · tinta-2 #5A5D63 · tinta-3 #8A8D93 · linea-fuerte #86898F
-    noche: marca-900 #F0F1F4 · marca-700 #D5D8DE · marca-500 #9AA0AB · marca-100 #31363D
-           fondo #111214 · superficie #242528 · superficie-2 #2D2E32 · linea #38393B
-           linea-suave #2E2F32 · tinta #ECECEE · tinta-2 #A0A3A9 · tinta-3 #6E7177 · linea-fuerte #74777C
-    contraste del color principal: 15.0:1 día · 10.7:1 noche
-
-  FIJOS EN LAS TRES (día / noche) — no cambian con el selector:
+  COLORES DE ESTADO (día / noche), independientes del color principal:
     ok #2E6F4E / #6FBF8E · ok-suave #E2F0E7 / #17301F
     aviso #9A6400 / #E0A63C · aviso-suave #F7EDD9 / #33270F
     critico #B0322B / #E4837A · critico-suave #F7E4E2 / #3A2523
@@ -578,12 +551,10 @@ ESTRUCTURA DE LA HOJA
      Digitales pequeño (https://serviciosdigitalesgtm.com/logo/logo.png).
   2. Cómo revisarla: mírela en el celular dentro de la planta; pruebe el modo noche;
      fíjese en que una máquina en falla se vea al instante en cada pantalla.
-  3. Barra fija arriba al desplazarse: A · Añil / B · Jade / C · Grafito en píldoras
-     (activa en tinta), interruptor Día / Noche de dos segmentos y menú "Ir a la
-     sección". En celular, en una fila: píldoras con solo la letra (A · B · C, nombre
-     completo en aria-label y en la sección 4), interruptor de dos íconos y el menú
-     como botón de 44px.
-  4. El estilo: muestras grandes de la propuesta activa con nombre en español (Color
+  3. Barra fija arriba al desplazarse: "Bastidor", interruptor Día / Noche de dos
+     segmentos y menú "Ir a la sección". En celular, en una fila: interruptor de dos
+     íconos y el menú como botón de 44px.
+  4. El estilo: muestras grandes del color añil y los neutros con nombre en español (Color
      principal, Principal intenso, Barra destacada, Selección, Fondo, Tarjeta, Fila
      interna, Líneas, Texto, Texto secundario), su uso en una línea y el hex en Plex
      Mono; junto al color principal, su contraste y "Cumple AA". Debajo, las piezas
@@ -618,26 +589,28 @@ ESTRUCTURA DE LA HOJA
          todo el ancho del celular (sale del margen de 16px de la hoja), a su tamaño
          real, sin reducir. Las pantallas de la app se construyen fluidas de 360 a
          430px para que esto funcione.
-  6. Comparación: la ficha de BOR-05 en falla y la barra de hoy con su globo, en A, B
-     y C, en día y en noche (6 miniaturas), independientes del selector.
-  7. Lo que no cambia: estados y tipografía, con la línea "Los colores de alerta son
-     iguales en las tres: una falla debe verse igual de urgente con cualquier paleta."
-  8. Cómo continuamos: tres botones a https://wa.me/50239607045 con texto prellenado
-     ("Elijo la propuesta A · Añil para Bastidor", etc.) y "Quiero ajustar algo",
+  6. Día y noche: la ficha de BOR-05 en falla y la barra de hoy con su globo, en día y
+     en noche lado a lado, independientes del interruptor.
+  7. Por qué estos colores: el añil sale del azul del corte; los colores de estado
+     (corriendo, atención, falla, mantenimiento) con su forma, y la línea "El color
+     principal nunca se usa para un estado: una falla se ve igual de urgente en
+     cualquier pantalla."
+  8. Cómo continuamos: dos botones a https://wa.me/50239607045 con texto prellenado:
+     "Apruebo el estilo de Bastidor" y "Quiero ajustar algo",
      que prellena "Quiero ajustar algo en: Tablero / Operarios / …". Pie:
      info@serviciosdigitalesgtm.com · +502 3960 7045.
 
 RESPONSIVE E IMPRESIÓN
   · Primero celular (360px): margen lateral 16px, sin desplazamiento horizontal de la
     página, barra fija en una fila, texto de la hoja a 16px como mínimo.
-  · Comparación en celular: una fila por propuesta (A, B, C) y dos columnas, día y
-    noche; cada pieza construida a su tamaño real en versión compacta (código,
-    estado y "desde" de BOR-05; la barra de hoy con su globo), sin reducir.
+  · Día y noche en celular: dos columnas; cada pieza construida a su tamaño real en
+    versión compacta (código, estado y "desde" de BOR-05; la barra de hoy con su
+    globo), sin reducir.
   · viewport-fit=cover y env(safe-area-inset-*) en la barra fija y en las pantallas
     a sangre.
   · Nada depende de pasar el cursor: los globos y detalles de las pantallas se ven
     fijos en la hoja.
-  · @media print: A4 horizontal, modo día, propuesta activa; oculta barra fija, botones
+  · @media print: A4 horizontal, modo día; oculta barra fija, botones
     y "Ver en grande"; cada pantalla en su página (break-before: page) escalada al
     ancho; print-color-adjust: exact.
 
@@ -1211,9 +1184,9 @@ Revisa la hoja completa y corrige lo que no cumpla, sin cambiar el diseño aprob
     tinta-3 nunca sobre superficie-2 ni fondo, sin centavos atenuados en la app.
   · Ninguna tarjeta dentro de otra; ninguna sombra fuera del panel de avisos, menús y
     modales; ningún verde, rojo o ámbar usado como decoración.
-  · Las tres propuestas y el modo noche cambian TODAS las pantallas, incluidas las
-    del operario, sin tocar las clases. En C · Grafito en noche, botones y píldora
-    activa claros con texto oscuro.
+  · El modo noche cambia TODAS las pantallas, incluidas las del operario, sin tocar
+    las clases; botones y píldora activa claros con texto oscuro. No hay selector de
+    paleta: el color es añil.
   · El interruptor día / noche de la barra fija y el de cada pantalla (panel y app del
     operario) cambian la hoja entera, muestran el ícono correcto y quedan sincronizados;
     al recargar no hay destello del modo equivocado.
@@ -1235,11 +1208,12 @@ Revisa la hoja completa y corrige lo que no cumpla, sin cambiar el diseño aprob
 Lista lo que corregiste en 10 líneas o menos y devuelve el archivo completo.
 ```
 
-## 3. Después de la elección
+## 3. Después de la aprobación
 
-1. El cliente responde por WhatsApp con la letra y, si quiere, con lo que ajustaría.
-2. Se copia el bloque de variables de esa paleta al `@theme` del proyecto y al prompt base
-   de `12-prompts-claude-design.md` §1, reemplazando la sección de color.
-3. Se actualiza §6.1 del brief 11 y se borran las otras dos propuestas de este documento.
-4. Los datos de §1.7 ya están en el brief 11 §11 y en los lotes del documento 12; si la
+1. El color ya está aprobado (A · Añil, 20 oct 2026) y pasado al brief 11 §6.1 y al prompt
+   base del documento 12. Al empezar el código, el bloque de variables del prompt 1 va tal
+   cual al `@theme` del proyecto.
+2. El cliente responde por WhatsApp «Apruebo el estilo» o lo que ajustaría; los ajustes se
+   hacen en el brief 11 y en el prompt de su sección, aquí.
+3. Los datos de §1.7 ya están en el brief 11 §11 y en los lotes del documento 12; si la
    revisión del cliente cambia alguna cifra, se cambia en los tres.

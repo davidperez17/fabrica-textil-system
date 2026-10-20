@@ -42,7 +42,7 @@ Cinco reglas que hacen operativa la dirección:
 |---|---|
 | **El dato es la interfaz** | Cada tarjeta responde una pregunta y su cifra es lo más grande que contiene. La tarjeta es el marco del dato, no un adorno. |
 | **Una tarjeta por tema, nunca una dentro de otra** | Dentro de la tarjeta, lo repetido va en filas de `superficie-2` sin borde. Las tarjetas no llevan borde ni sombra. |
-| **El negro manda, el color señala** | Botón primario, píldora activa y tramo seleccionado van en `--tinta`. El color principal de la paleta aparece poco: la barra de hoy, la selección, los enlaces, el foco. |
+| **El negro manda, el color señala** | Botón primario, píldora activa y tramo seleccionado van en `--tinta`. El añil, color principal, aparece poco: la barra de hoy, la selección, los enlaces, el foco. |
 | **La jerarquía la hace el tamaño** | Una sola cifra protagonista (48 px en el panel, 56 px en la app) por pantalla, y solo donde la cifra decide; el resto a 22–28 px. Saludo de 40 px, etiquetas pequeñas en `tinta-2`. No fondos de color ni barras de acento al costado. |
 | **Nada compite con la alerta** | Con todo en tinta y gris, una sola mancha de color crítico se ve desde la puerta. |
 
@@ -154,13 +154,14 @@ Cómo se traduce en interfaz:
 
 ### 6.1 Color
 
-> **Paleta pendiente de elección.** Los valores de abajo son la propuesta A · Añil. El cliente
-> elige entre A · Añil, B · Jade y C · Grafito en la hoja del sistema
-> ([`13-hoja-del-sistema.md`](13-hoja-del-sistema.md) §1.5); al elegir, se reemplazan aquí.
+> **Color aprobado: A · Añil** (20 oct 2026). Se eligió entre tres propuestas porque es la
+> única que queda lejos de los colores de estado que importan (corriendo, atención, falla),
+> distingue la selección y los enlaces por color y es propia del sistema. Jade se confundía
+> con «corriendo» y Grafito no distinguía la selección. Comparación completa en
+> [`13-hoja-del-sistema.md`](13-hoja-del-sistema.md) §1.4.
 
 **Roles en la dirección moderna.** El botón primario, la píldora activa, el tramo seleccionado
-de una gráfica y su globo van en `--tinta` (casi negro en claro, casi blanco en oscuro) en
-cualquier paleta. La familia `--marca-*` es el color principal: barra destacada de las
+de una gráfica y su globo van en `--tinta` (casi negro en claro, casi blanco en oscuro). La familia `--marca-*` es el color principal: barra destacada de las
 gráficas (`--marca-500`, rayada en `--marca-700`), selección, enlaces, punto de no leído y
 foco.
 
@@ -249,7 +250,9 @@ suyo con un interruptor siempre visible, sin entrar a Configuración:
 | En mantenimiento | `#6D4C9F` claro / `#B49AE0` oscuro | cuadrado |
 | Sin datos | `--tinta-3` | punto hueco |
 
-El color nunca es la única señal: siempre lo acompaña la forma y la palabra.
+El color nunca es la única señal: siempre lo acompaña la forma y la palabra. El añil nunca
+se usa para un estado. Es el color más cercano al morado de mantenimiento (ΔE 21), así que
+mantenimiento va siempre con su cuadrado, también en la tira del turno.
 
 ### 6.2 Tipografía
 
@@ -309,7 +312,7 @@ máquina) · 56 (ganancia, cifra protagonista) · 64 (dígitos del teclado).
   `--linea-suave` y su encabezado con una línea inferior, sin fondo.
 - `--tinta-3` solo sobre la tarjeta y en texto de 24 px o más; nunca sobre `--superficie-2`
   ni sobre el fondo.
-- Enlaces siempre subrayados (1 px, separación 3 px), en cualquier paleta.
+- Enlaces siempre subrayados (1 px, separación 3 px), además de su color.
 - Selección: fondo `--marca-100`, borde de 1 px en `--marca-500` y ✓. Nunca se marca con el
   mismo contorno que el foco.
 - Elevación: una sola sombra en todo el producto, `0 24px 48px rgb(0 0 0 / .12)`, reservada al
